@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<con:resource name="/studentpersonal" path="/studentpersonal" id="1d69547f-dc7e-43ba-b15f-9ab51a3bdb5b" xmlns:con="http://eviware.com/soapui/config">
+<con:resource name="/studentpersonal" path="/studentpersonal" id="1d69547f-dc7e-43ba-b15f-9ab51a3bdb5b" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config">
   <con:settings>
     <con:setting id="1d69547f-dc7e-43ba-b15f-9ab51a3bdb5bfileName">%2Fstudentpersonal</con:setting>
   </con:settings>
@@ -248,7 +248,10 @@
     <con:request name="Request 1" id="817c5073-fd8c-454b-aa52-a5a79fe2bf4b" mediaType="application/json">
       <con:settings/>
       <con:endpoint>https://northern.edsby.co.nz/sif</con:endpoint>
-      <con:credentials/>
+      <con:credentials>
+        <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+        <con:authType>No Authorization</con:authType>
+      </con:credentials>
       <con:parameters/>
       <con:environmentSpec>
         <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
@@ -693,7 +696,10 @@
     } ]\r
   }\r
 }</con:request>
-      <con:credentials/>
+      <con:credentials>
+        <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+        <con:authType>No Authorization</con:authType>
+      </con:credentials>
       <con:parameters/>
       <con:environmentSpec>
         <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
@@ -764,7 +770,10 @@
     </StudentProviderEnrolment>
   </StudentPersonal>
 </StudentPersonals>]]></con:request>
-      <con:credentials/>
+      <con:credentials>
+        <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+        <con:authType>No Authorization</con:authType>
+      </con:credentials>
       <con:parameters/>
       <con:environmentSpec>
         <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
@@ -952,7 +961,10 @@
       <con:request>{\r
   "$ref" : "#/paths/~1studentpersonal/get/responses/200/content/application~1json/example"\r
 }</con:request>
-      <con:credentials/>
+      <con:credentials>
+        <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+        <con:authType>No Authorization</con:authType>
+      </con:credentials>
       <con:parameters/>
       <con:environmentSpec>
         <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
@@ -964,7 +976,10 @@
       <con:settings/>
       <con:endpoint>https://northern.edsby.co.nz/sif</con:endpoint>
       <con:request>&lt;ObjectNode>&lt;$ref>#/paths/~1studentpersonal/get/responses/200/content/application~1xml/example&lt;/$ref>&lt;/ObjectNode></con:request>
-      <con:credentials/>
+      <con:credentials>
+        <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+        <con:authType>No Authorization</con:authType>
+      </con:credentials>
       <con:parameters/>
       <con:environmentSpec>
         <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
@@ -1092,7 +1107,10 @@
       <con:request>{\r
   "$ref" : "#/paths/~1studentpersonal/get/responses/200/content/application~1json/example"\r
 }</con:request>
-      <con:credentials/>
+      <con:credentials>
+        <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+        <con:authType>No Authorization</con:authType>
+      </con:credentials>
       <con:parameters/>
       <con:environmentSpec>
         <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
@@ -1104,7 +1122,10 @@
       <con:settings/>
       <con:endpoint>https://northern.edsby.co.nz/sif</con:endpoint>
       <con:request>&lt;ObjectNode>&lt;$ref>#/paths/~1studentpersonal/get/responses/200/content/application~1xml/example&lt;/$ref>&lt;/ObjectNode></con:request>
-      <con:credentials/>
+      <con:credentials>
+        <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+        <con:authType>No Authorization</con:authType>
+      </con:credentials>
       <con:parameters/>
       <con:environmentSpec>
         <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">

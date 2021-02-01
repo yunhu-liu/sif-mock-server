@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<con:resource name="/organisation/{organisationRefId}" path="/organisation/{organisationRefId}" id="f73d6f96-afd8-4913-8fe7-5d5541369f79" xmlns:con="http://eviware.com/soapui/config">
+<con:resource name="/organisation/{organisationRefId}" path="/organisation/{organisationRefId}" id="f73d6f96-afd8-4913-8fe7-5d5541369f79" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config">
   <con:settings>
     <con:setting id="f73d6f96-afd8-4913-8fe7-5d5541369f79fileName">%2Forganisation%2F%7BorganisationRefId%7D</con:setting>
   </con:settings>
@@ -363,7 +363,10 @@
     <con:request name="Request 1" id="ba92a07d-2237-4616-bceb-1e0a13574908" mediaType="application/json">
       <con:settings/>
       <con:endpoint>https://northern.edsby.co.nz/sif</con:endpoint>
-      <con:credentials/>
+      <con:credentials>
+        <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+        <con:authType>No Authorization</con:authType>
+      </con:credentials>
       <con:parameters/>
       <con:environmentSpec>
         <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
@@ -499,7 +502,10 @@
       <con:request>{\r
   "$ref" : "#/paths/~1organisation~1%7BorganisationRefId%7D/get/responses/200/content/application~1json/example"\r
 }</con:request>
-      <con:credentials/>
+      <con:credentials>
+        <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+        <con:authType>No Authorization</con:authType>
+      </con:credentials>
       <con:parameters/>
       <con:environmentSpec>
         <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
@@ -511,7 +517,10 @@
       <con:settings/>
       <con:endpoint>https://northern.edsby.co.nz/sif</con:endpoint>
       <con:request>&lt;ObjectNode>&lt;$ref>#/paths/~1organisation~1%7BorganisationRefId%7D/get/responses/200/content/application~1xml/example&lt;/$ref>&lt;/ObjectNode></con:request>
-      <con:credentials/>
+      <con:credentials>
+        <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+        <con:authType>No Authorization</con:authType>
+      </con:credentials>
       <con:parameters/>
       <con:environmentSpec>
         <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
@@ -647,7 +656,10 @@
       <con:request>{\r
   "$ref" : "#/paths/~1organisation~1%7BorganisationRefId%7D/get/responses/200/content/application~1json/example"\r
 }</con:request>
-      <con:credentials/>
+      <con:credentials>
+        <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+        <con:authType>No Authorization</con:authType>
+      </con:credentials>
       <con:parameters/>
       <con:environmentSpec>
         <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
@@ -659,7 +671,10 @@
       <con:settings/>
       <con:endpoint>https://northern.edsby.co.nz/sif</con:endpoint>
       <con:request>&lt;ObjectNode>&lt;$ref>#/paths/~1organisation~1%7BorganisationRefId%7D/get/responses/200/content/application~1xml/example&lt;/$ref>&lt;/ObjectNode></con:request>
-      <con:credentials/>
+      <con:credentials>
+        <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+        <con:authType>No Authorization</con:authType>
+      </con:credentials>
       <con:parameters/>
       <con:environmentSpec>
         <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">

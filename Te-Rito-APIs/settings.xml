@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<con:interface xsi:type="con:RestService" id="04fd8bbd-0eb9-4e12-a8b1-6eaf2882388d" name="Te Rito APIs" type="rest_ex" wadlVersion="https://swagger.io/openapiv3/specification" definitionUrl="file:/C:/TeRito%20APIs/Te%20Rito%20APIs%20(v3.2-rc2)/TeRito-OpenAPI-SandboxRelease-strict-noRefs.json" xmlns:con="http://eviware.com/soapui/config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<con:interface xsi:type="con:RestService" id="04fd8bbd-0eb9-4e12-a8b1-6eaf2882388d" name="Te Rito APIs" type="rest_ex" wadlVersion="https://swagger.io/openapiv3/specification" definitionUrl="file:/C:/TeRito%20APIs/Te%20Rito%20APIs%20(v3.2-rc2)/TeRito-OpenAPI-SandboxRelease-strict-noRefs.json" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config">
   <con:description><![CDATA[**Derived from:** SIF Data Model (New Zealand) v3.2 (rc2)
 **Release Date:** 12-Jan-2021
 

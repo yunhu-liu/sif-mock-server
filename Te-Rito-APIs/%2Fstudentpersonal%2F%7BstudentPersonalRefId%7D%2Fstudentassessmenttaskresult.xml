@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<con:resource name="/studentpersonal/{studentPersonalRefId}/studentassessmenttaskresult" path="/studentpersonal/{studentPersonalRefId}/studentassessmenttaskresult" id="a5f42a69-3dd7-4fed-a5db-661d853478ed" xmlns:con="http://eviware.com/soapui/config">
+<con:resource name="/studentpersonal/{studentPersonalRefId}/studentassessmenttaskresult" path="/studentpersonal/{studentPersonalRefId}/studentassessmenttaskresult" id="a5f42a69-3dd7-4fed-a5db-661d853478ed" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config">
   <con:settings>
     <con:setting id="a5f42a69-3dd7-4fed-a5db-661d853478edfileName">%2Fstudentpersonal%2F%7BstudentPersonalRefId%7D%2Fstudentassessmenttaskresult</con:setting>
   </con:settings>
@@ -145,7 +145,10 @@
     <con:request name="Request 1" id="a02e4671-d6fe-4e5f-b0b1-1e36f3b38d88" mediaType="application/json">
       <con:settings/>
       <con:endpoint>https://northern.edsby.co.nz/sif</con:endpoint>
-      <con:credentials/>
+      <con:credentials>
+        <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+        <con:authType>No Authorization</con:authType>
+      </con:credentials>
       <con:parameters/>
       <con:environmentSpec>
         <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">

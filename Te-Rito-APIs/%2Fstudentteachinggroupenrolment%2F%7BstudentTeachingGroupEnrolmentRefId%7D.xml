@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<con:resource name="/studentteachinggroupenrolment/{studentTeachingGroupEnrolmentRefId}" path="/studentteachinggroupenrolment/{studentTeachingGroupEnrolmentRefId}" id="3e291708-d634-4e5b-bbd9-0b276e069241" xmlns:con="http://eviware.com/soapui/config">
+<con:resource name="/studentteachinggroupenrolment/{studentTeachingGroupEnrolmentRefId}" path="/studentteachinggroupenrolment/{studentTeachingGroupEnrolmentRefId}" id="3e291708-d634-4e5b-bbd9-0b276e069241" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config">
   <con:settings>
     <con:setting id="3e291708-d634-4e5b-bbd9-0b276e069241fileName">%2Fstudentteachinggroupenrolment%2F%7BstudentTeachingGroupEnrolmentRefId%7D</con:setting>
   </con:settings>
@@ -189,7 +189,10 @@
     <con:request name="Request 1" id="38141438-ea6b-417d-bed7-7da78f7a8465" mediaType="application/json">
       <con:settings/>
       <con:endpoint>https://northern.edsby.co.nz/sif</con:endpoint>
-      <con:credentials/>
+      <con:credentials>
+        <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+        <con:authType>No Authorization</con:authType>
+      </con:credentials>
       <con:parameters/>
       <con:environmentSpec>
         <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
@@ -330,7 +333,10 @@
       <con:request>{\r
   "$ref" : "#/paths/~1studentteachinggroupenrolment~1%7BstudentTeachingGroupEnrolmentRefId%7D/get/responses/200/content/application~1json/example"\r
 }</con:request>
-      <con:credentials/>
+      <con:credentials>
+        <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+        <con:authType>No Authorization</con:authType>
+      </con:credentials>
       <con:parameters/>
       <con:environmentSpec>
         <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
@@ -342,7 +348,10 @@
       <con:settings/>
       <con:endpoint>https://northern.edsby.co.nz/sif</con:endpoint>
       <con:request>&lt;ObjectNode>&lt;$ref>#/paths/~1studentteachinggroupenrolment~1%7BstudentTeachingGroupEnrolmentRefId%7D/get/responses/200/content/application~1xml/example&lt;/$ref>&lt;/ObjectNode></con:request>
-      <con:credentials/>
+      <con:credentials>
+        <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+        <con:authType>No Authorization</con:authType>
+      </con:credentials>
       <con:parameters/>
       <con:environmentSpec>
         <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
@@ -511,7 +520,10 @@
     "StartDate" : "2020-01-27T00:00:00+1200"\r
   }\r
 }</con:request>
-      <con:credentials/>
+      <con:credentials>
+        <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+        <con:authType>No Authorization</con:authType>
+      </con:credentials>
       <con:parameters/>
       <con:environmentSpec>
         <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
@@ -523,7 +535,10 @@
       <con:settings/>
       <con:endpoint>https://northern.edsby.co.nz/sif</con:endpoint>
       <con:request>&lt;ObjectNode>&lt;$ref>#/paths/~1studentteachinggroupenrolment~1%7BstudentTeachingGroupEnrolmentRefId%7D/get/responses/200/content/application~1xml/example&lt;/$ref>&lt;/ObjectNode></con:request>
-      <con:credentials/>
+      <con:credentials>
+        <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+        <con:authType>No Authorization</con:authType>
+      </con:credentials>
       <con:parameters/>
       <con:environmentSpec>
         <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">

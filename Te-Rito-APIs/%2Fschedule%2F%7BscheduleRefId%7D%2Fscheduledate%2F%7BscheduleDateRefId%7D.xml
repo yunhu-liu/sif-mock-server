@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<con:resource name="/schedule/{scheduleRefId}/scheduledate/{scheduleDateRefId}" path="/schedule/{scheduleRefId}/scheduledate/{scheduleDateRefId}" id="8dbd7d54-a1ef-4057-ae4c-ae3f49890b5b" xmlns:con="http://eviware.com/soapui/config">
+<con:resource name="/schedule/{scheduleRefId}/scheduledate/{scheduleDateRefId}" path="/schedule/{scheduleRefId}/scheduledate/{scheduleDateRefId}" id="8dbd7d54-a1ef-4057-ae4c-ae3f49890b5b" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config">
   <con:settings>
     <con:setting id="8dbd7d54-a1ef-4057-ae4c-ae3f49890b5bfileName">%2Fschedule%2F%7BscheduleRefId%7D%2Fscheduledate%2F%7BscheduleDateRefId%7D</con:setting>
   </con:settings>
@@ -257,7 +257,10 @@
     <con:request name="Request 1" id="11eb7cba-9c3d-4aa5-9658-90e7758a827b" mediaType="application/json">
       <con:settings/>
       <con:endpoint>https://northern.edsby.co.nz/sif</con:endpoint>
-      <con:credentials/>
+      <con:credentials>
+        <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+        <con:authType>No Authorization</con:authType>
+      </con:credentials>
       <con:parameters/>
       <con:environmentSpec>
         <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
@@ -403,7 +406,10 @@
       <con:request>{\r
   "$ref" : "#/paths/~1schedule~1%7BscheduleRefId%7D~1scheduledate~1%7BscheduleDateRefId%7D/get/responses/200/content/application~1json/example"\r
 }</con:request>
-      <con:credentials/>
+      <con:credentials>
+        <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+        <con:authType>No Authorization</con:authType>
+      </con:credentials>
       <con:parameters/>
       <con:environmentSpec>
         <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
@@ -415,7 +421,10 @@
       <con:settings/>
       <con:endpoint>https://northern.edsby.co.nz/sif</con:endpoint>
       <con:request>&lt;ObjectNode>&lt;$ref>#/paths/~1schedule~1%7BscheduleRefId%7D~1scheduledate~1%7BscheduleDateRefId%7D/get/responses/200/content/application~1xml/example&lt;/$ref>&lt;/ObjectNode></con:request>
-      <con:credentials/>
+      <con:credentials>
+        <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+        <con:authType>No Authorization</con:authType>
+      </con:credentials>
       <con:parameters/>
       <con:environmentSpec>
         <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
@@ -561,7 +570,10 @@
       <con:request>{\r
   "$ref" : "#/paths/~1schedule~1%7BscheduleRefId%7D~1scheduledate~1%7BscheduleDateRefId%7D/get/responses/200/content/application~1json/example"\r
 }</con:request>
-      <con:credentials/>
+      <con:credentials>
+        <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+        <con:authType>No Authorization</con:authType>
+      </con:credentials>
       <con:parameters/>
       <con:environmentSpec>
         <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
@@ -573,7 +585,10 @@
       <con:settings/>
       <con:endpoint>https://northern.edsby.co.nz/sif</con:endpoint>
       <con:request>&lt;ObjectNode>&lt;$ref>#/paths/~1schedule~1%7BscheduleRefId%7D~1scheduledate~1%7BscheduleDateRefId%7D/get/responses/200/content/application~1xml/example&lt;/$ref>&lt;/ObjectNode></con:request>
-      <con:credentials/>
+      <con:credentials>
+        <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+        <con:authType>No Authorization</con:authType>
+      </con:credentials>
       <con:parameters/>
       <con:environmentSpec>
         <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
