@@ -1,0 +1,782 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:resource name="/studentlearningsupport" path="/studentlearningsupport" id="bb83494b-7b80-4b3a-94e2-4a0e5613fd64" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="bb83494b-7b80-4b3a-94e2-4a0e5613fd64fileName">%2Fstudentlearningsupport</con:setting>
+  </con:settings>
+  <con:parameters/>
+  <con:method name="getStudentLearningSupports" id="0db071d2-0419-4e16-97f7-6615b87ca7cf" method="GET">
+    <con:description>&lt;p>Bulk operation to retrieve one or more StudentLearningSupports, each of which  is meta-data and metrics pertaining to a particular student's Learning Support needs.&lt;/p></con:description>
+    <con:settings/>
+    <con:parameters>
+      <con:parameter>
+        <con:name>fields</con:name>
+        <con:style>QUERY</con:style>
+        <con:description>Return only specified fields	`fields=name,nid`</con:description>
+      </con:parameter>
+      <con:parameter>
+        <con:name>page</con:name>
+        <con:style>QUERY</con:style>
+        <con:description>Return nth page of results; default 0	`page=2`; applies to any call with repeated data</con:description>
+      </con:parameter>
+      <con:parameter>
+        <con:name>max</con:name>
+        <con:style>QUERY</con:style>
+        <con:description>Maximum items per page, default 10,000; `max=100`; applies to any call with repeated data</con:description>
+      </con:parameter>
+      <con:parameter>
+        <con:name>unwrap</con:name>
+        <con:style>QUERY</con:style>
+        <con:description>Remove top level wrapper from json results in single result reponses;	`unwrap=1`</con:description>
+      </con:parameter>
+      <con:parameter>
+        <con:name>human</con:name>
+        <con:style>QUERY</con:style>
+        <con:description>For code set fields, translate code to human readable form;	`human=1`</con:description>
+      </con:parameter>
+      <con:parameter>
+        <con:name>sort</con:name>
+        <con:style>QUERY</con:style>
+        <con:description>Sort results by specified field;	`sort=FamilyName`</con:description>
+      </con:parameter>
+      <con:parameter>
+        <con:name>field</con:name>
+        <con:style>QUERY</con:style>
+        <con:description>Field to filter on when used with **pattern**;	`field=FamilyName`</con:description>
+      </con:parameter>
+      <con:parameter>
+        <con:name>pattern</con:name>
+        <con:style>QUERY</con:style>
+        <con:description>Filter results using pattern on **field**; `pattern=We*`</con:description>
+      </con:parameter>
+      <con:parameter required="true">
+        <con:name>Accept</con:name>
+        <con:style>HEADER</con:style>
+        <con:description>Standard HTTP accept header, choose between JSON and XML for response. Defaults to XML if this header is missing.</con:description>
+      </con:parameter>
+      <con:parameter required="true">
+        <con:name>X-Edsby-APIClientId</con:name>
+        <con:style>HEADER</con:style>
+        <con:description>&lt;p>Identifies the client making the API call to network infrastructure allowing WAFs to conduct rate limiting, gather usage statistics, etc. without having to unpack the username, subject claim or API key from the Authorization header.&lt;/p> &lt;p>Must be populated with the subject claim GUID from the access token in the Authorization header.&lt;/p></con:description>
+      </con:parameter>
+      <con:parameter required="true">
+        <con:name>X-Edsby-OrganisationRefId</con:name>
+        <con:style>HEADER</con:style>
+        <con:description>&lt;p>The Ministry of Education Organisation Id of the Provider(or other Organisation); used to limit the scope of the API endpoint to a particular MoE Organisation.&lt;/p></con:description>
+      </con:parameter>
+    </con:parameters>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>200</con:status>
+      <con:params/>
+      <con:description>successful operation</con:description>
+      <con:sampleContent>{
+  "$ref" : "#/paths/~1studentlearningsupport/post/requestBody/content/application~1json/example"
+}</con:sampleContent>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/xml</con:mediaType>
+      <con:status>200</con:status>
+      <con:params/>
+      <con:description>successful operation</con:description>
+      <con:sampleContent>&lt;ObjectNode>&lt;$ref>#/paths/~1studentlearningsupport/post/requestBody/content/application~1xml/example&lt;/$ref>&lt;/ObjectNode></con:sampleContent>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>401</con:status>
+      <con:params/>
+      <con:description>Unauthorised - Authorization header missing, or contents incorrect.</con:description>
+      <con:sampleContent>{
+  "error" : 401,
+  "when" : "2020-07-16T20:00:46.000Z",
+  "errorstr" : "Unauthorised request: Authorisation header missing, or incorrect."
+}</con:sampleContent>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>403</con:status>
+      <con:params/>
+      <con:description>Forbidden - API client has successfully authenticated, but is not authorised to make this API call</con:description>
+      <con:sampleContent>{
+  "error" : 401,
+  "when" : "2020-07-16T20:00:46.000Z",
+  "errorstr" : "Forbidden request: API endpoint not permitted to client"
+}</con:sampleContent>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>404</con:status>
+      <con:params/>
+      <con:description>Not Found - resource in URL not found.</con:description>
+      <con:sampleContent>{
+  "error" : 404,
+  "when" : "2020-07-16T20:00:46.000Z",
+  "errorstr" : "Not Found: URL doesn't refer to known object"
+}</con:sampleContent>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>422</con:status>
+      <con:params/>
+      <con:description>Failed to retrieve object(s).</con:description>
+      <con:sampleContent>{
+  "error" : 1009,
+  "when" : "2020-07-16T20:00:46.000Z",
+  "errorstr" : "Bad field: PersonInfo-Name-FamilyName: missing required field PersonInfo-Name-FamilyName (LastName) 'None'",
+  "localId" : "ST-002"
+}</con:sampleContent>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/xml</con:mediaType>
+      <con:status>422</con:status>
+      <con:params/>
+      <con:description>Failed to retrieve object(s).</con:description>
+      <con:sampleContent><![CDATA[<Error>
+  <error>1009</error>
+  <when>2020-07-16T20:00:46.000Z</when>
+  <errorstr>Bad field: PersonInfo-Name-FamilyName: missing required field PersonInfo-Name-FamilyName (LastName) 'None'</errorstr>
+  <localId>ST-002</localId>
+</Error>]]></con:sampleContent>
+    </con:representation>
+    <con:request name="Request 1" id="883af378-9179-4efd-aeb5-139535ca5c6a" mediaType="application/json">
+      <con:settings/>
+      <con:endpoint>https://northern.edsby.co.nz/sif</con:endpoint>
+      <con:parameters/>
+    </con:request>
+  </con:method>
+  <con:method name="createStudentLearningSupports" id="2c8c6981-edef-49c1-9cd2-f40bf5c53781" method="POST">
+    <con:description>&lt;p>Bulk operation to create one or more StudentLearningSupports, each of which  is meta-data and metrics pertaining to a particular student's Learning Support needs.&lt;/p></con:description>
+    <con:settings/>
+    <con:parameters>
+      <con:parameter>
+        <con:name>x-http-method-override</con:name>
+        <con:style>HEADER</con:style>
+        <con:description>Rather than CREATE records, treat this request as a SYNC request.</con:description>
+      </con:parameter>
+      <con:parameter required="true">
+        <con:name>Accept</con:name>
+        <con:style>HEADER</con:style>
+        <con:description>Standard HTTP accept header, choose between JSON and XML for response. Defaults to XML if this header is missing.</con:description>
+      </con:parameter>
+      <con:parameter required="true">
+        <con:name>X-Edsby-APIClientId</con:name>
+        <con:style>HEADER</con:style>
+        <con:description>&lt;p>Identifies the client making the API call to network infrastructure allowing WAFs to conduct rate limiting, gather usage statistics, etc. without having to unpack the username, subject claim or API key from the Authorization header.&lt;/p> &lt;p>Must be populated with the subject claim GUID from the access token in the Authorization header.&lt;/p></con:description>
+      </con:parameter>
+      <con:parameter required="true">
+        <con:name>X-Edsby-OrganisationRefId</con:name>
+        <con:style>HEADER</con:style>
+        <con:description>&lt;p>The Ministry of Education Organisation Id of the Provider(or other Organisation); used to limit the scope of the API endpoint to a particular MoE Organisation.&lt;/p></con:description>
+      </con:parameter>
+    </con:parameters>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>200</con:status>
+      <con:params/>
+      <con:description>Create successful; returns created objects</con:description>
+      <con:sampleContent>{
+  "$ref" : "#/paths/~1studentlearningsupport/post/requestBody/content/application~1json/example"
+}</con:sampleContent>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/xml</con:mediaType>
+      <con:status>200</con:status>
+      <con:params/>
+      <con:description>Create successful; returns created objects</con:description>
+      <con:sampleContent>&lt;ObjectNode>&lt;$ref>#/paths/~1studentlearningsupport/post/requestBody/content/application~1xml/example&lt;/$ref>&lt;/ObjectNode></con:sampleContent>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>400</con:status>
+      <con:params/>
+      <con:description>Bad request - Request body invalid, Content, Accept, X-Edsby-OrganisationRefId, X-Edsby-APIClientId or other required Headers missing, etc.</con:description>
+      <con:sampleContent>{
+  "error" : 400,
+  "when" : "2020-07-16T20:00:46.000Z",
+  "errorstr" : "Unprocessable request: Request body invalid according to JSON schema? Accept or X-Edsby-OrganisationRefId header missing?"
+}</con:sampleContent>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>401</con:status>
+      <con:params/>
+      <con:description>Unauthorised - Authorization header missing, or contents incorrect.</con:description>
+      <con:sampleContent>{
+  "error" : 401,
+  "when" : "2020-07-16T20:00:46.000Z",
+  "errorstr" : "Unauthorised request: Authorisation header missing, or incorrect."
+}</con:sampleContent>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>403</con:status>
+      <con:params/>
+      <con:description>Forbidden - API client has successfully authenticated, but is not authorised to make this API call</con:description>
+      <con:sampleContent>{
+  "error" : 401,
+  "when" : "2020-07-16T20:00:46.000Z",
+  "errorstr" : "Forbidden request: API endpoint not permitted to client"
+}</con:sampleContent>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>404</con:status>
+      <con:params/>
+      <con:description>Not Found - resource in URL not found.</con:description>
+      <con:sampleContent>{
+  "error" : 404,
+  "when" : "2020-07-16T20:00:46.000Z",
+  "errorstr" : "Not Found: URL doesn't refer to known object"
+}</con:sampleContent>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>422</con:status>
+      <con:params/>
+      <con:description>Some objects created, some creates failed</con:description>
+      <con:sampleContent>[ {
+  "StudentLearningSupport" : {
+    "StudentLearningSupportRefId" : "461b63b4-cfef-4820-8501-e7d1e54555cb",
+    "StudentLearningSupportLocalId" : "LSR-HPotter-4d",
+    "Organisation" : {
+      "RefId" : "9651"
+    },
+    "Student" : {
+      "RefId" : "ca285746-359d-7510-1a8c-36432a901a16"
+    },
+    "LearnerStatus" : "ACT",
+    "StudentConsentList" : {
+      "StudentConsent" : [ {
+        "RefId" : "461423b4-cfef-4820-8501-e7d1e54555cb"
+      } ]
+    },
+    "DyslexiaScreeningTool" : "Y",
+    "OtherScreening" : "N",
+    "AdolescentHealthScreening" : "N",
+    "NonAttendance" : "Y",
+    "NewToNewZealand" : "N",
+    "NumberOfSchoolChanges" : "Y",
+    "B4SchoolCheck" : "Y",
+    "OtherFamilyContext" : "N",
+    "StudentVoiceList" : {
+      "StudentVoice" : [ {
+        "RefId" : "461423b4-cfef-4820-8345-e7d1e54555cb"
+      }, {
+        "RefId" : "461423b4-bbef-4820-8345-e7d1e54555cb"
+      } ]
+    },
+    "SupportNeedList" : {
+      "SupportNeed" : [ {
+        "Need" : {
+          "RefId" : "461423b4-bbef-4820-8345-e724e54555cb"
+        }
+      } ]
+    }
+  }
+}, {
+  "Error" : {
+    "error" : 1009,
+    "when" : "2020-07-16T20:00:46.000Z",
+    "errorstr" : "Bad field: PersonInfo-Name-FamilyName: missing required field PersonInfo-Name-FamilyName (LastName) 'None'",
+    "localId" : "ST-002",
+    "refId" : null
+  }
+} ]</con:sampleContent>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/xml</con:mediaType>
+      <con:status>422</con:status>
+      <con:params/>
+      <con:description>Some objects created, some creates failed</con:description>
+      <con:sampleContent><![CDATA[<Response>
+  <StudentLearningSupport>
+    <StudentLearningSupportRefId>461b63b4-cfef-4820-8501-e7d1e54555cb</StudentLearningSupportRefId>
+    <Student>
+      <RefId>ca285746-359d-7510-1a8c-36432a901a16</RefId>
+    </Student>
+    <LearnerStatus>ACT</LearnerStatus>
+    <StudentConsentList>
+      <StudentConsent>
+        <RefId>461423b4-cfef-4820-8501-e7d1e54555cb</RefId>
+      </StudentConsent>
+    </StudentConsentList>
+    <DyslexiaScreeningTool>Y</DyslexiaScreeningTool>
+    <OtherScreening>N</OtherScreening>
+    <AdolescentHealthScreening>N</AdolescentHealthScreening>
+    <NonAttendance>Y</NonAttendance>
+    <NewToNewZealand>N</NewToNewZealand>
+    <NumberOfSchoolChanges>Y</NumberOfSchoolChanges>
+    <B4SchoolCheck>Y</B4SchoolCheck>
+    <OtherFamilyContext>N</OtherFamilyContext>
+    <StudentVoiceList>
+      <StudentVoice>
+        <RefId>461423b4-cfef-4820-8345-e7d1e54555cb</RefId>
+      </StudentVoice>
+      <StudentVoice>
+        <RefId>461423b4-bbef-4820-8345-e7d1e54555cb</RefId>
+      </StudentVoice>
+    </StudentVoiceList>
+    <SupportNeedList>
+      <SupportNeed>
+        <Need>
+          <RefId>461423b4-bbef-4820-8345-e724e54555cb</RefId>
+          <Name>Literacy</Name>
+        </Need>
+        <ResponseList>
+          <Response>
+            <RefId>461423b4-bbef-4820-8345-e724e5455bbb</RefId>
+          </Response>
+        </ResponseList>
+      </SupportNeed>
+    </SupportNeedList>
+  </StudentLearningSupport>
+  <Error>
+    <error>1009</error>
+    <when>2020-07-16T20:00:46.000Z</when>
+    <errorstr>Bad field: PersonInfo-Name-FamilyName: missing required field PersonInfo-Name-FamilyName (LastName) 'None'</errorstr>
+    <localId>ST-002</localId>
+    <refId/>
+  </Error>      
+</Response>]]></con:sampleContent>
+    </con:representation>
+    <con:representation type="REQUEST">
+      <con:mediaType>application/json</con:mediaType>
+      <con:params/>
+      <con:sampleContent>{
+  "StudentLearningSupports" : {
+    "StudentLearningSupport" : [ {
+      "StudentLearningSupportRefId" : "461b63b4-cfef-4820-8501-e7d1e54555cb",
+      "StudentLearningSupportLocalId" : "LSR-HPotter-4d",
+      "Organisation" : {
+        "RefId" : "9651"
+      },
+      "Student" : {
+        "RefId" : "ca285746-359d-7510-1a8c-36432a901a16"
+      },
+      "LearnerStatus" : "ACT",
+      "StudentConsentList" : {
+        "StudentConsent" : [ {
+          "RefId" : "461423b4-cfef-4820-8501-e7d1e54555cb"
+        } ]
+      },
+      "DyslexiaScreeningTool" : "Y",
+      "OtherScreening" : "N",
+      "AdolescentHealthScreening" : "N",
+      "NonAttendance" : "Y",
+      "NewToNewZealand" : "N",
+      "NumberOfSchoolChanges" : "Y",
+      "B4SchoolCheck" : "Y",
+      "OtherFamilyContext" : "N",
+      "StudentVoiceList" : {
+        "StudentVoice" : [ {
+          "RefId" : "461423b4-cfef-4820-8345-e7d1e54555cb"
+        }, {
+          "RefId" : "461423b4-bbef-4820-8345-e7d1e54555cb"
+        } ]
+      },
+      "SupportNeedList" : {
+        "SupportNeed" : [ {
+          "Need" : {
+            "RefId" : "461423b4-bbef-4820-8345-e724e54555cb"
+          }
+        } ]
+      }
+    } ]
+  }
+}</con:sampleContent>
+    </con:representation>
+    <con:representation type="REQUEST">
+      <con:mediaType>application/xml</con:mediaType>
+      <con:params/>
+      <con:sampleContent><![CDATA[<StudentLearningSupports>
+  <StudentLearningSupport>
+    <StudentLearningSupportRefId>461b63b4-cfef-4820-8501-e7d1e54555cb</StudentLearningSupportRefId>
+    <Organisation>
+      <RefId>9651</RefId>
+    </Organisation>
+    <Student>
+      <RefId>ca285746-359d-7510-1a8c-36432a901a16</RefId>
+    </Student>
+    <LearnerStatus>ACT</LearnerStatus>
+    <StudentConsentList>
+      <StudentConsent>
+        <RefId>461423b4-cfef-4820-8501-e7d1e54555cb</RefId>
+      </StudentConsent>
+    </StudentConsentList>
+    <DyslexiaScreeningTool>Y</DyslexiaScreeningTool>
+    <OtherScreening>N</OtherScreening>
+    <AdolescentHealthScreening>N</AdolescentHealthScreening>
+    <NonAttendance>Y</NonAttendance>
+    <NewToNewZealand>N</NewToNewZealand>
+    <NumberOfSchoolChanges>Y</NumberOfSchoolChanges>
+    <B4SchoolCheck>Y</B4SchoolCheck>
+    <OtherFamilyContext>N</OtherFamilyContext>
+    <StudentVoiceList>
+      <StudentVoice>
+        <RefId>461423b4-cfef-4820-8345-e7d1e54555cb</RefId>
+      </StudentVoice>
+      <StudentVoice>
+        <RefId>461423b4-bbef-4820-8345-e7d1e54555cb</RefId>
+      </StudentVoice>
+    </StudentVoiceList>
+    <SupportNeedList>
+      <SupportNeed>
+        <Need>
+          <RefId>461423b4-bbef-4820-8345-e724e54555cb</RefId>
+          <Name>Literacy</Name>
+        </Need>
+        <ResponseList>
+          <Response>
+            <RefId>461423b4-bbef-4820-8345-e724e5455bbb</RefId>
+          </Response>
+        </ResponseList>
+      </SupportNeed>
+    </SupportNeedList>
+  </StudentLearningSupport>
+</StudentLearningSupports>]]></con:sampleContent>
+    </con:representation>
+    <con:request name="Request 1" id="ddda98ef-bfd9-4a57-b211-b6e5ccef6236" mediaType="application/json">
+      <con:settings/>
+      <con:endpoint>https://northern.edsby.co.nz/sif</con:endpoint>
+      <con:request>{\r
+  "StudentLearningSupports" : {\r
+    "StudentLearningSupport" : [ {\r
+      "StudentLearningSupportRefId" : "461b63b4-cfef-4820-8501-e7d1e54555cb",\r
+      "StudentLearningSupportLocalId" : "LSR-HPotter-4d",\r
+      "Organisation" : {\r
+        "RefId" : "9651"\r
+      },\r
+      "Student" : {\r
+        "RefId" : "ca285746-359d-7510-1a8c-36432a901a16"\r
+      },\r
+      "LearnerStatus" : "ACT",\r
+      "StudentConsentList" : {\r
+        "StudentConsent" : [ {\r
+          "RefId" : "461423b4-cfef-4820-8501-e7d1e54555cb"\r
+        } ]\r
+      },\r
+      "DyslexiaScreeningTool" : "Y",\r
+      "OtherScreening" : "N",\r
+      "AdolescentHealthScreening" : "N",\r
+      "NonAttendance" : "Y",\r
+      "NewToNewZealand" : "N",\r
+      "NumberOfSchoolChanges" : "Y",\r
+      "B4SchoolCheck" : "Y",\r
+      "OtherFamilyContext" : "N",\r
+      "StudentVoiceList" : {\r
+        "StudentVoice" : [ {\r
+          "RefId" : "461423b4-cfef-4820-8345-e7d1e54555cb"\r
+        }, {\r
+          "RefId" : "461423b4-bbef-4820-8345-e7d1e54555cb"\r
+        } ]\r
+      },\r
+      "SupportNeedList" : {\r
+        "SupportNeed" : [ {\r
+          "Need" : {\r
+            "RefId" : "461423b4-bbef-4820-8345-e724e54555cb"\r
+          }\r
+        } ]\r
+      }\r
+    } ]\r
+  }\r
+}</con:request>
+      <con:parameters/>
+    </con:request>
+    <con:request name="Request 2" id="26fd31b1-0066-42cf-8116-33337e560b67" mediaType="application/xml">
+      <con:settings/>
+      <con:endpoint>https://northern.edsby.co.nz/sif</con:endpoint>
+      <con:request><![CDATA[<StudentLearningSupports>
+  <StudentLearningSupport>
+    <StudentLearningSupportRefId>461b63b4-cfef-4820-8501-e7d1e54555cb</StudentLearningSupportRefId>
+    <Organisation>
+      <RefId>9651</RefId>
+    </Organisation>
+    <Student>
+      <RefId>ca285746-359d-7510-1a8c-36432a901a16</RefId>
+    </Student>
+    <LearnerStatus>ACT</LearnerStatus>
+    <StudentConsentList>
+      <StudentConsent>
+        <RefId>461423b4-cfef-4820-8501-e7d1e54555cb</RefId>
+      </StudentConsent>
+    </StudentConsentList>
+    <DyslexiaScreeningTool>Y</DyslexiaScreeningTool>
+    <OtherScreening>N</OtherScreening>
+    <AdolescentHealthScreening>N</AdolescentHealthScreening>
+    <NonAttendance>Y</NonAttendance>
+    <NewToNewZealand>N</NewToNewZealand>
+    <NumberOfSchoolChanges>Y</NumberOfSchoolChanges>
+    <B4SchoolCheck>Y</B4SchoolCheck>
+    <OtherFamilyContext>N</OtherFamilyContext>
+    <StudentVoiceList>
+      <StudentVoice>
+        <RefId>461423b4-cfef-4820-8345-e7d1e54555cb</RefId>
+      </StudentVoice>
+      <StudentVoice>
+        <RefId>461423b4-bbef-4820-8345-e7d1e54555cb</RefId>
+      </StudentVoice>
+    </StudentVoiceList>
+    <SupportNeedList>
+      <SupportNeed>
+        <Need>
+          <RefId>461423b4-bbef-4820-8345-e724e54555cb</RefId>
+          <Name>Literacy</Name>
+        </Need>
+        <ResponseList>
+          <Response>
+            <RefId>461423b4-bbef-4820-8345-e724e5455bbb</RefId>
+          </Response>
+        </ResponseList>
+      </SupportNeed>
+    </SupportNeedList>
+  </StudentLearningSupport>
+</StudentLearningSupports>]]></con:request>
+      <con:parameters/>
+    </con:request>
+  </con:method>
+  <con:method name="updateStudentLearningSupports" id="578f72b0-ba55-4234-bbc3-4ab5015d49b0" method="PUT">
+    <con:description>&lt;p>Bulk operation to update one or more StudentLearningSupports, each of which  is meta-data and metrics pertaining to a particular student's Learning Support needs.&lt;/p></con:description>
+    <con:settings/>
+    <con:parameters>
+      <con:parameter required="true">
+        <con:name>Accept</con:name>
+        <con:style>HEADER</con:style>
+        <con:description>Standard HTTP accept header, choose between JSON and XML for response. Defaults to XML if this header is missing.</con:description>
+      </con:parameter>
+      <con:parameter required="true">
+        <con:name>X-Edsby-APIClientId</con:name>
+        <con:style>HEADER</con:style>
+        <con:description>&lt;p>Identifies the client making the API call to network infrastructure allowing WAFs to conduct rate limiting, gather usage statistics, etc. without having to unpack the username, subject claim or API key from the Authorization header.&lt;/p> &lt;p>Must be populated with the subject claim GUID from the access token in the Authorization header.&lt;/p></con:description>
+      </con:parameter>
+      <con:parameter required="true">
+        <con:name>X-Edsby-OrganisationRefId</con:name>
+        <con:style>HEADER</con:style>
+        <con:description>&lt;p>The Ministry of Education Organisation Id of the Provider(or other Organisation); used to limit the scope of the API endpoint to a particular MoE Organisation.&lt;/p></con:description>
+      </con:parameter>
+    </con:parameters>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>200</con:status>
+      <con:params/>
+      <con:description>Update successful; returns updated objects</con:description>
+      <con:sampleContent>{
+  "$ref" : "#/paths/~1studentlearningsupport/post/requestBody/content/application~1json/example"
+}</con:sampleContent>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/xml</con:mediaType>
+      <con:status>200</con:status>
+      <con:params/>
+      <con:description>Update successful; returns updated objects</con:description>
+      <con:sampleContent>&lt;ObjectNode>&lt;$ref>#/paths/~1studentlearningsupport/post/requestBody/content/application~1xml/example&lt;/$ref>&lt;/ObjectNode></con:sampleContent>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>400</con:status>
+      <con:params/>
+      <con:description>Bad request - Request body invalid, Content, Accept, X-Edsby-OrganisationRefId, X-Edsby-APIClientId or other required Headers missing, etc.</con:description>
+      <con:sampleContent>{
+  "error" : 400,
+  "when" : "2020-07-16T20:00:46.000Z",
+  "errorstr" : "Unprocessable request: Request body invalid according to JSON schema? Accept or X-Edsby-OrganisationRefId header missing?"
+}</con:sampleContent>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>401</con:status>
+      <con:params/>
+      <con:description>Unauthorised - Authorization header missing, or contents incorrect.</con:description>
+      <con:sampleContent>{
+  "error" : 401,
+  "when" : "2020-07-16T20:00:46.000Z",
+  "errorstr" : "Unauthorised request: Authorisation header missing, or incorrect."
+}</con:sampleContent>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>403</con:status>
+      <con:params/>
+      <con:description>Forbidden - API client has successfully authenticated, but is not authorised to make this API call</con:description>
+      <con:sampleContent>{
+  "error" : 401,
+  "when" : "2020-07-16T20:00:46.000Z",
+  "errorstr" : "Forbidden request: API endpoint not permitted to client"
+}</con:sampleContent>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>404</con:status>
+      <con:params/>
+      <con:description>Not Found - resource in URL not found.</con:description>
+      <con:sampleContent>{
+  "error" : 404,
+  "when" : "2020-07-16T20:00:46.000Z",
+  "errorstr" : "Not Found: URL doesn't refer to known object"
+}</con:sampleContent>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>422</con:status>
+      <con:params/>
+      <con:description>Some objects updated, some updates failed</con:description>
+      <con:sampleContent>{
+  "$ref" : "#/paths/~1studentlearningsupport/post/responses/422/content/application~1json/example"
+}</con:sampleContent>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/xml</con:mediaType>
+      <con:status>422</con:status>
+      <con:params/>
+      <con:description>Some objects updated, some updates failed</con:description>
+      <con:sampleContent>&lt;ObjectNode>&lt;$ref>#/paths/~1studentlearningsupport/post/responses/422/content/application~1xml/example&lt;/$ref>&lt;/ObjectNode></con:sampleContent>
+    </con:representation>
+    <con:representation type="REQUEST">
+      <con:mediaType>application/json</con:mediaType>
+      <con:params/>
+      <con:sampleContent>{
+  "$ref" : "#/paths/~1studentlearningsupport/post/requestBody/content/application~1json/example"
+}</con:sampleContent>
+    </con:representation>
+    <con:representation type="REQUEST">
+      <con:mediaType>application/xml</con:mediaType>
+      <con:params/>
+      <con:sampleContent>&lt;ObjectNode>&lt;$ref>#/paths/~1studentlearningsupport/post/requestBody/content/application~1xml/example&lt;/$ref>&lt;/ObjectNode></con:sampleContent>
+    </con:representation>
+    <con:request name="Request 1" id="0b7ab82f-1f54-4956-a0a5-5cb60162c43f" mediaType="application/json">
+      <con:settings/>
+      <con:endpoint>https://northern.edsby.co.nz/sif</con:endpoint>
+      <con:request>{\r
+  "$ref" : "#/paths/~1studentlearningsupport/post/requestBody/content/application~1json/example"\r
+}</con:request>
+      <con:parameters/>
+    </con:request>
+    <con:request name="Request 2" id="8583d55e-de4b-4801-a618-b60908073e78" mediaType="application/xml">
+      <con:settings/>
+      <con:endpoint>https://northern.edsby.co.nz/sif</con:endpoint>
+      <con:request>&lt;ObjectNode>&lt;$ref>#/paths/~1studentlearningsupport/post/requestBody/content/application~1xml/example&lt;/$ref>&lt;/ObjectNode></con:request>
+      <con:parameters/>
+    </con:request>
+  </con:method>
+  <con:method name="patchStudentLearningSupports" id="057b2fa3-f8e6-4b4a-a583-381b7949659c" method="PATCH">
+    <con:description>&lt;p>Bulk operation to update one or more fields of one or more StudentLearningSupports, each of which is meta-data and metrics pertaining to a particular student's Learning  Support needs.&lt;/p></con:description>
+    <con:settings/>
+    <con:parameters>
+      <con:parameter required="true">
+        <con:name>Accept</con:name>
+        <con:style>HEADER</con:style>
+        <con:description>Standard HTTP accept header, choose between JSON and XML for response. Defaults to XML if this header is missing.</con:description>
+      </con:parameter>
+      <con:parameter required="true">
+        <con:name>X-Edsby-APIClientId</con:name>
+        <con:style>HEADER</con:style>
+        <con:description>&lt;p>Identifies the client making the API call to network infrastructure allowing WAFs to conduct rate limiting, gather usage statistics, etc. without having to unpack the username, subject claim or API key from the Authorization header.&lt;/p> &lt;p>Must be populated with the subject claim GUID from the access token in the Authorization header.&lt;/p></con:description>
+      </con:parameter>
+      <con:parameter required="true">
+        <con:name>X-Edsby-OrganisationRefId</con:name>
+        <con:style>HEADER</con:style>
+        <con:description>&lt;p>The Ministry of Education Organisation Id of the Provider(or other Organisation); used to limit the scope of the API endpoint to a particular MoE Organisation.&lt;/p></con:description>
+      </con:parameter>
+    </con:parameters>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>200</con:status>
+      <con:params/>
+      <con:description>Patch successful; returns patched objects</con:description>
+      <con:sampleContent>{
+  "$ref" : "#/paths/~1studentlearningsupport/post/requestBody/content/application~1json/example"
+}</con:sampleContent>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/xml</con:mediaType>
+      <con:status>200</con:status>
+      <con:params/>
+      <con:description>Patch successful; returns patched objects</con:description>
+      <con:sampleContent>&lt;ObjectNode>&lt;$ref>#/paths/~1studentlearningsupport/post/requestBody/content/application~1xml/example&lt;/$ref>&lt;/ObjectNode></con:sampleContent>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>400</con:status>
+      <con:params/>
+      <con:description>Bad request - Request body invalid, Content, Accept, X-Edsby-OrganisationRefId, X-Edsby-APIClientId or other required Headers missing, etc.</con:description>
+      <con:sampleContent>{
+  "error" : 400,
+  "when" : "2020-07-16T20:00:46.000Z",
+  "errorstr" : "Unprocessable request: Request body invalid according to JSON schema? Accept or X-Edsby-OrganisationRefId header missing?"
+}</con:sampleContent>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>401</con:status>
+      <con:params/>
+      <con:description>Unauthorised - Authorization header missing, or contents incorrect.</con:description>
+      <con:sampleContent>{
+  "error" : 401,
+  "when" : "2020-07-16T20:00:46.000Z",
+  "errorstr" : "Unauthorised request: Authorisation header missing, or incorrect."
+}</con:sampleContent>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>403</con:status>
+      <con:params/>
+      <con:description>Forbidden - API client has successfully authenticated, but is not authorised to make this API call</con:description>
+      <con:sampleContent>{
+  "error" : 401,
+  "when" : "2020-07-16T20:00:46.000Z",
+  "errorstr" : "Forbidden request: API endpoint not permitted to client"
+}</con:sampleContent>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>404</con:status>
+      <con:params/>
+      <con:description>Not Found - resource in URL not found.</con:description>
+      <con:sampleContent>{
+  "error" : 404,
+  "when" : "2020-07-16T20:00:46.000Z",
+  "errorstr" : "Not Found: URL doesn't refer to known object"
+}</con:sampleContent>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>422</con:status>
+      <con:params/>
+      <con:description>Some objects patched, some patches failed</con:description>
+      <con:sampleContent>{
+  "$ref" : "#/paths/~1studentlearningsupport/post/responses/422/content/application~1json/example"
+}</con:sampleContent>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/xml</con:mediaType>
+      <con:status>422</con:status>
+      <con:params/>
+      <con:description>Some objects patched, some patches failed</con:description>
+      <con:sampleContent>&lt;ObjectNode>&lt;$ref>#/paths/~1studentlearningsupport/post/responses/422/content/application~1xml/example&lt;/$ref>&lt;/ObjectNode></con:sampleContent>
+    </con:representation>
+    <con:representation type="REQUEST">
+      <con:mediaType>application/json</con:mediaType>
+      <con:params/>
+      <con:sampleContent>{
+  "$ref" : "#/paths/~1studentlearningsupport/post/requestBody/content/application~1json/example"
+}</con:sampleContent>
+    </con:representation>
+    <con:representation type="REQUEST">
+      <con:mediaType>application/xml</con:mediaType>
+      <con:params/>
+      <con:sampleContent>&lt;ObjectNode>&lt;$ref>#/paths/~1studentlearningsupport/post/requestBody/content/application~1xml/example&lt;/$ref>&lt;/ObjectNode></con:sampleContent>
+    </con:representation>
+    <con:request name="Request 1" id="8cd86b77-8c64-41fa-98db-b636791aee8e" mediaType="application/json">
+      <con:settings/>
+      <con:endpoint>https://northern.edsby.co.nz/sif</con:endpoint>
+      <con:request>{\r
+  "$ref" : "#/paths/~1studentlearningsupport/post/requestBody/content/application~1json/example"\r
+}</con:request>
+      <con:parameters/>
+    </con:request>
+    <con:request name="Request 2" id="6fe9def0-4f85-4a52-8abf-67dd969fad50" mediaType="application/xml">
+      <con:settings/>
+      <con:endpoint>https://northern.edsby.co.nz/sif</con:endpoint>
+      <con:request>&lt;ObjectNode>&lt;$ref>#/paths/~1studentlearningsupport/post/requestBody/content/application~1xml/example&lt;/$ref>&lt;/ObjectNode></con:request>
+      <con:parameters/>
+    </con:request>
+  </con:method>
+</con:resource>

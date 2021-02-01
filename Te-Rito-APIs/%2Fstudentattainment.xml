@@ -1,0 +1,861 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:resource name="/studentattainment" path="/studentattainment" id="956c0d65-0818-4a56-a9c6-6e050b09fb67" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="956c0d65-0818-4a56-a9c6-6e050b09fb67fileName">%2Fstudentattainment</con:setting>
+  </con:settings>
+  <con:parameters/>
+  <con:method name="getStudentAttainments" id="075be973-0139-41bf-b770-a3e5e3ca73c7" method="GET">
+    <con:description><![CDATA[<p>Bulk operation to retrieve one or more students' achievement of some <a href="#tag/Credential">Credential</a>, <a href="#tag/LearningStandard">LearningStandard</a>, or completing a <a href="#tag/ProviderCourse">ProviderCourse</a>, within the scope of the  Provider the students are enrolled in.]]></con:description>
+    <con:settings/>
+    <con:parameters>
+      <con:parameter>
+        <con:name>fields</con:name>
+        <con:style>QUERY</con:style>
+        <con:description>Return only specified fields	`fields=name,nid`</con:description>
+      </con:parameter>
+      <con:parameter>
+        <con:name>page</con:name>
+        <con:style>QUERY</con:style>
+        <con:description>Return nth page of results; default 0	`page=2`; applies to any call with repeated data</con:description>
+      </con:parameter>
+      <con:parameter>
+        <con:name>max</con:name>
+        <con:style>QUERY</con:style>
+        <con:description>Maximum items per page, default 10,000; `max=100`; applies to any call with repeated data</con:description>
+      </con:parameter>
+      <con:parameter>
+        <con:name>unwrap</con:name>
+        <con:style>QUERY</con:style>
+        <con:description>Remove top level wrapper from json results in single result reponses;	`unwrap=1`</con:description>
+      </con:parameter>
+      <con:parameter>
+        <con:name>human</con:name>
+        <con:style>QUERY</con:style>
+        <con:description>For code set fields, translate code to human readable form;	`human=1`</con:description>
+      </con:parameter>
+      <con:parameter>
+        <con:name>start</con:name>
+        <con:style>QUERY</con:style>
+        <con:description>Include only items from start date;	`start=2017-08-01`</con:description>
+      </con:parameter>
+      <con:parameter>
+        <con:name>end</con:name>
+        <con:style>QUERY</con:style>
+        <con:description>Include only items before end date;	`end=2017-08-31`</con:description>
+      </con:parameter>
+      <con:parameter>
+        <con:name>sort</con:name>
+        <con:style>QUERY</con:style>
+        <con:description>Sort results by specified field;	`sort=FamilyName`</con:description>
+      </con:parameter>
+      <con:parameter>
+        <con:name>field</con:name>
+        <con:style>QUERY</con:style>
+        <con:description>Field to filter on when used with **pattern**;	`field=FamilyName`</con:description>
+      </con:parameter>
+      <con:parameter>
+        <con:name>pattern</con:name>
+        <con:style>QUERY</con:style>
+        <con:description>Filter results using pattern on **field**; `pattern=We*`</con:description>
+      </con:parameter>
+      <con:parameter required="true">
+        <con:name>Accept</con:name>
+        <con:style>HEADER</con:style>
+        <con:description>Standard HTTP accept header, choose between JSON and XML for response. Defaults to XML if this header is missing.</con:description>
+      </con:parameter>
+      <con:parameter required="true">
+        <con:name>X-Edsby-APIClientId</con:name>
+        <con:style>HEADER</con:style>
+        <con:description>&lt;p>Identifies the client making the API call to network infrastructure allowing WAFs to conduct rate limiting, gather usage statistics, etc. without having to unpack the username, subject claim or API key from the Authorization header.&lt;/p> &lt;p>Must be populated with the subject claim GUID from the access token in the Authorization header.&lt;/p></con:description>
+      </con:parameter>
+      <con:parameter required="true">
+        <con:name>X-Edsby-OrganisationRefId</con:name>
+        <con:style>HEADER</con:style>
+        <con:description>&lt;p>The Ministry of Education Organisation Id of the Provider(or other Organisation); used to limit the scope of the API endpoint to a particular MoE Organisation.&lt;/p></con:description>
+      </con:parameter>
+    </con:parameters>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>200</con:status>
+      <con:params/>
+      <con:description>successful operation</con:description>
+      <con:sampleContent>{
+  "$ref" : "#/paths/~1studentattainment/post/requestBody/content/application~1json/example"
+}</con:sampleContent>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/xml</con:mediaType>
+      <con:status>200</con:status>
+      <con:params/>
+      <con:description>successful operation</con:description>
+      <con:sampleContent>&lt;ObjectNode>&lt;$ref>#/paths/~1studentattainment/post/requestBody/content/application~1xml/example&lt;/$ref>&lt;/ObjectNode></con:sampleContent>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>401</con:status>
+      <con:params/>
+      <con:description>Unauthorised - Authorization header missing, or contents incorrect.</con:description>
+      <con:sampleContent>{
+  "error" : 401,
+  "when" : "2020-07-16T20:00:46.000Z",
+  "errorstr" : "Unauthorised request: Authorisation header missing, or incorrect."
+}</con:sampleContent>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>403</con:status>
+      <con:params/>
+      <con:description>Forbidden - API client has successfully authenticated, but is not authorised to make this API call</con:description>
+      <con:sampleContent>{
+  "error" : 401,
+  "when" : "2020-07-16T20:00:46.000Z",
+  "errorstr" : "Forbidden request: API endpoint not permitted to client"
+}</con:sampleContent>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>404</con:status>
+      <con:params/>
+      <con:description>Not Found - resource in URL not found.</con:description>
+      <con:sampleContent>{
+  "error" : 404,
+  "when" : "2020-07-16T20:00:46.000Z",
+  "errorstr" : "Not Found: URL doesn't refer to known object"
+}</con:sampleContent>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>422</con:status>
+      <con:params/>
+      <con:description>Failed to retrieve object(s).</con:description>
+      <con:sampleContent>{
+  "error" : 1009,
+  "when" : "2020-07-16T20:00:46.000Z",
+  "errorstr" : "Bad field: PersonInfo-Name-FamilyName: missing required field PersonInfo-Name-FamilyName (LastName) 'None'",
+  "localId" : "ST-002"
+}</con:sampleContent>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/xml</con:mediaType>
+      <con:status>422</con:status>
+      <con:params/>
+      <con:description>Failed to retrieve object(s).</con:description>
+      <con:sampleContent><![CDATA[<Error>
+  <error>1009</error>
+  <when>2020-07-16T20:00:46.000Z</when>
+  <errorstr>Bad field: PersonInfo-Name-FamilyName: missing required field PersonInfo-Name-FamilyName (LastName) 'None'</errorstr>
+  <localId>ST-002</localId>
+</Error>]]></con:sampleContent>
+    </con:representation>
+    <con:request name="Request 1" id="68adf6fe-aacd-4286-9043-e9b9b946738c" mediaType="application/json">
+      <con:settings/>
+      <con:endpoint>https://northern.edsby.co.nz/sif</con:endpoint>
+      <con:parameters/>
+    </con:request>
+  </con:method>
+  <con:method name="createStudentAttainments" id="2c48f11e-7d2e-42cb-98ba-60d02e44bd32" method="POST">
+    <con:description><![CDATA[<p>Bulk operation to create one or more students' achievement of some <a href="#tag/Credential">Credential</a>, <a href="#tag/LearningStandard">LearningStandard</a>, or completing a <a href="#tag/ProviderCourse">ProviderCourse</a>, within the scope of the  Provider the students are enrolled in.]]></con:description>
+    <con:settings/>
+    <con:parameters>
+      <con:parameter>
+        <con:name>x-http-method-override</con:name>
+        <con:style>HEADER</con:style>
+        <con:description>Rather than CREATE records, treat this request as a SYNC request.</con:description>
+      </con:parameter>
+      <con:parameter required="true">
+        <con:name>Accept</con:name>
+        <con:style>HEADER</con:style>
+        <con:description>Standard HTTP accept header, choose between JSON and XML for response. Defaults to XML if this header is missing.</con:description>
+      </con:parameter>
+      <con:parameter required="true">
+        <con:name>X-Edsby-APIClientId</con:name>
+        <con:style>HEADER</con:style>
+        <con:description>&lt;p>Identifies the client making the API call to network infrastructure allowing WAFs to conduct rate limiting, gather usage statistics, etc. without having to unpack the username, subject claim or API key from the Authorization header.&lt;/p> &lt;p>Must be populated with the subject claim GUID from the access token in the Authorization header.&lt;/p></con:description>
+      </con:parameter>
+      <con:parameter required="true">
+        <con:name>X-Edsby-OrganisationRefId</con:name>
+        <con:style>HEADER</con:style>
+        <con:description>&lt;p>The Ministry of Education Organisation Id of the Provider(or other Organisation); used to limit the scope of the API endpoint to a particular MoE Organisation.&lt;/p></con:description>
+      </con:parameter>
+    </con:parameters>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>200</con:status>
+      <con:params/>
+      <con:description>Create successful; returns created objects</con:description>
+      <con:sampleContent>{
+  "$ref" : "#/paths/~1studentattainment/post/requestBody/content/application~1json/example"
+}</con:sampleContent>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/xml</con:mediaType>
+      <con:status>200</con:status>
+      <con:params/>
+      <con:description>Create successful; returns created objects</con:description>
+      <con:sampleContent>&lt;ObjectNode>&lt;$ref>#/paths/~1studentattainment/post/requestBody/content/application~1xml/example&lt;/$ref>&lt;/ObjectNode></con:sampleContent>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>400</con:status>
+      <con:params/>
+      <con:description>Bad request - Request body invalid, Content, Accept, X-Edsby-OrganisationRefId, X-Edsby-APIClientId or other required Headers missing, etc.</con:description>
+      <con:sampleContent>{
+  "error" : 400,
+  "when" : "2020-07-16T20:00:46.000Z",
+  "errorstr" : "Unprocessable request: Request body invalid according to JSON schema? Accept or X-Edsby-OrganisationRefId header missing?"
+}</con:sampleContent>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>401</con:status>
+      <con:params/>
+      <con:description>Unauthorised - Authorization header missing, or contents incorrect.</con:description>
+      <con:sampleContent>{
+  "error" : 401,
+  "when" : "2020-07-16T20:00:46.000Z",
+  "errorstr" : "Unauthorised request: Authorisation header missing, or incorrect."
+}</con:sampleContent>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>403</con:status>
+      <con:params/>
+      <con:description>Forbidden - API client has successfully authenticated, but is not authorised to make this API call</con:description>
+      <con:sampleContent>{
+  "error" : 401,
+  "when" : "2020-07-16T20:00:46.000Z",
+  "errorstr" : "Forbidden request: API endpoint not permitted to client"
+}</con:sampleContent>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>404</con:status>
+      <con:params/>
+      <con:description>Not Found - resource in URL not found.</con:description>
+      <con:sampleContent>{
+  "error" : 404,
+  "when" : "2020-07-16T20:00:46.000Z",
+  "errorstr" : "Not Found: URL doesn't refer to known object"
+}</con:sampleContent>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>422</con:status>
+      <con:params/>
+      <con:description>Some objects created, some creates failed</con:description>
+      <con:sampleContent>[ {
+  "StudentAttainment" : {
+    "StudentAttainmentRefId" : "359d7510-1ad0-a9d7-a8c3-dad0a85103a2",
+    "StudentAttainmentLocalId" : "CRED-HPotter-48",
+    "GrantingOrganisation" : {
+      "RefId" : "8772"
+    },
+    "Attainment" : {
+      "RefId" : "d0a0a27a-d0a8-510a-d9d7-5101a8c3da39",
+      "Name" : "NCEA Level 2 Chemistry - Endorsed with merit",
+      "ObjectType" : "Credential"
+    },
+    "Student" : {
+      "RefId" : "cd106d6d-d9d5-41fb-9943-5feb967c9435",
+      "LocalId" : "HP85-1039",
+      "Name" : "Harry Potter"
+    },
+    "YearAttained" : 2018,
+    "DateAttained" : "2018-07-25T00:00:00+1200",
+    "JustificationList" : {
+      "Justification" : [ {
+        "RefId" : "2752a16b-b62a-4973-9d44-23e13e1c037b",
+        "LocalId" : "91165-v2",
+        "Name" : "Demonstrate understanding of the properties of selected organic compounds",
+        "ObjectType" : "StudentAssessmentTaskResult",
+        "AssessmentType" : "EXT",
+        "Result" : "Achieved",
+        "Date" : "2016-06-28T00:00:00+1200",
+        "CreditValue" : 4
+      }, {
+        "RefId" : "eca0da5d-94af-4223-aaa6-7c0083006efd",
+        "LocalId" : "91166-v2",
+        "Name" : "Demonstrate understanding of chemical reactivity",
+        "ObjectType" : "StudentAssessmentTaskResult",
+        "AssessmentType" : "INT",
+        "Result" : "Achieved with merit",
+        "Date" : "2016-06-01T00:00:00+1200",
+        "CreditValue" : 3
+      }, {
+        "RefId" : "12f4761d-5e97-4e12-804e-e16d882c86c7",
+        "LocalId" : "91167-v2",
+        "Name" : "Demonstrate understanding of oxidation-reduction",
+        "ObjectType" : "StudentAssessmentTaskResult",
+        "AssessmentType" : "EXT",
+        "Result" : "Achieved",
+        "Date" : "2016-06-28T00:00:00+1200",
+        "CreditValue" : 3
+      } ]
+    },
+    "SubjectAreaList" : {
+      "SubjectArea" : [ "CHEM" ]
+    }
+  }
+}, {
+  "Error" : {
+    "error" : 1009,
+    "when" : "2020-07-16T20:00:46.000Z",
+    "errorstr" : "Bad field: PersonInfo-Name-FamilyName: missing required field PersonInfo-Name-FamilyName (LastName) 'None'",
+    "localId" : "ST-002",
+    "refId" : null
+  }
+} ]</con:sampleContent>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/xml</con:mediaType>
+      <con:status>422</con:status>
+      <con:params/>
+      <con:description>Some objects created, some creates failed</con:description>
+      <con:sampleContent><![CDATA[<Response>
+  <StudentAttainment>
+    <StudentAttainmentRefId>359d7510-1ad0-a9d7-a8c3-dad0a85103a2</StudentAttainmentRefId>
+    <GrantingOrganisation>
+      <RefId>8772</RefId>
+    </GrantingOrganisation>
+    <Attainment>
+      <RefId>d0a0a27a-d0a8-510a-d9d7-5101a8c3da39</RefId>
+      <Name>NCEA Level 2 Chemistry - Endorsed with merit</Name>
+      <ObjectType>Credential</ObjectType>
+    </Attainment>
+    <Student>
+      <RefId>cd106d6d-d9d5-41fb-9943-5feb967c9435</RefId>
+      <LocalId>HP85-1039</LocalId>
+      <Name>Harry Potter</Name>
+    </Student>
+    </DateAttained>2018-07-25</DateAttained>
+    <JustificationList>
+      <Justification>
+        <RefId>2752a16b-b62a-4973-9d44-23e13e1c037b</RefId>
+        <LocalId>91165-v2</LocalId>
+        <Name>Demonstrate understanding of the properties of selected organic compounds</Name>
+        <ObjectType>StudentAssessmentTaskResult</ObjectType>
+        <AssessmentType>EXT</AssessmentType>
+        <Result>Achieved</Result>
+        <Date>2016-06-28</Date>
+        <CreditValue>4</CreditValue>
+      </Justification>
+      <Justification>
+        <RefId>eca0da5d-94af-4223-aaa6-7c0083006efd</RefId>
+        <LocalId>91166-v2</LocalId>
+        <Name>Demonstrate understanding of chemical reactivity</Name>
+        <ObjectType>StudentAssessmentTaskResult</ObjectType>
+        <AssessmentType>INT</AssessmentType>
+        <Result>Achieved with merit</Result>
+        <Date>2016-06-01</Date>
+        <CreditValue>3</CreditValue>
+      </Justification>
+      <Justification>
+        <RefId>12f4761d-5e97-4e12-804e-e16d882c86c7</RefId>
+        <LocalId>91167-v2</LocalId>
+        <Name>Demonstrate understanding of oxidation-reduction</Name>
+        <ObjectType>StudentAssessmentTaskResult</ObjectType>
+        <AssessmentType>EXT</AssessmentType>
+        <Result>Achieved</Result>
+        <Date>2016-06-28</Date>
+        <CreditValue>3</CreditValue>
+      </Justification>
+    </JustificationList>
+    <SubjectAreaList>
+      <SubjectArea>CHEM</SubjectArea>
+    </SubjectAreaList>
+  </StudentAttainment>
+  <Error>
+    <error>1009</error>
+    <when>2020-07-16T20:00:46.000Z</when>
+    <errorstr>Bad field: PersonInfo-Name-FamilyName: missing required field PersonInfo-Name-FamilyName (LastName) 'None'</errorstr>
+    <localId>ST-002</localId>
+    <refId/>
+  </Error>      
+</Response>]]></con:sampleContent>
+    </con:representation>
+    <con:representation type="REQUEST">
+      <con:mediaType>application/json</con:mediaType>
+      <con:params/>
+      <con:sampleContent>{
+  "StudentAttainments" : {
+    "StudentAttainment" : [ {
+      "StudentAttainmentRefId" : "359d7510-1ad0-a9d7-a8c3-dad0a85103a2",
+      "StudentAttainmentLocalId" : "CRED-HPotter-48",
+      "GrantingOrganisation" : {
+        "RefId" : "8772"
+      },
+      "Attainment" : {
+        "RefId" : "d0a0a27a-d0a8-510a-d9d7-5101a8c3da39",
+        "Name" : "NCEA Level 2 Chemistry - Endorsed with merit",
+        "ObjectType" : "Credential"
+      },
+      "Student" : {
+        "RefId" : "cd106d6d-d9d5-41fb-9943-5feb967c9435",
+        "LocalId" : "HP85-1039",
+        "Name" : "Harry Potter"
+      },
+      "YearAttained" : 2018,
+      "DateAttained" : "2018-07-25T00:00:00+1200",
+      "JustificationList" : {
+        "Justification" : [ {
+          "RefId" : "2752a16b-b62a-4973-9d44-23e13e1c037b",
+          "LocalId" : "91165-v2",
+          "Name" : "Demonstrate understanding of the properties of selected organic compounds",
+          "ObjectType" : "StudentAssessmentTaskResult",
+          "AssessmentType" : "EXT",
+          "Result" : "Achieved",
+          "Date" : "2016-06-28T00:00:00+1200",
+          "CreditValue" : 4
+        }, {
+          "RefId" : "eca0da5d-94af-4223-aaa6-7c0083006efd",
+          "LocalId" : "91166-v2",
+          "Name" : "Demonstrate understanding of chemical reactivity",
+          "ObjectType" : "StudentAssessmentTaskResult",
+          "AssessmentType" : "INT",
+          "Result" : "Achieved with merit",
+          "Date" : "2016-06-01T00:00:00+1200",
+          "CreditValue" : 3
+        }, {
+          "RefId" : "12f4761d-5e97-4e12-804e-e16d882c86c7",
+          "LocalId" : "91167-v2",
+          "Name" : "Demonstrate understanding of oxidation-reduction",
+          "ObjectType" : "StudentAssessmentTaskResult",
+          "AssessmentType" : "EXT",
+          "Result" : "Achieved",
+          "Date" : "2016-06-28T00:00:00+1200",
+          "CreditValue" : 3
+        } ]
+      },
+      "SubjectAreaList" : {
+        "SubjectArea" : [ "CHEM" ]
+      }
+    } ]
+  }
+}</con:sampleContent>
+    </con:representation>
+    <con:representation type="REQUEST">
+      <con:mediaType>application/xml</con:mediaType>
+      <con:params/>
+      <con:sampleContent><![CDATA[<StudentAttainments>
+  <StudentAttainment>
+    <StudentAttainmentRefId>359d7510-1ad0-a9d7-a8c3-dad0a85103a2</StudentAttainmentRefId>
+    <GrantingOrganisation>
+      <RefId>8772</RefId>
+    </GrantingOrganisation>
+    <Attainment>
+      <RefId>d0a0a27a-d0a8-510a-d9d7-5101a8c3da39</RefId>
+      <Name>NCEA Level 2 Chemistry - Endorsed with merit</Name>
+      <ObjectType>Credential</ObjectType>
+    </Attainment>
+    <Student>
+      <RefId>cd106d6d-d9d5-41fb-9943-5feb967c9435</RefId>
+      <LocalId>HP85-1039</LocalId>
+      <Name>Harry Potter</Name>
+    </Student>
+    </DateAttained>2018-07-25</DateAttained>
+    <JustificationList>
+      <Justification>
+        <RefId>2752a16b-b62a-4973-9d44-23e13e1c037b</RefId>
+        <LocalId>91165-v2</LocalId>
+        <Name>Demonstrate understanding of the properties of selected organic compounds</Name>
+        <ObjectType>StudentAssessmentTaskResult</ObjectType>
+        <AssessmentType>EXT</AssessmentType>
+        <Result>Achieved</Result>
+        <Date>2016-06-28</Date>
+        <CreditValue>4</CreditValue>
+      </Justification>
+      <Justification>
+        <RefId>eca0da5d-94af-4223-aaa6-7c0083006efd</RefId>
+        <LocalId>91166-v2</LocalId>
+        <Name>Demonstrate understanding of chemical reactivity</Name>
+        <ObjectType>StudentAssessmentTaskResult</ObjectType>
+        <AssessmentType>INT</AssessmentType>
+        <Result>Achieved with merit</Result>
+        <Date>2016-06-01</Date>
+        <CreditValue>3</CreditValue>
+      </Justification>
+      <Justification>
+        <RefId>12f4761d-5e97-4e12-804e-e16d882c86c7</RefId>
+        <LocalId>91167-v2</LocalId>
+        <Name>Demonstrate understanding of oxidation-reduction</Name>
+        <ObjectType>StudentAssessmentTaskResult</ObjectType>
+        <AssessmentType>EXT</AssessmentType>
+        <Result>Achieved</Result>
+        <Date>2016-06-28</Date>
+        <CreditValue>3</CreditValue>
+      </Justification>
+    </JustificationList>
+    <SubjectAreaList>
+      <SubjectArea>CHEM</SubjectArea>
+    </SubjectAreaList>
+  </StudentAttainment>
+</StudentAttainments>]]></con:sampleContent>
+    </con:representation>
+    <con:request name="Request 1" id="42a4d3e9-7c09-4ce6-894d-a731996d5a19" mediaType="application/json">
+      <con:settings/>
+      <con:endpoint>https://northern.edsby.co.nz/sif</con:endpoint>
+      <con:request>{\r
+  "StudentAttainments" : {\r
+    "StudentAttainment" : [ {\r
+      "StudentAttainmentRefId" : "359d7510-1ad0-a9d7-a8c3-dad0a85103a2",\r
+      "StudentAttainmentLocalId" : "CRED-HPotter-48",\r
+      "GrantingOrganisation" : {\r
+        "RefId" : "8772"\r
+      },\r
+      "Attainment" : {\r
+        "RefId" : "d0a0a27a-d0a8-510a-d9d7-5101a8c3da39",\r
+        "Name" : "NCEA Level 2 Chemistry - Endorsed with merit",\r
+        "ObjectType" : "Credential"\r
+      },\r
+      "Student" : {\r
+        "RefId" : "cd106d6d-d9d5-41fb-9943-5feb967c9435",\r
+        "LocalId" : "HP85-1039",\r
+        "Name" : "Harry Potter"\r
+      },\r
+      "YearAttained" : 2018,\r
+      "DateAttained" : "2018-07-25T00:00:00+1200",\r
+      "JustificationList" : {\r
+        "Justification" : [ {\r
+          "RefId" : "2752a16b-b62a-4973-9d44-23e13e1c037b",\r
+          "LocalId" : "91165-v2",\r
+          "Name" : "Demonstrate understanding of the properties of selected organic compounds",\r
+          "ObjectType" : "StudentAssessmentTaskResult",\r
+          "AssessmentType" : "EXT",\r
+          "Result" : "Achieved",\r
+          "Date" : "2016-06-28T00:00:00+1200",\r
+          "CreditValue" : 4\r
+        }, {\r
+          "RefId" : "eca0da5d-94af-4223-aaa6-7c0083006efd",\r
+          "LocalId" : "91166-v2",\r
+          "Name" : "Demonstrate understanding of chemical reactivity",\r
+          "ObjectType" : "StudentAssessmentTaskResult",\r
+          "AssessmentType" : "INT",\r
+          "Result" : "Achieved with merit",\r
+          "Date" : "2016-06-01T00:00:00+1200",\r
+          "CreditValue" : 3\r
+        }, {\r
+          "RefId" : "12f4761d-5e97-4e12-804e-e16d882c86c7",\r
+          "LocalId" : "91167-v2",\r
+          "Name" : "Demonstrate understanding of oxidation-reduction",\r
+          "ObjectType" : "StudentAssessmentTaskResult",\r
+          "AssessmentType" : "EXT",\r
+          "Result" : "Achieved",\r
+          "Date" : "2016-06-28T00:00:00+1200",\r
+          "CreditValue" : 3\r
+        } ]\r
+      },\r
+      "SubjectAreaList" : {\r
+        "SubjectArea" : [ "CHEM" ]\r
+      }\r
+    } ]\r
+  }\r
+}</con:request>
+      <con:parameters/>
+    </con:request>
+    <con:request name="Request 2" id="abdfa386-bc6b-4f47-a5e7-f584b3f2d8b3" mediaType="application/xml">
+      <con:settings/>
+      <con:endpoint>https://northern.edsby.co.nz/sif</con:endpoint>
+      <con:request><![CDATA[<StudentAttainments>
+  <StudentAttainment>
+    <StudentAttainmentRefId>359d7510-1ad0-a9d7-a8c3-dad0a85103a2</StudentAttainmentRefId>
+    <GrantingOrganisation>
+      <RefId>8772</RefId>
+    </GrantingOrganisation>
+    <Attainment>
+      <RefId>d0a0a27a-d0a8-510a-d9d7-5101a8c3da39</RefId>
+      <Name>NCEA Level 2 Chemistry - Endorsed with merit</Name>
+      <ObjectType>Credential</ObjectType>
+    </Attainment>
+    <Student>
+      <RefId>cd106d6d-d9d5-41fb-9943-5feb967c9435</RefId>
+      <LocalId>HP85-1039</LocalId>
+      <Name>Harry Potter</Name>
+    </Student>
+    </DateAttained>2018-07-25</DateAttained>
+    <JustificationList>
+      <Justification>
+        <RefId>2752a16b-b62a-4973-9d44-23e13e1c037b</RefId>
+        <LocalId>91165-v2</LocalId>
+        <Name>Demonstrate understanding of the properties of selected organic compounds</Name>
+        <ObjectType>StudentAssessmentTaskResult</ObjectType>
+        <AssessmentType>EXT</AssessmentType>
+        <Result>Achieved</Result>
+        <Date>2016-06-28</Date>
+        <CreditValue>4</CreditValue>
+      </Justification>
+      <Justification>
+        <RefId>eca0da5d-94af-4223-aaa6-7c0083006efd</RefId>
+        <LocalId>91166-v2</LocalId>
+        <Name>Demonstrate understanding of chemical reactivity</Name>
+        <ObjectType>StudentAssessmentTaskResult</ObjectType>
+        <AssessmentType>INT</AssessmentType>
+        <Result>Achieved with merit</Result>
+        <Date>2016-06-01</Date>
+        <CreditValue>3</CreditValue>
+      </Justification>
+      <Justification>
+        <RefId>12f4761d-5e97-4e12-804e-e16d882c86c7</RefId>
+        <LocalId>91167-v2</LocalId>
+        <Name>Demonstrate understanding of oxidation-reduction</Name>
+        <ObjectType>StudentAssessmentTaskResult</ObjectType>
+        <AssessmentType>EXT</AssessmentType>
+        <Result>Achieved</Result>
+        <Date>2016-06-28</Date>
+        <CreditValue>3</CreditValue>
+      </Justification>
+    </JustificationList>
+    <SubjectAreaList>
+      <SubjectArea>CHEM</SubjectArea>
+    </SubjectAreaList>
+  </StudentAttainment>
+</StudentAttainments>]]></con:request>
+      <con:parameters/>
+    </con:request>
+  </con:method>
+  <con:method name="updateStudentAttainments" id="b04cff27-4b56-44f7-83fd-cb5aa365f9c0" method="PUT">
+    <con:description><![CDATA[<p>Bulk operation to update one or more students' achievement of some <a href="#tag/Credential">Credential</a>, <a href="#tag/LearningStandard">LearningStandard</a>, or completing a <a href="#tag/ProviderCourse">ProviderCourse</a>, within the scope of the  Provider the students are enrolled in.]]></con:description>
+    <con:settings/>
+    <con:parameters>
+      <con:parameter required="true">
+        <con:name>Accept</con:name>
+        <con:style>HEADER</con:style>
+        <con:description>Standard HTTP accept header, choose between JSON and XML for response. Defaults to XML if this header is missing.</con:description>
+      </con:parameter>
+      <con:parameter required="true">
+        <con:name>X-Edsby-APIClientId</con:name>
+        <con:style>HEADER</con:style>
+        <con:description>&lt;p>Identifies the client making the API call to network infrastructure allowing WAFs to conduct rate limiting, gather usage statistics, etc. without having to unpack the username, subject claim or API key from the Authorization header.&lt;/p> &lt;p>Must be populated with the subject claim GUID from the access token in the Authorization header.&lt;/p></con:description>
+      </con:parameter>
+      <con:parameter required="true">
+        <con:name>X-Edsby-OrganisationRefId</con:name>
+        <con:style>HEADER</con:style>
+        <con:description>&lt;p>The Ministry of Education Organisation Id of the Provider(or other Organisation); used to limit the scope of the API endpoint to a particular MoE Organisation.&lt;/p></con:description>
+      </con:parameter>
+    </con:parameters>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>200</con:status>
+      <con:params/>
+      <con:description>Update successful; returns updated objects</con:description>
+      <con:sampleContent>{
+  "$ref" : "#/paths/~1studentattainment/post/requestBody/content/application~1json/example"
+}</con:sampleContent>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/xml</con:mediaType>
+      <con:status>200</con:status>
+      <con:params/>
+      <con:description>Update successful; returns updated objects</con:description>
+      <con:sampleContent>&lt;ObjectNode>&lt;$ref>#/paths/~1studentattainment/post/requestBody/content/application~1xml/example&lt;/$ref>&lt;/ObjectNode></con:sampleContent>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>400</con:status>
+      <con:params/>
+      <con:description>Bad request - Request body invalid, Content, Accept, X-Edsby-OrganisationRefId, X-Edsby-APIClientId or other required Headers missing, etc.</con:description>
+      <con:sampleContent>{
+  "error" : 400,
+  "when" : "2020-07-16T20:00:46.000Z",
+  "errorstr" : "Unprocessable request: Request body invalid according to JSON schema? Accept or X-Edsby-OrganisationRefId header missing?"
+}</con:sampleContent>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>401</con:status>
+      <con:params/>
+      <con:description>Unauthorised - Authorization header missing, or contents incorrect.</con:description>
+      <con:sampleContent>{
+  "error" : 401,
+  "when" : "2020-07-16T20:00:46.000Z",
+  "errorstr" : "Unauthorised request: Authorisation header missing, or incorrect."
+}</con:sampleContent>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>403</con:status>
+      <con:params/>
+      <con:description>Forbidden - API client has successfully authenticated, but is not authorised to make this API call</con:description>
+      <con:sampleContent>{
+  "error" : 401,
+  "when" : "2020-07-16T20:00:46.000Z",
+  "errorstr" : "Forbidden request: API endpoint not permitted to client"
+}</con:sampleContent>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>404</con:status>
+      <con:params/>
+      <con:description>Not Found - resource in URL not found.</con:description>
+      <con:sampleContent>{
+  "error" : 404,
+  "when" : "2020-07-16T20:00:46.000Z",
+  "errorstr" : "Not Found: URL doesn't refer to known object"
+}</con:sampleContent>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>422</con:status>
+      <con:params/>
+      <con:description>Some objects updated, some updates failed</con:description>
+      <con:sampleContent>{
+  "$ref" : "#/paths/~1studentattainment/post/responses/422/content/application~1json/example"
+}</con:sampleContent>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/xml</con:mediaType>
+      <con:status>422</con:status>
+      <con:params/>
+      <con:description>Some objects updated, some updates failed</con:description>
+      <con:sampleContent>&lt;ObjectNode>&lt;$ref>#/paths/~1studentattainment/post/responses/422/content/application~1xml/example&lt;/$ref>&lt;/ObjectNode></con:sampleContent>
+    </con:representation>
+    <con:representation type="REQUEST">
+      <con:mediaType>application/json</con:mediaType>
+      <con:params/>
+      <con:sampleContent>{
+  "$ref" : "#/paths/~1studentattainment/post/requestBody/content/application~1json/example"
+}</con:sampleContent>
+    </con:representation>
+    <con:representation type="REQUEST">
+      <con:mediaType>application/xml</con:mediaType>
+      <con:params/>
+      <con:sampleContent>&lt;ObjectNode>&lt;$ref>#/paths/~1studentattainment/post/requestBody/content/application~1xml/example&lt;/$ref>&lt;/ObjectNode></con:sampleContent>
+    </con:representation>
+    <con:request name="Request 1" id="864c2aa8-8f4a-4a6a-9cbe-9c81cfc7a10c" mediaType="application/json">
+      <con:settings/>
+      <con:endpoint>https://northern.edsby.co.nz/sif</con:endpoint>
+      <con:request>{\r
+  "$ref" : "#/paths/~1studentattainment/post/requestBody/content/application~1json/example"\r
+}</con:request>
+      <con:parameters/>
+    </con:request>
+    <con:request name="Request 2" id="efd286d1-2552-4de6-8565-6472dc651fe9" mediaType="application/xml">
+      <con:settings/>
+      <con:endpoint>https://northern.edsby.co.nz/sif</con:endpoint>
+      <con:request>&lt;ObjectNode>&lt;$ref>#/paths/~1studentattainment/post/requestBody/content/application~1xml/example&lt;/$ref>&lt;/ObjectNode></con:request>
+      <con:parameters/>
+    </con:request>
+  </con:method>
+  <con:method name="patchStudentAttainments" id="74ae10df-f83b-446d-8176-4fdd736f956e" method="PATCH">
+    <con:description><![CDATA[<p>Bulk operation to update one or more fields of one or more students' achievement of some <a href="#tag/Credential">Credential</a>, <a href="#tag/LearningStandard">LearningStandard</a>, or completing a <a href="#tag/ProviderCourse">ProviderCourse</a>, within the scope of the  Provider the students are enrolled in.]]></con:description>
+    <con:settings/>
+    <con:parameters>
+      <con:parameter required="true">
+        <con:name>Accept</con:name>
+        <con:style>HEADER</con:style>
+        <con:description>Standard HTTP accept header, choose between JSON and XML for response. Defaults to XML if this header is missing.</con:description>
+      </con:parameter>
+      <con:parameter required="true">
+        <con:name>X-Edsby-APIClientId</con:name>
+        <con:style>HEADER</con:style>
+        <con:description>&lt;p>Identifies the client making the API call to network infrastructure allowing WAFs to conduct rate limiting, gather usage statistics, etc. without having to unpack the username, subject claim or API key from the Authorization header.&lt;/p> &lt;p>Must be populated with the subject claim GUID from the access token in the Authorization header.&lt;/p></con:description>
+      </con:parameter>
+      <con:parameter required="true">
+        <con:name>X-Edsby-OrganisationRefId</con:name>
+        <con:style>HEADER</con:style>
+        <con:description>&lt;p>The Ministry of Education Organisation Id of the Provider(or other Organisation); used to limit the scope of the API endpoint to a particular MoE Organisation.&lt;/p></con:description>
+      </con:parameter>
+    </con:parameters>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>200</con:status>
+      <con:params/>
+      <con:description>Patch successful; returns patched objects</con:description>
+      <con:sampleContent>{
+  "$ref" : "#/paths/~1studentattainment/post/requestBody/content/application~1json/example"
+}</con:sampleContent>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/xml</con:mediaType>
+      <con:status>200</con:status>
+      <con:params/>
+      <con:description>Patch successful; returns patched objects</con:description>
+      <con:sampleContent>&lt;ObjectNode>&lt;$ref>#/paths/~1studentattainment/post/requestBody/content/application~1xml/example&lt;/$ref>&lt;/ObjectNode></con:sampleContent>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>400</con:status>
+      <con:params/>
+      <con:description>Bad request - Request body invalid, Content, Accept, X-Edsby-OrganisationRefId, X-Edsby-APIClientId or other required Headers missing, etc.</con:description>
+      <con:sampleContent>{
+  "error" : 400,
+  "when" : "2020-07-16T20:00:46.000Z",
+  "errorstr" : "Unprocessable request: Request body invalid according to JSON schema? Accept or X-Edsby-OrganisationRefId header missing?"
+}</con:sampleContent>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>401</con:status>
+      <con:params/>
+      <con:description>Unauthorised - Authorization header missing, or contents incorrect.</con:description>
+      <con:sampleContent>{
+  "error" : 401,
+  "when" : "2020-07-16T20:00:46.000Z",
+  "errorstr" : "Unauthorised request: Authorisation header missing, or incorrect."
+}</con:sampleContent>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>403</con:status>
+      <con:params/>
+      <con:description>Forbidden - API client has successfully authenticated, but is not authorised to make this API call</con:description>
+      <con:sampleContent>{
+  "error" : 401,
+  "when" : "2020-07-16T20:00:46.000Z",
+  "errorstr" : "Forbidden request: API endpoint not permitted to client"
+}</con:sampleContent>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>404</con:status>
+      <con:params/>
+      <con:description>Not Found - resource in URL not found.</con:description>
+      <con:sampleContent>{
+  "error" : 404,
+  "when" : "2020-07-16T20:00:46.000Z",
+  "errorstr" : "Not Found: URL doesn't refer to known object"
+}</con:sampleContent>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>422</con:status>
+      <con:params/>
+      <con:description>Some objects patched, some patches failed</con:description>
+      <con:sampleContent>{
+  "$ref" : "#/paths/~1studentattainment/post/responses/422/content/application~1json/example"
+}</con:sampleContent>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/xml</con:mediaType>
+      <con:status>422</con:status>
+      <con:params/>
+      <con:description>Some objects patched, some patches failed</con:description>
+      <con:sampleContent>&lt;ObjectNode>&lt;$ref>#/paths/~1studentattainment/post/responses/422/content/application~1xml/example&lt;/$ref>&lt;/ObjectNode></con:sampleContent>
+    </con:representation>
+    <con:representation type="REQUEST">
+      <con:mediaType>application/json</con:mediaType>
+      <con:params/>
+      <con:sampleContent>{
+  "$ref" : "#/paths/~1studentattainment/post/requestBody/content/application~1json/example"
+}</con:sampleContent>
+    </con:representation>
+    <con:representation type="REQUEST">
+      <con:mediaType>application/xml</con:mediaType>
+      <con:params/>
+      <con:sampleContent>&lt;ObjectNode>&lt;$ref>#/paths/~1studentattainment/post/requestBody/content/application~1xml/example&lt;/$ref>&lt;/ObjectNode></con:sampleContent>
+    </con:representation>
+    <con:request name="Request 1" id="2db7e45c-6324-402a-8463-4132ac1cf328" mediaType="application/json">
+      <con:settings/>
+      <con:endpoint>https://northern.edsby.co.nz/sif</con:endpoint>
+      <con:request>{\r
+  "$ref" : "#/paths/~1studentattainment/post/requestBody/content/application~1json/example"\r
+}</con:request>
+      <con:parameters/>
+    </con:request>
+    <con:request name="Request 2" id="2eea5439-db74-4290-bc78-3767af969db8" mediaType="application/xml">
+      <con:settings/>
+      <con:endpoint>https://northern.edsby.co.nz/sif</con:endpoint>
+      <con:request>&lt;ObjectNode>&lt;$ref>#/paths/~1studentattainment/post/requestBody/content/application~1xml/example&lt;/$ref>&lt;/ObjectNode></con:request>
+      <con:parameters/>
+    </con:request>
+  </con:method>
+</con:resource>

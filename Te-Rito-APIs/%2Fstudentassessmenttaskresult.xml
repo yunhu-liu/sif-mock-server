@@ -1,0 +1,788 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:resource name="/studentassessmenttaskresult" path="/studentassessmenttaskresult" id="7467f587-ee68-4d59-995f-e56533b9f0eb" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="7467f587-ee68-4d59-995f-e56533b9f0ebfileName">%2Fstudentassessmenttaskresult</con:setting>
+  </con:settings>
+  <con:parameters/>
+  <con:method name="getStudentAssessmentTaskResults" id="5f824a4f-a3e5-464d-afa3-ed2e74a95e77" method="GET">
+    <con:description>&lt;p>Bulk operation to retrieve one or more results from students' attempts at one or more assignments, essays, class tests, internal or external assessment exams, or any other tasks that are set to students and assessed as part of the learning process, within the scope of the Provider that the student is enrolled in.&lt;/p></con:description>
+    <con:settings/>
+    <con:parameters>
+      <con:parameter>
+        <con:name>fields</con:name>
+        <con:style>QUERY</con:style>
+        <con:description>Return only specified fields	`fields=name,nid`</con:description>
+      </con:parameter>
+      <con:parameter>
+        <con:name>page</con:name>
+        <con:style>QUERY</con:style>
+        <con:description>Return nth page of results; default 0	`page=2`; applies to any call with repeated data</con:description>
+      </con:parameter>
+      <con:parameter>
+        <con:name>max</con:name>
+        <con:style>QUERY</con:style>
+        <con:description>Maximum items per page, default 10,000; `max=100`; applies to any call with repeated data</con:description>
+      </con:parameter>
+      <con:parameter>
+        <con:name>unwrap</con:name>
+        <con:style>QUERY</con:style>
+        <con:description>Remove top level wrapper from json results in single result reponses;	`unwrap=1`</con:description>
+      </con:parameter>
+      <con:parameter>
+        <con:name>human</con:name>
+        <con:style>QUERY</con:style>
+        <con:description>For code set fields, translate code to human readable form;	`human=1`</con:description>
+      </con:parameter>
+      <con:parameter>
+        <con:name>sort</con:name>
+        <con:style>QUERY</con:style>
+        <con:description>Sort results by specified field;	`sort=FamilyName`</con:description>
+      </con:parameter>
+      <con:parameter>
+        <con:name>field</con:name>
+        <con:style>QUERY</con:style>
+        <con:description>Field to filter on when used with **pattern**;	`field=FamilyName`</con:description>
+      </con:parameter>
+      <con:parameter>
+        <con:name>pattern</con:name>
+        <con:style>QUERY</con:style>
+        <con:description>Filter results using pattern on **field**; `pattern=We*`</con:description>
+      </con:parameter>
+      <con:parameter required="true">
+        <con:name>Accept</con:name>
+        <con:style>HEADER</con:style>
+        <con:description>Standard HTTP accept header, choose between JSON and XML for response. Defaults to XML if this header is missing.</con:description>
+      </con:parameter>
+      <con:parameter required="true">
+        <con:name>X-Edsby-APIClientId</con:name>
+        <con:style>HEADER</con:style>
+        <con:description>&lt;p>Identifies the client making the API call to network infrastructure allowing WAFs to conduct rate limiting, gather usage statistics, etc. without having to unpack the username, subject claim or API key from the Authorization header.&lt;/p> &lt;p>Must be populated with the subject claim GUID from the access token in the Authorization header.&lt;/p></con:description>
+      </con:parameter>
+      <con:parameter required="true">
+        <con:name>X-Edsby-OrganisationRefId</con:name>
+        <con:style>HEADER</con:style>
+        <con:description>&lt;p>The Ministry of Education Organisation Id of the Provider(or other Organisation); used to limit the scope of the API endpoint to a particular MoE Organisation.&lt;/p></con:description>
+      </con:parameter>
+    </con:parameters>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>200</con:status>
+      <con:params/>
+      <con:description>successful operation</con:description>
+      <con:sampleContent>{
+  "$ref" : "#/paths/~1studentassessmenttaskresult/post/requestBody/content/application~1json/example"
+}</con:sampleContent>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/xml</con:mediaType>
+      <con:status>200</con:status>
+      <con:params/>
+      <con:description>successful operation</con:description>
+      <con:sampleContent>&lt;ObjectNode>&lt;$ref>#/paths/~1studentassessmenttaskresult/post/requestBody/content/application~1xml/example&lt;/$ref>&lt;/ObjectNode></con:sampleContent>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>401</con:status>
+      <con:params/>
+      <con:description>Unauthorised - Authorization header missing, or contents incorrect.</con:description>
+      <con:sampleContent>{
+  "error" : 401,
+  "when" : "2020-07-16T20:00:46.000Z",
+  "errorstr" : "Unauthorised request: Authorisation header missing, or incorrect."
+}</con:sampleContent>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>403</con:status>
+      <con:params/>
+      <con:description>Forbidden - API client has successfully authenticated, but is not authorised to make this API call</con:description>
+      <con:sampleContent>{
+  "error" : 401,
+  "when" : "2020-07-16T20:00:46.000Z",
+  "errorstr" : "Forbidden request: API endpoint not permitted to client"
+}</con:sampleContent>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>404</con:status>
+      <con:params/>
+      <con:description>Not Found - resource in URL not found.</con:description>
+      <con:sampleContent>{
+  "error" : 404,
+  "when" : "2020-07-16T20:00:46.000Z",
+  "errorstr" : "Not Found: URL doesn't refer to known object"
+}</con:sampleContent>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>422</con:status>
+      <con:params/>
+      <con:description>Failed to retrieve object(s).</con:description>
+      <con:sampleContent>{
+  "error" : 1009,
+  "when" : "2020-07-16T20:00:46.000Z",
+  "errorstr" : "Bad field: PersonInfo-Name-FamilyName: missing required field PersonInfo-Name-FamilyName (LastName) 'None'",
+  "localId" : "ST-002"
+}</con:sampleContent>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/xml</con:mediaType>
+      <con:status>422</con:status>
+      <con:params/>
+      <con:description>Failed to retrieve object(s).</con:description>
+      <con:sampleContent><![CDATA[<Error>
+  <error>1009</error>
+  <when>2020-07-16T20:00:46.000Z</when>
+  <errorstr>Bad field: PersonInfo-Name-FamilyName: missing required field PersonInfo-Name-FamilyName (LastName) 'None'</errorstr>
+  <localId>ST-002</localId>
+</Error>]]></con:sampleContent>
+    </con:representation>
+    <con:request name="Request 1" id="f293a810-12cb-42cf-8fce-d5639c0e8847" mediaType="application/json">
+      <con:settings/>
+      <con:endpoint>https://northern.edsby.co.nz/sif</con:endpoint>
+      <con:parameters/>
+    </con:request>
+  </con:method>
+  <con:method name="createStudentAssessmentTaskResults" id="13846a49-b154-453c-b6c1-dc109057a091" method="POST">
+    <con:description>&lt;p>Bulk operation to create one or more results from students' attempts at one or more assignments, essays, class tests, internal or external assessment exams, or any other tasks that are set to students and assessed as part of the learning process, within the scope of the Provider that the student is enrolled in.&lt;/p></con:description>
+    <con:settings/>
+    <con:parameters>
+      <con:parameter>
+        <con:name>x-http-method-override</con:name>
+        <con:style>HEADER</con:style>
+        <con:description>Rather than CREATE records, treat this request as a SYNC request.</con:description>
+      </con:parameter>
+      <con:parameter required="true">
+        <con:name>Accept</con:name>
+        <con:style>HEADER</con:style>
+        <con:description>Standard HTTP accept header, choose between JSON and XML for response. Defaults to XML if this header is missing.</con:description>
+      </con:parameter>
+      <con:parameter required="true">
+        <con:name>X-Edsby-APIClientId</con:name>
+        <con:style>HEADER</con:style>
+        <con:description>&lt;p>Identifies the client making the API call to network infrastructure allowing WAFs to conduct rate limiting, gather usage statistics, etc. without having to unpack the username, subject claim or API key from the Authorization header.&lt;/p> &lt;p>Must be populated with the subject claim GUID from the access token in the Authorization header.&lt;/p></con:description>
+      </con:parameter>
+      <con:parameter required="true">
+        <con:name>X-Edsby-OrganisationRefId</con:name>
+        <con:style>HEADER</con:style>
+        <con:description>&lt;p>The Ministry of Education Organisation Id of the Provider(or other Organisation); used to limit the scope of the API endpoint to a particular MoE Organisation.&lt;/p></con:description>
+      </con:parameter>
+    </con:parameters>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>200</con:status>
+      <con:params/>
+      <con:description>Create successful; returns created objects</con:description>
+      <con:sampleContent>{
+  "$ref" : "#/paths/~1studentassessmenttaskresult/post/requestBody/content/application~1json/example"
+}</con:sampleContent>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/xml</con:mediaType>
+      <con:status>200</con:status>
+      <con:params/>
+      <con:description>Create successful; returns created objects</con:description>
+      <con:sampleContent>&lt;ObjectNode>&lt;$ref>#/paths/~1studentassessmenttaskresult/post/requestBody/content/application~1xml/example&lt;/$ref>&lt;/ObjectNode></con:sampleContent>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>400</con:status>
+      <con:params/>
+      <con:description>Bad request - Request body invalid, Content, Accept, X-Edsby-OrganisationRefId, X-Edsby-APIClientId or other required Headers missing, etc.</con:description>
+      <con:sampleContent>{
+  "error" : 400,
+  "when" : "2020-07-16T20:00:46.000Z",
+  "errorstr" : "Unprocessable request: Request body invalid according to JSON schema? Accept or X-Edsby-OrganisationRefId header missing?"
+}</con:sampleContent>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>401</con:status>
+      <con:params/>
+      <con:description>Unauthorised - Authorization header missing, or contents incorrect.</con:description>
+      <con:sampleContent>{
+  "error" : 401,
+  "when" : "2020-07-16T20:00:46.000Z",
+  "errorstr" : "Unauthorised request: Authorisation header missing, or incorrect."
+}</con:sampleContent>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>403</con:status>
+      <con:params/>
+      <con:description>Forbidden - API client has successfully authenticated, but is not authorised to make this API call</con:description>
+      <con:sampleContent>{
+  "error" : 401,
+  "when" : "2020-07-16T20:00:46.000Z",
+  "errorstr" : "Forbidden request: API endpoint not permitted to client"
+}</con:sampleContent>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>404</con:status>
+      <con:params/>
+      <con:description>Not Found - resource in URL not found.</con:description>
+      <con:sampleContent>{
+  "error" : 404,
+  "when" : "2020-07-16T20:00:46.000Z",
+  "errorstr" : "Not Found: URL doesn't refer to known object"
+}</con:sampleContent>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>422</con:status>
+      <con:params/>
+      <con:description>Some objects created, some creates failed</con:description>
+      <con:sampleContent>[ {
+  "StudentAssessmentTaskResult" : {
+    "StudentAssessmentTaskResultRefId" : "359d7510-1ad0-a9d7-a8c3-dad0a85103a2",
+    "StudentAssessmentTaskResultLocalId" : "RSLT-HPotter-3a",
+    "AssessmentType" : "INT",
+    "Student" : {
+      "RefId" : "a75a0010-1a8c-301d-02e3-a05b359d0a00"
+    },
+    "OrganisationInvolvedList" : {
+      "OrganisationInvolved" : [ {
+        "RefId" : "9651",
+        "OrganisationRole" : "PRO"
+      } ]
+    },
+    "SubjectAreaList" : {
+      "SubjectArea" : [ "MATH" ]
+    },
+    "AssessmentMethodology" : "P",
+    "EvaluationType" : "F",
+    "Timeframe" : "OUT",
+    "ResultScoreList" : {
+      "ResultScore" : [ {
+        "Competency" : "Maths",
+        "ScoreMetric" : "RAW",
+        "ScoreValue" : "25"
+      }, {
+        "Competency" : "Maths",
+        "ScoreMetric" : "SCA",
+        "ScoreValue" : "38.5"
+      }, {
+        "Competency" : "Maths",
+        "ScoreMetric" : "MAR",
+        "ScoreValue" : "5.0"
+      }, {
+        "Competency" : "Maths",
+        "ScoreMetric" : "STA",
+        "ScoreValue" : "6"
+      }, {
+        "Competency" : "Maths",
+        "ScoreMetric" : "YEA",
+        "ScoreValue" : "4"
+      } ]
+    }
+  }
+}, {
+  "Error" : {
+    "error" : 1009,
+    "when" : "2020-07-16T20:00:46.000Z",
+    "errorstr" : "Bad field: PersonInfo-Name-FamilyName: missing required field PersonInfo-Name-FamilyName (LastName) 'None'",
+    "localId" : "ST-002",
+    "refId" : null
+  }
+} ]</con:sampleContent>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/xml</con:mediaType>
+      <con:status>422</con:status>
+      <con:params/>
+      <con:description>Some objects created, some creates failed</con:description>
+      <con:sampleContent><![CDATA[<Response>
+  <StudentAssessmentTaskResult>
+    <StudentAssessmentTaskResultRefId>359d7510-1ad0-a9d7-a8c3-dad0a85103a2</StudentAssessmentTaskResultRefId>
+    <AssessmentType>INT</AssessmentType>
+    <Student>
+      <RefId>a75a0010-1a8c-301d-02e3-a05b359d0a00</RefId>
+    </Student>
+    <OrganisationInvolvedList>
+      <OrganisationInvolved>
+        <RefId>9651</RefId>
+        <OrganisationRole>PRO</OrganisationRole>
+      </OrganisationInvolved>
+    </OrganisationInvolvedList>
+    <SubjectAreaList>
+      <SubjectArea>MATH</SubjectArea>
+    </SubjectAreaList>
+    <SummativeIndicator>N</SummativeIndicator>
+    <FormativeIndicator>Y</FormativeIndicator>
+    <ResultScoreList>
+      <ResultScore>
+        <ScoreMetric>RAW</ScoreMetric>
+        <ScoreValue>25</ScoreValue>
+      </ResultScore>
+      <ResultScore>
+        <ScoreMetric>SCA</ScoreMetric>
+        <ScoreValue>38.5</ScoreValue>
+      </ResultScore>
+      <ResultScore>
+        <ScoreMetric>MAR</ScoreMetric>
+        <ScoreValue>5.0</ScoreValue>
+      </ResultScore>
+      <ResultScore>
+        <ScoreMetric>STA</ScoreMetric>
+        <ScoreValue>6</ScoreValue>
+      </ResultScore>
+      <ResultScore>
+        <ScoreMetric>YEA</ScoreMetric>
+        <ScoreValue>4</ScoreValue>
+      </ResultScore>
+    </ResultScoreList>
+  </StudentAssessmentTaskResult>
+  <Error>
+    <error>1009</error>
+    <when>2020-07-16T20:00:46.000Z</when>
+    <errorstr>Bad field: PersonInfo-Name-FamilyName: missing required field PersonInfo-Name-FamilyName (LastName) 'None'</errorstr>
+    <localId>ST-002</localId>
+    <refId/>
+  </Error>      
+</Response>]]></con:sampleContent>
+    </con:representation>
+    <con:representation type="REQUEST">
+      <con:mediaType>application/json</con:mediaType>
+      <con:params/>
+      <con:sampleContent>{
+  "StudentAssessmentTaskResults" : {
+    "StudentAssessmentTaskResult" : [ {
+      "StudentAssessmentTaskResultRefId" : "359d7510-1ad0-a9d7-a8c3-dad0a85103a2",
+      "StudentAssessmentTaskResultLocalId" : "RSLT-HPotter-3a",
+      "AssessmentType" : "INT",
+      "Student" : {
+        "RefId" : "a75a0010-1a8c-301d-02e3-a05b359d0a00"
+      },
+      "OrganisationInvolvedList" : {
+        "OrganisationInvolved" : [ {
+          "RefId" : "9651",
+          "OrganisationRole" : "PRO"
+        } ]
+      },
+      "SubjectAreaList" : {
+        "SubjectArea" : [ "MATH" ]
+      },
+      "AssessmentMethodology" : "P",
+      "EvaluationType" : "F",
+      "Timeframe" : "OUT",
+      "ResultScoreList" : {
+        "ResultScore" : [ {
+          "Competency" : "Maths",
+          "ScoreMetric" : "RAW",
+          "ScoreValue" : "25"
+        }, {
+          "Competency" : "Maths",
+          "ScoreMetric" : "SCA",
+          "ScoreValue" : "38.5"
+        }, {
+          "Competency" : "Maths",
+          "ScoreMetric" : "MAR",
+          "ScoreValue" : "5.0"
+        }, {
+          "Competency" : "Maths",
+          "ScoreMetric" : "STA",
+          "ScoreValue" : "6"
+        }, {
+          "Competency" : "Maths",
+          "ScoreMetric" : "YEA",
+          "ScoreValue" : "4"
+        } ]
+      }
+    } ]
+  }
+}</con:sampleContent>
+    </con:representation>
+    <con:representation type="REQUEST">
+      <con:mediaType>application/xml</con:mediaType>
+      <con:params/>
+      <con:sampleContent><![CDATA[<StudentAssessmentTaskResults>
+  <StudentAssessmentTaskResult>
+    <StudentAssessmentTaskResultRefId>359d7510-1ad0-a9d7-a8c3-dad0a85103a2</StudentAssessmentTaskResultRefId>
+    <AssessmentType>INT</AssessmentType>
+    <Student>
+      <RefId>a75a0010-1a8c-301d-02e3-a05b359d0a00</RefId>
+    </Student>
+    <OrganisationInvolvedList>
+      <OrganisationInvolved>
+        <RefId>9651</RefId>
+        <OrganisationRole>PRO</OrganisationRole>
+      </OrganisationInvolved>
+    </OrganisationInvolvedList>
+    <SubjectAreaList>
+      <SubjectArea>MATH</SubjectArea>
+    </SubjectAreaList>
+    <SummativeIndicator>N</SummativeIndicator>
+    <FormativeIndicator>Y</FormativeIndicator>
+    <ResultScoreList>
+      <ResultScore>
+        <ScoreMetric>RAW</ScoreMetric>
+        <ScoreValue>25</ScoreValue>
+      </ResultScore>
+      <ResultScore>
+        <ScoreMetric>SCA</ScoreMetric>
+        <ScoreValue>38.5</ScoreValue>
+      </ResultScore>
+      <ResultScore>
+        <ScoreMetric>MAR</ScoreMetric>
+        <ScoreValue>5.0</ScoreValue>
+      </ResultScore>
+      <ResultScore>
+        <ScoreMetric>STA</ScoreMetric>
+        <ScoreValue>6</ScoreValue>
+      </ResultScore>
+      <ResultScore>
+        <ScoreMetric>YEA</ScoreMetric>
+        <ScoreValue>4</ScoreValue>
+      </ResultScore>
+    </ResultScoreList>
+  </StudentAssessmentTaskResult>
+</StudentAssessmentTaskResults>]]></con:sampleContent>
+    </con:representation>
+    <con:request name="Request 1" id="7c6fdb99-4ba4-4a05-8bf7-fade04f4fce2" mediaType="application/json">
+      <con:settings/>
+      <con:endpoint>https://northern.edsby.co.nz/sif</con:endpoint>
+      <con:request>{\r
+  "StudentAssessmentTaskResults" : {\r
+    "StudentAssessmentTaskResult" : [ {\r
+      "StudentAssessmentTaskResultRefId" : "359d7510-1ad0-a9d7-a8c3-dad0a85103a2",\r
+      "StudentAssessmentTaskResultLocalId" : "RSLT-HPotter-3a",\r
+      "AssessmentType" : "INT",\r
+      "Student" : {\r
+        "RefId" : "a75a0010-1a8c-301d-02e3-a05b359d0a00"\r
+      },\r
+      "OrganisationInvolvedList" : {\r
+        "OrganisationInvolved" : [ {\r
+          "RefId" : "9651",\r
+          "OrganisationRole" : "PRO"\r
+        } ]\r
+      },\r
+      "SubjectAreaList" : {\r
+        "SubjectArea" : [ "MATH" ]\r
+      },\r
+      "AssessmentMethodology" : "P",\r
+      "EvaluationType" : "F",\r
+      "Timeframe" : "OUT",\r
+      "ResultScoreList" : {\r
+        "ResultScore" : [ {\r
+          "Competency" : "Maths",\r
+          "ScoreMetric" : "RAW",\r
+          "ScoreValue" : "25"\r
+        }, {\r
+          "Competency" : "Maths",\r
+          "ScoreMetric" : "SCA",\r
+          "ScoreValue" : "38.5"\r
+        }, {\r
+          "Competency" : "Maths",\r
+          "ScoreMetric" : "MAR",\r
+          "ScoreValue" : "5.0"\r
+        }, {\r
+          "Competency" : "Maths",\r
+          "ScoreMetric" : "STA",\r
+          "ScoreValue" : "6"\r
+        }, {\r
+          "Competency" : "Maths",\r
+          "ScoreMetric" : "YEA",\r
+          "ScoreValue" : "4"\r
+        } ]\r
+      }\r
+    } ]\r
+  }\r
+}</con:request>
+      <con:parameters/>
+    </con:request>
+    <con:request name="Request 2" id="5e13d9f2-b3a5-46d5-8dbc-c50a70cfe11d" mediaType="application/xml">
+      <con:settings/>
+      <con:endpoint>https://northern.edsby.co.nz/sif</con:endpoint>
+      <con:request><![CDATA[<StudentAssessmentTaskResults>
+  <StudentAssessmentTaskResult>
+    <StudentAssessmentTaskResultRefId>359d7510-1ad0-a9d7-a8c3-dad0a85103a2</StudentAssessmentTaskResultRefId>
+    <AssessmentType>INT</AssessmentType>
+    <Student>
+      <RefId>a75a0010-1a8c-301d-02e3-a05b359d0a00</RefId>
+    </Student>
+    <OrganisationInvolvedList>
+      <OrganisationInvolved>
+        <RefId>9651</RefId>
+        <OrganisationRole>PRO</OrganisationRole>
+      </OrganisationInvolved>
+    </OrganisationInvolvedList>
+    <SubjectAreaList>
+      <SubjectArea>MATH</SubjectArea>
+    </SubjectAreaList>
+    <SummativeIndicator>N</SummativeIndicator>
+    <FormativeIndicator>Y</FormativeIndicator>
+    <ResultScoreList>
+      <ResultScore>
+        <ScoreMetric>RAW</ScoreMetric>
+        <ScoreValue>25</ScoreValue>
+      </ResultScore>
+      <ResultScore>
+        <ScoreMetric>SCA</ScoreMetric>
+        <ScoreValue>38.5</ScoreValue>
+      </ResultScore>
+      <ResultScore>
+        <ScoreMetric>MAR</ScoreMetric>
+        <ScoreValue>5.0</ScoreValue>
+      </ResultScore>
+      <ResultScore>
+        <ScoreMetric>STA</ScoreMetric>
+        <ScoreValue>6</ScoreValue>
+      </ResultScore>
+      <ResultScore>
+        <ScoreMetric>YEA</ScoreMetric>
+        <ScoreValue>4</ScoreValue>
+      </ResultScore>
+    </ResultScoreList>
+  </StudentAssessmentTaskResult>
+</StudentAssessmentTaskResults>]]></con:request>
+      <con:parameters/>
+    </con:request>
+  </con:method>
+  <con:method name="updateStudentAssessmentTaskResults" id="4f7f0efe-ef22-4918-b403-bfa6fc68b1fd" method="PUT">
+    <con:description>&lt;p>Bulk operation to update one or more results from students' attempts at one or more assignments, essays, class tests, internal or external assessment exams, or any other tasks that are set to students and assessed as part of the learning process, within the scope of the Provider that the student is enrolled in.&lt;/p></con:description>
+    <con:settings/>
+    <con:parameters>
+      <con:parameter required="true">
+        <con:name>Accept</con:name>
+        <con:style>HEADER</con:style>
+        <con:description>Standard HTTP accept header, choose between JSON and XML for response. Defaults to XML if this header is missing.</con:description>
+      </con:parameter>
+      <con:parameter required="true">
+        <con:name>X-Edsby-APIClientId</con:name>
+        <con:style>HEADER</con:style>
+        <con:description>&lt;p>Identifies the client making the API call to network infrastructure allowing WAFs to conduct rate limiting, gather usage statistics, etc. without having to unpack the username, subject claim or API key from the Authorization header.&lt;/p> &lt;p>Must be populated with the subject claim GUID from the access token in the Authorization header.&lt;/p></con:description>
+      </con:parameter>
+      <con:parameter required="true">
+        <con:name>X-Edsby-OrganisationRefId</con:name>
+        <con:style>HEADER</con:style>
+        <con:description>&lt;p>The Ministry of Education Organisation Id of the Provider(or other Organisation); used to limit the scope of the API endpoint to a particular MoE Organisation.&lt;/p></con:description>
+      </con:parameter>
+    </con:parameters>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>200</con:status>
+      <con:params/>
+      <con:description>Update successful; returns updated objects</con:description>
+      <con:sampleContent>{
+  "$ref" : "#/paths/~1studentassessmenttaskresult/post/requestBody/content/application~1json/example"
+}</con:sampleContent>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/xml</con:mediaType>
+      <con:status>200</con:status>
+      <con:params/>
+      <con:description>Update successful; returns updated objects</con:description>
+      <con:sampleContent>&lt;ObjectNode>&lt;$ref>#/paths/~1studentassessmenttaskresult/post/requestBody/content/application~1xml/example&lt;/$ref>&lt;/ObjectNode></con:sampleContent>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>400</con:status>
+      <con:params/>
+      <con:description>Bad request - Request body invalid, Content, Accept, X-Edsby-OrganisationRefId, X-Edsby-APIClientId or other required Headers missing, etc.</con:description>
+      <con:sampleContent>{
+  "error" : 400,
+  "when" : "2020-07-16T20:00:46.000Z",
+  "errorstr" : "Unprocessable request: Request body invalid according to JSON schema? Accept or X-Edsby-OrganisationRefId header missing?"
+}</con:sampleContent>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>401</con:status>
+      <con:params/>
+      <con:description>Unauthorised - Authorization header missing, or contents incorrect.</con:description>
+      <con:sampleContent>{
+  "error" : 401,
+  "when" : "2020-07-16T20:00:46.000Z",
+  "errorstr" : "Unauthorised request: Authorisation header missing, or incorrect."
+}</con:sampleContent>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>403</con:status>
+      <con:params/>
+      <con:description>Forbidden - API client has successfully authenticated, but is not authorised to make this API call</con:description>
+      <con:sampleContent>{
+  "error" : 401,
+  "when" : "2020-07-16T20:00:46.000Z",
+  "errorstr" : "Forbidden request: API endpoint not permitted to client"
+}</con:sampleContent>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>404</con:status>
+      <con:params/>
+      <con:description>Not Found - resource in URL not found.</con:description>
+      <con:sampleContent>{
+  "error" : 404,
+  "when" : "2020-07-16T20:00:46.000Z",
+  "errorstr" : "Not Found: URL doesn't refer to known object"
+}</con:sampleContent>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>422</con:status>
+      <con:params/>
+      <con:description>Some objects updated, some updates failed</con:description>
+      <con:sampleContent>{
+  "$ref" : "#/paths/~1studentassessmenttaskresult/post/responses/422/content/application~1json/example"
+}</con:sampleContent>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/xml</con:mediaType>
+      <con:status>422</con:status>
+      <con:params/>
+      <con:description>Some objects updated, some updates failed</con:description>
+      <con:sampleContent>&lt;ObjectNode>&lt;$ref>#/paths/~1studentassessmenttaskresult/post/responses/422/content/application~1xml/example&lt;/$ref>&lt;/ObjectNode></con:sampleContent>
+    </con:representation>
+    <con:representation type="REQUEST">
+      <con:mediaType>application/json</con:mediaType>
+      <con:params/>
+      <con:sampleContent>{
+  "$ref" : "#/paths/~1studentassessmenttaskresult/post/requestBody/content/application~1json/example"
+}</con:sampleContent>
+    </con:representation>
+    <con:representation type="REQUEST">
+      <con:mediaType>application/xml</con:mediaType>
+      <con:params/>
+      <con:sampleContent>&lt;ObjectNode>&lt;$ref>#/paths/~1studentassessmenttaskresult/post/requestBody/content/application~1xml/example&lt;/$ref>&lt;/ObjectNode></con:sampleContent>
+    </con:representation>
+    <con:request name="Request 1" id="fcfba168-b341-4f07-a977-2efc6b65859f" mediaType="application/json">
+      <con:settings/>
+      <con:endpoint>https://northern.edsby.co.nz/sif</con:endpoint>
+      <con:request>{\r
+  "$ref" : "#/paths/~1studentassessmenttaskresult/post/requestBody/content/application~1json/example"\r
+}</con:request>
+      <con:parameters/>
+    </con:request>
+    <con:request name="Request 2" id="3f55bf2d-b9f0-48c5-9b32-546df9d18df4" mediaType="application/xml">
+      <con:settings/>
+      <con:endpoint>https://northern.edsby.co.nz/sif</con:endpoint>
+      <con:request>&lt;ObjectNode>&lt;$ref>#/paths/~1studentassessmenttaskresult/post/requestBody/content/application~1xml/example&lt;/$ref>&lt;/ObjectNode></con:request>
+      <con:parameters/>
+    </con:request>
+  </con:method>
+  <con:method name="patchStudentAssessmentTaskResults" id="005f1bf4-79fe-4fa7-9c3c-6b99416160d8" method="PATCH">
+    <con:description>&lt;p>Bulk operation to update one or more fields of one or more results from students'  attempts at one or more assignments, essays, class tests, internal or external assessment exams, or any other tasks that are set to students and assessed as part of the learning  process, within the scope of the Provider that the student is enrolled in.&lt;/p></con:description>
+    <con:settings/>
+    <con:parameters>
+      <con:parameter required="true">
+        <con:name>Accept</con:name>
+        <con:style>HEADER</con:style>
+        <con:description>Standard HTTP accept header, choose between JSON and XML for response. Defaults to XML if this header is missing.</con:description>
+      </con:parameter>
+      <con:parameter required="true">
+        <con:name>X-Edsby-APIClientId</con:name>
+        <con:style>HEADER</con:style>
+        <con:description>&lt;p>Identifies the client making the API call to network infrastructure allowing WAFs to conduct rate limiting, gather usage statistics, etc. without having to unpack the username, subject claim or API key from the Authorization header.&lt;/p> &lt;p>Must be populated with the subject claim GUID from the access token in the Authorization header.&lt;/p></con:description>
+      </con:parameter>
+      <con:parameter required="true">
+        <con:name>X-Edsby-OrganisationRefId</con:name>
+        <con:style>HEADER</con:style>
+        <con:description>&lt;p>The Ministry of Education Organisation Id of the Provider(or other Organisation); used to limit the scope of the API endpoint to a particular MoE Organisation.&lt;/p></con:description>
+      </con:parameter>
+    </con:parameters>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>200</con:status>
+      <con:params/>
+      <con:description>Patch successful; returns patched objects</con:description>
+      <con:sampleContent>{
+  "$ref" : "#/paths/~1studentassessmenttaskresult/post/requestBody/content/application~1json/example"
+}</con:sampleContent>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/xml</con:mediaType>
+      <con:status>200</con:status>
+      <con:params/>
+      <con:description>Patch successful; returns patched objects</con:description>
+      <con:sampleContent>&lt;ObjectNode>&lt;$ref>#/paths/~1studentassessmenttaskresult/post/requestBody/content/application~1xml/example&lt;/$ref>&lt;/ObjectNode></con:sampleContent>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>400</con:status>
+      <con:params/>
+      <con:description>Bad request - Request body invalid, Content, Accept, X-Edsby-OrganisationRefId, X-Edsby-APIClientId or other required Headers missing, etc.</con:description>
+      <con:sampleContent>{
+  "error" : 400,
+  "when" : "2020-07-16T20:00:46.000Z",
+  "errorstr" : "Unprocessable request: Request body invalid according to JSON schema? Accept or X-Edsby-OrganisationRefId header missing?"
+}</con:sampleContent>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>401</con:status>
+      <con:params/>
+      <con:description>Unauthorised - Authorization header missing, or contents incorrect.</con:description>
+      <con:sampleContent>{
+  "error" : 401,
+  "when" : "2020-07-16T20:00:46.000Z",
+  "errorstr" : "Unauthorised request: Authorisation header missing, or incorrect."
+}</con:sampleContent>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>403</con:status>
+      <con:params/>
+      <con:description>Forbidden - API client has successfully authenticated, but is not authorised to make this API call</con:description>
+      <con:sampleContent>{
+  "error" : 401,
+  "when" : "2020-07-16T20:00:46.000Z",
+  "errorstr" : "Forbidden request: API endpoint not permitted to client"
+}</con:sampleContent>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>404</con:status>
+      <con:params/>
+      <con:description>Not Found - resource in URL not found.</con:description>
+      <con:sampleContent>{
+  "error" : 404,
+  "when" : "2020-07-16T20:00:46.000Z",
+  "errorstr" : "Not Found: URL doesn't refer to known object"
+}</con:sampleContent>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>422</con:status>
+      <con:params/>
+      <con:description>Some objects patched, some patches failed</con:description>
+      <con:sampleContent>{
+  "$ref" : "#/paths/~1studentassessmenttaskresult/post/responses/422/content/application~1json/example"
+}</con:sampleContent>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/xml</con:mediaType>
+      <con:status>422</con:status>
+      <con:params/>
+      <con:description>Some objects patched, some patches failed</con:description>
+      <con:sampleContent>&lt;ObjectNode>&lt;$ref>#/paths/~1studentassessmenttaskresult/post/responses/422/content/application~1xml/example&lt;/$ref>&lt;/ObjectNode></con:sampleContent>
+    </con:representation>
+    <con:representation type="REQUEST">
+      <con:mediaType>application/json</con:mediaType>
+      <con:params/>
+      <con:sampleContent>{
+  "$ref" : "#/paths/~1studentassessmenttaskresult/post/requestBody/content/application~1json/example"
+}</con:sampleContent>
+    </con:representation>
+    <con:representation type="REQUEST">
+      <con:mediaType>application/xml</con:mediaType>
+      <con:params/>
+      <con:sampleContent>&lt;ObjectNode>&lt;$ref>#/paths/~1studentassessmenttaskresult/post/requestBody/content/application~1xml/example&lt;/$ref>&lt;/ObjectNode></con:sampleContent>
+    </con:representation>
+    <con:request name="Request 1" id="6433ef75-481d-4bbf-83f3-88db673985bf" mediaType="application/json">
+      <con:settings/>
+      <con:endpoint>https://northern.edsby.co.nz/sif</con:endpoint>
+      <con:request>{\r
+  "$ref" : "#/paths/~1studentassessmenttaskresult/post/requestBody/content/application~1json/example"\r
+}</con:request>
+      <con:parameters/>
+    </con:request>
+    <con:request name="Request 2" id="76eb33e4-1f42-490a-b002-a35739854df0" mediaType="application/xml">
+      <con:settings/>
+      <con:endpoint>https://northern.edsby.co.nz/sif</con:endpoint>
+      <con:request>&lt;ObjectNode>&lt;$ref>#/paths/~1studentassessmenttaskresult/post/requestBody/content/application~1xml/example&lt;/$ref>&lt;/ObjectNode></con:request>
+      <con:parameters/>
+    </con:request>
+  </con:method>
+</con:resource>

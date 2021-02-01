@@ -1,0 +1,1161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:resource name="/organisation" path="/organisation" id="0f8f2ec8-de48-4a7c-9b82-3896222615e8" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="0f8f2ec8-de48-4a7c-9b82-3896222615e8fileName">%2Forganisation</con:setting>
+  </con:settings>
+  <con:parameters/>
+  <con:method name="getOrganisations" id="f13ab66e-6e67-429a-a5b1-619bc98585e0" method="GET">
+    <con:description>Bulk operation to retrieve all available Organisations, each of which represents a single recognised Education Provider entity (ECEs, Schools &amp; Tertiary  Education Institutions), Community (Kāhui Ako, Learning Support Clusters, etc.), or others unit(Teen Parent Units, Activity Centres. etc.)</con:description>
+    <con:settings/>
+    <con:parameters>
+      <con:parameter>
+        <con:name>fields</con:name>
+        <con:style>QUERY</con:style>
+        <con:description>Return only specified fields	`fields=name,nid`</con:description>
+      </con:parameter>
+      <con:parameter>
+        <con:name>page</con:name>
+        <con:style>QUERY</con:style>
+        <con:description>Return nth page of results; default 0	`page=2`; applies to any call with repeated data</con:description>
+      </con:parameter>
+      <con:parameter>
+        <con:name>max</con:name>
+        <con:style>QUERY</con:style>
+        <con:description>Maximum items per page, default 10,000; `max=100`; applies to any call with repeated data</con:description>
+      </con:parameter>
+      <con:parameter>
+        <con:name>unwrap</con:name>
+        <con:style>QUERY</con:style>
+        <con:description>Remove top level wrapper from json results in single result reponses;	`unwrap=1`</con:description>
+      </con:parameter>
+      <con:parameter>
+        <con:name>human</con:name>
+        <con:style>QUERY</con:style>
+        <con:description>For code set fields, translate code to human readable form;	`human=1`</con:description>
+      </con:parameter>
+      <con:parameter>
+        <con:name>sort</con:name>
+        <con:style>QUERY</con:style>
+        <con:description>Sort results by specified field;	`sort=FamilyName`</con:description>
+      </con:parameter>
+      <con:parameter>
+        <con:name>field</con:name>
+        <con:style>QUERY</con:style>
+        <con:description>Field to filter on when used with **pattern**;	`field=FamilyName`</con:description>
+      </con:parameter>
+      <con:parameter>
+        <con:name>pattern</con:name>
+        <con:style>QUERY</con:style>
+        <con:description>Filter results using pattern on **field**; `pattern=We*`</con:description>
+      </con:parameter>
+      <con:parameter required="true">
+        <con:name>Accept</con:name>
+        <con:style>HEADER</con:style>
+        <con:description>Standard HTTP accept header, choose between JSON and XML for response. Defaults to XML if this header is missing.</con:description>
+      </con:parameter>
+      <con:parameter required="true">
+        <con:name>X-Edsby-APIClientId</con:name>
+        <con:style>HEADER</con:style>
+        <con:description>&lt;p>Identifies the client making the API call to network infrastructure allowing WAFs to conduct rate limiting, gather usage statistics, etc. without having to unpack the username, subject claim or API key from the Authorization header.&lt;/p> &lt;p>Must be populated with the subject claim GUID from the access token in the Authorization header.&lt;/p></con:description>
+      </con:parameter>
+    </con:parameters>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>200</con:status>
+      <con:params/>
+      <con:description>successful operation</con:description>
+      <con:sampleContent>{
+  "$ref" : "#/paths/~1organisation/post/requestBody/content/application~1json/example"
+}</con:sampleContent>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/xml</con:mediaType>
+      <con:status>200</con:status>
+      <con:params/>
+      <con:description>successful operation</con:description>
+      <con:sampleContent>&lt;ObjectNode>&lt;$ref>#/paths/~1organisation/post/requestBody/content/application~1xml/example&lt;/$ref>&lt;/ObjectNode></con:sampleContent>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>401</con:status>
+      <con:params/>
+      <con:description>Unauthorised - Authorization header missing, or contents incorrect.</con:description>
+      <con:sampleContent>{
+  "error" : 401,
+  "when" : "2020-07-16T20:00:46.000Z",
+  "errorstr" : "Unauthorised request: Authorisation header missing, or incorrect."
+}</con:sampleContent>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>403</con:status>
+      <con:params/>
+      <con:description>Forbidden - API client has successfully authenticated, but is not authorised to make this API call</con:description>
+      <con:sampleContent>{
+  "error" : 401,
+  "when" : "2020-07-16T20:00:46.000Z",
+  "errorstr" : "Forbidden request: API endpoint not permitted to client"
+}</con:sampleContent>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>404</con:status>
+      <con:params/>
+      <con:description>Not Found - resource in URL not found.</con:description>
+      <con:sampleContent>{
+  "error" : 404,
+  "when" : "2020-07-16T20:00:46.000Z",
+  "errorstr" : "Not Found: URL doesn't refer to known object"
+}</con:sampleContent>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>422</con:status>
+      <con:params/>
+      <con:description>Failed to retrieve object(s).</con:description>
+      <con:sampleContent>{
+  "error" : 1009,
+  "when" : "2020-07-16T20:00:46.000Z",
+  "errorstr" : "Bad field: PersonInfo-Name-FamilyName: missing required field PersonInfo-Name-FamilyName (LastName) 'None'",
+  "localId" : "ST-002"
+}</con:sampleContent>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/xml</con:mediaType>
+      <con:status>422</con:status>
+      <con:params/>
+      <con:description>Failed to retrieve object(s).</con:description>
+      <con:sampleContent><![CDATA[<Error>
+  <error>1009</error>
+  <when>2020-07-16T20:00:46.000Z</when>
+  <errorstr>Bad field: PersonInfo-Name-FamilyName: missing required field PersonInfo-Name-FamilyName (LastName) 'None'</errorstr>
+  <localId>ST-002</localId>
+</Error>]]></con:sampleContent>
+    </con:representation>
+    <con:request name="Request 1" id="b1227a02-7024-45a9-8075-2218b999e875" mediaType="application/json">
+      <con:settings/>
+      <con:endpoint>https://northern.edsby.co.nz/sif</con:endpoint>
+      <con:parameters/>
+    </con:request>
+  </con:method>
+  <con:method name="createOrganisations" id="3d806f37-2876-46d3-b9af-4bfc5aff89a5" method="POST">
+    <con:description>Bulk operation to create one or more Organisations, each of which represents a single recognised Education Provider entity (ECEs, Schools &amp; Tertiary Education Institutions), Community (Kāhui Ako, Learning Support Clusters, etc.), or others unit(Teen Parent Units, Activity Centres. etc.)</con:description>
+    <con:settings/>
+    <con:parameters>
+      <con:parameter>
+        <con:name>x-http-method-override</con:name>
+        <con:style>HEADER</con:style>
+        <con:description>Rather than CREATE records, treat this request as a SYNC request.</con:description>
+      </con:parameter>
+      <con:parameter required="true">
+        <con:name>Accept</con:name>
+        <con:style>HEADER</con:style>
+        <con:description>Standard HTTP accept header, choose between JSON and XML for response. Defaults to XML if this header is missing.</con:description>
+      </con:parameter>
+      <con:parameter required="true">
+        <con:name>X-Edsby-APIClientId</con:name>
+        <con:style>HEADER</con:style>
+        <con:description>&lt;p>Identifies the client making the API call to network infrastructure allowing WAFs to conduct rate limiting, gather usage statistics, etc. without having to unpack the username, subject claim or API key from the Authorization header.&lt;/p> &lt;p>Must be populated with the subject claim GUID from the access token in the Authorization header.&lt;/p></con:description>
+      </con:parameter>
+    </con:parameters>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>200</con:status>
+      <con:params/>
+      <con:description>Create successful; returns created objects</con:description>
+      <con:sampleContent>{
+  "$ref" : "#/paths/~1organisation/post/requestBody/content/application~1json/example"
+}</con:sampleContent>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/xml</con:mediaType>
+      <con:status>200</con:status>
+      <con:params/>
+      <con:description>Create successful; returns created objects</con:description>
+      <con:sampleContent>&lt;ObjectNode>&lt;$ref>#/paths/~1organisation/post/requestBody/content/application~1xml/example&lt;/$ref>&lt;/ObjectNode></con:sampleContent>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>400</con:status>
+      <con:params/>
+      <con:description>Bad request - Request body invalid, Content, Accept, X-Edsby-OrganisationRefId, X-Edsby-APIClientId or other required Headers missing, etc.</con:description>
+      <con:sampleContent>{
+  "error" : 400,
+  "when" : "2020-07-16T20:00:46.000Z",
+  "errorstr" : "Unprocessable request: Request body invalid according to JSON schema? Accept or X-Edsby-OrganisationRefId header missing?"
+}</con:sampleContent>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>401</con:status>
+      <con:params/>
+      <con:description>Unauthorised - Authorization header missing, or contents incorrect.</con:description>
+      <con:sampleContent>{
+  "error" : 401,
+  "when" : "2020-07-16T20:00:46.000Z",
+  "errorstr" : "Unauthorised request: Authorisation header missing, or incorrect."
+}</con:sampleContent>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>403</con:status>
+      <con:params/>
+      <con:description>Forbidden - API client has successfully authenticated, but is not authorised to make this API call</con:description>
+      <con:sampleContent>{
+  "error" : 401,
+  "when" : "2020-07-16T20:00:46.000Z",
+  "errorstr" : "Forbidden request: API endpoint not permitted to client"
+}</con:sampleContent>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>404</con:status>
+      <con:params/>
+      <con:description>Not Found - resource in URL not found.</con:description>
+      <con:sampleContent>{
+  "error" : 404,
+  "when" : "2020-07-16T20:00:46.000Z",
+  "errorstr" : "Not Found: URL doesn't refer to known object"
+}</con:sampleContent>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>422</con:status>
+      <con:params/>
+      <con:description>Some objects created, some creates failed</con:description>
+      <con:sampleContent>[ {
+  "Organisation" : {
+    "OrganisationRefId" : "922",
+    "OrganisationLocalId" : "42342",
+    "Name" : "Hogwart's Area School",
+    "Authority" : "STATE",
+    "SectorRole" : "35003",
+    "Type" : "10030",
+    "OperationalStatus" : "O",
+    "EntityOpen" : "1652-04-01T00:00:00+1200",
+    "EducationRegion" : "12013",
+    "SpecialEducationDistrict" : "182011",
+    "Address" : {
+      "Physical" : {
+        "Type" : "RU",
+        "Line1" : "1175 Lake Ferry Rd",
+        "Suburb" : "RD 1",
+        "City" : "Martinborough"
+      }
+    },
+    "CommunicationChannel" : {
+      "Website" : {
+        "Notes" : "Main school website",
+        "Value" : "http://www.hogwarts.school.nz"
+      }
+    },
+    "ContactList" : {
+      "Contact" : [ {
+        "Name" : {
+          "FamilyName" : "Dumbledore",
+          "GivenName" : "Albus",
+          "FullName" : "Albus Dumbledore"
+        },
+        "PositionTitle" : "Headmaster",
+        "Role" : "PRI",
+        "Address" : {
+          "Physical" : {
+            "Type" : "TH",
+            "Line1" : "533 Hogwart's Way",
+            "City" : "Hogsmead",
+            "PostalCode" : "7733"
+          }
+        },
+        "Email" : { },
+        "Phone" : { }
+      }, {
+        "Name" : {
+          "FamilyName" : "Hagrid",
+          "GivenName" : "Rubeus",
+          "FullName" : "Rubeus Hagrid"
+        },
+        "PositionTitle" : "Gamekeeper",
+        "Role" : "DIR",
+        "Address" : {
+          "Physical" : {
+            "Type" : "TH",
+            "Line1" : "The Enchanted Wood",
+            "Line2" : "533 Hogwart's Way",
+            "City" : "Hogsmead",
+            "PostalCode" : "7733"
+          }
+        },
+        "Email" : { },
+        "Phone" : { }
+      } ]
+    },
+    "Email" : {
+      "Main" : {
+        "Address" : "admin@hogwarts.school.nz"
+      }
+    },
+    "LocationList" : {
+      "Location" : [ {
+        "Description" : "Only Campus",
+        "Address" : {
+          "Type" : "RU",
+          "Line1" : "1175 Lake Ferry Rd",
+          "Suburb" : "RD 1",
+          "City" : "Martinborough",
+          "PostalCode" : "5781"
+        },
+        "GridLocation" : {
+          "Latitude" : -41.2814719,
+          "Longitude" : 175.3458472
+        },
+        "StatisticalAreaList" : {
+          "StatisticalArea" : [ {
+            "SpatialUnitType" : "GE",
+            "Code" : "058"
+          }, {
+            "SpatialUnitType" : "TA",
+            "Code" : "050"
+          }, {
+            "SpatialUnitType" : "WA",
+            "Code" : "05003"
+          } ]
+        }
+      } ]
+    },
+    "Phone" : {
+      "Main" : {
+        "Notes" : "School Secretary DDI",
+        "Number" : "(04) 300 9993"
+      }
+    },
+    "SchoolService" : {
+      "CoEdStatus" : "COED",
+      "Decile" : 5,
+      "NewEntrantPolicyList" : {
+        "EnactedPolicy" : [ {
+          "EffectiveTo" : "2018-12-31T00:00:00+1200",
+          "Policy" : "AE"
+        }, {
+          "EffectiveFrom" : "2019-01-01T00:00:00+1200",
+          "Policy" : "CE"
+        } ]
+      },
+      "SchoolYearList" : {
+        "SchoolYear" : [ {
+          "YearLevel" : 1,
+          "FIRSTSchoolYearGenderId" : 1001,
+          "Gender" : "C"
+        }, {
+          "YearLevel" : 2,
+          "FIRSTSchoolYearGenderId" : 1002,
+          "Gender" : "C"
+        }, {
+          "YearLevel" : 3,
+          "FIRSTSchoolYearGenderId" : 1003,
+          "Gender" : "C"
+        }, {
+          "YearLevel" : 4,
+          "FIRSTSchoolYearGenderId" : 1004,
+          "Gender" : "C"
+        }, {
+          "YearLevel" : 5,
+          "FIRSTSchoolYearGenderId" : 1005,
+          "Gender" : "C"
+        }, {
+          "YearLevel" : 6,
+          "FIRSTSchoolYearGenderId" : 1006,
+          "Gender" : "C"
+        }, {
+          "YearLevel" : 7,
+          "FIRSTSchoolYearGenderId" : 1007,
+          "Gender" : "C"
+        }, {
+          "YearLevel" : 8,
+          "FIRSTSchoolYearGenderId" : 1008,
+          "Gender" : "C"
+        }, {
+          "YearLevel" : 9,
+          "FIRSTSchoolYearGenderId" : 1009,
+          "Gender" : "F"
+        }, {
+          "YearLevel" : 10,
+          "FIRSTSchoolYearGenderId" : 1010,
+          "Gender" : "F"
+        }, {
+          "YearLevel" : 11,
+          "FIRSTSchoolYearGenderId" : 1011,
+          "Gender" : "F"
+        }, {
+          "YearLevel" : 12,
+          "FIRSTSchoolYearGenderId" : 1012,
+          "Gender" : "F"
+        }, {
+          "YearLevel" : 13,
+          "FIRSTSchoolYearGenderId" : 1013,
+          "Gender" : "F"
+        } ]
+      }
+    }
+  }
+}, {
+  "Error" : {
+    "error" : 1009,
+    "when" : "2020-07-16T20:00:46.000Z",
+    "errorstr" : "Bad field: PersonInfo-Name-FamilyName: missing required field PersonInfo-Name-FamilyName (LastName) 'None'",
+    "localId" : "ST-002",
+    "refId" : null
+  }
+} ]</con:sampleContent>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/xml</con:mediaType>
+      <con:status>422</con:status>
+      <con:params/>
+      <con:description>Some objects created, some creates failed</con:description>
+      <con:sampleContent><![CDATA[<Response>
+  <Organisation>
+    <AddressList/>
+    <CommunicationChannel/>
+    <ContactList>
+      <Contact>
+        <Name>
+          <FamilyName>Dumbledore</FamilyName>
+          <GivenName>Albus</GivenName>
+          <FullName>Albus Dumbledore</FullName>
+        </Name>
+        <PositionTitle>Lead School Headmaster</PositionTitle>
+        <Role>PRI</Role>
+        <Address>
+          <Physical>
+            <Type>TH</Type>
+            <Line1>533 Hogwart's Way</Line1>
+            <City>Hogsmead</City>
+            <PostalCode>7733</PostalCode>
+          </Physical>
+        </Address>
+        <Email/>
+        <Phone/>
+      </Contact>
+    </ContactList>
+    <Email>
+      <Main>
+        <Address>hogwarts@mailinator.com</Address>
+      </Main>
+    </Email>
+    <LocationList/>
+    <Name>Masterton (Whakaoriori) Kāhui Ako</Name>
+    <Phone>
+      <Main>
+        <Notes>School Secretary DDI</Notes>
+        <Number>(3) 300 999</Number>
+      </Main>
+    </Phone>
+    <Type>998</Type>
+    <OrganisationRefId>922</OrganisationRefId>
+    <OrganisationLocalId>99204</OrganisationLocalId>
+  </Organisation>    
+  <Error>
+    <error>1009</error>
+    <when>2020-07-16T20:00:46.000Z</when>
+    <errorstr>Bad field: PersonInfo-Name-FamilyName: missing required field PersonInfo-Name-FamilyName (LastName) 'None'</errorstr>
+    <localId>ST-002</localId>
+    <refId/>
+  </Error>      
+</Response>]]></con:sampleContent>
+    </con:representation>
+    <con:representation type="REQUEST">
+      <con:mediaType>application/json</con:mediaType>
+      <con:params/>
+      <con:sampleContent>{
+  "Organisations" : {
+    "Organisation" : [ {
+      "OrganisationRefId" : "922",
+      "OrganisationLocalId" : "42342",
+      "Name" : "Hogwart's Area School",
+      "Authority" : "STATE",
+      "SectorRole" : "35003",
+      "Type" : "10030",
+      "OperationalStatus" : "O",
+      "EntityOpen" : "1652-04-01T00:00:00+1200",
+      "EducationRegion" : "12013",
+      "SpecialEducationDistrict" : "182011",
+      "Address" : {
+        "Physical" : {
+          "Type" : "RU",
+          "Line1" : "1175 Lake Ferry Rd",
+          "Suburb" : "RD 1",
+          "City" : "Martinborough"
+        }
+      },
+      "CommunicationChannel" : {
+        "Website" : {
+          "Notes" : "Main school website",
+          "Value" : "http://www.hogwarts.school.nz"
+        }
+      },
+      "ContactList" : {
+        "Contact" : [ {
+          "Name" : {
+            "FamilyName" : "Dumbledore",
+            "GivenName" : "Albus",
+            "FullName" : "Albus Dumbledore"
+          },
+          "PositionTitle" : "Headmaster",
+          "Role" : "PRI",
+          "Address" : {
+            "Physical" : {
+              "Type" : "TH",
+              "Line1" : "533 Hogwart's Way",
+              "City" : "Hogsmead",
+              "PostalCode" : "7733"
+            }
+          },
+          "Email" : { },
+          "Phone" : { }
+        }, {
+          "Name" : {
+            "FamilyName" : "Hagrid",
+            "GivenName" : "Rubeus",
+            "FullName" : "Rubeus Hagrid"
+          },
+          "PositionTitle" : "Gamekeeper",
+          "Role" : "DIR",
+          "Address" : {
+            "Physical" : {
+              "Type" : "TH",
+              "Line1" : "The Enchanted Wood",
+              "Line2" : "533 Hogwart's Way",
+              "City" : "Hogsmead",
+              "PostalCode" : "7733"
+            }
+          },
+          "Email" : { },
+          "Phone" : { }
+        } ]
+      },
+      "Email" : {
+        "Main" : {
+          "Address" : "admin@hogwarts.school.nz"
+        }
+      },
+      "LocationList" : {
+        "Location" : [ {
+          "Description" : "Only Campus",
+          "Address" : {
+            "Type" : "RU",
+            "Line1" : "1175 Lake Ferry Rd",
+            "Suburb" : "RD 1",
+            "City" : "Martinborough",
+            "PostalCode" : "5781"
+          },
+          "GridLocation" : {
+            "Latitude" : -41.2814719,
+            "Longitude" : 175.3458472
+          },
+          "StatisticalAreaList" : {
+            "StatisticalArea" : [ {
+              "SpatialUnitType" : "GE",
+              "Code" : "058"
+            }, {
+              "SpatialUnitType" : "TA",
+              "Code" : "050"
+            }, {
+              "SpatialUnitType" : "WA",
+              "Code" : "05003"
+            } ]
+          }
+        } ]
+      },
+      "Phone" : {
+        "Main" : {
+          "Notes" : "School Secretary DDI",
+          "Number" : "(04) 300 9993"
+        }
+      },
+      "SchoolService" : {
+        "CoEdStatus" : "COED",
+        "Decile" : 5,
+        "NewEntrantPolicyList" : {
+          "EnactedPolicy" : [ {
+            "EffectiveTo" : "2018-12-31T00:00:00+1200",
+            "Policy" : "AE"
+          }, {
+            "EffectiveFrom" : "2019-01-01T00:00:00+1200",
+            "Policy" : "CE"
+          } ]
+        },
+        "SchoolYearList" : {
+          "SchoolYear" : [ {
+            "YearLevel" : 1,
+            "FIRSTSchoolYearGenderId" : 1001,
+            "Gender" : "C"
+          }, {
+            "YearLevel" : 2,
+            "FIRSTSchoolYearGenderId" : 1002,
+            "Gender" : "C"
+          }, {
+            "YearLevel" : 3,
+            "FIRSTSchoolYearGenderId" : 1003,
+            "Gender" : "C"
+          }, {
+            "YearLevel" : 4,
+            "FIRSTSchoolYearGenderId" : 1004,
+            "Gender" : "C"
+          }, {
+            "YearLevel" : 5,
+            "FIRSTSchoolYearGenderId" : 1005,
+            "Gender" : "C"
+          }, {
+            "YearLevel" : 6,
+            "FIRSTSchoolYearGenderId" : 1006,
+            "Gender" : "C"
+          }, {
+            "YearLevel" : 7,
+            "FIRSTSchoolYearGenderId" : 1007,
+            "Gender" : "C"
+          }, {
+            "YearLevel" : 8,
+            "FIRSTSchoolYearGenderId" : 1008,
+            "Gender" : "C"
+          }, {
+            "YearLevel" : 9,
+            "FIRSTSchoolYearGenderId" : 1009,
+            "Gender" : "F"
+          }, {
+            "YearLevel" : 10,
+            "FIRSTSchoolYearGenderId" : 1010,
+            "Gender" : "F"
+          }, {
+            "YearLevel" : 11,
+            "FIRSTSchoolYearGenderId" : 1011,
+            "Gender" : "F"
+          }, {
+            "YearLevel" : 12,
+            "FIRSTSchoolYearGenderId" : 1012,
+            "Gender" : "F"
+          }, {
+            "YearLevel" : 13,
+            "FIRSTSchoolYearGenderId" : 1013,
+            "Gender" : "F"
+          } ]
+        }
+      }
+    } ]
+  }
+}</con:sampleContent>
+    </con:representation>
+    <con:representation type="REQUEST">
+      <con:mediaType>application/xml</con:mediaType>
+      <con:params/>
+      <con:sampleContent><![CDATA[<Organisations>
+  <Organisation>
+    <AddressList/>
+    <CommunicationChannel/>
+    <ContactList>
+      <Contact>
+        <Name>
+          <FamilyName>Dumbledore</FamilyName>
+          <GivenName>Albus</GivenName>
+          <FullName>Albus Dumbledore</FullName>
+        </Name>
+        <PositionTitle>Lead School Headmaster</PositionTitle>
+        <Role>PRI</Role>
+        <Address>
+          <Physical>
+            <Type>TH</Type>
+            <Line1>533 Hogwart's Way</Line1>
+            <City>Hogsmead</City>
+            <PostalCode>7733</PostalCode>
+          </Physical>
+        </Address>
+        <Email/>
+        <Phone/>
+      </Contact>
+    </ContactList>
+    <Email>
+      <Main>
+        <Address>hogwarts@mailinator.com</Address>
+      </Main>
+    </Email>
+    <LocationList/>
+    <Name>Masterton (Whakaoriori) Kāhui Ako</Name>
+    <Phone>
+      <Main>
+        <Notes>School Secretary DDI</Notes>
+        <Number>(03) 300 999</Number>
+      </Main>
+    </Phone>
+    <Type>998</Type>
+    <OrganisationRefId>922</OrganisationRefId>
+    <OrganisationLocalId>99204</OrganisationLocalId>
+  </Organisation>
+</Organisations>]]></con:sampleContent>
+    </con:representation>
+    <con:request name="Request 1" id="e168a5dd-ffde-489e-b257-50d4644c6a36" mediaType="application/json">
+      <con:settings/>
+      <con:endpoint>https://northern.edsby.co.nz/sif</con:endpoint>
+      <con:request>{\r
+  "Organisations" : {\r
+    "Organisation" : [ {\r
+      "OrganisationRefId" : "922",\r
+      "OrganisationLocalId" : "42342",\r
+      "Name" : "Hogwart's Area School",\r
+      "Authority" : "STATE",\r
+      "SectorRole" : "35003",\r
+      "Type" : "10030",\r
+      "OperationalStatus" : "O",\r
+      "EntityOpen" : "1652-04-01T00:00:00+1200",\r
+      "EducationRegion" : "12013",\r
+      "SpecialEducationDistrict" : "182011",\r
+      "Address" : {\r
+        "Physical" : {\r
+          "Type" : "RU",\r
+          "Line1" : "1175 Lake Ferry Rd",\r
+          "Suburb" : "RD 1",\r
+          "City" : "Martinborough"\r
+        }\r
+      },\r
+      "CommunicationChannel" : {\r
+        "Website" : {\r
+          "Notes" : "Main school website",\r
+          "Value" : "http://www.hogwarts.school.nz"\r
+        }\r
+      },\r
+      "ContactList" : {\r
+        "Contact" : [ {\r
+          "Name" : {\r
+            "FamilyName" : "Dumbledore",\r
+            "GivenName" : "Albus",\r
+            "FullName" : "Albus Dumbledore"\r
+          },\r
+          "PositionTitle" : "Headmaster",\r
+          "Role" : "PRI",\r
+          "Address" : {\r
+            "Physical" : {\r
+              "Type" : "TH",\r
+              "Line1" : "533 Hogwart's Way",\r
+              "City" : "Hogsmead",\r
+              "PostalCode" : "7733"\r
+            }\r
+          },\r
+          "Email" : { },\r
+          "Phone" : { }\r
+        }, {\r
+          "Name" : {\r
+            "FamilyName" : "Hagrid",\r
+            "GivenName" : "Rubeus",\r
+            "FullName" : "Rubeus Hagrid"\r
+          },\r
+          "PositionTitle" : "Gamekeeper",\r
+          "Role" : "DIR",\r
+          "Address" : {\r
+            "Physical" : {\r
+              "Type" : "TH",\r
+              "Line1" : "The Enchanted Wood",\r
+              "Line2" : "533 Hogwart's Way",\r
+              "City" : "Hogsmead",\r
+              "PostalCode" : "7733"\r
+            }\r
+          },\r
+          "Email" : { },\r
+          "Phone" : { }\r
+        } ]\r
+      },\r
+      "Email" : {\r
+        "Main" : {\r
+          "Address" : "admin@hogwarts.school.nz"\r
+        }\r
+      },\r
+      "LocationList" : {\r
+        "Location" : [ {\r
+          "Description" : "Only Campus",\r
+          "Address" : {\r
+            "Type" : "RU",\r
+            "Line1" : "1175 Lake Ferry Rd",\r
+            "Suburb" : "RD 1",\r
+            "City" : "Martinborough",\r
+            "PostalCode" : "5781"\r
+          },\r
+          "GridLocation" : {\r
+            "Latitude" : -41.2814719,\r
+            "Longitude" : 175.3458472\r
+          },\r
+          "StatisticalAreaList" : {\r
+            "StatisticalArea" : [ {\r
+              "SpatialUnitType" : "GE",\r
+              "Code" : "058"\r
+            }, {\r
+              "SpatialUnitType" : "TA",\r
+              "Code" : "050"\r
+            }, {\r
+              "SpatialUnitType" : "WA",\r
+              "Code" : "05003"\r
+            } ]\r
+          }\r
+        } ]\r
+      },\r
+      "Phone" : {\r
+        "Main" : {\r
+          "Notes" : "School Secretary DDI",\r
+          "Number" : "(04) 300 9993"\r
+        }\r
+      },\r
+      "SchoolService" : {\r
+        "CoEdStatus" : "COED",\r
+        "Decile" : 5,\r
+        "NewEntrantPolicyList" : {\r
+          "EnactedPolicy" : [ {\r
+            "EffectiveTo" : "2018-12-31T00:00:00+1200",\r
+            "Policy" : "AE"\r
+          }, {\r
+            "EffectiveFrom" : "2019-01-01T00:00:00+1200",\r
+            "Policy" : "CE"\r
+          } ]\r
+        },\r
+        "SchoolYearList" : {\r
+          "SchoolYear" : [ {\r
+            "YearLevel" : 1,\r
+            "FIRSTSchoolYearGenderId" : 1001,\r
+            "Gender" : "C"\r
+          }, {\r
+            "YearLevel" : 2,\r
+            "FIRSTSchoolYearGenderId" : 1002,\r
+            "Gender" : "C"\r
+          }, {\r
+            "YearLevel" : 3,\r
+            "FIRSTSchoolYearGenderId" : 1003,\r
+            "Gender" : "C"\r
+          }, {\r
+            "YearLevel" : 4,\r
+            "FIRSTSchoolYearGenderId" : 1004,\r
+            "Gender" : "C"\r
+          }, {\r
+            "YearLevel" : 5,\r
+            "FIRSTSchoolYearGenderId" : 1005,\r
+            "Gender" : "C"\r
+          }, {\r
+            "YearLevel" : 6,\r
+            "FIRSTSchoolYearGenderId" : 1006,\r
+            "Gender" : "C"\r
+          }, {\r
+            "YearLevel" : 7,\r
+            "FIRSTSchoolYearGenderId" : 1007,\r
+            "Gender" : "C"\r
+          }, {\r
+            "YearLevel" : 8,\r
+            "FIRSTSchoolYearGenderId" : 1008,\r
+            "Gender" : "C"\r
+          }, {\r
+            "YearLevel" : 9,\r
+            "FIRSTSchoolYearGenderId" : 1009,\r
+            "Gender" : "F"\r
+          }, {\r
+            "YearLevel" : 10,\r
+            "FIRSTSchoolYearGenderId" : 1010,\r
+            "Gender" : "F"\r
+          }, {\r
+            "YearLevel" : 11,\r
+            "FIRSTSchoolYearGenderId" : 1011,\r
+            "Gender" : "F"\r
+          }, {\r
+            "YearLevel" : 12,\r
+            "FIRSTSchoolYearGenderId" : 1012,\r
+            "Gender" : "F"\r
+          }, {\r
+            "YearLevel" : 13,\r
+            "FIRSTSchoolYearGenderId" : 1013,\r
+            "Gender" : "F"\r
+          } ]\r
+        }\r
+      }\r
+    } ]\r
+  }\r
+}</con:request>
+      <con:parameters/>
+    </con:request>
+    <con:request name="Request 2" id="890f76ed-0e96-454b-bd3f-ea2870719a78" mediaType="application/xml">
+      <con:settings/>
+      <con:endpoint>https://northern.edsby.co.nz/sif</con:endpoint>
+      <con:request><![CDATA[<Organisations>
+  <Organisation>
+    <AddressList/>
+    <CommunicationChannel/>
+    <ContactList>
+      <Contact>
+        <Name>
+          <FamilyName>Dumbledore</FamilyName>
+          <GivenName>Albus</GivenName>
+          <FullName>Albus Dumbledore</FullName>
+        </Name>
+        <PositionTitle>Lead School Headmaster</PositionTitle>
+        <Role>PRI</Role>
+        <Address>
+          <Physical>
+            <Type>TH</Type>
+            <Line1>533 Hogwart's Way</Line1>
+            <City>Hogsmead</City>
+            <PostalCode>7733</PostalCode>
+          </Physical>
+        </Address>
+        <Email/>
+        <Phone/>
+      </Contact>
+    </ContactList>
+    <Email>
+      <Main>
+        <Address>hogwarts@mailinator.com</Address>
+      </Main>
+    </Email>
+    <LocationList/>
+    <Name>Masterton (Whakaoriori) Kāhui Ako</Name>
+    <Phone>
+      <Main>
+        <Notes>School Secretary DDI</Notes>
+        <Number>(03) 300 999</Number>
+      </Main>
+    </Phone>
+    <Type>998</Type>
+    <OrganisationRefId>922</OrganisationRefId>
+    <OrganisationLocalId>99204</OrganisationLocalId>
+  </Organisation>
+</Organisations>]]></con:request>
+      <con:parameters/>
+    </con:request>
+  </con:method>
+  <con:method name="updateOrganisations" id="2af8f6b6-090d-4048-a436-abdabc8557a2" method="PUT">
+    <con:description>Bulk operation to update one or more Organisations, each of which represents a single recognised Education Provider entity (ECEs, Schools &amp; Tertiary  Education Institutions), Community (Kāhui Ako, Learning Support Clusters, etc.), or others unit(Teen Parent Units, Activity Centres. etc.)</con:description>
+    <con:settings/>
+    <con:parameters>
+      <con:parameter required="true">
+        <con:name>Accept</con:name>
+        <con:style>HEADER</con:style>
+        <con:description>Standard HTTP accept header, choose between JSON and XML for response. Defaults to XML if this header is missing.</con:description>
+      </con:parameter>
+      <con:parameter required="true">
+        <con:name>X-Edsby-APIClientId</con:name>
+        <con:style>HEADER</con:style>
+        <con:description>&lt;p>Identifies the client making the API call to network infrastructure allowing WAFs to conduct rate limiting, gather usage statistics, etc. without having to unpack the username, subject claim or API key from the Authorization header.&lt;/p> &lt;p>Must be populated with the subject claim GUID from the access token in the Authorization header.&lt;/p></con:description>
+      </con:parameter>
+    </con:parameters>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>200</con:status>
+      <con:params/>
+      <con:description>Update successful; returns updated objects</con:description>
+      <con:sampleContent>{
+  "$ref" : "#/paths/~1organisation/post/requestBody/content/application~1json/example"
+}</con:sampleContent>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/xml</con:mediaType>
+      <con:status>200</con:status>
+      <con:params/>
+      <con:description>Update successful; returns updated objects</con:description>
+      <con:sampleContent>&lt;ObjectNode>&lt;$ref>#/paths/~1organisation/post/requestBody/content/application~1xml/example&lt;/$ref>&lt;/ObjectNode></con:sampleContent>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>400</con:status>
+      <con:params/>
+      <con:description>Bad request - Request body invalid, Content, Accept, X-Edsby-OrganisationRefId, X-Edsby-APIClientId or other required Headers missing, etc.</con:description>
+      <con:sampleContent>{
+  "error" : 400,
+  "when" : "2020-07-16T20:00:46.000Z",
+  "errorstr" : "Unprocessable request: Request body invalid according to JSON schema? Accept or X-Edsby-OrganisationRefId header missing?"
+}</con:sampleContent>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>401</con:status>
+      <con:params/>
+      <con:description>Unauthorised - Authorization header missing, or contents incorrect.</con:description>
+      <con:sampleContent>{
+  "error" : 401,
+  "when" : "2020-07-16T20:00:46.000Z",
+  "errorstr" : "Unauthorised request: Authorisation header missing, or incorrect."
+}</con:sampleContent>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>403</con:status>
+      <con:params/>
+      <con:description>Forbidden - API client has successfully authenticated, but is not authorised to make this API call</con:description>
+      <con:sampleContent>{
+  "error" : 401,
+  "when" : "2020-07-16T20:00:46.000Z",
+  "errorstr" : "Forbidden request: API endpoint not permitted to client"
+}</con:sampleContent>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>404</con:status>
+      <con:params/>
+      <con:description>Not Found - resource in URL not found.</con:description>
+      <con:sampleContent>{
+  "error" : 404,
+  "when" : "2020-07-16T20:00:46.000Z",
+  "errorstr" : "Not Found: URL doesn't refer to known object"
+}</con:sampleContent>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>422</con:status>
+      <con:params/>
+      <con:description>Some objects updated, some updates failed</con:description>
+      <con:sampleContent>{
+  "$ref" : "#/paths/~1organisation/post/responses/422/content/application~1json/example"
+}</con:sampleContent>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/xml</con:mediaType>
+      <con:status>422</con:status>
+      <con:params/>
+      <con:description>Some objects updated, some updates failed</con:description>
+      <con:sampleContent>&lt;ObjectNode>&lt;$ref>#/paths/~1organisation/post/responses/422/content/application~1xml/example&lt;/$ref>&lt;/ObjectNode></con:sampleContent>
+    </con:representation>
+    <con:representation type="REQUEST">
+      <con:mediaType>application/json</con:mediaType>
+      <con:params/>
+      <con:sampleContent>{
+  "$ref" : "#/paths/~1organisation/post/requestBody/content/application~1json/example"
+}</con:sampleContent>
+    </con:representation>
+    <con:representation type="REQUEST">
+      <con:mediaType>application/xml</con:mediaType>
+      <con:params/>
+      <con:sampleContent>&lt;ObjectNode>&lt;$ref>#/paths/~1organisation/post/requestBody/content/application~1xml/example&lt;/$ref>&lt;/ObjectNode></con:sampleContent>
+    </con:representation>
+    <con:request name="Request 1" id="2d384187-ddca-4565-87f5-c2d976c4e0de" mediaType="application/json">
+      <con:settings/>
+      <con:endpoint>https://northern.edsby.co.nz/sif</con:endpoint>
+      <con:request>{\r
+  "$ref" : "#/paths/~1organisation/post/requestBody/content/application~1json/example"\r
+}</con:request>
+      <con:parameters/>
+    </con:request>
+    <con:request name="Request 2" id="b1183578-9057-4802-a977-835bf4369d5c" mediaType="application/xml">
+      <con:settings/>
+      <con:endpoint>https://northern.edsby.co.nz/sif</con:endpoint>
+      <con:request>&lt;ObjectNode>&lt;$ref>#/paths/~1organisation/post/requestBody/content/application~1xml/example&lt;/$ref>&lt;/ObjectNode></con:request>
+      <con:parameters/>
+    </con:request>
+  </con:method>
+  <con:method name="patchOrganisations" id="7b934e59-a95d-4a92-9a23-dd1990b0419f" method="PATCH">
+    <con:description>Bulk operation to update one or more fields of one or more Organisations, each of which represents a single recognised Education Provider entity (ECEs, Schools &amp; Tertiary  Education Institutions), Community (Kāhui Ako, Learning Support Clusters, etc.), or others unit(Teen Parent Units, Activity Centres. etc.)</con:description>
+    <con:settings/>
+    <con:parameters>
+      <con:parameter required="true">
+        <con:name>Accept</con:name>
+        <con:style>HEADER</con:style>
+        <con:description>Standard HTTP accept header, choose between JSON and XML for response. Defaults to XML if this header is missing.</con:description>
+      </con:parameter>
+      <con:parameter required="true">
+        <con:name>X-Edsby-APIClientId</con:name>
+        <con:style>HEADER</con:style>
+        <con:description>&lt;p>Identifies the client making the API call to network infrastructure allowing WAFs to conduct rate limiting, gather usage statistics, etc. without having to unpack the username, subject claim or API key from the Authorization header.&lt;/p> &lt;p>Must be populated with the subject claim GUID from the access token in the Authorization header.&lt;/p></con:description>
+      </con:parameter>
+    </con:parameters>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>200</con:status>
+      <con:params/>
+      <con:description>Patch successful; returns patched objects</con:description>
+      <con:sampleContent>{
+  "$ref" : "#/paths/~1organisation/post/requestBody/content/application~1json/example"
+}</con:sampleContent>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/xml</con:mediaType>
+      <con:status>200</con:status>
+      <con:params/>
+      <con:description>Patch successful; returns patched objects</con:description>
+      <con:sampleContent>&lt;ObjectNode>&lt;$ref>#/paths/~1organisation/post/requestBody/content/application~1xml/example&lt;/$ref>&lt;/ObjectNode></con:sampleContent>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>400</con:status>
+      <con:params/>
+      <con:description>Bad request - Request body invalid, Content, Accept, X-Edsby-OrganisationRefId, X-Edsby-APIClientId or other required Headers missing, etc.</con:description>
+      <con:sampleContent>{
+  "error" : 400,
+  "when" : "2020-07-16T20:00:46.000Z",
+  "errorstr" : "Unprocessable request: Request body invalid according to JSON schema? Accept or X-Edsby-OrganisationRefId header missing?"
+}</con:sampleContent>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>401</con:status>
+      <con:params/>
+      <con:description>Unauthorised - Authorization header missing, or contents incorrect.</con:description>
+      <con:sampleContent>{
+  "error" : 401,
+  "when" : "2020-07-16T20:00:46.000Z",
+  "errorstr" : "Unauthorised request: Authorisation header missing, or incorrect."
+}</con:sampleContent>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>403</con:status>
+      <con:params/>
+      <con:description>Forbidden - API client has successfully authenticated, but is not authorised to make this API call</con:description>
+      <con:sampleContent>{
+  "error" : 401,
+  "when" : "2020-07-16T20:00:46.000Z",
+  "errorstr" : "Forbidden request: API endpoint not permitted to client"
+}</con:sampleContent>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>404</con:status>
+      <con:params/>
+      <con:description>Not Found - resource in URL not found.</con:description>
+      <con:sampleContent>{
+  "error" : 404,
+  "when" : "2020-07-16T20:00:46.000Z",
+  "errorstr" : "Not Found: URL doesn't refer to known object"
+}</con:sampleContent>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>422</con:status>
+      <con:params/>
+      <con:description>Some objects patched, some patches failed</con:description>
+      <con:sampleContent>{
+  "$ref" : "#/paths/~1organisation/post/responses/422/content/application~1json/example"
+}</con:sampleContent>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/xml</con:mediaType>
+      <con:status>422</con:status>
+      <con:params/>
+      <con:description>Some objects patched, some patches failed</con:description>
+      <con:sampleContent>&lt;ObjectNode>&lt;$ref>#/paths/~1organisation/post/responses/422/content/application~1xml/example&lt;/$ref>&lt;/ObjectNode></con:sampleContent>
+    </con:representation>
+    <con:representation type="REQUEST">
+      <con:mediaType>application/json</con:mediaType>
+      <con:params/>
+      <con:sampleContent>{
+  "$ref" : "#/paths/~1organisation/post/requestBody/content/application~1json/example"
+}</con:sampleContent>
+    </con:representation>
+    <con:representation type="REQUEST">
+      <con:mediaType>application/xml</con:mediaType>
+      <con:params/>
+      <con:sampleContent>&lt;ObjectNode>&lt;$ref>#/paths/~1organisation/post/requestBody/content/application~1xml/example&lt;/$ref>&lt;/ObjectNode></con:sampleContent>
+    </con:representation>
+    <con:request name="Request 1" id="66adaeef-d8e0-432d-8f69-c64a733b0d77" mediaType="application/json">
+      <con:settings/>
+      <con:endpoint>https://northern.edsby.co.nz/sif</con:endpoint>
+      <con:request>{\r
+  "$ref" : "#/paths/~1organisation/post/requestBody/content/application~1json/example"\r
+}</con:request>
+      <con:parameters/>
+    </con:request>
+    <con:request name="Request 2" id="be6a61fa-08ce-4d20-9a5f-3ce6b148636f" mediaType="application/xml">
+      <con:settings/>
+      <con:endpoint>https://northern.edsby.co.nz/sif</con:endpoint>
+      <con:request>&lt;ObjectNode>&lt;$ref>#/paths/~1organisation/post/requestBody/content/application~1xml/example&lt;/$ref>&lt;/ObjectNode></con:request>
+      <con:parameters/>
+    </con:request>
+  </con:method>
+</con:resource>

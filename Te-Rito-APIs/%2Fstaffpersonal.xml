@@ -1,0 +1,845 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:resource name="/staffpersonal" path="/staffpersonal" id="66ab5838-206e-4f16-aa9a-44fa21662b0a" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="66ab5838-206e-4f16-aa9a-44fa21662b0afileName">%2Fstaffpersonal</con:setting>
+  </con:settings>
+  <con:parameters/>
+  <con:method name="getStaffPersonals" id="c77fc8e6-1ccb-4e52-ad97-54378015baee" method="GET">
+    <con:description>&lt;p>Bulk operation to retrieve all available StaffPersonal records of the personal contact and demographic information relating to a single staff member, who might be a teacher or other  employee of the given Provider.&lt;/p></con:description>
+    <con:settings/>
+    <con:parameters>
+      <con:parameter>
+        <con:name>fields</con:name>
+        <con:style>QUERY</con:style>
+        <con:description>Return only specified fields	`fields=name,nid`</con:description>
+      </con:parameter>
+      <con:parameter>
+        <con:name>page</con:name>
+        <con:style>QUERY</con:style>
+        <con:description>Return nth page of results; default 0	`page=2`; applies to any call with repeated data</con:description>
+      </con:parameter>
+      <con:parameter>
+        <con:name>max</con:name>
+        <con:style>QUERY</con:style>
+        <con:description>Maximum items per page, default 10,000; `max=100`; applies to any call with repeated data</con:description>
+      </con:parameter>
+      <con:parameter>
+        <con:name>unwrap</con:name>
+        <con:style>QUERY</con:style>
+        <con:description>Remove top level wrapper from json results in single result reponses;	`unwrap=1`</con:description>
+      </con:parameter>
+      <con:parameter>
+        <con:name>human</con:name>
+        <con:style>QUERY</con:style>
+        <con:description>For code set fields, translate code to human readable form;	`human=1`</con:description>
+      </con:parameter>
+      <con:parameter>
+        <con:name>sort</con:name>
+        <con:style>QUERY</con:style>
+        <con:description>Sort results by specified field;	`sort=FamilyName`</con:description>
+      </con:parameter>
+      <con:parameter>
+        <con:name>field</con:name>
+        <con:style>QUERY</con:style>
+        <con:description>Field to filter on when used with **pattern**;	`field=FamilyName`</con:description>
+      </con:parameter>
+      <con:parameter>
+        <con:name>pattern</con:name>
+        <con:style>QUERY</con:style>
+        <con:description>Filter results using pattern on **field**; `pattern=We*`</con:description>
+      </con:parameter>
+      <con:parameter required="true">
+        <con:name>Accept</con:name>
+        <con:style>HEADER</con:style>
+        <con:description>Standard HTTP accept header, choose between JSON and XML for response. Defaults to XML if this header is missing.</con:description>
+      </con:parameter>
+      <con:parameter required="true">
+        <con:name>X-Edsby-APIClientId</con:name>
+        <con:style>HEADER</con:style>
+        <con:description>&lt;p>Identifies the client making the API call to network infrastructure allowing WAFs to conduct rate limiting, gather usage statistics, etc. without having to unpack the username, subject claim or API key from the Authorization header.&lt;/p> &lt;p>Must be populated with the subject claim GUID from the access token in the Authorization header.&lt;/p></con:description>
+      </con:parameter>
+      <con:parameter required="true">
+        <con:name>X-Edsby-OrganisationRefId</con:name>
+        <con:style>HEADER</con:style>
+        <con:description>&lt;p>The Ministry of Education Organisation Id of the Provider(or other Organisation); used to limit the scope of the API endpoint to a particular MoE Organisation.&lt;/p></con:description>
+      </con:parameter>
+    </con:parameters>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>200</con:status>
+      <con:params/>
+      <con:description>successful operation</con:description>
+      <con:sampleContent>{
+  "StaffPersonals" : {
+    "StaffPersonal" : [ {
+      "StaffPersonalRefId" : "d3e34f41-9d75-101a-8c3d-00aa001a1652",
+      "StaffPersonalLocalId" : "ST-001",
+      "PersonInfo" : {
+        "Name" : {
+          "FamilyName" : "Smith",
+          "GivenName" : "Fred",
+          "FullName" : "Fred Smith",
+          "IsVerified" : "N"
+        },
+        "Demographics" : {
+          "BirthDate" : "1966-05-01T00:00:00+1200"
+        },
+        "Email" : {
+          "Personal" : {
+            "Address" : "freddy@mailinator.com",
+            "SourceOrganisation" : {
+              "RefId" : "8005"
+            }
+          }
+        }
+      }
+    } ]
+  }
+}</con:sampleContent>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/xml</con:mediaType>
+      <con:status>200</con:status>
+      <con:params/>
+      <con:description>successful operation</con:description>
+      <con:sampleContent><![CDATA[<StaffPersonals>
+  <StaffPersonal>
+    <StaffPersonalRefId>d3e34f41-9d75-101a-8c3d-00aa001a1652</StaffPersonalRefId>
+    <StaffPersonalLocalId>ST-001</StaffPersonalLocalId>
+    <PersonInfo>
+      <Name>
+        <FamilyName>Smith</FamilyName>
+        <GivenName>Fred</GivenName>
+        <FullName>Fred Smith</FullName>
+        <IsVerified>N</IsVerified>
+      </Name>
+      <Demographics>
+        <BirthDate>1966-05-01</BirthDate>
+      </Demographics>
+      <Email>
+        <Personal>
+          <Address>fred@gmail.com</Address>
+          <SourceOrganisation>
+            <RefId>8005</RefId>
+          </SourceOrganisation>
+        </Personal>
+      </Email>
+    </PersonInfo>
+  </StaffPersonal>
+  <StaffPersonal>
+    <StaffPersonalRefId>d3e34f41-9d75-101a-8c3d-00aa001b3652</StaffPersonalRefId>
+    <StaffPersonalLocalId>ST-002</StaffPersonalLocalId>
+    <PersonInfo>
+      <Name>
+        <FullName>Fred Jones</FullName>
+        <IsVerified>N</IsVerified>
+      </Name>
+      <Demographics>
+        <BirthDate>1966-05-01</BirthDate>
+      </Demographics>          
+      <Email>
+        <Personal>
+          <Address>freddy@gmail.com</Address>
+          <SourceOrganisation>
+            <RefId>8005</RefId>
+          </SourceOrganisation>
+        </Personal>
+      </Email>
+    </PersonInfo>
+  </StaffPersonal>      
+</StaffPersonals>]]></con:sampleContent>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>401</con:status>
+      <con:params/>
+      <con:description>Unauthorised - Authorization header missing, or contents incorrect.</con:description>
+      <con:sampleContent>{
+  "error" : 401,
+  "when" : "2020-07-16T20:00:46.000Z",
+  "errorstr" : "Unauthorised request: Authorisation header missing, or incorrect."
+}</con:sampleContent>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>403</con:status>
+      <con:params/>
+      <con:description>Forbidden - API client has successfully authenticated, but is not authorised to make this API call</con:description>
+      <con:sampleContent>{
+  "error" : 401,
+  "when" : "2020-07-16T20:00:46.000Z",
+  "errorstr" : "Forbidden request: API endpoint not permitted to client"
+}</con:sampleContent>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>404</con:status>
+      <con:params/>
+      <con:description>Not Found - resource in URL not found.</con:description>
+      <con:sampleContent>{
+  "error" : 404,
+  "when" : "2020-07-16T20:00:46.000Z",
+  "errorstr" : "Not Found: URL doesn't refer to known object"
+}</con:sampleContent>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>422</con:status>
+      <con:params/>
+      <con:description>Failed to retrieve object(s).</con:description>
+      <con:sampleContent>{
+  "error" : 1009,
+  "when" : "2020-07-16T20:00:46.000Z",
+  "errorstr" : "Bad field: PersonInfo-Name-FamilyName: missing required field PersonInfo-Name-FamilyName (LastName) 'None'",
+  "localId" : "ST-002"
+}</con:sampleContent>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/xml</con:mediaType>
+      <con:status>422</con:status>
+      <con:params/>
+      <con:description>Failed to retrieve object(s).</con:description>
+      <con:sampleContent><![CDATA[<Error>
+  <error>1009</error>
+  <when>2020-07-16T20:00:46.000Z</when>
+  <errorstr>Bad field: PersonInfo-Name-FamilyName: missing required field PersonInfo-Name-FamilyName (LastName) 'None'</errorstr>
+  <localId>ST-002</localId>
+</Error>]]></con:sampleContent>
+    </con:representation>
+    <con:request name="Request 1" id="3c8ebaad-a898-4cfe-9890-8dfd20326c04" mediaType="application/json">
+      <con:settings/>
+      <con:endpoint>https://northern.edsby.co.nz/sif</con:endpoint>
+      <con:parameters/>
+    </con:request>
+  </con:method>
+  <con:method name="createStaffPersonals" id="48acf829-7964-4b03-a446-343e62b91cd2" method="POST">
+    <con:description>&lt;p>Bulk operation to create one or more StaffPersonal records of the personal contact and demographic information relating to a single staff member, who might be a teacher or other employee of the given Provider.&lt;/p></con:description>
+    <con:settings/>
+    <con:parameters>
+      <con:parameter>
+        <con:name>x-http-method-override</con:name>
+        <con:style>HEADER</con:style>
+        <con:description>Rather than CREATE records, treat this request as a SYNC request.</con:description>
+      </con:parameter>
+      <con:parameter required="true">
+        <con:name>Accept</con:name>
+        <con:style>HEADER</con:style>
+        <con:description>Standard HTTP accept header, choose between JSON and XML for response. Defaults to XML if this header is missing.</con:description>
+      </con:parameter>
+      <con:parameter required="true">
+        <con:name>X-Edsby-APIClientId</con:name>
+        <con:style>HEADER</con:style>
+        <con:description>&lt;p>Identifies the client making the API call to network infrastructure allowing WAFs to conduct rate limiting, gather usage statistics, etc. without having to unpack the username, subject claim or API key from the Authorization header.&lt;/p> &lt;p>Must be populated with the subject claim GUID from the access token in the Authorization header.&lt;/p></con:description>
+      </con:parameter>
+      <con:parameter required="true">
+        <con:name>X-Edsby-OrganisationRefId</con:name>
+        <con:style>HEADER</con:style>
+        <con:description>&lt;p>The Ministry of Education Organisation Id of the Provider(or other Organisation); used to limit the scope of the API endpoint to a particular MoE Organisation.&lt;/p></con:description>
+      </con:parameter>
+    </con:parameters>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>200</con:status>
+      <con:params/>
+      <con:description>Create successful; returns created objects</con:description>
+      <con:sampleContent>{
+  "$ref" : "#/paths/~1staffpersonal/post/requestBody/content/application~1json/example"
+}</con:sampleContent>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/xml</con:mediaType>
+      <con:status>200</con:status>
+      <con:params/>
+      <con:description>Create successful; returns created objects</con:description>
+      <con:sampleContent>&lt;ObjectNode>&lt;$ref>#/paths/~1staffpersonal/post/requestBody/content/application~1xml/example&lt;/$ref>&lt;/ObjectNode></con:sampleContent>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>400</con:status>
+      <con:params/>
+      <con:description>Bad request - Request body invalid, Content, Accept, X-Edsby-OrganisationRefId, X-Edsby-APIClientId or other required Headers missing, etc.</con:description>
+      <con:sampleContent>{
+  "error" : 400,
+  "when" : "2020-07-16T20:00:46.000Z",
+  "errorstr" : "Unprocessable request: Request body invalid according to JSON schema? Accept or X-Edsby-OrganisationRefId header missing?"
+}</con:sampleContent>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>401</con:status>
+      <con:params/>
+      <con:description>Unauthorised - Authorization header missing, or contents incorrect.</con:description>
+      <con:sampleContent>{
+  "error" : 401,
+  "when" : "2020-07-16T20:00:46.000Z",
+  "errorstr" : "Unauthorised request: Authorisation header missing, or incorrect."
+}</con:sampleContent>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>403</con:status>
+      <con:params/>
+      <con:description>Forbidden - API client has successfully authenticated, but is not authorised to make this API call</con:description>
+      <con:sampleContent>{
+  "error" : 401,
+  "when" : "2020-07-16T20:00:46.000Z",
+  "errorstr" : "Forbidden request: API endpoint not permitted to client"
+}</con:sampleContent>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>404</con:status>
+      <con:params/>
+      <con:description>Not Found - resource in URL not found.</con:description>
+      <con:sampleContent>{
+  "error" : 404,
+  "when" : "2020-07-16T20:00:46.000Z",
+  "errorstr" : "Not Found: URL doesn't refer to known object"
+}</con:sampleContent>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>422</con:status>
+      <con:params/>
+      <con:description>Some objects created, some creates failed</con:description>
+      <con:sampleContent>[ {
+  "StaffPersonal" : [ {
+    "StaffPersonalRefId" : "d3e34f41-9d75-101a-8c3d-00aa001a1652",
+    "StaffPersonalLocalId" : "ST-001",
+    "PersonInfo" : {
+      "Name" : {
+        "FamilyName" : "Smith",
+        "GivenName" : "Fred",
+        "FullName" : "Fred Smith",
+        "IsVerified" : "N"
+      },
+      "Demographics" : {
+        "BirthDate" : "1966-05-01T00:00:00+1200"
+      },
+      "Email" : {
+        "Personal" : {
+          "Address" : "freddy@mailinator.com",
+          "SourceOrganisation" : {
+            "RefId" : "8005"
+          }
+        }
+      }
+    },
+    "StaffAssignment" : {
+      "StaffAssignmentLocalId" : "8005_ST-001",
+      "StaffRole" : "1002",
+      "StartDate" : "2020-09-03T00:00:00+1200"
+    }
+  } ]
+}, {
+  "Error" : {
+    "error" : 1009,
+    "when" : "2020-07-16T20:00:46.000Z",
+    "errorstr" : "Bad field: PersonInfo-Name-FamilyName: missing required field PersonInfo-Name-FamilyName (LastName) 'None'",
+    "localId" : "ST-002",
+    "refId" : null
+  }
+} ]</con:sampleContent>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/xml</con:mediaType>
+      <con:status>422</con:status>
+      <con:params/>
+      <con:description>Some objects created, some creates failed</con:description>
+      <con:sampleContent><![CDATA[<Response>
+  <StaffPersonal>
+    <StaffPersonalRefId>d3e34f41-9d75-101a-8c3d-00aa001a1652</StaffPersonalRefId>
+    <StaffPersonalLocalId>ST-001</StaffPersonalLocalId>
+    <PersonInfo>
+      <Name>
+        <FamilyName>Smith</FamilyName>
+        <GivenName>Fred</GivenName>
+        <FullName>Fred Smith</FullName>
+        <IsVerified>N</IsVerified>
+      </Name>
+      <Demographics>
+        <BirthDate>1966-05-01</BirthDate>
+      </Demographics>
+      <EmailList>
+        <Email>
+          <Type>PRIM</Type>
+          <Address>freddy@gmail.com</Address>
+        </Email>
+      </EmailList>
+    </PersonInfo>
+  </StaffPersonal>
+  <Error>
+    <error>1009</error>
+    <when>2020-07-16T20:00:46.000Z</when>
+    <errorstr>Bad field: PersonInfo-Name-FamilyName: missing required field PersonInfo-Name-FamilyName (LastName) 'None'</errorstr>
+    <localId>ST-002</localId>
+    <refId/>
+  </Error>
+</Response>]]></con:sampleContent>
+    </con:representation>
+    <con:representation type="REQUEST">
+      <con:mediaType>application/json</con:mediaType>
+      <con:params/>
+      <con:sampleContent>{
+  "StaffPersonals" : {
+    "StaffPersonal" : [ {
+      "StaffPersonalRefId" : "d3e34f41-9d75-101a-8c3d-00aa001a1652",
+      "StaffPersonalLocalId" : "ST-001",
+      "PersonInfo" : {
+        "Name" : {
+          "FamilyName" : "Smith",
+          "GivenName" : "Fred",
+          "FullName" : "Fred Smith",
+          "IsVerified" : "N"
+        },
+        "Demographics" : {
+          "BirthDate" : "1966-05-01T00:00:00+1200"
+        },
+        "Email" : {
+          "Personal" : {
+            "Address" : "freddy@mailinator.com",
+            "SourceOrganisation" : {
+              "RefId" : "8005"
+            }
+          }
+        }
+      },
+      "StaffAssignment" : {
+        "StaffAssignmentLocalId" : "8005_ST-001",
+        "StaffRole" : "1002",
+        "StartDate" : "2020-09-03T00:00:00+1200"
+      }
+    } ]
+  }
+}</con:sampleContent>
+    </con:representation>
+    <con:representation type="REQUEST">
+      <con:mediaType>application/xml</con:mediaType>
+      <con:params/>
+      <con:sampleContent><![CDATA[<StaffPersonals>
+  <StaffPersonal>
+    <StaffPersonalRefId>d3e34f41-9d75-101a-8c3d-00aa001a1652</StaffPersonalRefId>
+    <StaffPersonalLocalId>ST-001</StaffPersonalLocalId>
+    <PersonInfo>
+      <Name>
+        <FamilyName>Smith</FamilyName>
+        <GivenName>Fred</GivenName>
+        <FullName>Fred Smith</FullName>
+        <IsVerified>N</IsVerified>
+      </Name>
+      <Demographics>
+        <BirthDate>1966-05-01</BirthDate>
+      </Demographics>          
+      <Email>
+        <Personal>
+          <Address>freddy@gmail.com</Address>
+          <SourceOrganisation>
+            <RefId>8005</RefId>
+          </SourceOrganisation>
+        </Personal>
+      </Email>
+    </PersonInfo>
+    <StaffAssignment>
+      <StaffRole>1002</StaffRole>
+      <StartDate>2020-09-03</StartDate>
+    </StaffAssignment>
+  </StaffPersonal>
+  <StaffPersonal>
+    <StaffPersonalRefId>d3e34f41-9d75-101a-8c3d-00aa001b3652</StaffPersonalRefId>
+    <StaffPersonalLocalId>ST-002</StaffPersonalLocalId>
+    <PersonInfo>
+      <Name>
+        <FullName>Fred Jones</FullName>
+        <IsVerified>N</IsVerified>
+      </Name>
+      <Demographics>
+        <BirthDate>1966-05-01</BirthDate>
+      </Demographics>          
+      <Email>
+        <Personal>
+          <Address>fredJ@gmail.com</Address>
+          <SourceOrganisation>
+            <RefId>8005</RefId>
+          </SourceOrganisation>
+        </Personal>
+      </Email>
+    <StaffAssignment>
+      <StaffRole>1002</StaffRole>
+      <StartDate>2020-09-03</StartDate>
+    </StaffAssignment>
+  </StaffPersonal>      
+</StaffPersonals>]]></con:sampleContent>
+    </con:representation>
+    <con:request name="Request 1" id="8ad11654-9dc8-4653-8756-767b6028da86" mediaType="application/json">
+      <con:settings/>
+      <con:endpoint>https://northern.edsby.co.nz/sif</con:endpoint>
+      <con:request>{\r
+  "StaffPersonals" : {\r
+    "StaffPersonal" : [ {\r
+      "StaffPersonalRefId" : "d3e34f41-9d75-101a-8c3d-00aa001a1652",\r
+      "StaffPersonalLocalId" : "ST-001",\r
+      "PersonInfo" : {\r
+        "Name" : {\r
+          "FamilyName" : "Smith",\r
+          "GivenName" : "Fred",\r
+          "FullName" : "Fred Smith",\r
+          "IsVerified" : "N"\r
+        },\r
+        "Demographics" : {\r
+          "BirthDate" : "1966-05-01T00:00:00+1200"\r
+        },\r
+        "Email" : {\r
+          "Personal" : {\r
+            "Address" : "freddy@mailinator.com",\r
+            "SourceOrganisation" : {\r
+              "RefId" : "8005"\r
+            }\r
+          }\r
+        }\r
+      },\r
+      "StaffAssignment" : {\r
+        "StaffAssignmentLocalId" : "8005_ST-001",\r
+        "StaffRole" : "1002",\r
+        "StartDate" : "2020-09-03T00:00:00+1200"\r
+      }\r
+    } ]\r
+  }\r
+}</con:request>
+      <con:parameters/>
+    </con:request>
+    <con:request name="Request 2" id="e53d0679-04d3-4110-b18f-06b9bcbe46b8" mediaType="application/xml">
+      <con:settings/>
+      <con:endpoint>https://northern.edsby.co.nz/sif</con:endpoint>
+      <con:request><![CDATA[<StaffPersonals>
+  <StaffPersonal>
+    <StaffPersonalRefId>d3e34f41-9d75-101a-8c3d-00aa001a1652</StaffPersonalRefId>
+    <StaffPersonalLocalId>ST-001</StaffPersonalLocalId>
+    <PersonInfo>
+      <Name>
+        <FamilyName>Smith</FamilyName>
+        <GivenName>Fred</GivenName>
+        <FullName>Fred Smith</FullName>
+        <IsVerified>N</IsVerified>
+      </Name>
+      <Demographics>
+        <BirthDate>1966-05-01</BirthDate>
+      </Demographics>          
+      <Email>
+        <Personal>
+          <Address>freddy@gmail.com</Address>
+          <SourceOrganisation>
+            <RefId>8005</RefId>
+          </SourceOrganisation>
+        </Personal>
+      </Email>
+    </PersonInfo>
+    <StaffAssignment>
+      <StaffRole>1002</StaffRole>
+      <StartDate>2020-09-03</StartDate>
+    </StaffAssignment>
+  </StaffPersonal>
+  <StaffPersonal>
+    <StaffPersonalRefId>d3e34f41-9d75-101a-8c3d-00aa001b3652</StaffPersonalRefId>
+    <StaffPersonalLocalId>ST-002</StaffPersonalLocalId>
+    <PersonInfo>
+      <Name>
+        <FullName>Fred Jones</FullName>
+        <IsVerified>N</IsVerified>
+      </Name>
+      <Demographics>
+        <BirthDate>1966-05-01</BirthDate>
+      </Demographics>          
+      <Email>
+        <Personal>
+          <Address>fredJ@gmail.com</Address>
+          <SourceOrganisation>
+            <RefId>8005</RefId>
+          </SourceOrganisation>
+        </Personal>
+      </Email>
+    <StaffAssignment>
+      <StaffRole>1002</StaffRole>
+      <StartDate>2020-09-03</StartDate>
+    </StaffAssignment>
+  </StaffPersonal>      
+</StaffPersonals>]]></con:request>
+      <con:parameters/>
+    </con:request>
+  </con:method>
+  <con:method name="updateStaffPersonals" id="7a45eeb4-fdb7-405b-a1a6-6d49b6202efb" method="PUT">
+    <con:description>&lt;p>Bulk operation to update one or more StaffPeraonal records of the personal contact and  demographic information relating to a single staff member, who might be a teacher or other employee of the given Provider.&lt;/p></con:description>
+    <con:settings/>
+    <con:parameters>
+      <con:parameter required="true">
+        <con:name>Accept</con:name>
+        <con:style>HEADER</con:style>
+        <con:description>Standard HTTP accept header, choose between JSON and XML for response. Defaults to XML if this header is missing.</con:description>
+      </con:parameter>
+      <con:parameter required="true">
+        <con:name>X-Edsby-APIClientId</con:name>
+        <con:style>HEADER</con:style>
+        <con:description>&lt;p>Identifies the client making the API call to network infrastructure allowing WAFs to conduct rate limiting, gather usage statistics, etc. without having to unpack the username, subject claim or API key from the Authorization header.&lt;/p> &lt;p>Must be populated with the subject claim GUID from the access token in the Authorization header.&lt;/p></con:description>
+      </con:parameter>
+      <con:parameter required="true">
+        <con:name>X-Edsby-OrganisationRefId</con:name>
+        <con:style>HEADER</con:style>
+        <con:description>&lt;p>The Ministry of Education Organisation Id of the Provider(or other Organisation); used to limit the scope of the API endpoint to a particular MoE Organisation.&lt;/p></con:description>
+      </con:parameter>
+    </con:parameters>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>200</con:status>
+      <con:params/>
+      <con:description>Update successful; returns updated objects</con:description>
+      <con:sampleContent>{
+  "$ref" : "#/paths/~1staffpersonal/get/responses/200/content/application~1json/example"
+}</con:sampleContent>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/xml</con:mediaType>
+      <con:status>200</con:status>
+      <con:params/>
+      <con:description>Update successful; returns updated objects</con:description>
+      <con:sampleContent>&lt;ObjectNode>&lt;$ref>#/paths/~1staffpersonal/get/responses/200/content/application~1xml/example&lt;/$ref>&lt;/ObjectNode></con:sampleContent>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>400</con:status>
+      <con:params/>
+      <con:description>Bad request - Request body invalid, Content, Accept, X-Edsby-OrganisationRefId, X-Edsby-APIClientId or other required Headers missing, etc.</con:description>
+      <con:sampleContent>{
+  "error" : 400,
+  "when" : "2020-07-16T20:00:46.000Z",
+  "errorstr" : "Unprocessable request: Request body invalid according to JSON schema? Accept or X-Edsby-OrganisationRefId header missing?"
+}</con:sampleContent>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>401</con:status>
+      <con:params/>
+      <con:description>Unauthorised - Authorization header missing, or contents incorrect.</con:description>
+      <con:sampleContent>{
+  "error" : 401,
+  "when" : "2020-07-16T20:00:46.000Z",
+  "errorstr" : "Unauthorised request: Authorisation header missing, or incorrect."
+}</con:sampleContent>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>403</con:status>
+      <con:params/>
+      <con:description>Forbidden - API client has successfully authenticated, but is not authorised to make this API call</con:description>
+      <con:sampleContent>{
+  "error" : 401,
+  "when" : "2020-07-16T20:00:46.000Z",
+  "errorstr" : "Forbidden request: API endpoint not permitted to client"
+}</con:sampleContent>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>404</con:status>
+      <con:params/>
+      <con:description>Not Found - resource in URL not found.</con:description>
+      <con:sampleContent>{
+  "error" : 404,
+  "when" : "2020-07-16T20:00:46.000Z",
+  "errorstr" : "Not Found: URL doesn't refer to known object"
+}</con:sampleContent>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>422</con:status>
+      <con:params/>
+      <con:description>Some objects updated, some updates failed</con:description>
+      <con:sampleContent>[ {
+  "StaffPersonal" : {
+    "StaffPersonalRefId" : "d3e34f41-9d75-101a-8c3d-00aa001a1652",
+    "StaffPersonalLocalId" : "ST-001",
+    "PersonInfo" : {
+      "Name" : {
+        "FamilyName" : "Smith",
+        "GivenName" : "Fred",
+        "FullName" : "Fred Smith",
+        "IsVerified" : "N"
+      },
+      "Demographics" : {
+        "BirthDate" : "1966-05-01T00:00:00+1200"
+      },
+      "Email" : {
+        "Personal" : {
+          "Address" : "freddy@mailinator.com",
+          "SourceOrganisation" : {
+            "RefId" : "8005"
+          }
+        }
+      }
+    }
+  }
+}, {
+  "Error" : {
+    "error" : 1009,
+    "when" : "2020-07-16T20:00:46.000Z",
+    "errorstr" : "Bad field: PersonInfo-Name-FamilyName: missing required field PersonInfo-Name-FamilyName (LastName) 'None'",
+    "localId" : "ST-002",
+    "refId" : null
+  }
+} ]</con:sampleContent>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/xml</con:mediaType>
+      <con:status>422</con:status>
+      <con:params/>
+      <con:description>Some objects updated, some updates failed</con:description>
+      <con:sampleContent>&lt;ObjectNode>&lt;$ref>#/paths/~1staffpersonal/post/responses/422/content/application~1xml/example&lt;/$ref>&lt;/ObjectNode></con:sampleContent>
+    </con:representation>
+    <con:representation type="REQUEST">
+      <con:mediaType>application/json</con:mediaType>
+      <con:params/>
+      <con:sampleContent>{
+  "$ref" : "#/paths/~1staffpersonal/get/responses/200/content/application~1json/example"
+}</con:sampleContent>
+    </con:representation>
+    <con:representation type="REQUEST">
+      <con:mediaType>application/xml</con:mediaType>
+      <con:params/>
+      <con:sampleContent>&lt;ObjectNode>&lt;$ref>#/paths/~1staffpersonal/get/responses/200/content/application~1xml/example&lt;/$ref>&lt;/ObjectNode></con:sampleContent>
+    </con:representation>
+    <con:request name="Request 1" id="805f81c7-e274-471b-9d10-65c904295cc6" mediaType="application/json">
+      <con:settings/>
+      <con:endpoint>https://northern.edsby.co.nz/sif</con:endpoint>
+      <con:request>{\r
+  "$ref" : "#/paths/~1staffpersonal/get/responses/200/content/application~1json/example"\r
+}</con:request>
+      <con:parameters/>
+    </con:request>
+    <con:request name="Request 2" id="54dfc94d-01b5-4166-8e4c-af848079da2f" mediaType="application/xml">
+      <con:settings/>
+      <con:endpoint>https://northern.edsby.co.nz/sif</con:endpoint>
+      <con:request>&lt;ObjectNode>&lt;$ref>#/paths/~1staffpersonal/get/responses/200/content/application~1xml/example&lt;/$ref>&lt;/ObjectNode></con:request>
+      <con:parameters/>
+    </con:request>
+  </con:method>
+  <con:method name="patchStaffPersonals" id="b3b41041-dcdc-4d8e-a39b-e1bc6f6856a9" method="PATCH">
+    <con:description>&lt;p>Bulk operation to update one or more fields of one or more StaffPersonal records of the personal contact and demographic information relating to a single staff member, who might be a teacher or other employee of the given Provider.&lt;/p></con:description>
+    <con:settings/>
+    <con:parameters>
+      <con:parameter required="true">
+        <con:name>Accept</con:name>
+        <con:style>HEADER</con:style>
+        <con:description>Standard HTTP accept header, choose between JSON and XML for response. Defaults to XML if this header is missing.</con:description>
+      </con:parameter>
+      <con:parameter required="true">
+        <con:name>X-Edsby-APIClientId</con:name>
+        <con:style>HEADER</con:style>
+        <con:description>&lt;p>Identifies the client making the API call to network infrastructure allowing WAFs to conduct rate limiting, gather usage statistics, etc. without having to unpack the username, subject claim or API key from the Authorization header.&lt;/p> &lt;p>Must be populated with the subject claim GUID from the access token in the Authorization header.&lt;/p></con:description>
+      </con:parameter>
+      <con:parameter required="true">
+        <con:name>X-Edsby-OrganisationRefId</con:name>
+        <con:style>HEADER</con:style>
+        <con:description>&lt;p>The Ministry of Education Organisation Id of the Provider(or other Organisation); used to limit the scope of the API endpoint to a particular MoE Organisation.&lt;/p></con:description>
+      </con:parameter>
+    </con:parameters>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>200</con:status>
+      <con:params/>
+      <con:description>Patch successful; returns patched objects</con:description>
+      <con:sampleContent>{
+  "$ref" : "#/paths/~1staffpersonal/get/responses/200/content/application~1json/example"
+}</con:sampleContent>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/xml</con:mediaType>
+      <con:status>200</con:status>
+      <con:params/>
+      <con:description>Patch successful; returns patched objects</con:description>
+      <con:sampleContent>&lt;ObjectNode>&lt;$ref>#/paths/~1staffpersonal/get/responses/200/content/application~1xml/example&lt;/$ref>&lt;/ObjectNode></con:sampleContent>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>400</con:status>
+      <con:params/>
+      <con:description>Bad request - Request body invalid, Content, Accept, X-Edsby-OrganisationRefId, X-Edsby-APIClientId or other required Headers missing, etc.</con:description>
+      <con:sampleContent>{
+  "error" : 400,
+  "when" : "2020-07-16T20:00:46.000Z",
+  "errorstr" : "Unprocessable request: Request body invalid according to JSON schema? Accept or X-Edsby-OrganisationRefId header missing?"
+}</con:sampleContent>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>401</con:status>
+      <con:params/>
+      <con:description>Unauthorised - Authorization header missing, or contents incorrect.</con:description>
+      <con:sampleContent>{
+  "error" : 401,
+  "when" : "2020-07-16T20:00:46.000Z",
+  "errorstr" : "Unauthorised request: Authorisation header missing, or incorrect."
+}</con:sampleContent>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>403</con:status>
+      <con:params/>
+      <con:description>Forbidden - API client has successfully authenticated, but is not authorised to make this API call</con:description>
+      <con:sampleContent>{
+  "error" : 401,
+  "when" : "2020-07-16T20:00:46.000Z",
+  "errorstr" : "Forbidden request: API endpoint not permitted to client"
+}</con:sampleContent>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>404</con:status>
+      <con:params/>
+      <con:description>Not Found - resource in URL not found.</con:description>
+      <con:sampleContent>{
+  "error" : 404,
+  "when" : "2020-07-16T20:00:46.000Z",
+  "errorstr" : "Not Found: URL doesn't refer to known object"
+}</con:sampleContent>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>422</con:status>
+      <con:params/>
+      <con:description>Some objects patched, some patches failed</con:description>
+      <con:sampleContent>{
+  "$ref" : "#/paths/~1staffpersonal/put/responses/422/content/application~1json/example"
+}</con:sampleContent>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/xml</con:mediaType>
+      <con:status>422</con:status>
+      <con:params/>
+      <con:description>Some objects patched, some patches failed</con:description>
+      <con:sampleContent>&lt;ObjectNode>&lt;$ref>#/paths/~1staffpersonal/post/responses/422/content/application~1xml/example&lt;/$ref>&lt;/ObjectNode></con:sampleContent>
+    </con:representation>
+    <con:representation type="REQUEST">
+      <con:mediaType>application/json</con:mediaType>
+      <con:params/>
+      <con:sampleContent>{
+  "$ref" : "#/paths/~1staffpersonal/get/responses/200/content/application~1json/example"
+}</con:sampleContent>
+    </con:representation>
+    <con:representation type="REQUEST">
+      <con:mediaType>application/xml</con:mediaType>
+      <con:params/>
+      <con:sampleContent>&lt;ObjectNode>&lt;$ref>#/paths/~1staffpersonal/get/responses/200/content/application~1xml/example&lt;/$ref>&lt;/ObjectNode></con:sampleContent>
+    </con:representation>
+    <con:request name="Request 1" id="9766a434-c180-45c0-bebc-e859808a1f2e" mediaType="application/json">
+      <con:settings/>
+      <con:endpoint>https://northern.edsby.co.nz/sif</con:endpoint>
+      <con:request>{\r
+  "$ref" : "#/paths/~1staffpersonal/get/responses/200/content/application~1json/example"\r
+}</con:request>
+      <con:parameters/>
+    </con:request>
+    <con:request name="Request 2" id="a801f0b7-b804-4435-a9c2-3de5ee9c8108" mediaType="application/xml">
+      <con:settings/>
+      <con:endpoint>https://northern.edsby.co.nz/sif</con:endpoint>
+      <con:request>&lt;ObjectNode>&lt;$ref>#/paths/~1staffpersonal/get/responses/200/content/application~1xml/example&lt;/$ref>&lt;/ObjectNode></con:request>
+      <con:parameters/>
+    </con:request>
+  </con:method>
+</con:resource>
