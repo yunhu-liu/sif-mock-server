@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <con:soapui-project id="29ca3c59-6cef-4d43-9826-4695c2caf241" created="3.5.0" activeEnvironment="Default environment" name="SIF Mock Server Release 2" resourceRoot="" compositeProjectFormat="1.3" updated="3.5.0" xmlns:con="http://eviware.com/soapui/config">
-  <con:settings/>
+  <con:settings>
+    <con:setting id="29ca3c59-6cef-4d43-9826-4695c2caf241fileName">SIF-Mock-Server-Release-2</con:setting>
+  </con:settings>
   <con:properties/>
   <con:wssContainer/>
   <con:databaseConnectionContainer/>
@@ -17,6 +19,7 @@
     </con:oAuth2Profile>
   </con:oAuth2ProfileContainer>
   <con:oAuth1ProfileContainer/>
+  <con:reporting/>
   <con:eventHandlers type="RequestFilter.filterRequest" name="RequestFilter.filterRequest">
     <con:script>// Sample event script to add custom HTTP header to all outgoing REST, SOAP and HTTP(S) calls
 // This code is often used for adding custom authentication to ReadyAPI functional tests
