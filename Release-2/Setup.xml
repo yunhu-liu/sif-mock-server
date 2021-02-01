@@ -20,6 +20,10 @@
           <con:name>X-Edsby-ApiClientId</con:name>
           <con:value>28b6982d-d07a-48ac-a488-7eb8baf549bd</con:value>
         </con:property>
+        <con:property>
+          <con:name>Accept</con:name>
+          <con:value>application/json</con:value>
+        </con:property>
       </con:properties>
     </con:config>
   </con:testStep>
@@ -45,7 +49,7 @@
     <con:config xsi:type="con:DataSourceStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
       <con:dataSource type="JSON">
         <con:configuration>
-          <sourceStep>LoadTestData</sourceStep>
+          <sourceStep/>
           <sourceProperty>TestData</sourceProperty>
           <rowPath>$['testcase']['Organisations']['Organisation']</rowPath>
           <columnPath>['OrganisationRefId']</columnPath>

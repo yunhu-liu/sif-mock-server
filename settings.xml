@@ -69,6 +69,7 @@
       <con:type>Basic</con:type>
       <con:username>siftest</con:username>
       <con:password>Beehive2021</con:password>
+      <con:preemptive>true</con:preemptive>
     </con:basicAuthEntry>
   </con:authRepository>
   <con:environmentSpec>
