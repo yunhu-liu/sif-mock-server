@@ -248,8 +248,19 @@
     <con:request name="Request 1" id="703d29ce-8a86-4c69-8570-5b9a5d126f2c" mediaType="application/json">
       <con:settings/>
       <con:endpoint>https://northern.edsby.co.nz/sif</con:endpoint>
+      <con:credentials/>
       <con:parameters/>
+      <con:environmentSpec>
+        <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+      </con:environmentSpec>
     </con:request>
+    <con:environmentSpec>
+      <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
+        <con:authProfile>Inherit From Parent</con:authProfile>
+      </con:entry>
+    </con:environmentSpec>
   </con:method>
   <con:method name="updateStudentPersonal" id="8f87f9f1-36c0-436d-b7e0-e21637e1c9aa" method="PUT">
     <con:description>&lt;p>Update a single StudentPersonal record of a particular student's personal contact and demographic information within the scope of the given Provider.&lt;/p></con:description>
@@ -378,14 +389,31 @@
       <con:request>{\r
   "$ref" : "#/paths/~1studentpersonal~1%7BstudentPersonalRefId%7D/get/responses/200/content/application~1json/example"\r
 }</con:request>
+      <con:credentials/>
       <con:parameters/>
+      <con:environmentSpec>
+        <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+      </con:environmentSpec>
     </con:request>
     <con:request name="Request 2" id="8f153479-1a25-4e61-acd4-ee2f096c97f0" mediaType="application/xml">
       <con:settings/>
       <con:endpoint>https://northern.edsby.co.nz/sif</con:endpoint>
       <con:request>&lt;ObjectNode>&lt;$ref>#/paths/~1studentpersonal~1%7BstudentPersonalRefId%7D/get/responses/200/content/application~1xml/example&lt;/$ref>&lt;/ObjectNode></con:request>
+      <con:credentials/>
       <con:parameters/>
+      <con:environmentSpec>
+        <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+      </con:environmentSpec>
     </con:request>
+    <con:environmentSpec>
+      <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
+        <con:authProfile>Inherit From Parent</con:authProfile>
+      </con:entry>
+    </con:environmentSpec>
   </con:method>
   <con:method name="patchStudentPersonal" id="5222a7c5-d3e2-4689-b469-9cc8d1a7e8ed" method="PATCH">
     <con:description>&lt;p>Update one or more fields of a single StudentPersonal record of a particular student's personal contact and demographic information within the scope of the given Provider.&lt;/p></con:description>
@@ -514,13 +542,35 @@
       <con:request>{\r
   "$ref" : "#/paths/~1studentpersonal~1%7BstudentPersonalRefId%7D/get/responses/200/content/application~1json/example"\r
 }</con:request>
+      <con:credentials/>
       <con:parameters/>
+      <con:environmentSpec>
+        <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+      </con:environmentSpec>
     </con:request>
     <con:request name="Request 2" id="a94d1366-db3e-4f86-9a79-f87d309c2b6a" mediaType="application/xml">
       <con:settings/>
       <con:endpoint>https://northern.edsby.co.nz/sif</con:endpoint>
       <con:request>&lt;ObjectNode>&lt;$ref>#/paths/~1studentpersonal~1%7BstudentPersonalRefId%7D/get/responses/200/content/application~1xml/example&lt;/$ref>&lt;/ObjectNode></con:request>
+      <con:credentials/>
       <con:parameters/>
+      <con:environmentSpec>
+        <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+      </con:environmentSpec>
     </con:request>
+    <con:environmentSpec>
+      <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
+        <con:authProfile>Inherit From Parent</con:authProfile>
+      </con:entry>
+    </con:environmentSpec>
   </con:method>
+  <con:environmentSpec>
+    <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+  </con:environmentSpec>
 </con:resource>

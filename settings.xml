@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<con:soapui-project id="29ca3c59-6cef-4d43-9826-4695c2caf241" created="3.5.0" activeEnvironment="Default environment" name="SIF Mock Server Release 2" resourceRoot="" compositeProjectFormat="1.3" updated="3.5.0" xmlns:con="http://eviware.com/soapui/config">
+<con:soapui-project id="29ca3c59-6cef-4d43-9826-4695c2caf241" created="3.5.0" activeEnvironment="SIF Mock - Release 2" name="SIF Mock Server Release 2" resourceRoot="" compositeProjectFormat="1.3" updated="3.5.0" authProfile="SIF Mock - Basic Auth" xmlns:con="http://eviware.com/soapui/config">
   <con:settings>
     <con:setting id="29ca3c59-6cef-4d43-9826-4695c2caf241fileName">SIF-Mock-Server-Release-2</con:setting>
   </con:settings>
+  <con:savedRecentRuns>1</con:savedRecentRuns>
+  <con:requirements/>
   <con:properties/>
   <con:wssContainer/>
-  <con:databaseConnectionContainer/>
+  <con:databaseConnectionContainer>
+    <con:databaseConnection>
+      <con:name>SIF Mock Database</con:name>
+      <con:driver>com.microsoft.sqlserver.jdbc.SQLServerDriver</con:driver>
+      <con:connectionString>jdbc:sqlserver://mocksifsql.terito.education.govt.nz:1433;databaseName=mocksif;user=sa;password=PASS_VALUE</con:connectionString>
+      <con:password>Qwerty2020</con:password>
+      <con:connectionProperties/>
+    </con:databaseConnection>
+  </con:databaseConnectionContainer>
   <con:jmsConnectionContainer/>
-  <con:oAuth2ProfileContainer>
-    <con:oAuth2Profile>
-      <con:name>sifDataObject CLIENT CRED</con:name>
-      <con:type>OAuth 2.0</con:type>
-      <con:accessTokenURI>https://login.microsoftonline.com/6418b52e-37db-4261-bcf7-d64c4b0a59f5/oauth2/v2.0/token</con:accessTokenURI>
-      <con:accessTokenPosition>HEADER</con:accessTokenPosition>
-      <con:oAuth2Flow>CLIENT_CREDENTIALS_GRANT</con:oAuth2Flow>
-      <con:refreshAccessTokenMethod>AUTOMATIC</con:refreshAccessTokenMethod>
-      <con:scope>FIRST SUPS NZQA LSR SMS DEFERRED</con:scope>
-    </con:oAuth2Profile>
-  </con:oAuth2ProfileContainer>
+  <con:oAuth2ProfileContainer/>
   <con:oAuth1ProfileContainer/>
   <con:reporting/>
   <con:eventHandlers type="RequestFilter.filterRequest" name="RequestFilter.filterRequest">
@@ -49,16 +49,33 @@
 // pw.close()
 // fos.close()</con:script>
   </con:eventHandlers>
+  <con:environment id="02e1b66e-5963-4de7-b043-dcb6acc71d67" name="SIF Mock - Release 2" index="0">
+    <con:service type="REST" name="Te Rito APIs">
+      <con:endpoint authProfile="SIF Mock - Basic Auth" proxyHost="" proxyPort="" proxyUsername="" proxyPassword="">http://mocksifapi.terito.education.govt.nz/sif</con:endpoint>
+    </con:service>
+    <con:databaseConnectionContainer>
+      <con:databaseConnection>
+        <con:name>SIF Mock Database</con:name>
+        <con:driver>com.microsoft.sqlserver.jdbc.SQLServerDriver</con:driver>
+        <con:connectionString>jdbc:sqlserver://mocksifapidbserver.database.windows.net:1433;databaseName=mocksif;user=sifadmin;password=PASS_VALUE</con:connectionString>
+        <con:password>PASS_VALUE</con:password>
+        <con:connectionProperties/>
+      </con:databaseConnection>
+    </con:databaseConnectionContainer>
+    <con:jmsConnectionContainer/>
+  </con:environment>
   <con:authRepository>
-    <con:oAuth20AuthEntry>
-      <con:name>sifDataObject CLIENT CRED</con:name>
-      <con:type>OAuth 2.0</con:type>
-      <con:accessTokenURI>https://login.microsoftonline.com/6418b52e-37db-4261-bcf7-d64c4b0a59f5/oauth2/v2.0/token</con:accessTokenURI>
-      <con:accessTokenPosition>HEADER</con:accessTokenPosition>
-      <con:oAuth2Flow>CLIENT_CREDENTIALS_GRANT</con:oAuth2Flow>
-      <con:refreshAccessTokenMethod>AUTOMATIC</con:refreshAccessTokenMethod>
-      <con:scope>FIRST SUPS NZQA LSR SMS DEFERRED</con:scope>
-    </con:oAuth20AuthEntry>
+    <con:basicAuthEntry>
+      <con:name>SIF Mock - Basic Auth</con:name>
+      <con:type>Basic</con:type>
+      <con:username>siftest</con:username>
+      <con:password>Beehive2021</con:password>
+    </con:basicAuthEntry>
   </con:authRepository>
+  <con:environmentSpec>
+    <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
+      <con:authProfile>No Authorization</con:authProfile>
+    </con:entry>
+  </con:environmentSpec>
   <con:tags/>
 </con:soapui-project>

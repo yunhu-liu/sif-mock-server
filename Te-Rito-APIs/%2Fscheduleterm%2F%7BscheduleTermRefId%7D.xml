@@ -163,8 +163,19 @@
     <con:request name="Request 1" id="0fa39f7d-ccd1-45c2-9e62-c4dc2a4957d2" mediaType="application/json">
       <con:settings/>
       <con:endpoint>https://northern.edsby.co.nz/sif</con:endpoint>
+      <con:credentials/>
       <con:parameters/>
+      <con:environmentSpec>
+        <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+      </con:environmentSpec>
     </con:request>
+    <con:environmentSpec>
+      <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
+        <con:authProfile>Inherit From Parent</con:authProfile>
+      </con:entry>
+    </con:environmentSpec>
   </con:method>
   <con:method name="updateScheduleTerm" id="2fe0f536-b551-4203-9c9a-f039a60097b3" method="PUT">
     <con:description>Upate a particular timetable ScheduleTerm for a particular &lt;a href="#tag/Schedule">Schedule&lt;/a> at the given Provider</con:description>
@@ -293,14 +304,31 @@
       <con:request>{\r
   "$ref" : "#/paths/~1scheduleterm~1%7BscheduleTermRefId%7D/get/responses/200/content/application~1json/example"\r
 }</con:request>
+      <con:credentials/>
       <con:parameters/>
+      <con:environmentSpec>
+        <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+      </con:environmentSpec>
     </con:request>
     <con:request name="Request 2" id="c38bafdd-7aa7-4850-a3bd-23f2ed633c14" mediaType="application/xml">
       <con:settings/>
       <con:endpoint>https://northern.edsby.co.nz/sif</con:endpoint>
       <con:request>&lt;ObjectNode>&lt;$ref>#/paths/~1scheduleterm~1%7BscheduleTermRefId%7D/get/responses/200/content/application~1xml/example&lt;/$ref>&lt;/ObjectNode></con:request>
+      <con:credentials/>
       <con:parameters/>
+      <con:environmentSpec>
+        <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+      </con:environmentSpec>
     </con:request>
+    <con:environmentSpec>
+      <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
+        <con:authProfile>Inherit From Parent</con:authProfile>
+      </con:entry>
+    </con:environmentSpec>
   </con:method>
   <con:method name="patchScheduleTerm" id="6a316da5-d9c6-4d7b-9749-feae5c6fd435" method="PATCH">
     <con:description>Update one or more fields of a particular timetable ScheduleTerm for a particular &lt;a href="#tag/Schedule">Schedule&lt;/a> at the given Provider</con:description>
@@ -429,13 +457,35 @@
       <con:request>{\r
   "$ref" : "#/paths/~1scheduleterm~1%7BscheduleTermRefId%7D/get/responses/200/content/application~1json/example"\r
 }</con:request>
+      <con:credentials/>
       <con:parameters/>
+      <con:environmentSpec>
+        <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+      </con:environmentSpec>
     </con:request>
     <con:request name="Request 2" id="2e87f13b-7802-4ef7-9c0f-7ad6defca312" mediaType="application/xml">
       <con:settings/>
       <con:endpoint>https://northern.edsby.co.nz/sif</con:endpoint>
       <con:request>&lt;ObjectNode>&lt;$ref>#/paths/~1scheduleterm~1%7BscheduleTermRefId%7D/get/responses/200/content/application~1xml/example&lt;/$ref>&lt;/ObjectNode></con:request>
+      <con:credentials/>
       <con:parameters/>
+      <con:environmentSpec>
+        <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+      </con:environmentSpec>
     </con:request>
+    <con:environmentSpec>
+      <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
+        <con:authProfile>Inherit From Parent</con:authProfile>
+      </con:entry>
+    </con:environmentSpec>
   </con:method>
+  <con:environmentSpec>
+    <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+  </con:environmentSpec>
 </con:resource>

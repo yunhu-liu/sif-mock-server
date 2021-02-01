@@ -155,8 +155,19 @@
     <con:request name="Request 1" id="8cf5edd8-501d-414a-94a3-d8268a0fe1aa" mediaType="application/json">
       <con:settings/>
       <con:endpoint>https://northern.edsby.co.nz/sif</con:endpoint>
+      <con:credentials/>
       <con:parameters/>
+      <con:environmentSpec>
+        <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+      </con:environmentSpec>
     </con:request>
+    <con:environmentSpec>
+      <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
+        <con:authProfile>Inherit From Parent</con:authProfile>
+      </con:entry>
+    </con:environmentSpec>
   </con:method>
   <con:method name="createStaffTeachingGroupAssignments" id="00e56bc6-7429-4cc7-8906-b9c9e3cbc1c3" method="POST">
     <con:description>&lt;p>Bulk operation to create one or more assignments of Staff members to particular roles with a particular TeachingGroup at the given Provider&lt;/p></con:description>
@@ -380,7 +391,13 @@
     } ]\r
   }\r
 }</con:request>
+      <con:credentials/>
       <con:parameters/>
+      <con:environmentSpec>
+        <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+      </con:environmentSpec>
     </con:request>
     <con:request name="Request 2" id="3cb5ef17-d9c1-4e8c-8710-5aade166fa52" mediaType="application/xml">
       <con:settings/>
@@ -401,8 +418,19 @@
     <StartDate>2020-01-27</StartDate>
   </StaffTeachingGroupAssignment>
 </StaffTeachingGroupAssignments>]]></con:request>
+      <con:credentials/>
       <con:parameters/>
+      <con:environmentSpec>
+        <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+      </con:environmentSpec>
     </con:request>
+    <con:environmentSpec>
+      <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
+        <con:authProfile>Inherit From Parent</con:authProfile>
+      </con:entry>
+    </con:environmentSpec>
   </con:method>
   <con:method name="updateStaffTeachingGroupAssignments" id="714eea74-d0a7-43b3-9cb6-b263856ee685" method="PUT">
     <con:description>&lt;p>Bulk operation to update one or more assignments of Staff members to particular roles with a particular TeachingGroup at the given Provider&lt;/p></con:description>
@@ -518,14 +546,31 @@
       <con:request>{\r
   "$ref" : "#/paths/~1staffteachinggroupassignment/post/requestBody/content/application~1json/example"\r
 }</con:request>
+      <con:credentials/>
       <con:parameters/>
+      <con:environmentSpec>
+        <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+      </con:environmentSpec>
     </con:request>
     <con:request name="Request 2" id="be415902-ad9c-46c3-911c-1873e2e7c99d" mediaType="application/xml">
       <con:settings/>
       <con:endpoint>https://northern.edsby.co.nz/sif</con:endpoint>
       <con:request>&lt;ObjectNode>&lt;$ref>#/paths/~1staffteachinggroupassignment/post/requestBody/content/application~1xml/example&lt;/$ref>&lt;/ObjectNode></con:request>
+      <con:credentials/>
       <con:parameters/>
+      <con:environmentSpec>
+        <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+      </con:environmentSpec>
     </con:request>
+    <con:environmentSpec>
+      <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
+        <con:authProfile>Inherit From Parent</con:authProfile>
+      </con:entry>
+    </con:environmentSpec>
   </con:method>
   <con:method name="patchStaffTeachingGroupAssignments" id="c33c6e85-d2e6-4143-93a0-cc6c3233c37e" method="PATCH">
     <con:description>&lt;p>Bulk operation to update one or more fields of one or more assignments of Staff members to particular roles with a particular TeachingGroup at the given Provider&lt;/p></con:description>
@@ -671,13 +716,35 @@
     } ]\r
   }\r
 }</con:request>
+      <con:credentials/>
       <con:parameters/>
+      <con:environmentSpec>
+        <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+      </con:environmentSpec>
     </con:request>
     <con:request name="Request 2" id="1c6dbe25-deba-49a3-9c38-fa270676ac03" mediaType="application/xml">
       <con:settings/>
       <con:endpoint>https://northern.edsby.co.nz/sif</con:endpoint>
       <con:request>&lt;ObjectNode>&lt;$ref>#/paths/~1staffteachinggroupassignment/post/requestBody/content/application~1xml/example&lt;/$ref>&lt;/ObjectNode></con:request>
+      <con:credentials/>
       <con:parameters/>
+      <con:environmentSpec>
+        <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+      </con:environmentSpec>
     </con:request>
+    <con:environmentSpec>
+      <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
+        <con:authProfile>Inherit From Parent</con:authProfile>
+      </con:entry>
+    </con:environmentSpec>
   </con:method>
+  <con:environmentSpec>
+    <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+  </con:environmentSpec>
 </con:resource>

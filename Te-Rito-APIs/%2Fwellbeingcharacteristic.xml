@@ -140,8 +140,19 @@
     <con:request name="Request 1" id="4cf540a4-a366-4d0b-ab23-f799443f0900" mediaType="application/json">
       <con:settings/>
       <con:endpoint>https://northern.edsby.co.nz/sif</con:endpoint>
+      <con:credentials/>
       <con:parameters/>
+      <con:environmentSpec>
+        <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+      </con:environmentSpec>
     </con:request>
+    <con:environmentSpec>
+      <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
+        <con:authProfile>Inherit From Parent</con:authProfile>
+      </con:entry>
+    </con:environmentSpec>
   </con:method>
   <con:method name="createWellbeingCharacteristics" id="d4274dc2-1981-4263-82fb-30dcb8a6ddbd" method="POST">
     <con:description>&lt;p>Bulk operation to create one or more core characteristics, each of which are integral to a student. They may be a Medical condition, special needs or a characteristic such as a known disability or any other characteristic or condition that is student specific and  impacts their learning.&lt;/p></con:description>
@@ -368,7 +379,13 @@
     } ]\r
   }\r
 }</con:request>
+      <con:credentials/>
       <con:parameters/>
+      <con:environmentSpec>
+        <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+      </con:environmentSpec>
     </con:request>
     <con:request name="Request 2" id="50c2cd96-da4f-4696-9421-f3f84c1e6109" mediaType="application/xml">
       <con:settings/>
@@ -392,8 +409,19 @@
     <CaseLeadContactPerson>John Doe</CaseLeadContactPerson>
   </WellbeingCharacteristic>
 </WellbeingCharacteristics>]]></con:request>
+      <con:credentials/>
       <con:parameters/>
+      <con:environmentSpec>
+        <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+      </con:environmentSpec>
     </con:request>
+    <con:environmentSpec>
+      <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
+        <con:authProfile>Inherit From Parent</con:authProfile>
+      </con:entry>
+    </con:environmentSpec>
   </con:method>
   <con:method name="updateWellbeingCharacteristics" id="f14471a8-935e-4d5d-9a62-0e8c0f5515d5" method="PUT">
     <con:description>&lt;p>Bulk operation to update one or more core characteristics, each of which are integral to a student. They may be a Medical condition, special needs or a characteristic such as a known disability or any other characteristic or condition that is student specific and  impacts their learning.&lt;/p></con:description>
@@ -509,14 +537,31 @@
       <con:request>{\r
   "$ref" : "#/paths/~1wellbeingcharacteristic/post/requestBody/content/application~1json/example"\r
 }</con:request>
+      <con:credentials/>
       <con:parameters/>
+      <con:environmentSpec>
+        <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+      </con:environmentSpec>
     </con:request>
     <con:request name="Request 2" id="38f1cb4a-9653-41b1-ab8e-2fbda92e6d5d" mediaType="application/xml">
       <con:settings/>
       <con:endpoint>https://northern.edsby.co.nz/sif</con:endpoint>
       <con:request>&lt;ObjectNode>&lt;$ref>#/paths/~1wellbeingcharacteristic/post/requestBody/content/application~1xml/example&lt;/$ref>&lt;/ObjectNode></con:request>
+      <con:credentials/>
       <con:parameters/>
+      <con:environmentSpec>
+        <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+      </con:environmentSpec>
     </con:request>
+    <con:environmentSpec>
+      <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
+        <con:authProfile>Inherit From Parent</con:authProfile>
+      </con:entry>
+    </con:environmentSpec>
   </con:method>
   <con:method name="patchWellbeingCharacteristics" id="8986e033-ef14-466b-a0e7-1be92ea24eaa" method="PATCH">
     <con:description>&lt;p>Bulk operation to update one or more fields of one or more core characteristics, each of which are integral to a student. They may be a Medical condition, special needs or a  characteristic such as a known disability or any other characteristic or condition that is student specific and impacts their learning.&lt;/p></con:description>
@@ -632,13 +677,35 @@
       <con:request>{\r
   "$ref" : "#/paths/~1wellbeingcharacteristic/post/requestBody/content/application~1json/example"\r
 }</con:request>
+      <con:credentials/>
       <con:parameters/>
+      <con:environmentSpec>
+        <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+      </con:environmentSpec>
     </con:request>
     <con:request name="Request 2" id="e46d1a54-4e21-43d7-9f29-3f8f72654d99" mediaType="application/xml">
       <con:settings/>
       <con:endpoint>https://northern.edsby.co.nz/sif</con:endpoint>
       <con:request>&lt;ObjectNode>&lt;$ref>#/paths/~1wellbeingcharacteristic/post/requestBody/content/application~1xml/example&lt;/$ref>&lt;/ObjectNode></con:request>
+      <con:credentials/>
       <con:parameters/>
+      <con:environmentSpec>
+        <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+      </con:environmentSpec>
     </con:request>
+    <con:environmentSpec>
+      <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
+        <con:authProfile>Inherit From Parent</con:authProfile>
+      </con:entry>
+    </con:environmentSpec>
   </con:method>
+  <con:environmentSpec>
+    <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+  </con:environmentSpec>
 </con:resource>

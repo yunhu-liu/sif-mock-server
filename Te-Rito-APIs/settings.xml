@@ -46601,4 +46601,9 @@ Futher [Sample Data](../SampleData/index.html) sets are provided in `.csv` and `
     <con:endpoint>https://nzqa.edsby.co.nz/sif</con:endpoint>
     <con:endpoint>https://southern.edsby.co.nz/sif</con:endpoint>
   </con:endpoints>
+  <con:environmentSpec>
+    <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+  </con:environmentSpec>
 </con:interface>

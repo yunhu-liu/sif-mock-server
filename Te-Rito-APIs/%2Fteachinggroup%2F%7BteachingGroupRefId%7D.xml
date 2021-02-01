@@ -173,8 +173,19 @@
     <con:request name="Request 1" id="ee739638-3ada-4c3f-8232-22ebc25b162e" mediaType="application/json">
       <con:settings/>
       <con:endpoint>https://northern.edsby.co.nz/sif</con:endpoint>
+      <con:credentials/>
       <con:parameters/>
+      <con:environmentSpec>
+        <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+      </con:environmentSpec>
     </con:request>
+    <con:environmentSpec>
+      <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
+        <con:authProfile>Inherit From Parent</con:authProfile>
+      </con:entry>
+    </con:environmentSpec>
   </con:method>
   <con:method name="updateTeachingGroup" id="763e705e-3964-4b1a-89c1-0f0a2357bf33" method="PUT">
     <con:description><![CDATA[<p>Update a particular TeachingGroup, which can have multiple staff assigned in a variety of roles (via <a href="#tag/StaffTeachingGroupAssignment">StaffTeachingGroupAssignment</a>),  may be assigned students from multiple year levels (via <a href="#tag/StudentTeachingGroupEnrolment">StudentTeachingGroupEnrolment</a>), and may be taught multiple <a href="#tag/ProviderCourse">ProviderCourses</a>.</p>]]></con:description>
@@ -303,14 +314,31 @@
       <con:request>{\r
   "$ref" : "#/paths/~1teachinggroup~1%7BteachingGroupRefId%7D/get/responses/200/content/application~1json/example"\r
 }</con:request>
+      <con:credentials/>
       <con:parameters/>
+      <con:environmentSpec>
+        <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+      </con:environmentSpec>
     </con:request>
     <con:request name="Request 2" id="db59976a-bc1c-4276-bbc7-60320fcc26a1" mediaType="application/xml">
       <con:settings/>
       <con:endpoint>https://northern.edsby.co.nz/sif</con:endpoint>
       <con:request>&lt;ObjectNode>&lt;$ref>#/paths/~1teachinggroup~1%7BteachingGroupRefId%7D/get/responses/200/content/application~1xml/example&lt;/$ref>&lt;/ObjectNode></con:request>
+      <con:credentials/>
       <con:parameters/>
+      <con:environmentSpec>
+        <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+      </con:environmentSpec>
     </con:request>
+    <con:environmentSpec>
+      <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
+        <con:authProfile>Inherit From Parent</con:authProfile>
+      </con:entry>
+    </con:environmentSpec>
   </con:method>
   <con:method name="patchTeachingGroup" id="0059c38d-021a-4372-a07f-bfc6b2636cf3" method="PATCH">
     <con:description><![CDATA[<p>Update one or more fields of a particular TeachingGroup, which can have multiple staff assigned in a variety of roles (via <a href="#tag/StaffTeachingGroupAssignment">StaffTeachingGroupAssignment</a>),  may be assigned students from multiple year levels (via <a href="#tag/StudentTeachingGroupEnrolment">StudentTeachingGroupEnrolment</a>), and may be taught multiple <a href="#tag/ProviderCourse">ProviderCourses</a>.</p>]]></con:description>
@@ -439,13 +467,35 @@
       <con:request>{\r
   "$ref" : "#/paths/~1teachinggroup~1%7BteachingGroupRefId%7D/get/responses/200/content/application~1json/example"\r
 }</con:request>
+      <con:credentials/>
       <con:parameters/>
+      <con:environmentSpec>
+        <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+      </con:environmentSpec>
     </con:request>
     <con:request name="Request 2" id="a608444b-f3ac-4188-b583-af7a78f80770" mediaType="application/xml">
       <con:settings/>
       <con:endpoint>https://northern.edsby.co.nz/sif</con:endpoint>
       <con:request>&lt;ObjectNode>&lt;$ref>#/paths/~1teachinggroup~1%7BteachingGroupRefId%7D/get/responses/200/content/application~1xml/example&lt;/$ref>&lt;/ObjectNode></con:request>
+      <con:credentials/>
       <con:parameters/>
+      <con:environmentSpec>
+        <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+      </con:environmentSpec>
     </con:request>
+    <con:environmentSpec>
+      <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
+        <con:authProfile>Inherit From Parent</con:authProfile>
+      </con:entry>
+    </con:environmentSpec>
   </con:method>
+  <con:environmentSpec>
+    <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+  </con:environmentSpec>
 </con:resource>

@@ -221,8 +221,19 @@
     <con:request name="Request 1" id="e6830ad1-d17b-4874-ad75-867e24bc1a9d" mediaType="application/json">
       <con:settings/>
       <con:endpoint>https://northern.edsby.co.nz/sif</con:endpoint>
+      <con:credentials/>
       <con:parameters/>
+      <con:environmentSpec>
+        <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+      </con:environmentSpec>
     </con:request>
+    <con:environmentSpec>
+      <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
+        <con:authProfile>Inherit From Parent</con:authProfile>
+      </con:entry>
+    </con:environmentSpec>
   </con:method>
   <con:method name="updateStudentContactRelationship" id="54f21f4c-c3a3-413d-8459-03080b6de6e4" method="PUT">
     <con:description><![CDATA[<p>Update a particular relationship between a person who is part of a  Student's whānau and that Student.</p> <p>Relationship properties include the relationship type and roles played by the student contact in respect of the student.</p>  <p>Individual details about the student and student contact are provided  <a href="#tag/StudentPersonal">StudentPersonal</a> and <a href="#tag/StudentContactPersonal">StudentContactPersonal</a></p>]]></con:description>
@@ -351,14 +362,31 @@
       <con:request>{\r
   "$ref" : "#/paths/~1studentcontactrelationship~1%7BstudentContactRelationshipRefId%7D/get/responses/200/content/application~1json/example"\r
 }</con:request>
+      <con:credentials/>
       <con:parameters/>
+      <con:environmentSpec>
+        <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+      </con:environmentSpec>
     </con:request>
     <con:request name="Request 2" id="1475719b-dfd5-4fba-be88-902dc3568480" mediaType="application/xml">
       <con:settings/>
       <con:endpoint>https://northern.edsby.co.nz/sif</con:endpoint>
       <con:request>&lt;ObjectNode>&lt;$ref>#/paths/~1studentcontactrelationship~1%7BstudentContactRelationshipRefId%7D/get/responses/200/content/application~1xml/example&lt;/$ref>&lt;/ObjectNode></con:request>
+      <con:credentials/>
       <con:parameters/>
+      <con:environmentSpec>
+        <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+      </con:environmentSpec>
     </con:request>
+    <con:environmentSpec>
+      <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
+        <con:authProfile>Inherit From Parent</con:authProfile>
+      </con:entry>
+    </con:environmentSpec>
   </con:method>
   <con:method name="patchStudentContactRelationship" id="ecace78a-5632-4aad-8c12-fb84c895fde0" method="PATCH">
     <con:description><![CDATA[<p>Update one or more fields of a particular relationship between a person who is part of a  Student's whānau and that Student.</p> <p>Relationship properties include the relationship type and roles played by the student contact in respect of the student.</p>  <p>Individual details about the student and student contact are provided  <a href="#tag/StudentPersonal">StudentPersonal</a> and <a href="#tag/StudentContactPersonal">StudentContactPersonal</a></p>]]></con:description>
@@ -549,13 +577,35 @@
     "ContactSequence" : 1\r
   }\r
 }</con:request>
+      <con:credentials/>
       <con:parameters/>
+      <con:environmentSpec>
+        <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+      </con:environmentSpec>
     </con:request>
     <con:request name="Request 2" id="5dd17c46-3741-409d-a55d-57a62c669317" mediaType="application/xml">
       <con:settings/>
       <con:endpoint>https://northern.edsby.co.nz/sif</con:endpoint>
       <con:request>&lt;ObjectNode>&lt;$ref>#/paths/~1studentcontactrelationship~1%7BstudentContactRelationshipRefId%7D/get/responses/200/content/application~1xml/example&lt;/$ref>&lt;/ObjectNode></con:request>
+      <con:credentials/>
       <con:parameters/>
+      <con:environmentSpec>
+        <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+      </con:environmentSpec>
     </con:request>
+    <con:environmentSpec>
+      <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
+        <con:authProfile>Inherit From Parent</con:authProfile>
+      </con:entry>
+    </con:environmentSpec>
   </con:method>
+  <con:environmentSpec>
+    <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+  </con:environmentSpec>
 </con:resource>

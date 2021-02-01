@@ -199,8 +199,19 @@
     <con:request name="Request 1" id="af37e596-7519-4ede-9776-200ef846e1e6" mediaType="application/json">
       <con:settings/>
       <con:endpoint>https://northern.edsby.co.nz/sif</con:endpoint>
+      <con:credentials/>
       <con:parameters/>
+      <con:environmentSpec>
+        <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+      </con:environmentSpec>
     </con:request>
+    <con:environmentSpec>
+      <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
+        <con:authProfile>Inherit From Parent</con:authProfile>
+      </con:entry>
+    </con:environmentSpec>
   </con:method>
   <con:method name="createBellSchedules" id="7a989bd2-0b52-4f4f-94c6-4cbe79806517" method="POST">
     <con:description>&lt;p>Bulk operation to create one or more BellSchedules, which define when the  bells ring for the start and end of the &lt;a href="#tag/SchedulePeriod">SchedulePeriods&lt;/a> at the given Provider.&lt;/p></con:description>
@@ -578,7 +589,13 @@
     } ]\r
   }\r
 }</con:request>
+      <con:credentials/>
       <con:parameters/>
+      <con:environmentSpec>
+        <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+      </con:environmentSpec>
     </con:request>
     <con:request name="Request 2" id="b1af8981-e37e-44c3-88ef-632284afbdc5" mediaType="application/xml">
       <con:settings/>
@@ -638,8 +655,19 @@
       </BellSchedule>\r
    </BellSchedules>\r
 </object>]]></con:request>
+      <con:credentials/>
       <con:parameters/>
+      <con:environmentSpec>
+        <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+      </con:environmentSpec>
     </con:request>
+    <con:environmentSpec>
+      <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
+        <con:authProfile>Inherit From Parent</con:authProfile>
+      </con:entry>
+    </con:environmentSpec>
   </con:method>
   <con:method name="updateBellSchedules" id="f1f8cdec-cec9-439b-a7d4-d76cbf74335f" method="PUT">
     <con:description>&lt;p>Bulk operation to update one or more BellSchedules, which define when the  bells ring for the start and end of the &lt;a href="#tag/SchedulePeriod">SchedulePeriods&lt;/a> at the given Provider.&lt;/p></con:description>
@@ -868,7 +896,13 @@
       <con:request>{\r
   "$ref" : "#/paths/~1schedule~1%7BscheduleRefId%7D~1bellschedule/post/requestBody/content/application~1json/example"\r
 }</con:request>
+      <con:credentials/>
       <con:parameters/>
+      <con:environmentSpec>
+        <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+      </con:environmentSpec>
     </con:request>
     <con:request name="Request 2" id="85effb0c-c6e8-462d-a8aa-22d4906f4aae" mediaType="application/xml">
       <con:settings/>
@@ -928,8 +962,19 @@
       </BellSchedule>\r
    </BellSchedules>\r
 </object>]]></con:request>
+      <con:credentials/>
       <con:parameters/>
+      <con:environmentSpec>
+        <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+      </con:environmentSpec>
     </con:request>
+    <con:environmentSpec>
+      <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
+        <con:authProfile>Inherit From Parent</con:authProfile>
+      </con:entry>
+    </con:environmentSpec>
   </con:method>
   <con:method name="patchBellSchedules" id="e01bd4a0-0cef-4ade-b0c1-a01f47a8058e" method="PATCH">
     <con:description>&lt;p>Bulk operation to update one or more fields of one ore more BellSchedules, which define when the bells ring for the start and end of the &lt;a href="#tag/SchedulePeriod">SchedulePeriods&lt;/a> at the given Provider.&lt;/p></con:description>
@@ -1136,7 +1181,13 @@
       <con:request>{\r
   "$ref" : "#/paths/~1schedule~1%7BscheduleRefId%7D~1bellschedule/post/requestBody/content/application~1json/example"\r
 }</con:request>
+      <con:credentials/>
       <con:parameters/>
+      <con:environmentSpec>
+        <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+      </con:environmentSpec>
     </con:request>
     <con:request name="Request 2" id="b55b7874-5495-448c-888f-10bbf0349bce" mediaType="application/xml">
       <con:settings/>
@@ -1174,7 +1225,23 @@
     </SchedulePeriodList>
   </BellSchedule>
 </BellSchedules>]]></con:request>
+      <con:credentials/>
       <con:parameters/>
+      <con:environmentSpec>
+        <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+      </con:environmentSpec>
     </con:request>
+    <con:environmentSpec>
+      <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
+        <con:authProfile>Inherit From Parent</con:authProfile>
+      </con:entry>
+    </con:environmentSpec>
   </con:method>
+  <con:environmentSpec>
+    <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+  </con:environmentSpec>
 </con:resource>

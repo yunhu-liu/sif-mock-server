@@ -155,8 +155,19 @@
     <con:request name="Request 1" id="fc6f6d7f-d72a-4f5c-b15d-59f76bf46fd5" mediaType="application/json">
       <con:settings/>
       <con:endpoint>https://northern.edsby.co.nz/sif</con:endpoint>
+      <con:credentials/>
       <con:parameters/>
+      <con:environmentSpec>
+        <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+      </con:environmentSpec>
     </con:request>
+    <con:environmentSpec>
+      <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
+        <con:authProfile>Inherit From Parent</con:authProfile>
+      </con:entry>
+    </con:environmentSpec>
   </con:method>
   <con:method name="createStudentContactRelationships" id="4b01d85a-4962-41eb-94f6-71b9b7e38e47" method="POST">
     <con:description><![CDATA[<p>Bulk operation to update one or more relationships between a person who is part of a  Student's whānau and that Student, for students enrolled at the given Provider.</p> <p>Relationship properties include the relationship type and roles played by the student contact in respect of the student.</p>  <p>Individual details about the student and student contact are provided  <a href="#tag/StudentPersonal">StudentPersonal</a> and <a href="#tag/StudentContactPersonal">StudentContactPersonal</a></p>]]></con:description>
@@ -468,7 +479,13 @@
     } ]\r
   }\r
 }</con:request>
+      <con:credentials/>
       <con:parameters/>
+      <con:environmentSpec>
+        <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+      </con:environmentSpec>
     </con:request>
     <con:request name="Request 2" id="788ac6fd-7c46-48a3-80ae-f513b87f1d8f" mediaType="application/xml">
       <con:settings/>
@@ -506,8 +523,19 @@
     <ContactSequence>1</ContactSequence>
   </StudentContactRelationship>
 </StudentContactRelationships>]]></con:request>
+      <con:credentials/>
       <con:parameters/>
+      <con:environmentSpec>
+        <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+      </con:environmentSpec>
     </con:request>
+    <con:environmentSpec>
+      <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
+        <con:authProfile>Inherit From Parent</con:authProfile>
+      </con:entry>
+    </con:environmentSpec>
   </con:method>
   <con:method name="updateStudentContactRelationships" id="ada95601-a802-4ed9-a366-b03153067429" method="PUT">
     <con:description><![CDATA[<p>Bulk operation to update one or more relationships between a person who is part of a  Student's whānau and that Student, for all students enrolled at the given Provider.</p> <p>Relationship properties include the relationship type and roles played by the student contact in respect of the student.</p>  <p>Individual details about the student and student contact are provided  <a href="#tag/StudentPersonal">StudentPersonal</a> and <a href="#tag/StudentContactPersonal">StudentContactPersonal</a></p>]]></con:description>
@@ -623,14 +651,31 @@
       <con:request>{\r
   "$ref" : "#/paths/~1studentcontactrelationship/post/requestBody/content/application~1json/example"\r
 }</con:request>
+      <con:credentials/>
       <con:parameters/>
+      <con:environmentSpec>
+        <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+      </con:environmentSpec>
     </con:request>
     <con:request name="Request 2" id="e80d16f5-3506-4a86-b5bc-23f0e5bb79a4" mediaType="application/xml">
       <con:settings/>
       <con:endpoint>https://northern.edsby.co.nz/sif</con:endpoint>
       <con:request>&lt;ObjectNode>&lt;$ref>#/paths/~1studentcontactrelationship/post/requestBody/content/application~1xml/example&lt;/$ref>&lt;/ObjectNode></con:request>
+      <con:credentials/>
       <con:parameters/>
+      <con:environmentSpec>
+        <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+      </con:environmentSpec>
     </con:request>
+    <con:environmentSpec>
+      <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
+        <con:authProfile>Inherit From Parent</con:authProfile>
+      </con:entry>
+    </con:environmentSpec>
   </con:method>
   <con:method name="patchStudentContactRelationships" id="2fe3ca74-13ce-4579-a99f-ff5d2ad3da18" method="PATCH">
     <con:description><![CDATA[<p>Bulk operation to update one or more fields of one or more relationships between a person who is part of a Student's whānau and that Student, for all students enrolled at the given Provider.</p> <p>Relationship properties include the relationship type and roles played by the student contact in respect of the student.</p>  <p>Individual details about the student and student contact are provided  <a href="#tag/StudentPersonal">StudentPersonal</a> and <a href="#tag/StudentContactPersonal">StudentContactPersonal</a></p>]]></con:description>
@@ -812,13 +857,35 @@
     } ]\r
   }\r
 }</con:request>
+      <con:credentials/>
       <con:parameters/>
+      <con:environmentSpec>
+        <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+      </con:environmentSpec>
     </con:request>
     <con:request name="Request 2" id="901fd33c-6720-4b4a-b264-2632c3e622d5" mediaType="application/xml">
       <con:settings/>
       <con:endpoint>https://northern.edsby.co.nz/sif</con:endpoint>
       <con:request>&lt;ObjectNode>&lt;$ref>#/paths/~1studentcontactrelationship/post/requestBody/content/application~1xml/example&lt;/$ref>&lt;/ObjectNode></con:request>
+      <con:credentials/>
       <con:parameters/>
+      <con:environmentSpec>
+        <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+      </con:environmentSpec>
     </con:request>
+    <con:environmentSpec>
+      <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
+        <con:authProfile>Inherit From Parent</con:authProfile>
+      </con:entry>
+    </con:environmentSpec>
   </con:method>
+  <con:environmentSpec>
+    <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+  </con:environmentSpec>
 </con:resource>

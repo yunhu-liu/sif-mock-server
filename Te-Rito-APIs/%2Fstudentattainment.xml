@@ -150,8 +150,19 @@
     <con:request name="Request 1" id="68adf6fe-aacd-4286-9043-e9b9b946738c" mediaType="application/json">
       <con:settings/>
       <con:endpoint>https://northern.edsby.co.nz/sif</con:endpoint>
+      <con:credentials/>
       <con:parameters/>
+      <con:environmentSpec>
+        <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+      </con:environmentSpec>
     </con:request>
+    <con:environmentSpec>
+      <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
+        <con:authProfile>Inherit From Parent</con:authProfile>
+      </con:entry>
+    </con:environmentSpec>
   </con:method>
   <con:method name="createStudentAttainments" id="2c48f11e-7d2e-42cb-98ba-60d02e44bd32" method="POST">
     <con:description><![CDATA[<p>Bulk operation to create one or more students' achievement of some <a href="#tag/Credential">Credential</a>, <a href="#tag/LearningStandard">LearningStandard</a>, or completing a <a href="#tag/ProviderCourse">ProviderCourse</a>, within the scope of the  Provider the students are enrolled in.]]></con:description>
@@ -550,7 +561,13 @@
     } ]\r
   }\r
 }</con:request>
+      <con:credentials/>
       <con:parameters/>
+      <con:environmentSpec>
+        <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+      </con:environmentSpec>
     </con:request>
     <con:request name="Request 2" id="abdfa386-bc6b-4f47-a5e7-f584b3f2d8b3" mediaType="application/xml">
       <con:settings/>
@@ -609,8 +626,19 @@
     </SubjectAreaList>
   </StudentAttainment>
 </StudentAttainments>]]></con:request>
+      <con:credentials/>
       <con:parameters/>
+      <con:environmentSpec>
+        <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+      </con:environmentSpec>
     </con:request>
+    <con:environmentSpec>
+      <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
+        <con:authProfile>Inherit From Parent</con:authProfile>
+      </con:entry>
+    </con:environmentSpec>
   </con:method>
   <con:method name="updateStudentAttainments" id="b04cff27-4b56-44f7-83fd-cb5aa365f9c0" method="PUT">
     <con:description><![CDATA[<p>Bulk operation to update one or more students' achievement of some <a href="#tag/Credential">Credential</a>, <a href="#tag/LearningStandard">LearningStandard</a>, or completing a <a href="#tag/ProviderCourse">ProviderCourse</a>, within the scope of the  Provider the students are enrolled in.]]></con:description>
@@ -726,14 +754,31 @@
       <con:request>{\r
   "$ref" : "#/paths/~1studentattainment/post/requestBody/content/application~1json/example"\r
 }</con:request>
+      <con:credentials/>
       <con:parameters/>
+      <con:environmentSpec>
+        <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+      </con:environmentSpec>
     </con:request>
     <con:request name="Request 2" id="efd286d1-2552-4de6-8565-6472dc651fe9" mediaType="application/xml">
       <con:settings/>
       <con:endpoint>https://northern.edsby.co.nz/sif</con:endpoint>
       <con:request>&lt;ObjectNode>&lt;$ref>#/paths/~1studentattainment/post/requestBody/content/application~1xml/example&lt;/$ref>&lt;/ObjectNode></con:request>
+      <con:credentials/>
       <con:parameters/>
+      <con:environmentSpec>
+        <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+      </con:environmentSpec>
     </con:request>
+    <con:environmentSpec>
+      <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
+        <con:authProfile>Inherit From Parent</con:authProfile>
+      </con:entry>
+    </con:environmentSpec>
   </con:method>
   <con:method name="patchStudentAttainments" id="74ae10df-f83b-446d-8176-4fdd736f956e" method="PATCH">
     <con:description><![CDATA[<p>Bulk operation to update one or more fields of one or more students' achievement of some <a href="#tag/Credential">Credential</a>, <a href="#tag/LearningStandard">LearningStandard</a>, or completing a <a href="#tag/ProviderCourse">ProviderCourse</a>, within the scope of the  Provider the students are enrolled in.]]></con:description>
@@ -849,13 +894,35 @@
       <con:request>{\r
   "$ref" : "#/paths/~1studentattainment/post/requestBody/content/application~1json/example"\r
 }</con:request>
+      <con:credentials/>
       <con:parameters/>
+      <con:environmentSpec>
+        <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+      </con:environmentSpec>
     </con:request>
     <con:request name="Request 2" id="2eea5439-db74-4290-bc78-3767af969db8" mediaType="application/xml">
       <con:settings/>
       <con:endpoint>https://northern.edsby.co.nz/sif</con:endpoint>
       <con:request>&lt;ObjectNode>&lt;$ref>#/paths/~1studentattainment/post/requestBody/content/application~1xml/example&lt;/$ref>&lt;/ObjectNode></con:request>
+      <con:credentials/>
       <con:parameters/>
+      <con:environmentSpec>
+        <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+      </con:environmentSpec>
     </con:request>
+    <con:environmentSpec>
+      <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
+        <con:authProfile>Inherit From Parent</con:authProfile>
+      </con:entry>
+    </con:environmentSpec>
   </con:method>
+  <con:environmentSpec>
+    <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+  </con:environmentSpec>
 </con:resource>
