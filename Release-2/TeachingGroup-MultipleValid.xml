@@ -1,0 +1,324 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase id="781f0b63-630c-4dcf-b2ac-db3f3cd4057c" discardOkResults="false" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="TeachingGroup-MultipleValid" searchProperties="true" timeout="0" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="781f0b63-630c-4dcf-b2ac-db3f3cd4057cfileName">TeachingGroup-MultipleValid</con:setting>
+  </con:settings>
+  <con:savedRecentRuns>1</con:savedRecentRuns>
+  <con:testStep type="datasource" name="LoadTestData-Multiple" id="039da93c-a149-4835-ae4b-18eda3edef98">
+    <con:settings>
+      <con:setting id="com.eviware.soapui.impl.wsdl.teststeps.datasource.DataSourceContainer@prepared-properties">&lt;xml-fragment/></con:setting>
+    </con:settings>
+    <con:config xsi:type="con:DataSourceStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:dataSource type="Directory">
+        <con:configuration>
+          <directory>C:/TeRito APIs/Te Rito APIs (v3.2-rc2)/v3.2-rc2_multiple_header_wrapped/TeachingGroup/200</directory>
+          <filter>*.json</filter>
+          <encoding/>
+        </con:configuration>
+      </con:dataSource>
+      <con:shared>true</con:shared>
+      <con:restartShared>true</con:restartShared>
+      <con:property>TestData</con:property>
+      <con:completeLastOperation>true</con:completeLastOperation>
+      <con:restartOnRun>true</con:restartOnRun>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="datasource" name="GetPayload" id="38d42c2b-4333-4bc6-b443-3e23d56292a1">
+    <con:settings/>
+    <con:config xsi:type="con:DataSourceStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:dataSource type="JSON">
+        <con:configuration>
+          <sourceStep>LoadTestData-Multiple</sourceStep>
+          <sourceProperty>TestData</sourceProperty>
+          <rowPath>$['testcase']</rowPath>
+          <columnPath/>
+        </con:configuration>
+      </con:dataSource>
+      <con:shared>true</con:shared>
+      <con:restartShared>true</con:restartShared>
+      <con:property>Payload</con:property>
+      <con:completeLastOperation>true</con:completeLastOperation>
+      <con:restartOnRun>true</con:restartOnRun>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="datasource" name="GetOrgRefId" id="711de906-ff9f-415a-846f-3a9de97157b6">
+    <con:settings/>
+    <con:config xsi:type="con:DataSourceStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:dataSource type="JSON">
+        <con:configuration>
+          <sourceStep>GetPayload</sourceStep>
+          <sourceProperty>Payload</sourceProperty>
+          <rowPath>$['TeachingGroups']['TeachingGroup'][0]</rowPath>
+          <columnPath>['Organisation']['RefId']</columnPath>
+        </con:configuration>
+      </con:dataSource>
+      <con:shared>true</con:shared>
+      <con:restartShared>true</con:restartShared>
+      <con:property>OrgRefId</con:property>
+      <con:completeLastOperation>true</con:completeLastOperation>
+      <con:restartOnRun>true</con:restartOnRun>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="datasource" name="GenDynamicId" id="ec1218e4-1363-45d6-b3ae-552bb90c4a3f">
+    <con:settings/>
+    <con:config xsi:type="con:DataSourceStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:dataSource type="Data Generator">
+        <con:configuration>
+          <generatedDataCount>1</generatedDataCount>
+          <generatorsTotalNumber>1</generatorsTotalNumber>
+          <lastSelectedProperty>0</lastSelectedProperty>
+          <GeneratorType0>STR</GeneratorType0>
+          <PropertyName0>DynamicId</PropertyName0>
+          <repetitionCountDynamicId>0</repetitionCountDynamicId>
+          <repeatValuesDynamicId>false</repeatValuesDynamicId>
+          <PasswordDataGeneratorUseSpacesDynamicId>false</PasswordDataGeneratorUseSpacesDynamicId>
+          <PasswordDataGeneratorUsePunctuationMarksDynamicId>false</PasswordDataGeneratorUsePunctuationMarksDynamicId>
+          <PasswordDataGeneratorUseLettersDynamicId>true</PasswordDataGeneratorUseLettersDynamicId>
+          <PasswordDataGeneratorUseDigitsDynamicId>true</PasswordDataGeneratorUseDigitsDynamicId>
+          <PasswordDataGeneratorMaxCharacterCountDynamicId>8</PasswordDataGeneratorMaxCharacterCountDynamicId>
+          <PasswordDataGeneratorMinCharacterCountDynamicId>8</PasswordDataGeneratorMinCharacterCountDynamicId>
+          <escapeSpaceSequence/>
+        </con:configuration>
+      </con:dataSource>
+      <con:shared>true</con:shared>
+      <con:restartShared>true</con:restartShared>
+      <con:property>DynamicId</con:property>
+      <con:completeLastOperation>true</con:completeLastOperation>
+      <con:restartOnRun>true</con:restartOnRun>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="groovy" name="UpdatePayload" id="b4ed2a80-f8a2-45d6-8871-6b1fee56bd19">
+    <con:settings/>
+    <con:config>
+      <script>// Update Payload by Adding Dynamic Values to Some Fields
+import groovy.json.*
+
+// Load Data for Teaching Groups 
+def dynamicId = context.expand( '${GenDynamicId#DynamicId}' ) 
+def payload = context.expand( '${GetPayload#Payload}' ) 
+def slurped = new JsonSlurper().parseText(payload)
+
+// Get Total Count of Teaching Groups
+def tgCount = slurped.TeachingGroups.TeachingGroup.size()
+
+// Loop Through Teaching Groups and Update Fields for Each
+for ( i = 0; i &lt; tgCount; i++)
+{
+	// Get Values 
+	def teachingGroup = new JsonBuilder(slurped.TeachingGroups.TeachingGroup[i]) 
+	def tgLocalId = teachingGroup.content.TeachingGroupLocalId 
+	def tgShortName =  teachingGroup.content.ShortName 
+	def tgLongName =  teachingGroup.content.LongName  
+	
+	// Update Fields
+	slurped.TeachingGroups.TeachingGroup[i].TeachingGroupLocalId = "$tgLocalId" + "_" + "$dynamicId" 
+	slurped.TeachingGroups.TeachingGroup[i].ShortName = "$tgShortName" + "_" + "$dynamicId" 
+	slurped.TeachingGroups.TeachingGroup[i].LongName = "$tgLongName" + "_" + "$dynamicId"	
+}
+
+// Write Updated Payload to Result
+return new JsonBuilder(slurped)</script>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="restrequest" name="CreateTeachingGroups" id="58ae3733-082e-4d41-9598-8ea7dbe43af7">
+    <con:settings/>
+    <con:config service="Te Rito APIs" resourcePath="/teachinggroup" methodName="createTeachingGroups" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest name="CreateTeachingGroups" id="d018ff85-8598-4526-8948-60ca39a76342" mediaType="application/json" postQueryString="false">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:endpoint>https://northern.edsby.co.nz/sif</con:endpoint>
+        <con:request>${UpdatePayload#result}</con:request>
+        <con:originalUri>http://mocksifapi.terito.education.govt.nz/sif/teachinggroup</con:originalUri>
+        <con:assertion type="Valid HTTP Status Codes" id="9005b833-0095-4053-8b77-db6ca673cb3d" name="Valid HTTP Status Codes">
+          <con:settings/>
+          <con:configuration>
+            <codes>200</codes>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="Response SLA Assertion" id="6a7001c6-d690-44f9-a297-fa099db44592" name="Response SLA" disabled="true">
+          <con:configuration>
+            <SLA>200</SLA>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters>
+          <con:entry key="Accept" value="${#[Release 2#Setup#Properties]#Accept}"/>
+          <con:entry key="X-Edsby-APIClientId" value="${#[Release 2#Setup#Properties]#X-Edsby-ApiClientId}"/>
+          <con:entry key="X-Edsby-OrganisationRefId" value="${GetOrgRefId#OrgRefId}"/>
+        </con:parameters>
+        <con:environmentSpec>
+          <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="restrequest" name="GetTeachingGroups" id="af334c92-77f9-4a69-9be9-9a1c40427fde">
+    <con:settings/>
+    <con:config service="Te Rito APIs" resourcePath="/teachinggroup" methodName="getTeachingGroups" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest name="GetTeachingGroups" id="b8a449bd-89ad-4130-bcb9-ca8395fef91a" mediaType="application/json">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:endpoint>https://northern.edsby.co.nz/sif</con:endpoint>
+        <con:request/>
+        <con:originalUri>http://mocksifapi.terito.education.govt.nz/sif/teachinggroup</con:originalUri>
+        <con:assertion type="Valid HTTP Status Codes" id="73f87b6e-1c67-4147-9552-ec649e27fe4c" name="Valid HTTP Status Codes">
+          <con:settings/>
+          <con:configuration>
+            <codes>200</codes>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="Response SLA Assertion" id="ca87314b-9919-4778-8ddb-742e30632b2d" name="Response SLA" disabled="true">
+          <con:configuration>
+            <SLA>200</SLA>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters>
+          <con:entry key="Accept" value="${#[Release 2#Setup#Properties]#Accept}"/>
+          <con:entry key="X-Edsby-APIClientId" value="${#[Release 2#Setup#Properties]#X-Edsby-ApiClientId}"/>
+          <con:entry key="X-Edsby-OrganisationRefId" value="${GetOrgRefId#OrgRefId}"/>
+        </con:parameters>
+        <con:environmentSpec>
+          <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="restrequest" name="UpdateTeachingGroups" id="a2eee1af-3edf-4039-9605-eca456815971">
+    <con:settings/>
+    <con:config service="Te Rito APIs" resourcePath="/teachinggroup" methodName="updateTeachingGroups" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest name="UpdateTeachingGroups" id="69196ae2-4f2a-40b5-8121-128ef6905b71" mediaType="application/json" postQueryString="false">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:endpoint>https://northern.edsby.co.nz/sif</con:endpoint>
+        <con:request>${UpdatePayload#result}</con:request>
+        <con:originalUri>http://mocksifapi.terito.education.govt.nz/sif/teachinggroup</con:originalUri>
+        <con:assertion type="Valid HTTP Status Codes" id="2daefd44-437a-43bc-8ac4-44dc0646ad2e" name="Valid HTTP Status Codes">
+          <con:settings/>
+          <con:configuration>
+            <codes>200</codes>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="Response SLA Assertion" id="29b68372-84ea-4e98-bd87-bbb9f0b96a47" name="Response SLA" disabled="true">
+          <con:configuration>
+            <SLA>200</SLA>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters>
+          <con:entry key="Accept" value="${#[Release 2#Setup#Properties]#Accept}"/>
+          <con:entry key="X-Edsby-APIClientId" value="${#[Release 2#Setup#Properties]#X-Edsby-ApiClientId}"/>
+          <con:entry key="X-Edsby-OrganisationRefId" value="${GetOrgRefId#OrgRefId}"/>
+        </con:parameters>
+        <con:environmentSpec>
+          <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="restrequest" name="PatchTeachingGroups" id="66a9ffb4-8dfd-4675-8d14-f68a115e95c4">
+    <con:settings/>
+    <con:config service="Te Rito APIs" resourcePath="/teachinggroup" methodName="patchTeachingGroups" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest name="PatchTeachingGroups" id="33c8ca27-ed67-4508-9285-f751ac39be37" mediaType="application/json" postQueryString="false">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:endpoint>https://northern.edsby.co.nz/sif</con:endpoint>
+        <con:request>${UpdatePayload#result}</con:request>
+        <con:originalUri>http://mocksifapi.terito.education.govt.nz/sif/teachinggroup</con:originalUri>
+        <con:assertion type="Valid HTTP Status Codes" id="090fb89c-1475-482b-a591-5e25791caba4" name="Valid HTTP Status Codes">
+          <con:settings/>
+          <con:configuration>
+            <codes>200</codes>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="Response SLA Assertion" id="6cea8bb7-c78e-4ff0-86f7-5ea9a81ee221" name="Response SLA" disabled="true">
+          <con:configuration>
+            <SLA>200</SLA>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters>
+          <con:entry key="Accept" value="${#[Release 2#Setup#Properties]#Accept}"/>
+          <con:entry key="X-Edsby-APIClientId" value="${#[Release 2#Setup#Properties]#X-Edsby-ApiClientId}"/>
+          <con:entry key="X-Edsby-OrganisationRefId" value="${GetOrgRefId#OrgRefId}"/>
+        </con:parameters>
+        <con:environmentSpec>
+          <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="datasourceloop" name="DataSource Loop" id="fe626e1e-8e2e-4065-a5c4-5554157c1a82">
+    <con:settings/>
+    <con:config>
+      <dataSourceStep>LoadTestData-Multiple</dataSourceStep>
+      <targetStep>GetPayload</targetStep>
+      <discardResults>true</discardResults>
+    </con:config>
+  </con:testStep>
+  <con:properties/>
+  <con:reportParameters/>
+  <con:breakPoints>
+    <con:testStepId>b4ed2a80-f8a2-45d6-8871-6b1fee56bd19</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>ec1218e4-1363-45d6-b3ae-552bb90c4a3f</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>58ae3733-082e-4d41-9598-8ea7dbe43af7</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>af334c92-77f9-4a69-9be9-9a1c40427fde</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>711de906-ff9f-415a-846f-3a9de97157b6</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>a2eee1af-3edf-4039-9605-eca456815971</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>66a9ffb4-8dfd-4675-8d14-f68a115e95c4</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+</con:testCase>
