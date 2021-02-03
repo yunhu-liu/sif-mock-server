@@ -76,3 +76,7 @@ Te-Rito-APIs\%2Fwellbeingcharacteristic.xml
 Release-2\Setup.xml
 Release-2\TeachingGroup-SingleValid.xml
 Release-2\TeachingGroup-MultipleValid.xml
+Release-2\StudentContactPersonal-SingleValid.xml
+Release-2\StudentContactPersonal-MultipleValid.xml
+Release-2\WellbeingCharacteristic-Single.xml
+Release-2\Debug.xml

@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase id="7b8c0185-7775-414b-8a83-c7177ff40f55" discardOkResults="false" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="WellbeingCharacteristic-Single" searchProperties="true" timeout="0" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="7b8c0185-7775-414b-8a83-c7177ff40f55fileName">WellbeingCharacteristic-Single</con:setting>
+  </con:settings>
+  <con:savedRecentRuns>1</con:savedRecentRuns>
+  <con:testStep type="properties" name="Properties 1" id="437d4622-a948-4590-9186-5ae5c991cfdb">
+    <con:settings/>
+    <con:config xsi:type="con:PropertiesStep" saveFirst="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:properties>
+        <con:property>
+          <con:name>StudentPersonalRefId</con:name>
+          <con:value>d3e34b35-9d75-101a-8c3d-00aa001a1652</con:value>
+        </con:property>
+        <con:property>
+          <con:name>WellbeingCharacteristicRefId</con:name>
+          <con:value>d1053afc-9fb5-49db-9f9b-cd834a4f6b35</con:value>
+        </con:property>
+      </con:properties>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="datasource" name="GenDynamicId" id="679295f3-0201-456c-84f9-1c722f104722">
+    <con:settings/>
+    <con:config xsi:type="con:DataSourceStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:dataSource type="Data Generator">
+        <con:configuration>
+          <generatedDataCount>1</generatedDataCount>
+          <generatorsTotalNumber>1</generatorsTotalNumber>
+          <lastSelectedProperty>0</lastSelectedProperty>
+          <GeneratorType0>STR</GeneratorType0>
+          <PropertyName0>DynamicId</PropertyName0>
+          <repetitionCountDynamicId>0</repetitionCountDynamicId>
+          <repeatValuesDynamicId>false</repeatValuesDynamicId>
+          <PasswordDataGeneratorUseSpacesDynamicId>false</PasswordDataGeneratorUseSpacesDynamicId>
+          <PasswordDataGeneratorUsePunctuationMarksDynamicId>false</PasswordDataGeneratorUsePunctuationMarksDynamicId>
+          <PasswordDataGeneratorUseLettersDynamicId>true</PasswordDataGeneratorUseLettersDynamicId>
+          <PasswordDataGeneratorUseDigitsDynamicId>true</PasswordDataGeneratorUseDigitsDynamicId>
+          <PasswordDataGeneratorMaxCharacterCountDynamicId>8</PasswordDataGeneratorMaxCharacterCountDynamicId>
+          <PasswordDataGeneratorMinCharacterCountDynamicId>8</PasswordDataGeneratorMinCharacterCountDynamicId>
+          <escapeSpaceSequence/>
+        </con:configuration>
+      </con:dataSource>
+      <con:shared>true</con:shared>
+      <con:restartShared>true</con:restartShared>
+      <con:property>DynamicId</con:property>
+      <con:completeLastOperation>true</con:completeLastOperation>
+      <con:restartOnRun>true</con:restartOnRun>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="restrequest" name="Create" id="94d827e8-794c-4952-af18-f08475880750">
+    <con:settings/>
+    <con:config service="Te Rito APIs" resourcePath="/wellbeingcharacteristic" methodName="createWellbeingCharacteristics" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest name="Create" id="50e9f87d-6871-4fbd-bbf4-7824a9e9beee" mediaType="application/json" postQueryString="false">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:endpoint>https://northern.edsby.co.nz/sif</con:endpoint>
+        <con:request>{\r
+  "WellbeingCharacteristics" : {\r
+    "WellbeingCharacteristic" : [ {\r
+      "WellbeingCharacteristicLocalId" : "WBGCHR-HPotter-${GenDynamicId#DynamicId}",\r
+      "Student" : {\r
+        "RefId" : "${Properties 1#StudentPersonalRefId}"\r
+      },\r
+      "RecordingProvider" : {\r
+        "RefId" : "${#[Release 2#Setup#Properties]#OrgRefId}"\r
+      },\r
+      "StartDate" : "2017-11-01T00:00:00+1200",\r
+      "EndDate" : "2017-11-10T00:00:00+1200",\r
+      "CharacteristicNotes" : "This Student has a special need.${GenDynamicId#DynamicId}",\r
+      "Classification" : "LSN",\r
+      "Category" : "LSN-SOC",\r
+      "SubCategory" : "LSN-EMO",\r
+      "SubSubCategory" : "LSN-EXP",\r
+      "CaseLeadContactPerson" : "John Doe"\r
+    } ]\r
+  }\r
+}</con:request>
+        <con:originalUri>http://mocksifapi.terito.education.govt.nz/sif/wellbeingcharacteristic</con:originalUri>
+        <con:assertion type="Valid HTTP Status Codes" id="f81d61e7-a0aa-4246-90d2-0d9644244f72" name="Valid HTTP Status Codes">
+          <con:settings/>
+          <con:configuration>
+            <codes>200</codes>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="Response SLA Assertion" id="42a5fba0-4fd1-4476-ab9a-eff952d8747f" name="Response SLA">
+          <con:configuration>
+            <SLA>200</SLA>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="JsonPath Match" id="876bbccd-71a3-4b42-8a07-1353bb539ba5" name="Match content of [RefId]">
+          <con:configuration>
+            <path>$['WellbeingCharacteristics']['WellbeingCharacteristic'][0]['Student']['RefId']</path>
+            <content>${Properties 1#StudentPersonalRefId}</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters>
+          <con:entry key="Accept" value="${#[Release 2#Setup#Properties]#Accept}"/>
+          <con:entry key="X-Edsby-APIClientId" value="${#[Release 2#Setup#Properties]#X-Edsby-ApiClientId}"/>
+          <con:entry key="X-Edsby-OrganisationRefId" value="${#[Release 2#Setup#Properties]#OrgRefId}"/>
+        </con:parameters>
+        <con:environmentSpec>
+          <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="transfer" name="PropertyTransfer 1" id="a573e0fb-217f-46c5-96e4-f75eb77f4e79">
+    <con:settings/>
+    <con:config xsi:type="con:PropertyTransfersStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" entitize="false" transferChildNodes="false">
+        <con:name>WellbeingCharacteristicRefId</con:name>
+        <con:sourceType>Response</con:sourceType>
+        <con:sourceStep>Create</con:sourceStep>
+        <con:sourcePath>$['WellbeingCharacteristics']['WellbeingCharacteristic'][0]['WellbeingCharacteristicRefId']</con:sourcePath>
+        <con:targetType>WellbeingCharacteristicRefId</con:targetType>
+        <con:targetStep>Properties 1</con:targetStep>
+        <con:targetPath/>
+        <con:type>JSONPATH</con:type>
+        <con:upgraded>true</con:upgraded>
+      </con:transfers>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="restrequest" name="Get" id="6944e20a-eb73-4a09-b87b-60ba51b333fb">
+    <con:settings/>
+    <con:config service="Te Rito APIs" resourcePath="/wellbeingcharacteristic/{wellbeingCharacteristicRefId}" methodName="getWellbeingCharacteristic" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest name="Get" id="669ed471-e404-46c8-ae17-29bc946a4c69" mediaType="application/json">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:endpoint>https://northern.edsby.co.nz/sif</con:endpoint>
+        <con:request/>
+        <con:originalUri>http://mocksifapi.terito.education.govt.nz/sif/wellbeingcharacteristic/3a7ac5c5-4b40-4fee-b49b-346bfd04ed6c</con:originalUri>
+        <con:assertion type="Valid HTTP Status Codes" id="f4b70d3d-7de5-4e75-be16-f2e4811cb6cc" name="Valid HTTP Status Codes">
+          <con:settings/>
+          <con:configuration>
+            <codes>200</codes>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="Response SLA Assertion" id="fb13df11-e2d1-4691-83e3-1b6754b75a7d" name="Response SLA">
+          <con:configuration>
+            <SLA>200</SLA>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters>
+          <con:entry key="Accept" value="${#[Release 2#Setup#Properties]#Accept}"/>
+          <con:entry key="X-Edsby-APIClientId" value="${#[Release 2#Setup#Properties]#X-Edsby-ApiClientId}"/>
+          <con:entry key="X-Edsby-OrganisationRefId" value="${#[Release 2#Setup#Properties]#OrgRefId}"/>
+          <con:entry key="wellbeingCharacteristicRefId" value="${Properties 1#WellbeingCharacteristicRefId}"/>
+        </con:parameters>
+        <con:environmentSpec>
+          <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="restrequest" name="Get by Student" id="3a3f82fd-6e20-49a0-89ce-fd57255c162d">
+    <con:settings/>
+    <con:config service="Te Rito APIs" resourcePath="/studentpersonal/{studentPersonalRefId}/wellbeingcharacteristic" methodName="getWellbeingCharacteristicsByStudent" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest name="Get by Student" id="61367a66-23f6-4bc4-9555-e64b15ef30f3" mediaType="application/json">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:endpoint>https://northern.edsby.co.nz/sif</con:endpoint>
+        <con:request/>
+        <con:originalUri>http://mocksifapi.terito.education.govt.nz/sif/studentpersonal/d3e34b35-9d75-101a-8c3d-00aa001a1652/wellbeingcharacteristic</con:originalUri>
+        <con:assertion type="Valid HTTP Status Codes" id="7cd3c175-c88a-4881-8c7b-fead4b937f20" name="Valid HTTP Status Codes">
+          <con:settings/>
+          <con:configuration>
+            <codes>200</codes>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="Response SLA Assertion" id="0c753b7c-a227-49d4-9df4-90b43e4dc8bb" name="Response SLA">
+          <con:configuration>
+            <SLA>200</SLA>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters>
+          <con:entry key="Accept" value="${#[Release 2#Setup#Properties]#Accept}"/>
+          <con:entry key="X-Edsby-APIClientId" value="${#[Release 2#Setup#Properties]#X-Edsby-ApiClientId}"/>
+          <con:entry key="X-Edsby-OrganisationRefId" value="${#[Release 2#Setup#Properties]#OrgRefId}"/>
+          <con:entry key="studentPersonalRefId" value="${Properties 1#StudentPersonalRefId}"/>
+        </con:parameters>
+        <con:environmentSpec>
+          <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:properties/>
+  <con:reportParameters/>
+  <con:breakPoints>
+    <con:testStepId>679295f3-0201-456c-84f9-1c722f104722</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>437d4622-a948-4590-9186-5ae5c991cfdb</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+</con:testCase>

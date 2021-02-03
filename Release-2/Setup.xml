@@ -10,15 +10,15 @@
       <con:properties>
         <con:property>
           <con:name>OrgRefId</con:name>
-          <con:value>8008</con:value>
+          <con:value>90902</con:value>
         </con:property>
         <con:property>
           <con:name>InvalidOrgRefId</con:name>
-          <con:value>5290</con:value>
+          <con:value>4812</con:value>
         </con:property>
         <con:property>
           <con:name>X-Edsby-ApiClientId</con:name>
-          <con:value>28b6982d-d07a-48ac-a488-7eb8baf549bd</con:value>
+          <con:value>522ccca6-5af9-476f-9d50-cde78ff1b97b</con:value>
         </con:property>
         <con:property>
           <con:name>Accept</con:name>
@@ -49,7 +49,7 @@
     <con:config xsi:type="con:DataSourceStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
       <con:dataSource type="JSON">
         <con:configuration>
-          <sourceStep/>
+          <sourceStep>LoadTestData</sourceStep>
           <sourceProperty>TestData</sourceProperty>
           <rowPath>$['testcase']['Organisations']['Organisation']</rowPath>
           <columnPath>['OrganisationRefId']</columnPath>

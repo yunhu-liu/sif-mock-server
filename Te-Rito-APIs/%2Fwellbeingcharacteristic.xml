@@ -140,10 +140,12 @@
     <con:request name="Request 1" id="4cf540a4-a366-4d0b-ab23-f799443f0900" mediaType="application/json">
       <con:settings/>
       <con:endpoint>https://northern.edsby.co.nz/sif</con:endpoint>
+      <con:request/>
       <con:credentials>
         <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
         <con:authType>No Authorization</con:authType>
       </con:credentials>
+      <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
       <con:parameters/>
       <con:environmentSpec>
         <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
@@ -357,7 +359,7 @@
   </WellbeingCharacteristic>
 </WellbeingCharacteristics>]]></con:sampleContent>
     </con:representation>
-    <con:request name="Request 1" id="50e9f87d-6871-4fbd-bbf4-7824a9e9beee" mediaType="application/json">
+    <con:request name="Request 1" id="50e9f87d-6871-4fbd-bbf4-7824a9e9beee" mediaType="application/json" postQueryString="false">
       <con:settings/>
       <con:endpoint>https://northern.edsby.co.nz/sif</con:endpoint>
       <con:request>{\r
@@ -386,6 +388,7 @@
         <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
         <con:authType>No Authorization</con:authType>
       </con:credentials>
+      <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
       <con:parameters/>
       <con:environmentSpec>
         <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
