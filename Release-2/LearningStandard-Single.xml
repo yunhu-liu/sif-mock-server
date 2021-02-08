@@ -1,0 +1,402 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase id="c5d2a95f-5828-439e-94f1-7a7f3e430339" discardOkResults="false" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="LearningStandard-Single" searchProperties="true" timeout="0" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="c5d2a95f-5828-439e-94f1-7a7f3e430339fileName">LearningStandard-Single</con:setting>
+  </con:settings>
+  <con:savedRecentRuns>1</con:savedRecentRuns>
+  <con:testStep type="properties" name="Properties 1" id="228a9088-75f7-478b-a5cf-62b3432e0f34">
+    <con:settings/>
+    <con:config xsi:type="con:PropertiesStep" saveFirst="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:properties>
+        <con:property>
+          <con:name>LearningStandardRefId</con:name>
+          <con:value>ac338c95-0f38-4bae-8154-c35e0e1d4bc6</con:value>
+        </con:property>
+      </con:properties>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="datasource" name="GenDynamicId" id="54428dbd-b9a7-44c9-9670-cbf94960d062">
+    <con:settings/>
+    <con:config xsi:type="con:DataSourceStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:dataSource type="Data Generator">
+        <con:configuration>
+          <generatedDataCount>1</generatedDataCount>
+          <generatorsTotalNumber>1</generatorsTotalNumber>
+          <lastSelectedProperty>0</lastSelectedProperty>
+          <GeneratorType0>STR</GeneratorType0>
+          <PropertyName0>DynamicId</PropertyName0>
+          <repetitionCountDynamicId>0</repetitionCountDynamicId>
+          <repeatValuesDynamicId>false</repeatValuesDynamicId>
+          <PasswordDataGeneratorUseSpacesDynamicId>false</PasswordDataGeneratorUseSpacesDynamicId>
+          <PasswordDataGeneratorUsePunctuationMarksDynamicId>false</PasswordDataGeneratorUsePunctuationMarksDynamicId>
+          <PasswordDataGeneratorUseLettersDynamicId>true</PasswordDataGeneratorUseLettersDynamicId>
+          <PasswordDataGeneratorUseDigitsDynamicId>true</PasswordDataGeneratorUseDigitsDynamicId>
+          <PasswordDataGeneratorMaxCharacterCountDynamicId>8</PasswordDataGeneratorMaxCharacterCountDynamicId>
+          <PasswordDataGeneratorMinCharacterCountDynamicId>8</PasswordDataGeneratorMinCharacterCountDynamicId>
+          <escapeSpaceSequence/>
+        </con:configuration>
+      </con:dataSource>
+      <con:shared>true</con:shared>
+      <con:restartShared>true</con:restartShared>
+      <con:property>DynamicId</con:property>
+      <con:completeLastOperation>true</con:completeLastOperation>
+      <con:restartOnRun>true</con:restartOnRun>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="datasource" name="GenPublisher" id="91d9e4ce-95ec-486d-b98d-d7238a904467">
+    <con:settings/>
+    <con:config xsi:type="con:DataSourceStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:dataSource type="Data Generator">
+        <con:configuration>
+          <generatedDataCount>1</generatedDataCount>
+          <generatorsTotalNumber>1</generatorsTotalNumber>
+          <lastSelectedProperty>0</lastSelectedProperty>
+          <GeneratorType0>GUID</GeneratorType0>
+          <PropertyName0>PublisherId</PropertyName0>
+          <repetitionCountPublisherId>0</repetitionCountPublisherId>
+          <repeatValuesPublisherId>false</repeatValuesPublisherId>
+          <escapeSpaceSequence/>
+        </con:configuration>
+      </con:dataSource>
+      <con:shared>true</con:shared>
+      <con:restartShared>true</con:restartShared>
+      <con:property>PublisherId</con:property>
+      <con:completeLastOperation>true</con:completeLastOperation>
+      <con:restartOnRun>true</con:restartOnRun>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="datasource" name="GenLearningStandardLocalId" id="675b057e-5c58-430e-983d-0eca27c44a37">
+    <con:settings/>
+    <con:config xsi:type="con:DataSourceStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:dataSource type="Data Generator">
+        <con:configuration>
+          <generatedDataCount>10</generatedDataCount>
+          <generatorsTotalNumber>1</generatorsTotalNumber>
+          <lastSelectedProperty>0</lastSelectedProperty>
+          <GeneratorType0>CUSTOM</GeneratorType0>
+          <PropertyName0>LearningStandardLocalId</PropertyName0>
+          <repetitionCountLearningStandardLocalId>0</repetitionCountLearningStandardLocalId>
+          <repeatValuesLearningStandardLocalId>false</repeatValuesLearningStandardLocalId>
+          <CustomStringDataGeneratorFormatLearningStandardLocalId>91165-v2-%STR(8,8,False,True,False,False)</CustomStringDataGeneratorFormatLearningStandardLocalId>
+          <escapeSpaceSequence/>
+        </con:configuration>
+      </con:dataSource>
+      <con:shared>true</con:shared>
+      <con:restartShared>true</con:restartShared>
+      <con:property>LearningStandardLocalId</con:property>
+      <con:completeLastOperation>true</con:completeLastOperation>
+      <con:restartOnRun>true</con:restartOnRun>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="restrequest" name="Create" id="b0ae92ae-a3aa-4c28-81e5-34e82894ab95">
+    <con:settings/>
+    <con:config service="Te Rito APIs" resourcePath="/learningstandard" methodName="createLearningStandards" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest name="Create" id="28dcf268-8a0e-45d4-87c5-cec11ac814d9" mediaType="application/json" postQueryString="false">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:endpoint>https://northern.edsby.co.nz/sif</con:endpoint>
+        <con:request>{\r
+  "LearningStandards" : {\r
+    "LearningStandard" : [ {\r
+      "LearningStandardLocalId" : "${GenLearningStandardLocalId#LearningStandardLocalId}",\r
+      "Title" : "Chemistry, Organic Compounds",\r
+      "Number" : 91165,\r
+      "VersionNo" : 2,\r
+      "Publisher" : {\r
+        "RefId" : "${GenPublisher#PublisherId}"\r
+      },\r
+      "Description" : "Demonstrate understanding of the properties of selected organic compounds",\r
+      "SubjectAreaList" : {\r
+        "SubjectArea" : [ "CHEM" ]\r
+      },\r
+      "StandardType" : "US",\r
+      "Status" : "PU",\r
+      "Credits" : 4,\r
+      "Level" : 2,\r
+      "AssessmentType" : "INT"\r
+    } ]\r
+  }\r
+}</con:request>
+        <con:originalUri>http://mocksifapi.terito.education.govt.nz/sif/learningstandard</con:originalUri>
+        <con:assertion type="Valid HTTP Status Codes" id="12a261cb-2269-44a0-a02d-157f494dbc05" name="Valid HTTP Status Codes">
+          <con:settings/>
+          <con:configuration>
+            <codes>200</codes>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="JsonPath Count" id="ab654ab7-3540-4787-afb0-4979c3798e5c" name="Check count of [LearningStandard]">
+          <con:configuration>
+            <path>$['LearningStandards']['LearningStandard']</path>
+            <content>1</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="JsonPath Match" id="f7f9fe20-454c-42e4-a352-aed43b379165" name="Match content of [LearningStandardLocalId]">
+          <con:configuration>
+            <path>$['LearningStandards']['LearningStandard'][0]['LearningStandardLocalId']</path>
+            <content>${GenLearningStandardLocalId#LearningStandardLocalId}</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="JsonPath Match" id="86a41260-74ae-4e62-af34-5d6bd9f8894f" name="Match content of [RefId]">
+          <con:configuration>
+            <path>$['LearningStandards']['LearningStandard'][0]['Publisher']['RefId']</path>
+            <content>${GenPublisher#PublisherId}</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters>
+          <con:entry key="Accept" value="${#[Release 2#Setup#Properties]#Accept}"/>
+          <con:entry key="X-Edsby-APIClientId" value="${#[Release 2#Setup#Properties]#X-Edsby-ApiClientId}"/>
+        </con:parameters>
+        <con:environmentSpec>
+          <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="transfer" name="PropertyTransfer 1" id="a8b53d79-5372-4af6-900f-b6f6c6e4d413">
+    <con:settings/>
+    <con:config xsi:type="con:PropertyTransfersStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" entitize="false" transferChildNodes="false">
+        <con:name>LearningStandardRefId</con:name>
+        <con:sourceType>Response</con:sourceType>
+        <con:sourceStep>Create</con:sourceStep>
+        <con:sourcePath>$['LearningStandards']['LearningStandard'][0]['LearningStandardRefId']</con:sourcePath>
+        <con:targetType>LearningStandardRefId</con:targetType>
+        <con:targetStep>Properties 1</con:targetStep>
+        <con:targetPath/>
+        <con:type>JSONPATH</con:type>
+        <con:upgraded>true</con:upgraded>
+      </con:transfers>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="restrequest" name="Get" id="de8fa9af-641e-4ea7-b16b-0282fe6926ee">
+    <con:settings/>
+    <con:config service="Te Rito APIs" resourcePath="/learningstandard/{learningStandardRefId}" methodName="getLearningStandard" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest name="Get" id="e7685dde-9f79-4eb2-b045-b8d0dd598589" mediaType="application/json">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:endpoint>https://northern.edsby.co.nz/sif</con:endpoint>
+        <con:request/>
+        <con:originalUri>http://mocksifapi.terito.education.govt.nz/sif/learningstandard/2fec5014-8964-4601-9fe3-dd13c7648cf6</con:originalUri>
+        <con:assertion type="Valid HTTP Status Codes" id="490f8529-f751-4088-bbac-1820b900ee65" name="Valid HTTP Status Codes">
+          <con:settings/>
+          <con:configuration>
+            <codes>200</codes>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="JsonPath Match" id="928379f8-86c1-47b9-8b55-b4e6a182d1de" name="Match content of [LearningStandardRefId]">
+          <con:configuration>
+            <path>$['LearningStandard']['LearningStandardRefId']</path>
+            <content>${Properties 1#LearningStandardRefId}</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="JsonPath Match" id="45c7ecc3-5505-4aad-aba4-f7cb24c2385f" name="Match content of [LearningStandardLocalId]">
+          <con:configuration>
+            <path>$['LearningStandard']['LearningStandardLocalId']</path>
+            <content>${GenLearningStandardLocalId#LearningStandardLocalId}</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="JsonPath Match" id="dd135a14-dc79-4f1f-aeee-7d88f6177313" name="Match content of [RefId]">
+          <con:configuration>
+            <path>$['LearningStandard']['Publisher']['RefId']</path>
+            <content>${GenPublisher#PublisherId}</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters>
+          <con:entry key="Accept" value="${#[Release 2#Setup#Properties]#Accept}"/>
+          <con:entry key="learningStandardRefId" value="${Properties 1#LearningStandardRefId}"/>
+          <con:entry key="X-Edsby-APIClientId" value="${#[Release 2#Setup#Properties]#X-Edsby-ApiClientId}"/>
+        </con:parameters>
+        <con:environmentSpec>
+          <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="restrequest" name="Update" id="2ea685d3-c49d-4403-9f0d-e63631962592">
+    <con:settings/>
+    <con:config service="Te Rito APIs" resourcePath="/learningstandard/{learningStandardRefId}" methodName="updateLearningStandard" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest name="Update" id="7a15dcba-2fba-475b-91b9-a9ee7ce2987d" mediaType="application/json" postQueryString="false">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:endpoint>https://northern.edsby.co.nz/sif</con:endpoint>
+        <con:request>{
+    "LearningStandard" :
+	{
+      "LearningStandardRefId": "${Properties 1#LearningStandardRefId}",
+      "LearningStandardLocalId" : "${GenLearningStandardLocalId#LearningStandardLocalId}",
+      "Title" : "Chemistry, Organic Compounds",
+      "Number" : 91165,
+      "VersionNo" : 2,
+      "Publisher" : {
+        "RefId" : "${GenPublisher#PublisherId}"
+      },
+      "Description" : "Demonstrate understanding of the properties of selected organic compounds${GenDynamicId#DynamicId}",
+      "SubjectAreaList" : {
+        "SubjectArea" : [ "CHEM" ]
+      },
+      "StandardType" : "US",
+      "Status" : "PU",
+      "Credits" : 4,
+      "Level" : 2,
+      "AssessmentType" : "INT"
+    }
+}</con:request>
+        <con:originalUri>http://mocksifapi.terito.education.govt.nz/sif/learningstandard/</con:originalUri>
+        <con:assertion type="Valid HTTP Status Codes" id="98a6b6f9-1b20-4948-9075-ed27eb4067ed" name="Valid HTTP Status Codes">
+          <con:settings/>
+          <con:configuration>
+            <codes>200</codes>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="JsonPath Match" id="2fe8dd7f-7608-472d-81e1-7db33cfa8544" name="Match content of [LearningStandardRefId]">
+          <con:configuration>
+            <path>$['LearningStandard']['LearningStandardRefId']</path>
+            <content>${Properties 1#LearningStandardRefId}</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="JsonPath Match" id="7d16370d-6f8e-48db-a3e6-acb65847f581" name="Match content of [Description]">
+          <con:configuration>
+            <path>$['LearningStandard']['Description']</path>
+            <content>*${GenDynamicId#DynamicId}</content>
+            <allowWildcards>true</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters>
+          <con:entry key="Accept" value="${#[Release 2#Setup#Properties]#Accept}"/>
+          <con:entry key="learningStandardRefId" value="${Properties 1#LearningStandardRefId}"/>
+          <con:entry key="X-Edsby-APIClientId" value="${#[Release 2#Setup#Properties]#X-Edsby-ApiClientId}"/>
+        </con:parameters>
+        <con:environmentSpec>
+          <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="restrequest" name="Patch" id="ef5f78a8-29e8-495a-9ba8-606867622ef3">
+    <con:settings/>
+    <con:config service="Te Rito APIs" resourcePath="/learningstandard/{learningStandardRefId}" methodName="patchLearningStandard" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest name="Patch" id="978858af-8690-4510-ba61-0f521845afa0" mediaType="application/json" postQueryString="false">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:endpoint>https://northern.edsby.co.nz/sif</con:endpoint>
+        <con:request>{
+    "LearningStandard" :
+	{
+      "LearningStandardRefId": "${Properties 1#LearningStandardRefId}",
+      "Title" : "Chemistry, Organic Compounds${GenDynamicId#DynamicId}",
+    }
+}</con:request>
+        <con:originalUri>http://mocksifapi.terito.education.govt.nz/sif/learningstandard/5096688e-1a58-45cd-bf9b-08905b3effbb</con:originalUri>
+        <con:assertion type="Valid HTTP Status Codes" id="a8bbfd72-950f-49a6-abb3-f1e021559db6" name="Valid HTTP Status Codes">
+          <con:settings/>
+          <con:configuration>
+            <codes>200</codes>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="JsonPath Match" id="5aa5e5fe-1ff6-4c92-9bf6-8471cb55f201" name="Match content of [LearningStandardRefId]">
+          <con:configuration>
+            <path>$['LearningStandardCREATE']['LearningStandard']['LearningStandardRefId']</path>
+            <content>${Properties 1#LearningStandardRefId}</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="JsonPath Match" id="c367af75-7fc2-480b-9d4d-22ff6f7d95fd" name="Match content of [Title]">
+          <con:configuration>
+            <path>$['LearningStandardCREATE']['LearningStandard']['Title']</path>
+            <content>*${GenDynamicId#DynamicId}</content>
+            <allowWildcards>true</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters>
+          <con:entry key="Accept" value="${#[Release 2#Setup#Properties]#Accept}"/>
+          <con:entry key="learningStandardRefId" value="${Properties 1#LearningStandardRefId}"/>
+          <con:entry key="X-Edsby-APIClientId" value="${#[Release 2#Setup#Properties]#X-Edsby-ApiClientId}"/>
+        </con:parameters>
+        <con:environmentSpec>
+          <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:properties/>
+  <con:reportParameters/>
+  <con:breakPoints>
+    <con:testStepId>91d9e4ce-95ec-486d-b98d-d7238a904467</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>228a9088-75f7-478b-a5cf-62b3432e0f34</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>675b057e-5c58-430e-983d-0eca27c44a37</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>54428dbd-b9a7-44c9-9670-cbf94960d062</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+</con:testCase>

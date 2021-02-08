@@ -267,22 +267,25 @@ return new JsonBuilder(slurped)</script>
         </con:settings>
         <con:endpoint>https://northern.edsby.co.nz/sif</con:endpoint>
         <con:request>{
-    "TeachingGroup": {
-        "TeachingGroupLocalId": "2020_8003_HR9${GenDynamicId#DynamicId}",
-        "ShortName": "HR_9",
-        "LongName": "Homeroom Year 9",
-        "GroupType": "RC",
-        "Organisation": {
-            "RefId": "${#[Release 2#Setup#Properties]#OrgRefId}"
-        },
-        "ScheduleTerm": {
-            "LocalId": "2020_8003_Y"
-        },
-        "YearLevelList": {
-            "YearLevel": [
-                9
-            ]
-        }
+    "LearningStandard" :
+	{
+      "LearningStandardRefId": "",
+      "LearningStandardLocalId" : "${GenLearningStandardLocalId#LearningStandardLocalId}",
+      "Title" : "Chemistry, Organic Compounds",
+      "Number" : 91165,
+      "VersionNo" : 2,
+      "Publisher" : {
+        "RefId" : "${GenPublisher#PublisherId}"
+      },
+      "Description" : "Demonstrate understanding of the properties of selected organic compounds",
+      "SubjectAreaList" : {
+        "SubjectArea" : [ "CHEM" ]
+      },
+      "StandardType" : "US",
+      "Status" : "PU",
+      "Credits" : 4,
+      "Level" : 2,
+      "AssessmentType" : "INT"
     }
 }</con:request>
         <con:originalUri>http://mocksifapi.terito.education.govt.nz/sif/teachinggroup/1f2bdf36-48c7-496f-8c1e-9b1b3d159d3a</con:originalUri>
