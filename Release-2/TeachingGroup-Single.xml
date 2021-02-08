@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<con:testCase id="18589414-bbb8-4f37-888b-ce7b6ca7ca30" discardOkResults="false" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="TeachingGroup-SingleValid" searchProperties="true" timeout="0" xmlns:con="http://eviware.com/soapui/config">
+<con:testCase id="18589414-bbb8-4f37-888b-ce7b6ca7ca30" discardOkResults="false" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="TeachingGroup-Single" searchProperties="true" timeout="0" xmlns:con="http://eviware.com/soapui/config">
   <con:settings>
-    <con:setting id="18589414-bbb8-4f37-888b-ce7b6ca7ca30fileName">TeachingGroup-SingleValid</con:setting>
+    <con:setting id="18589414-bbb8-4f37-888b-ce7b6ca7ca30fileName">TeachingGroup-Single</con:setting>
   </con:settings>
   <con:savedRecentRuns>1</con:savedRecentRuns>
   <con:testStep type="properties" name="Properties 1" id="77eac9b5-83b3-40ee-81ac-663fdd499c78">
@@ -10,7 +10,7 @@
       <con:properties>
         <con:property>
           <con:name>TeachingGroupRefId</con:name>
-          <con:value>fb841bf3-2901-4375-9f70-c419064a6ea1</con:value>
+          <con:value>f907fcb0-f9b6-4aed-b954-2f89e99ffd5f</con:value>
         </con:property>
       </con:properties>
     </con:config>
@@ -153,6 +153,15 @@ return new JsonBuilder(slurped)</script>
             <codes>200</codes>
           </con:configuration>
         </con:assertion>
+        <con:assertion type="JsonPath Count" id="e9db9268-0b5d-4a57-a952-2f6d412547f3" name="Check count of [TeachingGroup]">
+          <con:configuration>
+            <path>$['TeachingGroups']['TeachingGroup']</path>
+            <content>1</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
         <con:assertion type="JsonPath Match" id="669ae816-1ce8-41a3-9f0b-0bd85d24c44d" name="Match content of [RefId]">
           <con:configuration>
             <path>$['TeachingGroups']['TeachingGroup'][0]['Organisation']['RefId']</path>
@@ -160,11 +169,6 @@ return new JsonBuilder(slurped)</script>
             <allowWildcards>false</allowWildcards>
             <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
             <ignoreComments>false</ignoreComments>
-          </con:configuration>
-        </con:assertion>
-        <con:assertion type="Response SLA Assertion" id="155eecbe-9bc5-4f8a-82bb-33fa0f5f404d" name="Response SLA" disabled="true">
-          <con:configuration>
-            <SLA>200</SLA>
           </con:configuration>
         </con:assertion>
         <con:credentials>
@@ -215,11 +219,6 @@ return new JsonBuilder(slurped)</script>
           <con:settings/>
           <con:configuration>
             <codes>200</codes>
-          </con:configuration>
-        </con:assertion>
-        <con:assertion type="Response SLA Assertion" id="169e6581-032b-46ae-b1ab-2a905b8c63c1" name="Response SLA" disabled="true">
-          <con:configuration>
-            <SLA>200</SLA>
           </con:configuration>
         </con:assertion>
         <con:assertion type="JsonPath Match" id="9d3d0c00-e0d9-4218-8544-f37af264e36d" name="Match content of [TeachingGroupRefId]">
@@ -293,9 +292,22 @@ return new JsonBuilder(slurped)</script>
             <codes>200</codes>
           </con:configuration>
         </con:assertion>
-        <con:assertion type="Response SLA Assertion" id="7599488b-98b9-4dd9-928c-5bf1119ed9aa" name="Response SLA" disabled="true">
+        <con:assertion type="JsonPath Match" id="0399f403-d5e1-45b3-921f-1a992e003c37" name="Match content of [TeachingGroupRefId]">
           <con:configuration>
-            <SLA>200</SLA>
+            <path>$['TeachingGroup']['TeachingGroupRefId']</path>
+            <content>${Properties 1#TeachingGroupRefId}</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="JsonPath Match" id="6604b20a-6399-4dae-b9a2-5298f1b4a360" name="Match content of [RefId]">
+          <con:configuration>
+            <path>$['TeachingGroup']['Organisation']['RefId']</path>
+            <content>${#[Release 2#Setup#Properties]#OrgRefId#$}</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
           </con:configuration>
         </con:assertion>
         <con:credentials>
@@ -351,9 +363,22 @@ return new JsonBuilder(slurped)</script>
             <codes>200</codes>
           </con:configuration>
         </con:assertion>
-        <con:assertion type="Response SLA Assertion" id="ea41d172-4389-4d0d-9925-52d4aa3d7fa3" name="Response SLA" disabled="true">
+        <con:assertion type="JsonPath Match" id="3e097e94-d1d8-422e-8221-a0dae986ec45" name="Match content of [TeachingGroupRefId]">
           <con:configuration>
-            <SLA>200</SLA>
+            <path>$['TeachingGroupCREATE']['TeachingGroup']['TeachingGroupRefId']</path>
+            <content>${Properties 1#TeachingGroupRefId}</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="JsonPath Match" id="bb0a9fd3-dfe5-40b1-a5ab-b8edff87d02f" name="Match content of [RefId]">
+          <con:configuration>
+            <path>$['TeachingGroupCREATE']['TeachingGroup']['Organisation']['RefId']</path>
+            <content>${#[Release 2#Setup#Properties]#OrgRefId#$}</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
           </con:configuration>
         </con:assertion>
         <con:credentials>

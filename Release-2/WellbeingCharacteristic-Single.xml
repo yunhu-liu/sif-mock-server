@@ -14,7 +14,7 @@
         </con:property>
         <con:property>
           <con:name>WellbeingCharacteristicRefId</con:name>
-          <con:value>d1053afc-9fb5-49db-9f9b-cd834a4f6b35</con:value>
+          <con:value>2fec5014-8964-4601-9fe3-dd13c7648cf6</con:value>
         </con:property>
       </con:properties>
     </con:config>
@@ -34,7 +34,7 @@
           <PasswordDataGeneratorUseSpacesDynamicId>false</PasswordDataGeneratorUseSpacesDynamicId>
           <PasswordDataGeneratorUsePunctuationMarksDynamicId>false</PasswordDataGeneratorUsePunctuationMarksDynamicId>
           <PasswordDataGeneratorUseLettersDynamicId>true</PasswordDataGeneratorUseLettersDynamicId>
-          <PasswordDataGeneratorUseDigitsDynamicId>true</PasswordDataGeneratorUseDigitsDynamicId>
+          <PasswordDataGeneratorUseDigitsDynamicId>false</PasswordDataGeneratorUseDigitsDynamicId>
           <PasswordDataGeneratorMaxCharacterCountDynamicId>8</PasswordDataGeneratorMaxCharacterCountDynamicId>
           <PasswordDataGeneratorMinCharacterCountDynamicId>8</PasswordDataGeneratorMinCharacterCountDynamicId>
           <escapeSpaceSequence/>
@@ -47,10 +47,33 @@
       <con:restartOnRun>true</con:restartOnRun>
     </con:config>
   </con:testStep>
-  <con:testStep type="restrequest" name="Create" id="94d827e8-794c-4952-af18-f08475880750">
+  <con:testStep type="datasource" name="GenWellbeingCharacteristicLocalId" id="c97d9e51-2c51-4bee-828c-e184fc354dd2">
+    <con:settings/>
+    <con:config xsi:type="con:DataSourceStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:dataSource type="Data Generator">
+        <con:configuration>
+          <generatedDataCount>10</generatedDataCount>
+          <generatorsTotalNumber>1</generatorsTotalNumber>
+          <lastSelectedProperty>0</lastSelectedProperty>
+          <GeneratorType0>CUSTOM</GeneratorType0>
+          <PropertyName0>WellbeingCharacteristicLocalId</PropertyName0>
+          <repetitionCountWellbeingCharacteristicLocalId>0</repetitionCountWellbeingCharacteristicLocalId>
+          <repeatValuesWellbeingCharacteristicLocalId>false</repeatValuesWellbeingCharacteristicLocalId>
+          <CustomStringDataGeneratorFormatWellbeingCharacteristicLocalId>WBGCHR-HPotter-%STR(8,8,False,True,False,False)</CustomStringDataGeneratorFormatWellbeingCharacteristicLocalId>
+          <escapeSpaceSequence/>
+        </con:configuration>
+      </con:dataSource>
+      <con:shared>true</con:shared>
+      <con:restartShared>true</con:restartShared>
+      <con:property>WellbeingCharacteristicLocalId</con:property>
+      <con:completeLastOperation>true</con:completeLastOperation>
+      <con:restartOnRun>true</con:restartOnRun>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="restrequest" name="CreateWellbeingCharacteristic" id="94d827e8-794c-4952-af18-f08475880750">
     <con:settings/>
     <con:config service="Te Rito APIs" resourcePath="/wellbeingcharacteristic" methodName="createWellbeingCharacteristics" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-      <con:restRequest name="Create" id="50e9f87d-6871-4fbd-bbf4-7824a9e9beee" mediaType="application/json" postQueryString="false">
+      <con:restRequest name="CreateWellbeingCharacteristic" id="50e9f87d-6871-4fbd-bbf4-7824a9e9beee" mediaType="application/json" postQueryString="false">
         <con:settings>
           <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
         </con:settings>
@@ -58,7 +81,7 @@
         <con:request>{\r
   "WellbeingCharacteristics" : {\r
     "WellbeingCharacteristic" : [ {\r
-      "WellbeingCharacteristicLocalId" : "WBGCHR-HPotter-${GenDynamicId#DynamicId}",\r
+      "WellbeingCharacteristicLocalId" : "${GenWellbeingCharacteristicLocalId#WellbeingCharacteristicLocalId}",\r
       "Student" : {\r
         "RefId" : "${Properties 1#StudentPersonalRefId}"\r
       },\r
@@ -83,9 +106,22 @@
             <codes>200</codes>
           </con:configuration>
         </con:assertion>
-        <con:assertion type="Response SLA Assertion" id="42a5fba0-4fd1-4476-ab9a-eff952d8747f" name="Response SLA">
+        <con:assertion type="JsonPath Count" id="6417c769-047a-4cdd-b0ca-f220e0760930" name="Check count of [WellbeingCharacteristic]">
           <con:configuration>
-            <SLA>200</SLA>
+            <path>$['WellbeingCharacteristics']['WellbeingCharacteristic']</path>
+            <content>1</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="JsonPath Match" id="ac539772-35d8-4d2c-bdcc-1616bbc1d197" name="Match content of [WellbeingCharacteristicLocalId]">
+          <con:configuration>
+            <path>$['WellbeingCharacteristics']['WellbeingCharacteristic'][0]['WellbeingCharacteristicLocalId']</path>
+            <content>${GenWellbeingCharacteristicLocalId#WellbeingCharacteristicLocalId}</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
           </con:configuration>
         </con:assertion>
         <con:assertion type="JsonPath Match" id="876bbccd-71a3-4b42-8a07-1353bb539ba5" name="Match content of [RefId]">
@@ -121,7 +157,7 @@
       <con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" entitize="false" transferChildNodes="false">
         <con:name>WellbeingCharacteristicRefId</con:name>
         <con:sourceType>Response</con:sourceType>
-        <con:sourceStep>Create</con:sourceStep>
+        <con:sourceStep>CreateWellbeingCharacteristic</con:sourceStep>
         <con:sourcePath>$['WellbeingCharacteristics']['WellbeingCharacteristic'][0]['WellbeingCharacteristicRefId']</con:sourcePath>
         <con:targetType>WellbeingCharacteristicRefId</con:targetType>
         <con:targetStep>Properties 1</con:targetStep>
@@ -131,10 +167,10 @@
       </con:transfers>
     </con:config>
   </con:testStep>
-  <con:testStep type="restrequest" name="Get" id="6944e20a-eb73-4a09-b87b-60ba51b333fb">
+  <con:testStep type="restrequest" name="GetWellbeingCharacteristic" id="6944e20a-eb73-4a09-b87b-60ba51b333fb">
     <con:settings/>
     <con:config service="Te Rito APIs" resourcePath="/wellbeingcharacteristic/{wellbeingCharacteristicRefId}" methodName="getWellbeingCharacteristic" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-      <con:restRequest name="Get" id="669ed471-e404-46c8-ae17-29bc946a4c69" mediaType="application/json">
+      <con:restRequest name="GetWellbeingCharacteristic" id="669ed471-e404-46c8-ae17-29bc946a4c69" mediaType="application/json">
         <con:settings>
           <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
         </con:settings>
@@ -147,9 +183,31 @@
             <codes>200</codes>
           </con:configuration>
         </con:assertion>
-        <con:assertion type="Response SLA Assertion" id="fb13df11-e2d1-4691-83e3-1b6754b75a7d" name="Response SLA">
+        <con:assertion type="JsonPath Match" id="a50b3244-87ab-47d0-9946-981626d43366" name="Match content of [WellbeingCharacteristicRefId]">
           <con:configuration>
-            <SLA>200</SLA>
+            <path>$['WellbeingCharacteristic']['WellbeingCharacteristicRefId']</path>
+            <content>${Properties 1#WellbeingCharacteristicRefId}</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="JsonPath Match" id="85efc3cc-3012-4184-b7b2-659bb99def8b" name="Match content of [WellbeingCharacteristicLocalId]">
+          <con:configuration>
+            <path>$['WellbeingCharacteristic']['WellbeingCharacteristicLocalId']</path>
+            <content>${GenWellbeingCharacteristicLocalId#WellbeingCharacteristicLocalId}</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="JsonPath Match" id="77896590-e548-4991-b938-ec6ceaad639f" name="Match content of [RefId]">
+          <con:configuration>
+            <path>$['WellbeingCharacteristic']['RecordingProvider']['RefId']</path>
+            <content>${#[Release 2#Setup#Properties]#OrgRefId#$}</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
           </con:configuration>
         </con:assertion>
         <con:credentials>
@@ -171,10 +229,10 @@
       </con:restRequest>
     </con:config>
   </con:testStep>
-  <con:testStep type="restrequest" name="Get by Student" id="3a3f82fd-6e20-49a0-89ce-fd57255c162d">
+  <con:testStep type="restrequest" name="GetbyStudent" id="3a3f82fd-6e20-49a0-89ce-fd57255c162d">
     <con:settings/>
     <con:config service="Te Rito APIs" resourcePath="/studentpersonal/{studentPersonalRefId}/wellbeingcharacteristic" methodName="getWellbeingCharacteristicsByStudent" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-      <con:restRequest name="Get by Student" id="61367a66-23f6-4bc4-9555-e64b15ef30f3" mediaType="application/json">
+      <con:restRequest name="GetbyStudent" id="61367a66-23f6-4bc4-9555-e64b15ef30f3" mediaType="application/json">
         <con:settings>
           <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
         </con:settings>
@@ -187,9 +245,13 @@
             <codes>200</codes>
           </con:configuration>
         </con:assertion>
-        <con:assertion type="Response SLA Assertion" id="0c753b7c-a227-49d4-9df4-90b43e4dc8bb" name="Response SLA">
+        <con:assertion type="JsonPath Count" id="2f006dd4-b77f-4081-a963-308161bf206e" name="Check count of [WellbeingCharacteristic]">
           <con:configuration>
-            <SLA>200</SLA>
+            <path>$['WellbeingCharacteristics']['WellbeingCharacteristic']</path>
+            <content>1</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
           </con:configuration>
         </con:assertion>
         <con:credentials>
@@ -220,6 +282,11 @@
   </con:breakPoints>
   <con:breakPoints>
     <con:testStepId>437d4622-a948-4590-9186-5ae5c991cfdb</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>c97d9e51-2c51-4bee-828c-e184fc354dd2</con:testStepId>
     <con:status>NONE</con:status>
     <con:properties/>
   </con:breakPoints>

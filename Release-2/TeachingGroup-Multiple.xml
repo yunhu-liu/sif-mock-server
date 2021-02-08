@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<con:testCase id="781f0b63-630c-4dcf-b2ac-db3f3cd4057c" discardOkResults="false" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="TeachingGroup-MultipleValid" searchProperties="true" timeout="0" xmlns:con="http://eviware.com/soapui/config">
+<con:testCase id="781f0b63-630c-4dcf-b2ac-db3f3cd4057c" discardOkResults="false" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="TeachingGroup-Multiple" searchProperties="true" timeout="0" xmlns:con="http://eviware.com/soapui/config">
   <con:settings>
-    <con:setting id="781f0b63-630c-4dcf-b2ac-db3f3cd4057cfileName">TeachingGroup-MultipleValid</con:setting>
+    <con:setting id="781f0b63-630c-4dcf-b2ac-db3f3cd4057cfileName">TeachingGroup-Multiple</con:setting>
   </con:settings>
   <con:savedRecentRuns>1</con:savedRecentRuns>
   <con:testStep type="datasource" name="LoadTestData-Multiple" id="039da93c-a149-4835-ae4b-18eda3edef98">
@@ -136,9 +136,22 @@ return new JsonBuilder(slurped)</script>
             <codes>200</codes>
           </con:configuration>
         </con:assertion>
-        <con:assertion type="Response SLA Assertion" id="6a7001c6-d690-44f9-a297-fa099db44592" name="Response SLA" disabled="true">
+        <con:assertion type="JsonPath Existence Match" id="118f9594-225e-42a7-b932-059f911c3f7b" name="Check for existence of [0]">
           <con:configuration>
-            <SLA>200</SLA>
+            <path>$['TeachingGroups']['TeachingGroup'][0]</path>
+            <content>true</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="JsonPath Match" id="f44e2572-c7f6-4efc-a1bc-e33a35bf56a8" name="Match content of [RefId]">
+          <con:configuration>
+            <path>$['TeachingGroups']['TeachingGroup'][0]['Organisation']['RefId']</path>
+            <content>${GetOrgRefId#OrgRefId}</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
           </con:configuration>
         </con:assertion>
         <con:credentials>
@@ -175,9 +188,22 @@ return new JsonBuilder(slurped)</script>
             <codes>200</codes>
           </con:configuration>
         </con:assertion>
-        <con:assertion type="Response SLA Assertion" id="ca87314b-9919-4778-8ddb-742e30632b2d" name="Response SLA" disabled="true">
+        <con:assertion type="JsonPath Existence Match" id="b58ef21a-27f5-4dd8-9fc6-20df4817aa29" name="Check for existence of [0]">
           <con:configuration>
-            <SLA>200</SLA>
+            <path>$['TeachingGroups']['TeachingGroup'][0]</path>
+            <content>true</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="JsonPath Match" id="5c1fda6f-6516-4b84-9f5c-d2b21c497550" name="Match content of [RefId]">
+          <con:configuration>
+            <path>$['TeachingGroups']['TeachingGroup'][0]['Organisation']['RefId']</path>
+            <content>${GetOrgRefId#OrgRefId}</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
           </con:configuration>
         </con:assertion>
         <con:credentials>
@@ -214,9 +240,22 @@ return new JsonBuilder(slurped)</script>
             <codes>200</codes>
           </con:configuration>
         </con:assertion>
-        <con:assertion type="Response SLA Assertion" id="29b68372-84ea-4e98-bd87-bbb9f0b96a47" name="Response SLA" disabled="true">
+        <con:assertion type="JsonPath Existence Match" id="c168f504-9da5-4b5c-96f1-31dc480de935" name="Check for existence of [0]">
           <con:configuration>
-            <SLA>200</SLA>
+            <path>$['TeachingGroups']['TeachingGroup'][0]</path>
+            <content>true</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="JsonPath Match" id="3d604d85-70c2-401a-a07c-792319bfd931" name="Match content of [RefId]">
+          <con:configuration>
+            <path>$['TeachingGroups']['TeachingGroup'][0]['Organisation']['RefId']</path>
+            <content>${GetOrgRefId#OrgRefId}</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
           </con:configuration>
         </con:assertion>
         <con:credentials>
@@ -253,9 +292,22 @@ return new JsonBuilder(slurped)</script>
             <codes>200</codes>
           </con:configuration>
         </con:assertion>
-        <con:assertion type="Response SLA Assertion" id="6cea8bb7-c78e-4ff0-86f7-5ea9a81ee221" name="Response SLA" disabled="true">
+        <con:assertion type="JsonPath Existence Match" id="01b8f66e-67dd-4fb2-b1fe-a73905c87d15" name="Check for existence of [0]">
           <con:configuration>
-            <SLA>200</SLA>
+            <path>$['TeachingGroups']['TeachingGroup'][0]</path>
+            <content>true</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="JsonPath Match" id="a0b28219-f558-4016-980c-f1426366c024" name="Match content of [RefId]">
+          <con:configuration>
+            <path>$['TeachingGroups']['TeachingGroup'][0]['Organisation']['RefId']</path>
+            <content>${GetOrgRefId#OrgRefId}</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
           </con:configuration>
         </con:assertion>
         <con:credentials>

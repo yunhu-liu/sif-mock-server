@@ -1,7 +1,5 @@
 Setup.xml
-TeachingGroup-SingleValid.xml
-TeachingGroup-MultipleValid.xml
-StudentContactPersonal-SingleValid.xml
-StudentContactPersonal-MultipleValid.xml
+TeachingGroup-Single.xml
+TeachingGroup-Multiple.xml
 WellbeingCharacteristic-Single.xml
 Debug.xml
