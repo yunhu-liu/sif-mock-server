@@ -1,0 +1,1512 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase id="867d3dd7-1ac4-4f28-82b0-a1146e67f704" discardOkResults="false" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="LearningStandard-Multiple" searchProperties="true" timeout="0" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="867d3dd7-1ac4-4f28-82b0-a1146e67f704fileName">LearningStandard-Multiple</con:setting>
+  </con:settings>
+  <con:savedRecentRuns>1</con:savedRecentRuns>
+  <con:testStep type="properties" name="Properties 1" id="41f4b6fd-2c2a-4956-969e-1e07d7167ac3">
+    <con:settings/>
+    <con:config xsi:type="con:PropertiesStep" saveFirst="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:properties>
+        <con:property>
+          <con:name>LearningStandards</con:name>
+          <con:value>{
+  "LearningStandards": {
+    "LearningStandard": [
+      {
+        "LearningStandardRefId": "f3d8f9e4-cef9-40e6-b6c7-ef41581463c4",
+        "LearningStandardLocalId": "91165-v2_zI8o5mn0",
+        "Title": "Chemistry, Organic Compounds",
+        "Number": 91165,
+        "VersionNo": 2.0,
+        "Publisher": {
+          "RefId": "cedf9eae-4358-408d-af57-ec0ea1b0d210"
+        },
+        "StandardType": "US",
+        "Description": "Demonstrate understanding of the properties of selected organic compounds",
+        "SubjectAreaList": {
+          "SubjectArea": [
+            "CHEM"
+          ]
+        },
+        "Status": "PU",
+        "Credits": 4.0,
+        "Level": 2.0,
+        "AssessmentType": "INT",
+        "RecordAudit": {
+          "CreatedDateTime": "2021-02-08T22:57:52.9686283+00:00",
+          "CreatedBy": {
+            "Name": "MockServerClient"
+          }
+        }
+      },
+      {
+        "LearningStandardRefId": "358ad152-fd28-44e9-bb95-5bcb711c76e7",
+        "LearningStandardLocalId": "91165-v2jilfdLhV_zI8o5mn0",
+        "Title": "Chemistry, Organic Compounds",
+        "Number": 91165,
+        "VersionNo": 2.0,
+        "Publisher": {
+          "RefId": "cedf9eae-4358-408d-af57-ec0ea1b0d210"
+        },
+        "StandardType": "US",
+        "Description": "Demonstrate understanding of the properties of selected organic compounds",
+        "SubjectAreaList": {
+          "SubjectArea": [
+            "CHEM"
+          ]
+        },
+        "Status": "PU",
+        "Credits": 4.0,
+        "Level": 2.0,
+        "AssessmentType": "INT",
+        "RecordAudit": {
+          "CreatedDateTime": "2021-02-08T22:57:53.012085+00:00",
+          "CreatedBy": {
+            "Name": "MockServerClient"
+          }
+        }
+      },
+      {
+        "LearningStandardRefId": "4c53d3dd-5b88-4e57-a8f5-41c4a0fc8896",
+        "LearningStandardLocalId": "91165-v2RPDqxXhL_zI8o5mn0",
+        "Title": "Chemistry, Organic Compounds",
+        "Number": 91165,
+        "VersionNo": 2.0,
+        "Publisher": {
+          "RefId": "cedf9eae-4358-408d-af57-ec0ea1b0d210"
+        },
+        "StandardType": "US",
+        "Description": "Demonstrate understanding of the properties of selected organic compounds",
+        "SubjectAreaList": {
+          "SubjectArea": [
+            "CHEM"
+          ]
+        },
+        "Status": "PU",
+        "Credits": 4.0,
+        "Level": 2.0,
+        "AssessmentType": "INT",
+        "RecordAudit": {
+          "CreatedDateTime": "2021-02-08T22:57:53.032181+00:00",
+          "CreatedBy": {
+            "Name": "MockServerClient"
+          }
+        }
+      },
+      {
+        "LearningStandardRefId": "f8152a69-211c-4cc7-81cc-a1879ef0d6fa",
+        "LearningStandardLocalId": "91165-v2-xAzZHjCn_zI8o5mn0",
+        "Title": "Chemistry, Organic Compounds",
+        "Number": 91165,
+        "VersionNo": 2.0,
+        "Publisher": {
+          "RefId": "b9cee02f-9c0a-40a9-a12d-235bec5456f0"
+        },
+        "StandardType": "US",
+        "Description": "Demonstrate understanding of the properties of selected organic compounds",
+        "SubjectAreaList": {
+          "SubjectArea": [
+            "CHEM"
+          ]
+        },
+        "Status": "PU",
+        "Credits": 4.0,
+        "Level": 2.0,
+        "AssessmentType": "INT",
+        "RecordAudit": {
+          "CreatedDateTime": "2021-02-08T22:57:53.0647956+00:00",
+          "CreatedBy": {
+            "Name": "MockServerClient"
+          }
+        }
+      },
+      {
+        "LearningStandardRefId": "9b9391e1-5e43-4e9b-b30c-ece0e1e974c8",
+        "LearningStandardLocalId": "91165-v2-kVIrZNPo_zI8o5mn0",
+        "Title": "Chemistry, Organic Compounds",
+        "Number": 91165,
+        "VersionNo": 2.0,
+        "Publisher": {
+          "RefId": "5d25d7f1-405e-4d8f-8613-ce2482b489cc"
+        },
+        "StandardType": "US",
+        "Description": "Demonstrate understanding of the properties of selected organic compounds",
+        "SubjectAreaList": {
+          "SubjectArea": [
+            "CHEM"
+          ]
+        },
+        "Status": "PU",
+        "Credits": 4.0,
+        "Level": 2.0,
+        "AssessmentType": "INT",
+        "RecordAudit": {
+          "CreatedDateTime": "2021-02-08T22:57:53.0854712+00:00",
+          "CreatedBy": {
+            "Name": "MockServerClient"
+          }
+        }
+      },
+      {
+        "LearningStandardRefId": "1533f6ea-0941-4844-ab3c-6af01cf64791",
+        "LearningStandardLocalId": "91165-v2-TIVBliKK_zI8o5mn0",
+        "Title": "Chemistry, Organic Compounds",
+        "Number": 91165,
+        "VersionNo": 2.0,
+        "Publisher": {
+          "RefId": "a01dd46a-bade-4cb3-b42a-8efc3141552c"
+        },
+        "StandardType": "US",
+        "Description": "Demonstrate understanding of the properties of selected organic compounds",
+        "SubjectAreaList": {
+          "SubjectArea": [
+            "CHEM"
+          ]
+        },
+        "Status": "PU",
+        "Credits": 4.0,
+        "Level": 2.0,
+        "AssessmentType": "INT",
+        "RecordAudit": {
+          "CreatedDateTime": "2021-02-08T22:57:53.1058545+00:00",
+          "CreatedBy": {
+            "Name": "MockServerClient"
+          }
+        }
+      },
+      {
+        "LearningStandardRefId": "e481654a-7f52-4cdb-8b83-4d4bb554e138",
+        "LearningStandardLocalId": "91165-v2-dTdHQpPM_zI8o5mn0",
+        "Title": "Chemistry, Organic Compounds",
+        "Number": 91165,
+        "VersionNo": 2.0,
+        "Publisher": {
+          "RefId": "d2358b12-dd26-4649-a5e2-7fcfa257463d"
+        },
+        "StandardType": "US",
+        "Description": "Demonstrate understanding of the properties of selected organic compounds",
+        "SubjectAreaList": {
+          "SubjectArea": [
+            "CHEM"
+          ]
+        },
+        "Status": "PU",
+        "Credits": 4.0,
+        "Level": 2.0,
+        "AssessmentType": "INT",
+        "RecordAudit": {
+          "CreatedDateTime": "2021-02-08T22:57:53.1292146+00:00",
+          "CreatedBy": {
+            "Name": "MockServerClient"
+          }
+        }
+      },
+      {
+        "LearningStandardRefId": "443b3c82-09b6-4558-89da-1afb4da57fee",
+        "LearningStandardLocalId": "91165-v2-CXGeYcby_zI8o5mn0",
+        "Title": "Chemistry, Organic CompoundseZh95h3D",
+        "Number": 91165,
+        "VersionNo": 2.0,
+        "Publisher": {
+          "RefId": "65e74d2e-d353-43ad-b300-2ec1b7e2ede8"
+        },
+        "StandardType": "US",
+        "Description": "Demonstrate understanding of the properties of selected organic compoundseZh95h3D",
+        "SubjectAreaList": {
+          "SubjectArea": [
+            "CHEM"
+          ]
+        },
+        "Status": "PU",
+        "Credits": 4.0,
+        "Level": 2.0,
+        "AssessmentType": "INT",
+        "RecordAudit": {
+          "CreatedDateTime": "2021-02-08T22:57:53.1518875+00:00",
+          "CreatedBy": {
+            "Name": "MockServerClient"
+          }
+        }
+      },
+      {
+        "LearningStandardRefId": "0e6c9b7e-81df-4e82-bec7-35b894f09772",
+        "LearningStandardLocalId": "91165-v2-idkgQgIh_zI8o5mn0",
+        "Title": "Chemistry, Organic Compounds8ft6nmJ1",
+        "Number": 91165,
+        "VersionNo": 2.0,
+        "Publisher": {
+          "RefId": "bc7563c0-5fba-42ed-98c5-0f447e9f0468"
+        },
+        "StandardType": "US",
+        "Description": "Demonstrate understanding of the properties of selected organic compounds8ft6nmJ1",
+        "SubjectAreaList": {
+          "SubjectArea": [
+            "CHEM"
+          ]
+        },
+        "Status": "PU",
+        "Credits": 4.0,
+        "Level": 2.0,
+        "AssessmentType": "INT",
+        "RecordAudit": {
+          "CreatedDateTime": "2021-02-08T22:57:53.171806+00:00",
+          "CreatedBy": {
+            "Name": "MockServerClient"
+          }
+        }
+      },
+      {
+        "LearningStandardRefId": "bd79179c-3459-4e58-86eb-36a7cec0f60c",
+        "LearningStandardLocalId": "91165-v2-KJtOgAYn_zI8o5mn0",
+        "Title": "Chemistry, Organic Compounds6T8MqTQ0",
+        "Number": 91165,
+        "VersionNo": 2.0,
+        "Publisher": {
+          "RefId": "bfc68085-4734-411c-ab38-372a1476c768"
+        },
+        "StandardType": "US",
+        "Description": "Demonstrate understanding of the properties of selected organic compounds6T8MqTQ0",
+        "SubjectAreaList": {
+          "SubjectArea": [
+            "CHEM"
+          ]
+        },
+        "Status": "PU",
+        "Credits": 4.0,
+        "Level": 2.0,
+        "AssessmentType": "INT",
+        "RecordAudit": {
+          "CreatedDateTime": "2021-02-08T22:57:53.1962785+00:00",
+          "CreatedBy": {
+            "Name": "MockServerClient"
+          }
+        }
+      },
+      {
+        "LearningStandardRefId": "47beebba-7970-472b-a41b-e6a78e3873ca",
+        "LearningStandardLocalId": "91165-v2_ah2v5Vbs_zI8o5mn0",
+        "Title": "Chemistry, Organic Compounds",
+        "Number": 91165,
+        "VersionNo": 2.0,
+        "Publisher": {
+          "RefId": "cedf9eae-4358-408d-af57-ec0ea1b0d210"
+        },
+        "StandardType": "US",
+        "Description": "Demonstrate understanding of the properties of selected organic compounds",
+        "SubjectAreaList": {
+          "SubjectArea": [
+            "CHEM"
+          ]
+        },
+        "Status": "PU",
+        "Credits": 4.0,
+        "Level": 2.0,
+        "AssessmentType": "INT",
+        "RecordAudit": {
+          "CreatedDateTime": "2021-02-08T22:57:53.2181804+00:00",
+          "CreatedBy": {
+            "Name": "MockServerClient"
+          }
+        }
+      },
+      {
+        "LearningStandardRefId": "1b543d43-891a-4275-a7eb-9cc3233b21a4",
+        "LearningStandardLocalId": "91165-v2jilfdLhV_ah2v5Vbs_zI8o5mn0",
+        "Title": "Chemistry, Organic Compounds",
+        "Number": 91165,
+        "VersionNo": 2.0,
+        "Publisher": {
+          "RefId": "cedf9eae-4358-408d-af57-ec0ea1b0d210"
+        },
+        "StandardType": "US",
+        "Description": "Demonstrate understanding of the properties of selected organic compounds",
+        "SubjectAreaList": {
+          "SubjectArea": [
+            "CHEM"
+          ]
+        },
+        "Status": "PU",
+        "Credits": 4.0,
+        "Level": 2.0,
+        "AssessmentType": "INT",
+        "RecordAudit": {
+          "CreatedDateTime": "2021-02-08T22:57:53.2382259+00:00",
+          "CreatedBy": {
+            "Name": "MockServerClient"
+          }
+        }
+      },
+      {
+        "LearningStandardRefId": "c01d0567-a6cd-4c6b-8c51-54817d0866f7",
+        "LearningStandardLocalId": "91165-v2RPDqxXhL_ah2v5Vbs_zI8o5mn0",
+        "Title": "Chemistry, Organic Compounds",
+        "Number": 91165,
+        "VersionNo": 2.0,
+        "Publisher": {
+          "RefId": "cedf9eae-4358-408d-af57-ec0ea1b0d210"
+        },
+        "StandardType": "US",
+        "Description": "Demonstrate understanding of the properties of selected organic compounds",
+        "SubjectAreaList": {
+          "SubjectArea": [
+            "CHEM"
+          ]
+        },
+        "Status": "PU",
+        "Credits": 4.0,
+        "Level": 2.0,
+        "AssessmentType": "INT",
+        "RecordAudit": {
+          "CreatedDateTime": "2021-02-08T22:57:53.2570022+00:00",
+          "CreatedBy": {
+            "Name": "MockServerClient"
+          }
+        }
+      },
+      {
+        "LearningStandardRefId": "fb2cac9e-70cd-4eb1-8d03-84eb1356fd42",
+        "LearningStandardLocalId": "91165-v2-xAzZHjCn_ah2v5Vbs_zI8o5mn0",
+        "Title": "Chemistry, Organic Compounds",
+        "Number": 91165,
+        "VersionNo": 2.0,
+        "Publisher": {
+          "RefId": "b9cee02f-9c0a-40a9-a12d-235bec5456f0"
+        },
+        "StandardType": "US",
+        "Description": "Demonstrate understanding of the properties of selected organic compounds",
+        "SubjectAreaList": {
+          "SubjectArea": [
+            "CHEM"
+          ]
+        },
+        "Status": "PU",
+        "Credits": 4.0,
+        "Level": 2.0,
+        "AssessmentType": "INT",
+        "RecordAudit": {
+          "CreatedDateTime": "2021-02-08T22:57:53.2811932+00:00",
+          "CreatedBy": {
+            "Name": "MockServerClient"
+          }
+        }
+      },
+      {
+        "LearningStandardRefId": "399035a0-d436-43c1-9d3c-d787639bd768",
+        "LearningStandardLocalId": "91165-v2-kVIrZNPo_ah2v5Vbs_zI8o5mn0",
+        "Title": "Chemistry, Organic Compounds",
+        "Number": 91165,
+        "VersionNo": 2.0,
+        "Publisher": {
+          "RefId": "5d25d7f1-405e-4d8f-8613-ce2482b489cc"
+        },
+        "StandardType": "US",
+        "Description": "Demonstrate understanding of the properties of selected organic compounds",
+        "SubjectAreaList": {
+          "SubjectArea": [
+            "CHEM"
+          ]
+        },
+        "Status": "PU",
+        "Credits": 4.0,
+        "Level": 2.0,
+        "AssessmentType": "INT",
+        "RecordAudit": {
+          "CreatedDateTime": "2021-02-08T22:57:53.3027295+00:00",
+          "CreatedBy": {
+            "Name": "MockServerClient"
+          }
+        }
+      },
+      {
+        "LearningStandardRefId": "8d283440-222e-4241-94ad-79b4fac8aad1",
+        "LearningStandardLocalId": "91165-v2-TIVBliKK_ah2v5Vbs_zI8o5mn0",
+        "Title": "Chemistry, Organic Compounds",
+        "Number": 91165,
+        "VersionNo": 2.0,
+        "Publisher": {
+          "RefId": "a01dd46a-bade-4cb3-b42a-8efc3141552c"
+        },
+        "StandardType": "US",
+        "Description": "Demonstrate understanding of the properties of selected organic compounds",
+        "SubjectAreaList": {
+          "SubjectArea": [
+            "CHEM"
+          ]
+        },
+        "Status": "PU",
+        "Credits": 4.0,
+        "Level": 2.0,
+        "AssessmentType": "INT",
+        "RecordAudit": {
+          "CreatedDateTime": "2021-02-08T22:57:53.3232884+00:00",
+          "CreatedBy": {
+            "Name": "MockServerClient"
+          }
+        }
+      },
+      {
+        "LearningStandardRefId": "d412ba38-0749-4404-b130-7498d3096703",
+        "LearningStandardLocalId": "91165-v2-dTdHQpPM_ah2v5Vbs_zI8o5mn0",
+        "Title": "Chemistry, Organic Compounds",
+        "Number": 91165,
+        "VersionNo": 2.0,
+        "Publisher": {
+          "RefId": "d2358b12-dd26-4649-a5e2-7fcfa257463d"
+        },
+        "StandardType": "US",
+        "Description": "Demonstrate understanding of the properties of selected organic compounds",
+        "SubjectAreaList": {
+          "SubjectArea": [
+            "CHEM"
+          ]
+        },
+        "Status": "PU",
+        "Credits": 4.0,
+        "Level": 2.0,
+        "AssessmentType": "INT",
+        "RecordAudit": {
+          "CreatedDateTime": "2021-02-08T22:57:53.3441879+00:00",
+          "CreatedBy": {
+            "Name": "MockServerClient"
+          }
+        }
+      },
+      {
+        "LearningStandardRefId": "3efe901d-979b-43aa-b922-9329aa2141b3",
+        "LearningStandardLocalId": "91165-v2-CXGeYcby_ah2v5Vbs_zI8o5mn0",
+        "Title": "Chemistry, Organic CompoundseZh95h3D",
+        "Number": 91165,
+        "VersionNo": 2.0,
+        "Publisher": {
+          "RefId": "65e74d2e-d353-43ad-b300-2ec1b7e2ede8"
+        },
+        "StandardType": "US",
+        "Description": "Demonstrate understanding of the properties of selected organic compoundseZh95h3D",
+        "SubjectAreaList": {
+          "SubjectArea": [
+            "CHEM"
+          ]
+        },
+        "Status": "PU",
+        "Credits": 4.0,
+        "Level": 2.0,
+        "AssessmentType": "INT",
+        "RecordAudit": {
+          "CreatedDateTime": "2021-02-08T22:57:53.3648026+00:00",
+          "CreatedBy": {
+            "Name": "MockServerClient"
+          }
+        }
+      },
+      {
+        "LearningStandardRefId": "8d034286-ac2b-45a4-b570-1c2bb75d7fec",
+        "LearningStandardLocalId": "91165-v2-idkgQgIh_ah2v5Vbs_zI8o5mn0",
+        "Title": "Chemistry, Organic Compounds8ft6nmJ1",
+        "Number": 91165,
+        "VersionNo": 2.0,
+        "Publisher": {
+          "RefId": "bc7563c0-5fba-42ed-98c5-0f447e9f0468"
+        },
+        "StandardType": "US",
+        "Description": "Demonstrate understanding of the properties of selected organic compounds8ft6nmJ1",
+        "SubjectAreaList": {
+          "SubjectArea": [
+            "CHEM"
+          ]
+        },
+        "Status": "PU",
+        "Credits": 4.0,
+        "Level": 2.0,
+        "AssessmentType": "INT",
+        "RecordAudit": {
+          "CreatedDateTime": "2021-02-08T22:57:53.3883005+00:00",
+          "CreatedBy": {
+            "Name": "MockServerClient"
+          }
+        }
+      },
+      {
+        "LearningStandardRefId": "140cc944-ef84-4426-b688-46d8e2b9f7b8",
+        "LearningStandardLocalId": "91165-v2-KJtOgAYn_ah2v5Vbs_zI8o5mn0",
+        "Title": "Chemistry, Organic Compounds6T8MqTQ0",
+        "Number": 91165,
+        "VersionNo": 2.0,
+        "Publisher": {
+          "RefId": "bfc68085-4734-411c-ab38-372a1476c768"
+        },
+        "StandardType": "US",
+        "Description": "Demonstrate understanding of the properties of selected organic compounds6T8MqTQ0",
+        "SubjectAreaList": {
+          "SubjectArea": [
+            "CHEM"
+          ]
+        },
+        "Status": "PU",
+        "Credits": 4.0,
+        "Level": 2.0,
+        "AssessmentType": "INT",
+        "RecordAudit": {
+          "CreatedDateTime": "2021-02-08T22:57:53.4206448+00:00",
+          "CreatedBy": {
+            "Name": "MockServerClient"
+          }
+        }
+      },
+      {
+        "LearningStandardRefId": "e116f706-385e-4993-8e22-85b43e95d589",
+        "LearningStandardLocalId": "91165-v2_YF07gB4P_zI8o5mn0",
+        "Title": "Chemistry, Organic Compounds_YF07gB4P",
+        "Number": 91165,
+        "VersionNo": 2.0,
+        "Publisher": {
+          "RefId": "cedf9eae-4358-408d-af57-ec0ea1b0d210"
+        },
+        "StandardType": "US",
+        "Description": "Demonstrate understanding of the properties of selected organic compounds_YF07gB4P",
+        "SubjectAreaList": {
+          "SubjectArea": [
+            "CHEM"
+          ]
+        },
+        "Status": "PU",
+        "Credits": 4.0,
+        "Level": 2.0,
+        "AssessmentType": "INT",
+        "RecordAudit": {
+          "CreatedDateTime": "2021-02-08T22:57:53.4467659+00:00",
+          "CreatedBy": {
+            "Name": "MockServerClient"
+          }
+        }
+      },
+      {
+        "LearningStandardRefId": "761d8768-2c0c-4382-8432-763beda69ae2",
+        "LearningStandardLocalId": "91165-v2jilfdLhV_YF07gB4P_zI8o5mn0",
+        "Title": "Chemistry, Organic Compounds_YF07gB4P",
+        "Number": 91165,
+        "VersionNo": 2.0,
+        "Publisher": {
+          "RefId": "cedf9eae-4358-408d-af57-ec0ea1b0d210"
+        },
+        "StandardType": "US",
+        "Description": "Demonstrate understanding of the properties of selected organic compounds_YF07gB4P",
+        "SubjectAreaList": {
+          "SubjectArea": [
+            "CHEM"
+          ]
+        },
+        "Status": "PU",
+        "Credits": 4.0,
+        "Level": 2.0,
+        "AssessmentType": "INT",
+        "RecordAudit": {
+          "CreatedDateTime": "2021-02-08T22:57:53.4778503+00:00",
+          "CreatedBy": {
+            "Name": "MockServerClient"
+          }
+        }
+      },
+      {
+        "LearningStandardRefId": "8a89db29-c208-47fe-a116-0ae7c1b0cc2f",
+        "LearningStandardLocalId": "91165-v2RPDqxXhL_YF07gB4P_zI8o5mn0",
+        "Title": "Chemistry, Organic Compounds_YF07gB4P",
+        "Number": 91165,
+        "VersionNo": 2.0,
+        "Publisher": {
+          "RefId": "cedf9eae-4358-408d-af57-ec0ea1b0d210"
+        },
+        "StandardType": "US",
+        "Description": "Demonstrate understanding of the properties of selected organic compounds_YF07gB4P",
+        "SubjectAreaList": {
+          "SubjectArea": [
+            "CHEM"
+          ]
+        },
+        "Status": "PU",
+        "Credits": 4.0,
+        "Level": 2.0,
+        "AssessmentType": "INT",
+        "RecordAudit": {
+          "CreatedDateTime": "2021-02-08T22:57:53.4968187+00:00",
+          "CreatedBy": {
+            "Name": "MockServerClient"
+          }
+        }
+      },
+      {
+        "LearningStandardRefId": "65579e54-e2c8-4957-841d-9fff53606cf9",
+        "LearningStandardLocalId": "91165-v2-xAzZHjCn_YF07gB4P_zI8o5mn0",
+        "Title": "Chemistry, Organic Compounds_YF07gB4P",
+        "Number": 91165,
+        "VersionNo": 2.0,
+        "Publisher": {
+          "RefId": "b9cee02f-9c0a-40a9-a12d-235bec5456f0"
+        },
+        "StandardType": "US",
+        "Description": "Demonstrate understanding of the properties of selected organic compounds_YF07gB4P",
+        "SubjectAreaList": {
+          "SubjectArea": [
+            "CHEM"
+          ]
+        },
+        "Status": "PU",
+        "Credits": 4.0,
+        "Level": 2.0,
+        "AssessmentType": "INT",
+        "RecordAudit": {
+          "CreatedDateTime": "2021-02-08T22:57:53.5243757+00:00",
+          "CreatedBy": {
+            "Name": "MockServerClient"
+          }
+        }
+      },
+      {
+        "LearningStandardRefId": "6aa6b0dc-8701-4449-b5cd-9bb784fc4dbc",
+        "LearningStandardLocalId": "91165-v2-kVIrZNPo_YF07gB4P_zI8o5mn0",
+        "Title": "Chemistry, Organic Compounds_YF07gB4P",
+        "Number": 91165,
+        "VersionNo": 2.0,
+        "Publisher": {
+          "RefId": "5d25d7f1-405e-4d8f-8613-ce2482b489cc"
+        },
+        "StandardType": "US",
+        "Description": "Demonstrate understanding of the properties of selected organic compounds_YF07gB4P",
+        "SubjectAreaList": {
+          "SubjectArea": [
+            "CHEM"
+          ]
+        },
+        "Status": "PU",
+        "Credits": 4.0,
+        "Level": 2.0,
+        "AssessmentType": "INT",
+        "RecordAudit": {
+          "CreatedDateTime": "2021-02-08T22:57:53.5439935+00:00",
+          "CreatedBy": {
+            "Name": "MockServerClient"
+          }
+        }
+      },
+      {
+        "LearningStandardRefId": "c0e0c5af-4e43-4a8a-a79d-1986012929ee",
+        "LearningStandardLocalId": "91165-v2-TIVBliKK_YF07gB4P_zI8o5mn0",
+        "Title": "Chemistry, Organic Compounds_YF07gB4P",
+        "Number": 91165,
+        "VersionNo": 2.0,
+        "Publisher": {
+          "RefId": "a01dd46a-bade-4cb3-b42a-8efc3141552c"
+        },
+        "StandardType": "US",
+        "Description": "Demonstrate understanding of the properties of selected organic compounds_YF07gB4P",
+        "SubjectAreaList": {
+          "SubjectArea": [
+            "CHEM"
+          ]
+        },
+        "Status": "PU",
+        "Credits": 4.0,
+        "Level": 2.0,
+        "AssessmentType": "INT",
+        "RecordAudit": {
+          "CreatedDateTime": "2021-02-08T22:57:53.5662034+00:00",
+          "CreatedBy": {
+            "Name": "MockServerClient"
+          }
+        }
+      },
+      {
+        "LearningStandardRefId": "e87c251d-4796-4ff1-89c5-206ef5e8a0df",
+        "LearningStandardLocalId": "91165-v2-dTdHQpPM_YF07gB4P_zI8o5mn0",
+        "Title": "Chemistry, Organic Compounds_YF07gB4P",
+        "Number": 91165,
+        "VersionNo": 2.0,
+        "Publisher": {
+          "RefId": "d2358b12-dd26-4649-a5e2-7fcfa257463d"
+        },
+        "StandardType": "US",
+        "Description": "Demonstrate understanding of the properties of selected organic compounds_YF07gB4P",
+        "SubjectAreaList": {
+          "SubjectArea": [
+            "CHEM"
+          ]
+        },
+        "Status": "PU",
+        "Credits": 4.0,
+        "Level": 2.0,
+        "AssessmentType": "INT",
+        "RecordAudit": {
+          "CreatedDateTime": "2021-02-08T22:57:53.5866205+00:00",
+          "CreatedBy": {
+            "Name": "MockServerClient"
+          }
+        }
+      },
+      {
+        "LearningStandardRefId": "a9eb0e9b-5b8a-4695-bc98-94c5b54b7d74",
+        "LearningStandardLocalId": "91165-v2-CXGeYcby_YF07gB4P_zI8o5mn0",
+        "Title": "Chemistry, Organic CompoundseZh95h3D_YF07gB4P",
+        "Number": 91165,
+        "VersionNo": 2.0,
+        "Publisher": {
+          "RefId": "65e74d2e-d353-43ad-b300-2ec1b7e2ede8"
+        },
+        "StandardType": "US",
+        "Description": "Demonstrate understanding of the properties of selected organic compoundseZh95h3D_YF07gB4P",
+        "SubjectAreaList": {
+          "SubjectArea": [
+            "CHEM"
+          ]
+        },
+        "Status": "PU",
+        "Credits": 4.0,
+        "Level": 2.0,
+        "AssessmentType": "INT",
+        "RecordAudit": {
+          "CreatedDateTime": "2021-02-08T22:57:53.6075587+00:00",
+          "CreatedBy": {
+            "Name": "MockServerClient"
+          }
+        }
+      },
+      {
+        "LearningStandardRefId": "67f33210-87be-4897-b6db-1ec8e75cf7e9",
+        "LearningStandardLocalId": "91165-v2-idkgQgIh_YF07gB4P_zI8o5mn0",
+        "Title": "Chemistry, Organic Compounds8ft6nmJ1_YF07gB4P",
+        "Number": 91165,
+        "VersionNo": 2.0,
+        "Publisher": {
+          "RefId": "bc7563c0-5fba-42ed-98c5-0f447e9f0468"
+        },
+        "StandardType": "US",
+        "Description": "Demonstrate understanding of the properties of selected organic compounds8ft6nmJ1_YF07gB4P",
+        "SubjectAreaList": {
+          "SubjectArea": [
+            "CHEM"
+          ]
+        },
+        "Status": "PU",
+        "Credits": 4.0,
+        "Level": 2.0,
+        "AssessmentType": "INT",
+        "RecordAudit": {
+          "CreatedDateTime": "2021-02-08T22:57:53.6281316+00:00",
+          "CreatedBy": {
+            "Name": "MockServerClient"
+          }
+        }
+      },
+      {
+        "LearningStandardRefId": "e967b2c9-48a4-4209-8881-8b212d2615cf",
+        "LearningStandardLocalId": "91165-v2-KJtOgAYn_YF07gB4P_zI8o5mn0",
+        "Title": "Chemistry, Organic Compounds6T8MqTQ0_YF07gB4P",
+        "Number": 91165,
+        "VersionNo": 2.0,
+        "Publisher": {
+          "RefId": "bfc68085-4734-411c-ab38-372a1476c768"
+        },
+        "StandardType": "US",
+        "Description": "Demonstrate understanding of the properties of selected organic compounds6T8MqTQ0_YF07gB4P",
+        "SubjectAreaList": {
+          "SubjectArea": [
+            "CHEM"
+          ]
+        },
+        "Status": "PU",
+        "Credits": 4.0,
+        "Level": 2.0,
+        "AssessmentType": "INT",
+        "RecordAudit": {
+          "CreatedDateTime": "2021-02-08T22:57:53.6515318+00:00",
+          "CreatedBy": {
+            "Name": "MockServerClient"
+          }
+        }
+      },
+      {
+        "LearningStandardRefId": "a3b0d377-dad0-48b1-974d-d19cdee8caca",
+        "LearningStandardLocalId": "91165-v2_ah2v5Vbs_YF07gB4P_zI8o5mn0",
+        "Title": "Chemistry, Organic Compounds_YF07gB4P",
+        "Number": 91165,
+        "VersionNo": 2.0,
+        "Publisher": {
+          "RefId": "cedf9eae-4358-408d-af57-ec0ea1b0d210"
+        },
+        "StandardType": "US",
+        "Description": "Demonstrate understanding of the properties of selected organic compounds_YF07gB4P",
+        "SubjectAreaList": {
+          "SubjectArea": [
+            "CHEM"
+          ]
+        },
+        "Status": "PU",
+        "Credits": 4.0,
+        "Level": 2.0,
+        "AssessmentType": "INT",
+        "RecordAudit": {
+          "CreatedDateTime": "2021-02-08T22:57:53.673163+00:00",
+          "CreatedBy": {
+            "Name": "MockServerClient"
+          }
+        }
+      },
+      {
+        "LearningStandardRefId": "ccc8d47d-ceb8-4561-a08e-78fec61828a5",
+        "LearningStandardLocalId": "91165-v2jilfdLhV_ah2v5Vbs_YF07gB4P_zI8o5mn0",
+        "Title": "Chemistry, Organic Compounds_YF07gB4P",
+        "Number": 91165,
+        "VersionNo": 2.0,
+        "Publisher": {
+          "RefId": "cedf9eae-4358-408d-af57-ec0ea1b0d210"
+        },
+        "StandardType": "US",
+        "Description": "Demonstrate understanding of the properties of selected organic compounds_YF07gB4P",
+        "SubjectAreaList": {
+          "SubjectArea": [
+            "CHEM"
+          ]
+        },
+        "Status": "PU",
+        "Credits": 4.0,
+        "Level": 2.0,
+        "AssessmentType": "INT",
+        "RecordAudit": {
+          "CreatedDateTime": "2021-02-08T22:57:53.6972325+00:00",
+          "CreatedBy": {
+            "Name": "MockServerClient"
+          }
+        }
+      },
+      {
+        "LearningStandardRefId": "d1eb7fde-bc1f-4694-b62a-bd78bb103580",
+        "LearningStandardLocalId": "91165-v2RPDqxXhL_ah2v5Vbs_YF07gB4P_zI8o5mn0",
+        "Title": "Chemistry, Organic Compounds_YF07gB4P",
+        "Number": 91165,
+        "VersionNo": 2.0,
+        "Publisher": {
+          "RefId": "cedf9eae-4358-408d-af57-ec0ea1b0d210"
+        },
+        "StandardType": "US",
+        "Description": "Demonstrate understanding of the properties of selected organic compounds_YF07gB4P",
+        "SubjectAreaList": {
+          "SubjectArea": [
+            "CHEM"
+          ]
+        },
+        "Status": "PU",
+        "Credits": 4.0,
+        "Level": 2.0,
+        "AssessmentType": "INT",
+        "RecordAudit": {
+          "CreatedDateTime": "2021-02-08T22:57:53.7200071+00:00",
+          "CreatedBy": {
+            "Name": "MockServerClient"
+          }
+        }
+      },
+      {
+        "LearningStandardRefId": "52980fbf-2940-42c8-8b02-75e42ba26a12",
+        "LearningStandardLocalId": "91165-v2-xAzZHjCn_ah2v5Vbs_YF07gB4P_zI8o5mn0",
+        "Title": "Chemistry, Organic Compounds_YF07gB4P",
+        "Number": 91165,
+        "VersionNo": 2.0,
+        "Publisher": {
+          "RefId": "b9cee02f-9c0a-40a9-a12d-235bec5456f0"
+        },
+        "StandardType": "US",
+        "Description": "Demonstrate understanding of the properties of selected organic compounds_YF07gB4P",
+        "SubjectAreaList": {
+          "SubjectArea": [
+            "CHEM"
+          ]
+        },
+        "Status": "PU",
+        "Credits": 4.0,
+        "Level": 2.0,
+        "AssessmentType": "INT",
+        "RecordAudit": {
+          "CreatedDateTime": "2021-02-08T22:57:53.741272+00:00",
+          "CreatedBy": {
+            "Name": "MockServerClient"
+          }
+        }
+      },
+      {
+        "LearningStandardRefId": "d645b5f5-964d-41bd-8aa6-b433b37fcb66",
+        "LearningStandardLocalId": "91165-v2-kVIrZNPo_ah2v5Vbs_YF07gB4P_zI8o5mn0",
+        "Title": "Chemistry, Organic Compounds_YF07gB4P",
+        "Number": 91165,
+        "VersionNo": 2.0,
+        "Publisher": {
+          "RefId": "5d25d7f1-405e-4d8f-8613-ce2482b489cc"
+        },
+        "StandardType": "US",
+        "Description": "Demonstrate understanding of the properties of selected organic compounds_YF07gB4P",
+        "SubjectAreaList": {
+          "SubjectArea": [
+            "CHEM"
+          ]
+        },
+        "Status": "PU",
+        "Credits": 4.0,
+        "Level": 2.0,
+        "AssessmentType": "INT",
+        "RecordAudit": {
+          "CreatedDateTime": "2021-02-08T22:57:53.7630367+00:00",
+          "CreatedBy": {
+            "Name": "MockServerClient"
+          }
+        }
+      },
+      {
+        "LearningStandardRefId": "48cadf9c-5801-4071-8c1f-625a756fb5ec",
+        "LearningStandardLocalId": "91165-v2-TIVBliKK_ah2v5Vbs_YF07gB4P_zI8o5mn0",
+        "Title": "Chemistry, Organic Compounds_YF07gB4P",
+        "Number": 91165,
+        "VersionNo": 2.0,
+        "Publisher": {
+          "RefId": "a01dd46a-bade-4cb3-b42a-8efc3141552c"
+        },
+        "StandardType": "US",
+        "Description": "Demonstrate understanding of the properties of selected organic compounds_YF07gB4P",
+        "SubjectAreaList": {
+          "SubjectArea": [
+            "CHEM"
+          ]
+        },
+        "Status": "PU",
+        "Credits": 4.0,
+        "Level": 2.0,
+        "AssessmentType": "INT",
+        "RecordAudit": {
+          "CreatedDateTime": "2021-02-08T22:57:53.7840821+00:00",
+          "CreatedBy": {
+            "Name": "MockServerClient"
+          }
+        }
+      },
+      {
+        "LearningStandardRefId": "9c2bd8d2-8097-46c9-8f93-34a96bb31f54",
+        "LearningStandardLocalId": "91165-v2-dTdHQpPM_ah2v5Vbs_YF07gB4P_zI8o5mn0",
+        "Title": "Chemistry, Organic Compounds_YF07gB4P",
+        "Number": 91165,
+        "VersionNo": 2.0,
+        "Publisher": {
+          "RefId": "d2358b12-dd26-4649-a5e2-7fcfa257463d"
+        },
+        "StandardType": "US",
+        "Description": "Demonstrate understanding of the properties of selected organic compounds_YF07gB4P",
+        "SubjectAreaList": {
+          "SubjectArea": [
+            "CHEM"
+          ]
+        },
+        "Status": "PU",
+        "Credits": 4.0,
+        "Level": 2.0,
+        "AssessmentType": "INT",
+        "RecordAudit": {
+          "CreatedDateTime": "2021-02-08T22:57:53.8072164+00:00",
+          "CreatedBy": {
+            "Name": "MockServerClient"
+          }
+        }
+      },
+      {
+        "LearningStandardRefId": "08fe8646-59af-4f36-b7a0-d6dac0c9032c",
+        "LearningStandardLocalId": "91165-v2-CXGeYcby_ah2v5Vbs_YF07gB4P_zI8o5mn0",
+        "Title": "Chemistry, Organic CompoundseZh95h3D_YF07gB4P",
+        "Number": 91165,
+        "VersionNo": 2.0,
+        "Publisher": {
+          "RefId": "65e74d2e-d353-43ad-b300-2ec1b7e2ede8"
+        },
+        "StandardType": "US",
+        "Description": "Demonstrate understanding of the properties of selected organic compoundseZh95h3D_YF07gB4P",
+        "SubjectAreaList": {
+          "SubjectArea": [
+            "CHEM"
+          ]
+        },
+        "Status": "PU",
+        "Credits": 4.0,
+        "Level": 2.0,
+        "AssessmentType": "INT",
+        "RecordAudit": {
+          "CreatedDateTime": "2021-02-08T22:57:53.8347315+00:00",
+          "CreatedBy": {
+            "Name": "MockServerClient"
+          }
+        }
+      },
+      {
+        "LearningStandardRefId": "8d6d1f55-0b59-4506-8ae1-63cada38d7b3",
+        "LearningStandardLocalId": "91165-v2-idkgQgIh_ah2v5Vbs_YF07gB4P_zI8o5mn0",
+        "Title": "Chemistry, Organic Compounds8ft6nmJ1_YF07gB4P",
+        "Number": 91165,
+        "VersionNo": 2.0,
+        "Publisher": {
+          "RefId": "bc7563c0-5fba-42ed-98c5-0f447e9f0468"
+        },
+        "StandardType": "US",
+        "Description": "Demonstrate understanding of the properties of selected organic compounds8ft6nmJ1_YF07gB4P",
+        "SubjectAreaList": {
+          "SubjectArea": [
+            "CHEM"
+          ]
+        },
+        "Status": "PU",
+        "Credits": 4.0,
+        "Level": 2.0,
+        "AssessmentType": "INT",
+        "RecordAudit": {
+          "CreatedDateTime": "2021-02-08T22:57:53.8542984+00:00",
+          "CreatedBy": {
+            "Name": "MockServerClient"
+          }
+        }
+      },
+      {
+        "LearningStandardRefId": "2e489fd5-ab1e-4919-80e4-6cf612bf48ba",
+        "LearningStandardLocalId": "91165-v2-KJtOgAYn_ah2v5Vbs_YF07gB4P_zI8o5mn0",
+        "Title": "Chemistry, Organic Compounds6T8MqTQ0_YF07gB4P",
+        "Number": 91165,
+        "VersionNo": 2.0,
+        "Publisher": {
+          "RefId": "bfc68085-4734-411c-ab38-372a1476c768"
+        },
+        "StandardType": "US",
+        "Description": "Demonstrate understanding of the properties of selected organic compounds6T8MqTQ0_YF07gB4P",
+        "SubjectAreaList": {
+          "SubjectArea": [
+            "CHEM"
+          ]
+        },
+        "Status": "PU",
+        "Credits": 4.0,
+        "Level": 2.0,
+        "AssessmentType": "INT",
+        "RecordAudit": {
+          "CreatedDateTime": "2021-02-08T22:57:53.8726233+00:00",
+          "CreatedBy": {
+            "Name": "MockServerClient"
+          }
+        }
+      }
+    ]
+  }
+}</con:value>
+        </con:property>
+      </con:properties>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="restrequest" name="Get" id="8f845b91-41b0-46d5-b81f-3e55d92f9d9d">
+    <con:settings/>
+    <con:config service="Te Rito APIs" resourcePath="/learningstandard" methodName="getLearningStandards" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest name="Get" id="bb78ff39-1642-474b-84fb-1fc8c3c3447c" mediaType="application/json">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:endpoint>https://northern.edsby.co.nz/sif</con:endpoint>
+        <con:request/>
+        <con:originalUri>http://mocksifapi.terito.education.govt.nz/sif/learningstandard</con:originalUri>
+        <con:assertion type="Valid HTTP Status Codes" id="d515ec85-da80-4df6-910b-4ef1ba1008d7" name="Valid HTTP Status Codes">
+          <con:settings/>
+          <con:configuration>
+            <codes>200</codes>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="JsonPath Existence Match" id="a490f4eb-609a-47b3-bfb8-1b75f9f4c1fc" name="Check for existence of [0]">
+          <con:configuration>
+            <path>$['LearningStandards']['LearningStandard'][0]</path>
+            <content>true</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters>
+          <con:entry key="Accept" value="${#[Release 2#Setup#Properties]#Accept}"/>
+          <con:entry key="X-Edsby-APIClientId" value="${#[Release 2#Setup#Properties]#X-Edsby-ApiClientId}"/>
+        </con:parameters>
+        <con:environmentSpec>
+          <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="transfer" name="PropertyTransfer 1" id="32925e9f-5a40-444e-b84e-29d1851b9799">
+    <con:settings/>
+    <con:config xsi:type="con:PropertyTransfersStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" entitize="false" transferChildNodes="false">
+        <con:name>LearningStandards</con:name>
+        <con:sourceType>Response</con:sourceType>
+        <con:sourceStep>Get</con:sourceStep>
+        <con:sourcePath/>
+        <con:targetType>LearningStandards</con:targetType>
+        <con:targetStep>Properties 1</con:targetStep>
+        <con:targetPath/>
+        <con:type>JSONPATH</con:type>
+        <con:upgraded>true</con:upgraded>
+      </con:transfers>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="datasource" name="GenDynamicId" id="6b74bb90-e46c-4f49-81dd-4f2431452508">
+    <con:settings/>
+    <con:config xsi:type="con:DataSourceStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:dataSource type="Data Generator">
+        <con:configuration>
+          <generatedDataCount>1</generatedDataCount>
+          <generatorsTotalNumber>1</generatorsTotalNumber>
+          <lastSelectedProperty>0</lastSelectedProperty>
+          <GeneratorType0>STR</GeneratorType0>
+          <PropertyName0>DynamicId</PropertyName0>
+          <repetitionCountDynamicId>0</repetitionCountDynamicId>
+          <repeatValuesDynamicId>false</repeatValuesDynamicId>
+          <PasswordDataGeneratorUseSpacesDynamicId>false</PasswordDataGeneratorUseSpacesDynamicId>
+          <PasswordDataGeneratorUsePunctuationMarksDynamicId>false</PasswordDataGeneratorUsePunctuationMarksDynamicId>
+          <PasswordDataGeneratorUseLettersDynamicId>true</PasswordDataGeneratorUseLettersDynamicId>
+          <PasswordDataGeneratorUseDigitsDynamicId>true</PasswordDataGeneratorUseDigitsDynamicId>
+          <PasswordDataGeneratorMaxCharacterCountDynamicId>8</PasswordDataGeneratorMaxCharacterCountDynamicId>
+          <PasswordDataGeneratorMinCharacterCountDynamicId>8</PasswordDataGeneratorMinCharacterCountDynamicId>
+          <escapeSpaceSequence/>
+        </con:configuration>
+      </con:dataSource>
+      <con:shared>true</con:shared>
+      <con:restartShared>true</con:restartShared>
+      <con:property>DynamicId</con:property>
+      <con:completeLastOperation>true</con:completeLastOperation>
+      <con:restartOnRun>true</con:restartOnRun>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="groovy" name="UpdatePayload" id="e6cbea17-0e02-4cba-8bd8-0149b4009900">
+    <con:settings/>
+    <con:config>
+      <script>// Update Payload by Adding Dynamic Values to Some Fields
+import groovy.json.*
+
+// Load Data for Learning Standards 
+def dynamicId = context.expand( '${GenDynamicId#DynamicId}' ) 
+def learningStandards = context.expand( '${Properties 1#LearningStandards}' )
+def slurped = new JsonSlurper().parseText(learningStandards)
+
+// Get Total Count
+def lsCount = slurped.LearningStandards.LearningStandard.size()
+
+// Loop Through and Update Fields for Each
+for ( i = 0; i &lt; lsCount; i++)
+{
+	// Get Values 
+	def learningStandard = new JsonBuilder(slurped.LearningStandards.LearningStandard[i])
+	def lsLocalId = learningStandard.content.LearningStandardLocalId
+
+	// Update Fields
+	slurped.LearningStandards.LearningStandard[i].LearningStandardLocalId = "$lsLocalId" + "_" + "$dynamicId"
+	slurped.LearningStandards.LearningStandard[i].remove("LearningStandardRefId")
+	slurped.LearningStandards.LearningStandard[i].remove("RecordAudit")
+	
+}
+
+// Write Updated Payload to Result
+return new JsonBuilder(slurped)</script>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="restrequest" name="Create" id="05768663-8178-49d5-b770-1aff39dea237">
+    <con:settings/>
+    <con:config service="Te Rito APIs" resourcePath="/learningstandard" methodName="createLearningStandards" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest name="Create" id="28dcf268-8a0e-45d4-87c5-cec11ac814d9" mediaType="application/json" postQueryString="false">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:endpoint>https://northern.edsby.co.nz/sif</con:endpoint>
+        <con:request>${UpdatePayload#result}</con:request>
+        <con:originalUri>http://mocksifapi.terito.education.govt.nz/sif/learningstandard</con:originalUri>
+        <con:assertion type="Valid HTTP Status Codes" id="55bf509f-58f7-4cde-9e2d-a828d1d6eda7" name="Valid HTTP Status Codes">
+          <con:settings/>
+          <con:configuration>
+            <codes>200</codes>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="JsonPath Existence Match" id="14fc07c0-4891-479a-8dac-345e757f593f" name="Check for existence of [0]">
+          <con:configuration>
+            <path>$['LearningStandards']['LearningStandard'][0]</path>
+            <content>true</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="JsonPath Match" id="b0af85bb-17fa-4ec3-81a0-c01fbe9f7ec2" name="Match content of [LearningStandardLocalId]">
+          <con:configuration>
+            <path>$['LearningStandards']['LearningStandard'][0]['LearningStandardLocalId']</path>
+            <content>*${GenDynamicId#DynamicId}</content>
+            <allowWildcards>true</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters>
+          <con:entry key="Accept" value="${#[Release 2#Setup#Properties]#Accept}"/>
+          <con:entry key="X-Edsby-APIClientId" value="${#[Release 2#Setup#Properties]#X-Edsby-ApiClientId}"/>
+        </con:parameters>
+        <con:environmentSpec>
+          <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="transfer" name="PropertyTransfer 2" id="7365ca90-f63c-4818-a14e-5d6561a3bb1f">
+    <con:settings/>
+    <con:config xsi:type="con:PropertyTransfersStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" entitize="false" transferChildNodes="false">
+        <con:name>LearningStandards</con:name>
+        <con:sourceType>Response</con:sourceType>
+        <con:sourceStep>Create</con:sourceStep>
+        <con:sourcePath/>
+        <con:targetType>LearningStandards</con:targetType>
+        <con:targetStep>Properties 1</con:targetStep>
+        <con:targetPath/>
+        <con:type>JSONPATH</con:type>
+        <con:upgraded>true</con:upgraded>
+      </con:transfers>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="groovy" name="UpdatePayload 2" id="fa815ac1-95b0-4fda-b138-7491dab51df8">
+    <con:settings/>
+    <con:config>
+      <script>// Update Payload by Adding Dynamic Values to Some Fields
+import groovy.json.*
+
+// Load Data for Learning Standards 
+def dynamicId = context.expand( '${GenDynamicId#DynamicId}' ) 
+def learningStandards = context.expand( '${Properties 1#LearningStandards}' )
+def slurped = new JsonSlurper().parseText(learningStandards)
+
+// Get Total Count
+def lsCount = slurped.LearningStandards.LearningStandard.size()
+
+// Loop Through and Update Fields for Each
+for ( i = 0; i &lt; lsCount; i++)
+{
+	// Get Values 
+	def learningStandard = new JsonBuilder(slurped.LearningStandards.LearningStandard[i])
+	def lsDesc = learningStandard.content.Description
+
+	// Update Fields
+	slurped.LearningStandards.LearningStandard[i].Description = "$lsDesc" + "_" + "$dynamicId"
+	slurped.LearningStandards.LearningStandard[i].remove("RecordAudit")	
+}
+
+// Write Updated Payload to Result
+return new JsonBuilder(slurped)</script>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="restrequest" name="Update" id="9a494d09-eb76-41c1-8571-12af634d48ce">
+    <con:settings/>
+    <con:config service="Te Rito APIs" resourcePath="/learningstandard" methodName="updateLearningStandards" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest name="Update" id="fd6493b1-73e2-4ffc-afde-93a1d099bde5" mediaType="application/json" postQueryString="false">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:endpoint>https://northern.edsby.co.nz/sif</con:endpoint>
+        <con:request>${UpdatePayload 2#result}${Properties 1#LearningStandards}</con:request>
+        <con:originalUri>http://mocksifapi.terito.education.govt.nz/sif/learningstandard</con:originalUri>
+        <con:assertion type="Valid HTTP Status Codes" id="0f09296a-c29f-4a2c-9c18-70ee46b28dda" name="Valid HTTP Status Codes">
+          <con:settings/>
+          <con:configuration>
+            <codes>200</codes>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="JsonPath Existence Match" id="5dba756b-d327-483a-8d29-b4bc22ae5622" name="Check for existence of [0]">
+          <con:configuration>
+            <path>$['LearningStandards']['LearningStandard'][0]</path>
+            <content>true</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="JsonPath Match" id="23fffd4e-1f8c-4016-8927-ea712a9410dc" name="Match content of [Description]">
+          <con:configuration>
+            <path>$['LearningStandards']['LearningStandard'][0]['Description']</path>
+            <content>*${GenDynamicId#DynamicId}</content>
+            <allowWildcards>true</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters>
+          <con:entry key="Accept" value="${#[Release 2#Setup#Properties]#Accept}"/>
+          <con:entry key="X-Edsby-APIClientId" value="${#[Release 2#Setup#Properties]#X-Edsby-ApiClientId}"/>
+        </con:parameters>
+        <con:environmentSpec>
+          <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="groovy" name="UpdatePayload 3" id="a2d676f3-6287-4d07-b45e-114fd996f24a">
+    <con:settings/>
+    <con:config>
+      <script>// Update Payload by Adding Dynamic Values to Some Fields
+import groovy.json.*
+
+// Load Data for Learning Standards 
+def dynamicId = context.expand( '${GenDynamicId#DynamicId}' ) 
+def learningStandards = context.expand( '${Properties 1#LearningStandards}' )
+def slurped = new JsonSlurper().parseText(learningStandards)
+
+// Get Total Count
+def lsCount = slurped.LearningStandards.LearningStandard.size()
+
+// Loop Through and Update Fields for Each
+for ( i = 0; i &lt; lsCount; i++)
+{
+	// Get Values 
+	def learningStandard = new JsonBuilder(slurped.LearningStandards.LearningStandard[i])
+	def lsTitle = learningStandard.content.Title
+
+	// Update Fields
+	slurped.LearningStandards.LearningStandard[i].Title = "$lsTitle" + "_" + "$dynamicId"
+	slurped.LearningStandards.LearningStandard[i].remove("Number")
+	slurped.LearningStandards.LearningStandard[i].remove("VersionNo")
+	slurped.LearningStandards.LearningStandard[i].remove("Publisher")
+	slurped.LearningStandards.LearningStandard[i].remove("StandardType")
+	slurped.LearningStandards.LearningStandard[i].remove("Description")
+	slurped.LearningStandards.LearningStandard[i].remove("SubjectAreaList")
+	slurped.LearningStandards.LearningStandard[i].remove("Status")
+	slurped.LearningStandards.LearningStandard[i].remove("Credits")
+	slurped.LearningStandards.LearningStandard[i].remove("Level")
+	slurped.LearningStandards.LearningStandard[i].remove("AssessmentType")
+	slurped.LearningStandards.LearningStandard[i].remove("RecordAudit")	
+}
+
+// Write Updated Payload to Result
+return new JsonBuilder(slurped)</script>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="restrequest" name="Patch" id="d3d19d75-7b68-4ddb-90a3-a8a27727de1f">
+    <con:settings/>
+    <con:config service="Te Rito APIs" resourcePath="/learningstandard" methodName="patchLearningStandards" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest name="Patch" id="b3f51b7d-b035-4e85-bd7a-db049c03d6d3" mediaType="application/json" postQueryString="false">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:endpoint>https://northern.edsby.co.nz/sif</con:endpoint>
+        <con:request>${UpdatePayload 3#result}</con:request>
+        <con:originalUri>http://mocksifapi.terito.education.govt.nz/sif/learningstandard</con:originalUri>
+        <con:assertion type="Valid HTTP Status Codes" id="383f06a5-f0b2-477a-aba6-0f8a6e1be6d6" name="Valid HTTP Status Codes">
+          <con:settings/>
+          <con:configuration>
+            <codes>200</codes>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="JsonPath Existence Match" id="43ae3d36-e9da-43e6-ae63-cd74b8a1d0dc" name="Check for existence of [0]">
+          <con:configuration>
+            <path>$['LearningStandards']['LearningStandard'][0]</path>
+            <content>true</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="JsonPath Match" id="517861d3-29ce-416e-accb-df5fb4b0d4e8" name="Match content of [Title]">
+          <con:configuration>
+            <path>$['LearningStandards']['LearningStandard'][0]['Title']</path>
+            <content>*${GenDynamicId#DynamicId}</content>
+            <allowWildcards>true</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters>
+          <con:entry key="Accept" value="${#[Release 2#Setup#Properties]#Accept}"/>
+          <con:entry key="X-Edsby-APIClientId" value="${#[Release 2#Setup#Properties]#X-Edsby-ApiClientId}"/>
+        </con:parameters>
+        <con:environmentSpec>
+          <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:properties/>
+  <con:reportParameters/>
+  <con:breakPoints>
+    <con:testStepId>91d9e4ce-95ec-486d-b98d-d7238a904467</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>228a9088-75f7-478b-a5cf-62b3432e0f34</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>675b057e-5c58-430e-983d-0eca27c44a37</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>54428dbd-b9a7-44c9-9670-cbf94960d062</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>41f4b6fd-2c2a-4956-969e-1e07d7167ac3</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>6b74bb90-e46c-4f49-81dd-4f2431452508</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>e6cbea17-0e02-4cba-8bd8-0149b4009900</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>7365ca90-f63c-4818-a14e-5d6561a3bb1f</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>fa815ac1-95b0-4fda-b138-7491dab51df8</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>a2d676f3-6287-4d07-b45e-114fd996f24a</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+</con:testCase>
