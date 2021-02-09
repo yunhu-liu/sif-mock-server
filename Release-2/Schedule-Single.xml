@@ -1,0 +1,514 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase id="2dcd2a8b-605f-40be-b44b-e65dd91dc96e" discardOkResults="false" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="Schedule-Single" searchProperties="true" timeout="0" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="2dcd2a8b-605f-40be-b44b-e65dd91dc96efileName">Schedule-Single</con:setting>
+  </con:settings>
+  <con:savedRecentRuns>1</con:savedRecentRuns>
+  <con:testStep type="properties" name="Properties 1" id="d24625ee-1c5a-4b4c-9cdc-89c4b2af7f00">
+    <con:settings/>
+    <con:config xsi:type="con:PropertiesStep" saveFirst="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:properties>
+        <con:property>
+          <con:name>ScheduleRefId</con:name>
+          <con:value>729377ac-e95f-4c3b-8fc2-e0c66024a62b</con:value>
+        </con:property>
+        <con:property>
+          <con:name>StartDate</con:name>
+          <con:value>2020-01-26T00:00:00</con:value>
+        </con:property>
+        <con:property>
+          <con:name>EndDate</con:name>
+          <con:value>2020-12-22T00:00:00</con:value>
+        </con:property>
+      </con:properties>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="datasource" name="GenDynamicId" id="90bcca96-91c5-4d32-a85a-2a300664ec42">
+    <con:settings/>
+    <con:config xsi:type="con:DataSourceStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:dataSource type="Data Generator">
+        <con:configuration>
+          <generatedDataCount>1</generatedDataCount>
+          <generatorsTotalNumber>1</generatorsTotalNumber>
+          <lastSelectedProperty>0</lastSelectedProperty>
+          <GeneratorType0>STR</GeneratorType0>
+          <PropertyName0>DynamicId</PropertyName0>
+          <repetitionCountDynamicId>0</repetitionCountDynamicId>
+          <repeatValuesDynamicId>false</repeatValuesDynamicId>
+          <PasswordDataGeneratorUseSpacesDynamicId>false</PasswordDataGeneratorUseSpacesDynamicId>
+          <PasswordDataGeneratorUsePunctuationMarksDynamicId>false</PasswordDataGeneratorUsePunctuationMarksDynamicId>
+          <PasswordDataGeneratorUseLettersDynamicId>true</PasswordDataGeneratorUseLettersDynamicId>
+          <PasswordDataGeneratorUseDigitsDynamicId>true</PasswordDataGeneratorUseDigitsDynamicId>
+          <PasswordDataGeneratorMaxCharacterCountDynamicId>8</PasswordDataGeneratorMaxCharacterCountDynamicId>
+          <PasswordDataGeneratorMinCharacterCountDynamicId>8</PasswordDataGeneratorMinCharacterCountDynamicId>
+          <escapeSpaceSequence/>
+        </con:configuration>
+      </con:dataSource>
+      <con:shared>true</con:shared>
+      <con:restartShared>true</con:restartShared>
+      <con:property>DynamicId</con:property>
+      <con:completeLastOperation>true</con:completeLastOperation>
+      <con:restartOnRun>true</con:restartOnRun>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="datasource" name="GenScheduleLocalId" id="be245c9f-e91d-45cc-9440-861a7e052719">
+    <con:settings/>
+    <con:config xsi:type="con:DataSourceStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:dataSource type="Data Generator">
+        <con:configuration>
+          <generatedDataCount>1</generatedDataCount>
+          <generatorsTotalNumber>1</generatorsTotalNumber>
+          <lastSelectedProperty>0</lastSelectedProperty>
+          <GeneratorType0>CUSTOM</GeneratorType0>
+          <PropertyName0>ScheduleLocalId</PropertyName0>
+          <repetitionCountScheduleLocalId>0</repetitionCountScheduleLocalId>
+          <repeatValuesScheduleLocalId>false</repeatValuesScheduleLocalId>
+          <CustomStringDataGeneratorFormatScheduleLocalId>Sched_2020_%STR(8,8,False,True,False,False)</CustomStringDataGeneratorFormatScheduleLocalId>
+          <escapeSpaceSequence/>
+        </con:configuration>
+      </con:dataSource>
+      <con:shared>true</con:shared>
+      <con:restartShared>true</con:restartShared>
+      <con:property>ScheduleLocalId</con:property>
+      <con:restartOnRun>true</con:restartOnRun>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="restrequest" name="Create" id="da7b84a6-9e75-4a3d-8866-7ad0f3fc3854">
+    <con:settings/>
+    <con:config service="Te Rito APIs" resourcePath="/schedule" methodName="createSchedules" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest name="Create" id="3785d048-f94f-4cfa-855e-3213233c3c32" mediaType="application/json" postQueryString="false">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:endpoint>https://northern.edsby.co.nz/sif</con:endpoint>
+        <con:request>{\r
+  "Schedules" : {\r
+    "Schedule" : [ {\r
+      "ScheduleLocalId" : "${GenScheduleLocalId#ScheduleLocalId}",\r
+      "ScheduleName" : "Koromiko High Schedule - 2020",\r
+      "StartDate" : "2020-01-27T00:00:00+1200",\r
+      "EndDate" : "2020-12-18T00:00:00+1200",\r
+      "Organisation" : {\r
+        "RefId" : "${#[Release 2#Setup#Properties]#OrgRefId}"\r
+      },\r
+      "AcademicDayList" : {\r
+        "AcademicDay" : [ {\r
+          "LocalId" : "8003_Day_A",\r
+          "BellSchedule" : {\r
+            "LocalId" : "8003_Regular"\r
+          },\r
+          "PeriodList" : {\r
+            "Period" : [ {\r
+              "LocalId" : "8003_HR"\r
+            }, {\r
+              "LocalId" : "8003_P1"\r
+            }, {\r
+              "LocalId" : "8003_P2"\r
+            }, {\r
+              "LocalId" : "8003_P3"\r
+            }, {\r
+              "LocalId" : "8003_P4"\r
+            }, {\r
+              "LocalId" : "8003_P5"\r
+            } ]\r
+          }\r
+        }, {\r
+          "LocalId" : "8003_Day_B",\r
+          "BellSchedule" : {\r
+            "LocalId" : "8003_Regular"\r
+          },\r
+          "PeriodList" : {\r
+            "Period" : [ {\r
+              "LocalId" : "8003_HR"\r
+            }, {\r
+              "LocalId" : "8003_P1"\r
+            }, {\r
+              "LocalId" : "8003_P2"\r
+            }, {\r
+              "LocalId" : "8003_P3"\r
+            }, {\r
+              "LocalId" : "8003_P4"\r
+            }, {\r
+              "LocalId" : "8003_P5"\r
+            } ]\r
+          }\r
+        } ]\r
+      }\r
+    } ]\r
+  }\r
+}</con:request>
+        <con:originalUri>http://mocksifapi.terito.education.govt.nz/sif/schedule</con:originalUri>
+        <con:assertion type="Valid HTTP Status Codes" id="950e39ac-b52e-4d09-9e6e-62a6aa0deed4" name="Valid HTTP Status Codes">
+          <con:settings/>
+          <con:configuration>
+            <codes>200</codes>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="JsonPath Count" id="ae44a0fd-9379-466e-8c8e-be7dbd566150" name="Check count of [Schedule]">
+          <con:configuration>
+            <path>$['Schedules']['Schedule']</path>
+            <content>1</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="JsonPath Match" id="e4ad8648-3417-4925-8dfb-8d3ddad7bfa0" name="Match content of [ScheduleLocalId]">
+          <con:configuration>
+            <path>$['Schedules']['Schedule'][0]['ScheduleLocalId']</path>
+            <content>${GenScheduleLocalId#ScheduleLocalId}</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="JsonPath Match" id="1d126f3c-f859-4a12-9105-08e8db3cc373" name="Match content of [RefId]">
+          <con:configuration>
+            <path>$['Schedules']['Schedule'][0]['Organisation']['RefId']</path>
+            <content>${#[Release 2#Setup#Properties]#OrgRefId#$}</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters>
+          <con:entry key="Accept" value="${#[Release 2#Setup#Properties]#Accept}"/>
+          <con:entry key="X-Edsby-APIClientId" value="${#[Release 2#Setup#Properties]#X-Edsby-ApiClientId}"/>
+          <con:entry key="X-Edsby-OrganisationRefId" value="${#[Release 2#Setup#Properties]#OrgRefId}"/>
+        </con:parameters>
+        <con:environmentSpec>
+          <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="transfer" name="PropertyTransfer 1" id="6fde0c63-76b3-42fb-8846-4348cb2624fd">
+    <con:settings/>
+    <con:config xsi:type="con:PropertyTransfersStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" entitize="false" transferChildNodes="false">
+        <con:name>ScheduleRefId</con:name>
+        <con:sourceType>Response</con:sourceType>
+        <con:sourceStep>Create</con:sourceStep>
+        <con:sourcePath>$['Schedules']['Schedule'][0]['ScheduleRefId']</con:sourcePath>
+        <con:targetType>ScheduleRefId</con:targetType>
+        <con:targetStep>Properties 1</con:targetStep>
+        <con:targetPath/>
+        <con:type>JSONPATH</con:type>
+        <con:upgraded>true</con:upgraded>
+      </con:transfers>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="restrequest" name="Get" id="b77d9b46-6773-4bfd-b17d-bf2960b834fa">
+    <con:settings/>
+    <con:config service="Te Rito APIs" resourcePath="/schedule/{scheduleRefId}" methodName="getSchedule" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest name="Get" id="350245e9-5451-4846-855f-b666ee9492a0" mediaType="application/json">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:endpoint>https://northern.edsby.co.nz/sif</con:endpoint>
+        <con:request/>
+        <con:originalUri>http://mocksifapi.terito.education.govt.nz/sif/schedule/d0f05f09-964a-4339-9e3b-54884d82d5e2</con:originalUri>
+        <con:assertion type="Valid HTTP Status Codes" id="b12f5e24-0be0-4ed9-b6cc-ff98038e7e90" name="Valid HTTP Status Codes">
+          <con:settings/>
+          <con:configuration>
+            <codes>200</codes>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="JsonPath Match" id="67bfecbc-ca6a-49ba-af14-b9f239b2de05" name="Match content of [ScheduleRefId]">
+          <con:configuration>
+            <path>$['Schedule']['ScheduleRefId']</path>
+            <content>${Properties 1#ScheduleRefId}</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="JsonPath Match" id="1db86985-e1de-4c6f-bac5-5a98968c4f7e" name="Match content of [ScheduleLocalId]">
+          <con:configuration>
+            <path>$['Schedule']['ScheduleLocalId']</path>
+            <content>${GenScheduleLocalId#ScheduleLocalId}</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="JsonPath Match" id="88b6dde5-368c-4264-9e07-a60b1f60b681" name="Match content of [RefId]">
+          <con:configuration>
+            <path>$['Schedule']['Organisation']['RefId']</path>
+            <content>${#[Release 2#Setup#Properties]#OrgRefId#$}</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters>
+          <con:entry key="Accept" value="${#[Release 2#Setup#Properties]#Accept}"/>
+          <con:entry key="scheduleRefId" value="${Properties 1#ScheduleRefId}"/>
+          <con:entry key="X-Edsby-APIClientId" value="${#[Release 2#Setup#Properties]#X-Edsby-ApiClientId}"/>
+          <con:entry key="X-Edsby-OrganisationRefId" value="${#[Release 2#Setup#Properties]#OrgRefId}"/>
+        </con:parameters>
+        <con:environmentSpec>
+          <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="restrequest" name="Update" id="7209d65f-a724-4cac-b715-d5aacf206ed2">
+    <con:settings/>
+    <con:config service="Te Rito APIs" resourcePath="/schedule/{scheduleRefId}" methodName="updateSchedule" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest name="Update" id="3ed91447-0f0d-4208-8289-fc085111064b" mediaType="application/json" postQueryString="false">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:endpoint>https://northern.edsby.co.nz/sif</con:endpoint>
+        <con:request>{
+    "Schedule": {
+        "ScheduleRefId": "${Properties 1#ScheduleRefId}",
+        "ScheduleLocalId": "${GenScheduleLocalId#ScheduleLocalId}",
+        "ScheduleName": "Koromiko High Schedule - 2020",
+        "StartDate": "${Properties 1#StartDate}",
+        "EndDate": "${Properties 1#EndDate}",
+        "Organisation": {
+            "RefId": "${#[Release 2#Setup#Properties]#OrgRefId}"
+        },
+        "AcademicDayList": {
+            "AcademicDay": [
+                {
+                    "LocalId": "8003_Day_A",
+                    "BellSchedule": {
+                        "LocalId": "8003_Regular"
+                    },
+                    "PeriodList": {
+                        "Period": [
+                            {
+                                "LocalId": "8003_HR"
+                            },
+                            {
+                                "LocalId": "8003_P1"
+                            },
+                            {
+                                "LocalId": "8003_P2"
+                            },
+                            {
+                                "LocalId": "8003_P3"
+                            },
+                            {
+                                "LocalId": "8003_P4"
+                            },
+                            {
+                                "LocalId": "8003_P5"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "LocalId": "8003_Day_B",
+                    "BellSchedule": {
+                        "LocalId": "8003_Regular"
+                    },
+                    "PeriodList": {
+                        "Period": [
+                            {
+                                "LocalId": "8003_HR"
+                            },
+                            {
+                                "LocalId": "8003_P1"
+                            },
+                            {
+                                "LocalId": "8003_P2"
+                            },
+                            {
+                                "LocalId": "8003_P3"
+                            },
+                            {
+                                "LocalId": "8003_P4"
+                            },
+                            {
+                                "LocalId": "8003_P5"
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    }
+}</con:request>
+        <con:originalUri>http://mocksifapi.terito.education.govt.nz/sif/schedule/</con:originalUri>
+        <con:assertion type="Valid HTTP Status Codes" id="a592fa4c-5fc9-45e7-aaa1-bd66612fc935" name="Valid HTTP Status Codes">
+          <con:settings/>
+          <con:configuration>
+            <codes>200</codes>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="JsonPath Match" id="5600116a-14b3-4de5-85b7-5d566173fa39" name="Match content of [ScheduleRefId]">
+          <con:configuration>
+            <path>$['Schedule']['ScheduleRefId']</path>
+            <content>${Properties 1#ScheduleRefId}</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="JsonPath Match" id="e3c3fc79-98ba-43e6-a95c-904246b9d37a" name="Match content of [ScheduleLocalId]">
+          <con:configuration>
+            <path>$['Schedule']['ScheduleLocalId']</path>
+            <content>${GenScheduleLocalId#ScheduleLocalId}</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="JsonPath Match" id="6469d70c-02e1-4d53-bc39-940e2a5f23fa" name="Match content of [EndDate]">
+          <con:configuration>
+            <path>$['Schedule']['EndDate']</path>
+            <content>${Properties 1#EndDate}</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="JsonPath Match" id="04c9b0c1-66e0-4036-a72a-841797a73bd8" name="Match content of [StartDate]">
+          <con:configuration>
+            <path>$['Schedule']['StartDate']</path>
+            <content>${Properties 1#StartDate}</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="JsonPath Match" id="1e725211-d3f6-43cc-933e-e98f6e8e1ae5" name="Match content of [EndDate]">
+          <con:configuration>
+            <path>$['Schedule']['EndDate']</path>
+            <content>${Properties 1#EndDate}</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters>
+          <con:entry key="Accept" value="${#[Release 2#Setup#Properties]#Accept}"/>
+          <con:entry key="scheduleRefId" value="${Properties 1#ScheduleRefId}"/>
+          <con:entry key="X-Edsby-APIClientId" value="${#[Release 2#Setup#Properties]#X-Edsby-ApiClientId}"/>
+          <con:entry key="X-Edsby-OrganisationRefId" value="${#[Release 2#Setup#Properties]#OrgRefId}"/>
+        </con:parameters>
+        <con:environmentSpec>
+          <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="restrequest" name="Patch" id="d6b86ccd-b2aa-46b1-babd-87457a60f8c8">
+    <con:settings/>
+    <con:config service="Te Rito APIs" resourcePath="/schedule/{scheduleRefId}" methodName="patchSchedule" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest name="Patch" id="ed6b0369-24e3-4942-8600-0a38adae69db" mediaType="application/json" postQueryString="false">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:endpoint>https://northern.edsby.co.nz/sif</con:endpoint>
+        <con:request>{
+    "Schedule": {
+        "ScheduleRefId": "${Properties 1#ScheduleRefId}",
+        "ScheduleName": "Koromiko High Schedule - 2020${GenDynamicId#DynamicId}",
+    }
+}</con:request>
+        <con:originalUri>http://mocksifapi.terito.education.govt.nz/sif/schedule/a7663d65-19e1-486d-b1b7-bc75ac0706b8</con:originalUri>
+        <con:assertion type="Valid HTTP Status Codes" id="43320d63-e17c-4668-8b94-45b8137b0fe2" name="Valid HTTP Status Codes">
+          <con:settings/>
+          <con:configuration>
+            <codes>200</codes>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="JsonPath Match" id="807458dd-98ae-48b9-861f-c104bff78633" name="Match content of [ScheduleRefId]">
+          <con:configuration>
+            <path>$['ScheduleCREATE']['Schedule']['ScheduleRefId']</path>
+            <content>${Properties 1#ScheduleRefId}</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="JsonPath Match" id="f27156e2-8ac6-4456-8687-1c3145a3bf73" name="Match content of [ScheduleLocalId]">
+          <con:configuration>
+            <path>$['ScheduleCREATE']['Schedule']['ScheduleLocalId']</path>
+            <content>${GenScheduleLocalId#ScheduleLocalId}</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="JsonPath Match" id="365c9c55-3bf8-497c-a4c3-91a83a28b2f4" name="Match content of [RefId]">
+          <con:configuration>
+            <path>$['ScheduleCREATE']['Schedule']['Organisation']['RefId']</path>
+            <content>${#[Release 2#Setup#Properties]#OrgRefId#$}</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="JsonPath Match" id="2c06b481-cdfd-42ed-b4e2-41f9370dc711" name="Match content of [ScheduleName]">
+          <con:configuration>
+            <path>$['ScheduleCREATE']['Schedule']['ScheduleName']</path>
+            <content>*${GenDynamicId#DynamicId}</content>
+            <allowWildcards>true</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters>
+          <con:entry key="Accept" value="${#[Release 2#Setup#Properties]#Accept}"/>
+          <con:entry key="scheduleRefId" value="${Properties 1#ScheduleRefId}"/>
+          <con:entry key="X-Edsby-APIClientId" value="${#[Release 2#Setup#Properties]#X-Edsby-ApiClientId}"/>
+          <con:entry key="X-Edsby-OrganisationRefId" value="${#[Release 2#Setup#Properties]#OrgRefId}"/>
+        </con:parameters>
+        <con:environmentSpec>
+          <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:properties/>
+  <con:reportParameters/>
+  <con:breakPoints>
+    <con:testStepId>90bcca96-91c5-4d32-a85a-2a300664ec42</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>d24625ee-1c5a-4b4c-9cdc-89c4b2af7f00</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>be245c9f-e91d-45cc-9440-861a7e052719</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+</con:testCase>
