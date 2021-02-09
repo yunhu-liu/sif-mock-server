@@ -83,5 +83,6 @@ Release-2\Credential-Single.xml
 Release-2\Credential-Multiple.xml
 Release-2\Schedule-Single.xml
 Release-2\Schedule-Multiple.xml
+Release-2\SchedulePeriod-Single.xml
 Debug\StudentContactPersonal-SingleValid.xml
 Debug\StudentContactPersonal-MultipleValid.xml

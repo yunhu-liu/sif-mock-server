@@ -1,0 +1,430 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase id="b66b71ba-5fa5-43a1-a7cc-39d79345502a" discardOkResults="false" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="SchedulePeriod-Single" searchProperties="true" timeout="0" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="b66b71ba-5fa5-43a1-a7cc-39d79345502afileName">SchedulePeriod-Single</con:setting>
+  </con:settings>
+  <con:savedRecentRuns>1</con:savedRecentRuns>
+  <con:testStep type="properties" name="Properties 1" id="3f368840-6ab1-4e76-bd1e-290ada0e47af">
+    <con:settings/>
+    <con:config xsi:type="con:PropertiesStep" saveFirst="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:properties>
+        <con:property>
+          <con:name>SchedulePeriodRefId</con:name>
+          <con:value>669dfe34-33a3-49d3-99a2-c72a590fb951</con:value>
+        </con:property>
+      </con:properties>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="datasource" name="GenDynamicId" id="e941dd02-30d3-4a17-8bec-15fcce1ef7e8">
+    <con:settings/>
+    <con:config xsi:type="con:DataSourceStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:dataSource type="Data Generator">
+        <con:configuration>
+          <generatedDataCount>1</generatedDataCount>
+          <generatorsTotalNumber>1</generatorsTotalNumber>
+          <lastSelectedProperty>0</lastSelectedProperty>
+          <GeneratorType0>STR</GeneratorType0>
+          <PropertyName0>DynamicId</PropertyName0>
+          <repetitionCountDynamicId>0</repetitionCountDynamicId>
+          <repeatValuesDynamicId>false</repeatValuesDynamicId>
+          <PasswordDataGeneratorUseSpacesDynamicId>false</PasswordDataGeneratorUseSpacesDynamicId>
+          <PasswordDataGeneratorUsePunctuationMarksDynamicId>false</PasswordDataGeneratorUsePunctuationMarksDynamicId>
+          <PasswordDataGeneratorUseLettersDynamicId>true</PasswordDataGeneratorUseLettersDynamicId>
+          <PasswordDataGeneratorUseDigitsDynamicId>true</PasswordDataGeneratorUseDigitsDynamicId>
+          <PasswordDataGeneratorMaxCharacterCountDynamicId>8</PasswordDataGeneratorMaxCharacterCountDynamicId>
+          <PasswordDataGeneratorMinCharacterCountDynamicId>8</PasswordDataGeneratorMinCharacterCountDynamicId>
+          <escapeSpaceSequence/>
+        </con:configuration>
+      </con:dataSource>
+      <con:shared>true</con:shared>
+      <con:restartShared>true</con:restartShared>
+      <con:property>DynamicId</con:property>
+      <con:completeLastOperation>true</con:completeLastOperation>
+      <con:restartOnRun>true</con:restartOnRun>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="datasource" name="GenSchedulePeriodLocalId" id="16f60c04-ed4f-486a-b1c8-b933000b9517">
+    <con:settings/>
+    <con:config xsi:type="con:DataSourceStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:dataSource type="Data Generator">
+        <con:configuration>
+          <generatedDataCount>1</generatedDataCount>
+          <generatorsTotalNumber>1</generatorsTotalNumber>
+          <lastSelectedProperty>0</lastSelectedProperty>
+          <GeneratorType0>CUSTOM</GeneratorType0>
+          <PropertyName0>SchedulePeriodLocalId</PropertyName0>
+          <repetitionCountSchedulePeriodLocalId>0</repetitionCountSchedulePeriodLocalId>
+          <repeatValuesSchedulePeriodLocalId>false</repeatValuesSchedulePeriodLocalId>
+          <CustomStringDataGeneratorFormatSchedulePeriodLocalId>8003_HR_%STR(8,8,False,True,False,False)</CustomStringDataGeneratorFormatSchedulePeriodLocalId>
+          <escapeSpaceSequence/>
+        </con:configuration>
+      </con:dataSource>
+      <con:shared>true</con:shared>
+      <con:restartShared>true</con:restartShared>
+      <con:property>SchedulePeriodLocalId</con:property>
+      <con:restartOnRun>true</con:restartOnRun>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="restrequest" name="Create" id="ae9fe4a2-bf37-45bd-b938-6bedc5f7c0ce">
+    <con:settings/>
+    <con:config service="Te Rito APIs" resourcePath="/schedule/{scheduleRefId}/scheduleperiod" methodName="createSchedulePeriods" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest name="Create" id="26a6f8e2-4c83-40ab-a0a7-26504ac7a16c" mediaType="application/json" postQueryString="false">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:endpoint>https://northern.edsby.co.nz/sif</con:endpoint>
+        <con:request>{\r
+  "SchedulePeriods" : {\r
+    "SchedulePeriod" : [ {\r
+      "SchedulePeriodLocalId" : "${GenSchedulePeriodLocalId#SchedulePeriodLocalId}",\r
+      "PeriodName" : "Homeroom",\r
+      "Organisation" : {\r
+        "RefId" : "${#[Release 2#Setup#Properties]#OrgRefId}"\r
+      },\r
+      "Schedule" : {\r
+        "LocalId" : "${#[Release 2#Schedule-Single#GenScheduleLocalId]#ScheduleLocalId}"\r
+      }\r
+    }]\r
+  }\r
+}</con:request>
+        <con:originalUri>http://mocksifapi.terito.education.govt.nz/sif/schedule/d09eefa2-aa44-4e29-b75f-dc91a2104741/scheduleperiod</con:originalUri>
+        <con:assertion type="Valid HTTP Status Codes" id="05a4468e-d295-4878-b4cb-0a60a943c385" name="Valid HTTP Status Codes">
+          <con:settings/>
+          <con:configuration>
+            <codes>200</codes>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="JsonPath Count" id="a721490c-79f4-4b8e-8586-a17bb5292a0c" name="Check count of [0]">
+          <con:configuration>
+            <path>$['SchedulePeriods']['SchedulePeriod'][*]</path>
+            <content>1</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="JsonPath Match" id="ebfd70a9-6f34-429e-9dd5-8b5574ceeb2d" name="Match content of [SchedulePeriodLocalId]">
+          <con:configuration>
+            <path>$['SchedulePeriods']['SchedulePeriod'][0]['SchedulePeriodLocalId']</path>
+            <content>${GenSchedulePeriodLocalId#SchedulePeriodLocalId}</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="JsonPath Match" id="93b75ab2-bac5-4a20-aa41-c9b75710d87a" name="Match content of [LocalId]">
+          <con:configuration>
+            <path>$['SchedulePeriods']['SchedulePeriod'][0]['Schedule']['LocalId']</path>
+            <content>${#[Release 2#Schedule-Single#GenScheduleLocalId]#ScheduleLocalId}</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters>
+          <con:entry key="Accept" value="${#[Release 2#Setup#Properties]#Accept}"/>
+          <con:entry key="scheduleRefId" value="${#[Release 2#Schedule-Single#Properties 1]#ScheduleRefId}"/>
+          <con:entry key="X-Edsby-APIClientId" value="${#[Release 2#Setup#Properties]#X-Edsby-ApiClientId}"/>
+          <con:entry key="X-Edsby-OrganisationRefId" value="${#[Release 2#Setup#Properties]#OrgRefId}"/>
+        </con:parameters>
+        <con:environmentSpec>
+          <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="transfer" name="PropertyTransfer 1" id="5296d08c-9209-4574-b019-db5a0719fb36">
+    <con:settings/>
+    <con:config xsi:type="con:PropertyTransfersStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" entitize="false" transferChildNodes="false">
+        <con:name>SchedulePeriodRefId</con:name>
+        <con:sourceType>Response</con:sourceType>
+        <con:sourceStep>Create</con:sourceStep>
+        <con:sourcePath>$['SchedulePeriods']['SchedulePeriod'][0]['SchedulePeriodRefId']</con:sourcePath>
+        <con:targetType>SchedulePeriodRefId</con:targetType>
+        <con:targetStep>Properties 1</con:targetStep>
+        <con:targetPath/>
+        <con:type>JSONPATH</con:type>
+        <con:upgraded>true</con:upgraded>
+      </con:transfers>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="restrequest" name="Get" id="4ca4e57e-74bb-4bd8-b634-ca4df9fd03b1">
+    <con:settings/>
+    <con:config service="Te Rito APIs" resourcePath="/schedule/{scheduleRefId}/scheduleperiod/{schedulePeriodRefId}" methodName="getSchedulePeriod" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest name="Get" id="6e8402ee-f6fd-4c93-9a14-03feaa255630" mediaType="application/json">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:endpoint>https://northern.edsby.co.nz/sif</con:endpoint>
+        <con:request/>
+        <con:originalUri>http://mocksifapi.terito.education.govt.nz/sif/schedule/d09eefa2-aa44-4e29-b75f-dc91a2104741/scheduleperiod/</con:originalUri>
+        <con:assertion type="Valid HTTP Status Codes" id="37305923-fc7d-476d-b156-147205eb2d71" name="Valid HTTP Status Codes">
+          <con:settings/>
+          <con:configuration>
+            <codes>200</codes>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="JsonPath Match" id="764785bc-c656-4f38-ae25-7f3fee353e4c" name="Match content of [SchedulePeriodRefId]">
+          <con:configuration>
+            <path>$['SchedulePeriod']['SchedulePeriodRefId']</path>
+            <content>${Properties 1#SchedulePeriodRefId}</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="JsonPath Match" id="8bdb82d2-e441-486f-a514-9d5e68a52035" name="Match content of [SchedulePeriodLocalId]">
+          <con:configuration>
+            <path>$['SchedulePeriod']['SchedulePeriodLocalId']</path>
+            <content>${GenSchedulePeriodLocalId#SchedulePeriodLocalId}</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="JsonPath Match" id="61e0e8e0-6b0b-456e-baa1-ea5a9350d815" name="Match content of [RefId]">
+          <con:configuration>
+            <path>$['SchedulePeriod']['Organisation']['RefId']</path>
+            <content>${#[Release 2#Setup#Properties]#OrgRefId#$}</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="JsonPath Match" id="fa97c052-2020-47d0-959d-5b289f827b92" name="Match content of [LocalId]">
+          <con:configuration>
+            <path>$['SchedulePeriod']['Schedule']['LocalId']</path>
+            <content>${#[Release 2#Schedule-Single#GenScheduleLocalId]#ScheduleLocalId}</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters>
+          <con:entry key="schedulePeriodRefId" value="${Properties 1#SchedulePeriodRefId}"/>
+          <con:entry key="Accept" value="${#[Release 2#Setup#Properties]#Accept}"/>
+          <con:entry key="scheduleRefId" value="${#[Release 2#Schedule-Single#Properties 1]#ScheduleRefId}"/>
+          <con:entry key="X-Edsby-APIClientId" value="${#[Release 2#Setup#Properties]#X-Edsby-ApiClientId}"/>
+          <con:entry key="X-Edsby-OrganisationRefId" value="${#[Release 2#Setup#Properties]#OrgRefId}"/>
+        </con:parameters>
+        <con:environmentSpec>
+          <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="restrequest" name="Update" id="51719fe6-e9b2-417f-83ca-7ba6e3d0432d">
+    <con:settings/>
+    <con:config service="Te Rito APIs" resourcePath="/schedule/{scheduleRefId}/scheduleperiod/{schedulePeriodRefId}" methodName="updateSchedulePeriod" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest name="Update" id="571d9b52-63a0-4af8-a57a-cd8224978d6a" mediaType="application/json" postQueryString="false">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:endpoint>https://northern.edsby.co.nz/sif</con:endpoint>
+        <con:request>{
+    "SchedulePeriod": {
+        "SchedulePeriodLocalId": "${GenSchedulePeriodLocalId#SchedulePeriodLocalId}",
+        "PeriodName": "Homeroom_${GenDynamicId#DynamicId}",
+        "Organisation": {
+            "RefId": "${#[Release 2#Setup#Properties]#OrgRefId}"
+        },
+        "Schedule": {
+            "LocalId": "${#[Release 2#Schedule-Single#GenScheduleLocalId]#ScheduleLocalId}"
+        }
+    }
+}</con:request>
+        <con:originalUri>http://mocksifapi.terito.education.govt.nz/sif/schedule/d09eefa2-aa44-4e29-b75f-dc91a2104741/scheduleperiod/073a0884-53fd-4698-8bcf-f2d8ea932fb2</con:originalUri>
+        <con:assertion type="Valid HTTP Status Codes" id="2fc8a94f-e87a-46fd-85c6-f1ccc01494d3" name="Valid HTTP Status Codes">
+          <con:settings/>
+          <con:configuration>
+            <codes>200</codes>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="JsonPath Match" id="bf86171b-0b96-445f-beee-c34b4fddfa1c" name="Match content of [SchedulePeriodRefId]">
+          <con:configuration>
+            <path>$['SchedulePeriod']['SchedulePeriodRefId']</path>
+            <content>${Properties 1#SchedulePeriodRefId}</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="JsonPath Match" id="f1965a00-6c51-47b7-9888-b8632462ea54" name="Match content of [SchedulePeriodLocalId]">
+          <con:configuration>
+            <path>$['SchedulePeriod']['SchedulePeriodLocalId']</path>
+            <content>${GenSchedulePeriodLocalId#SchedulePeriodLocalId}</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="JsonPath Match" id="75a81ca7-c0f0-43c5-8079-bffa1d3cf8cd" name="Match content of [PeriodName]">
+          <con:configuration>
+            <path>$['SchedulePeriod']['PeriodName']</path>
+            <content>*${GenDynamicId#DynamicId}</content>
+            <allowWildcards>true</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="JsonPath Match" id="1f20e408-2f62-4132-a1df-96cf5106b957" name="Match content of [RefId]">
+          <con:configuration>
+            <path>$['SchedulePeriod']['Organisation']['RefId']</path>
+            <content>${#[Release 2#Setup#Properties]#OrgRefId#$}</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="JsonPath Match" id="221d0ba5-13c0-42bb-8bfd-d5348fe8f59b" name="Match content of [LocalId]">
+          <con:configuration>
+            <path>$['SchedulePeriod']['Schedule']['LocalId']</path>
+            <content>${#[Release 2#Schedule-Single#GenScheduleLocalId]#ScheduleLocalId}</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters>
+          <con:entry key="schedulePeriodRefId" value="${Properties 1#SchedulePeriodRefId}"/>
+          <con:entry key="Accept" value="${#[Release 2#Setup#Properties]#Accept}"/>
+          <con:entry key="scheduleRefId" value="${#[Release 2#Schedule-Single#Properties 1]#ScheduleRefId}"/>
+          <con:entry key="X-Edsby-APIClientId" value="${#[Release 2#Setup#Properties]#X-Edsby-ApiClientId}"/>
+          <con:entry key="X-Edsby-OrganisationRefId" value="${#[Release 2#Setup#Properties]#OrgRefId}"/>
+        </con:parameters>
+        <con:environmentSpec>
+          <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="restrequest" name="Patch" id="941d550a-7460-4a4f-a584-aa259e6c273b">
+    <con:settings/>
+    <con:config service="Te Rito APIs" resourcePath="/schedule/{scheduleRefId}/scheduleperiod/{schedulePeriodRefId}" methodName="patchSchedulePeriod" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest name="Patch" id="681ba2df-db35-4e69-a0de-bda33d3e9983" mediaType="application/json" postQueryString="false">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:endpoint>https://northern.edsby.co.nz/sif</con:endpoint>
+        <con:request>{
+    "SchedulePeriod": {
+        "PeriodName": "Homeroom_${GenDynamicId#DynamicId}",
+    }
+}</con:request>
+        <con:originalUri>http://mocksifapi.terito.education.govt.nz/sif/schedule/d09eefa2-aa44-4e29-b75f-dc91a2104741/scheduleperiod/b17f9ff1-d892-46f7-ab6b-7e0ca7b49a5b</con:originalUri>
+        <con:assertion type="Valid HTTP Status Codes" id="2a4867b4-4af7-477b-af9b-5321998f3417" name="Valid HTTP Status Codes">
+          <con:settings/>
+          <con:configuration>
+            <codes>200</codes>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="JsonPath Match" id="adb571aa-62e7-438f-96b1-fb105bd0571e" name="Match content of [SchedulePeriodRefId]">
+          <con:configuration>
+            <path>$['SchedulePeriodCREATE']['SchedulePeriod']['SchedulePeriodRefId']</path>
+            <content>${Properties 1#SchedulePeriodRefId}</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="JsonPath Match" id="5ce81ce5-2855-4157-8289-ba4e73a40659" name="Match content of [SchedulePeriodLocalId]">
+          <con:configuration>
+            <path>$['SchedulePeriodCREATE']['SchedulePeriod']['SchedulePeriodLocalId']</path>
+            <content>${GenSchedulePeriodLocalId#SchedulePeriodLocalId}</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="JsonPath Match" id="f36fc89b-927f-4fe8-995d-b029610ccb06" name="Match content of [PeriodName]">
+          <con:configuration>
+            <path>$['SchedulePeriodCREATE']['SchedulePeriod']['PeriodName']</path>
+            <content>*${GenDynamicId#DynamicId}</content>
+            <allowWildcards>true</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="JsonPath Match" id="9e5d1a67-f66d-4378-b9c6-e0d7b87b4172" name="Match content of [RefId]">
+          <con:configuration>
+            <path>$['SchedulePeriodCREATE']['SchedulePeriod']['Organisation']['RefId']</path>
+            <content>${#[Release 2#Setup#Properties]#OrgRefId#$}</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="JsonPath Match" id="cc7c1c41-5aad-483a-8359-5ad495f6d4a8" name="Match content of [LocalId]">
+          <con:configuration>
+            <path>$['SchedulePeriodCREATE']['SchedulePeriod']['Schedule']['LocalId']</path>
+            <content>${#[Release 2#Schedule-Single#GenScheduleLocalId]#ScheduleLocalId}</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters>
+          <con:entry key="schedulePeriodRefId" value="${Properties 1#SchedulePeriodRefId}"/>
+          <con:entry key="Accept" value="${#[Release 2#Setup#Properties]#Accept}"/>
+          <con:entry key="scheduleRefId" value="${#[Release 2#Schedule-Single#Properties 1]#ScheduleRefId}"/>
+          <con:entry key="X-Edsby-APIClientId" value="${#[Release 2#Setup#Properties]#X-Edsby-ApiClientId}"/>
+          <con:entry key="X-Edsby-OrganisationRefId" value="${#[Release 2#Setup#Properties]#OrgRefId}"/>
+        </con:parameters>
+        <con:environmentSpec>
+          <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:properties/>
+  <con:reportParameters/>
+  <con:breakPoints>
+    <con:testStepId>ae9fe4a2-bf37-45bd-b938-6bedc5f7c0ce</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>3f368840-6ab1-4e76-bd1e-290ada0e47af</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>e941dd02-30d3-4a17-8bec-15fcce1ef7e8</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>16f60c04-ed4f-486a-b1c8-b933000b9517</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+</con:testCase>

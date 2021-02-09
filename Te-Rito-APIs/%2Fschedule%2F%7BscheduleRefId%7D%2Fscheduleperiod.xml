@@ -356,7 +356,7 @@
   </SchedulePeriod>
 </SchedulePeriods>]]></con:sampleContent>
     </con:representation>
-    <con:request name="Request 1" id="26a6f8e2-4c83-40ab-a0a7-26504ac7a16c" mediaType="application/json">
+    <con:request name="Request 1" id="26a6f8e2-4c83-40ab-a0a7-26504ac7a16c" mediaType="application/json" postQueryString="false">
       <con:settings/>
       <con:endpoint>https://northern.edsby.co.nz/sif</con:endpoint>
       <con:request>{\r
@@ -386,6 +386,7 @@
         <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
         <con:authType>No Authorization</con:authType>
       </con:credentials>
+      <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
       <con:parameters/>
       <con:environmentSpec>
         <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
