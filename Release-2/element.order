@@ -7,8 +7,10 @@ LearningStandard-Multiple.xml
 Credential-Single.xml
 Credential-Multiple.xml
 Schedule-Single.xml
-Schedule-Multiple.xml
 SchedulePeriod-Single.xml
-SchedulePeriod-Multiple.xml
 ScheduleTerm-Single.xml
+ScheduleDate-Single.xml
+Schedule-Multiple.xml
+SchedulePeriod-Multiple.xml
 ScheduleTerm-Multiple.xml
+ScheduleDate-Multiple.xml

@@ -10,7 +10,11 @@
       <con:properties>
         <con:property>
           <con:name>ScheduleRefId</con:name>
-          <con:value>e1fcfff8-5235-43e5-9250-d7c64ca3185e</con:value>
+          <con:value>ae59ba09-5d1e-44c8-a9c4-9048f141aaae</con:value>
+        </con:property>
+        <con:property>
+          <con:name>ScheduleLocalId</con:name>
+          <con:value>Sched_2020_RMoCDrbf</con:value>
         </con:property>
         <con:property>
           <con:name>StartDate</con:name>
@@ -200,6 +204,16 @@
         <con:targetType>ScheduleRefId</con:targetType>
         <con:targetStep>Properties 1</con:targetStep>
         <con:targetPath/>
+        <con:type>JSONPATH</con:type>
+        <con:upgraded>true</con:upgraded>
+      </con:transfers>
+      <con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" entitize="false" transferChildNodes="false">
+        <con:name>ScheduleLocalId</con:name>
+        <con:sourceType>Response</con:sourceType>
+        <con:sourceStep>Create</con:sourceStep>
+        <con:sourcePath>$['Schedules']['Schedule'][0]['ScheduleLocalId']</con:sourcePath>
+        <con:targetType>ScheduleLocalId</con:targetType>
+        <con:targetStep>Properties 1</con:targetStep>
         <con:type>JSONPATH</con:type>
         <con:upgraded>true</con:upgraded>
       </con:transfers>
@@ -428,7 +442,6 @@
         <con:endpoint>https://northern.edsby.co.nz/sif</con:endpoint>
         <con:request>{
     "Schedule": {
-        "ScheduleRefId": "${Properties 1#ScheduleRefId}",
         "ScheduleName": "Koromiko High Schedule - 2020${GenDynamicId#DynamicId}",
     }
 }</con:request>
