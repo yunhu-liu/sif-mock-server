@@ -10,15 +10,15 @@
       <con:properties>
         <con:property>
           <con:name>OrgRefId</con:name>
-          <con:value>90101</con:value>
+          <con:value>8006</con:value>
         </con:property>
         <con:property>
           <con:name>InvalidOrgRefId</con:name>
-          <con:value>2062</con:value>
+          <con:value>1940</con:value>
         </con:property>
         <con:property>
           <con:name>X-Edsby-ApiClientId</con:name>
-          <con:value>4f2037db-e935-4b8b-90f3-d90d84c2eaf2</con:value>
+          <con:value>03ebad0e-4cf7-4ef3-8619-48af2e40ba4a</con:value>
         </con:property>
         <con:property>
           <con:name>Accept</con:name>

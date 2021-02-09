@@ -9,3 +9,6 @@ Credential-Multiple.xml
 Schedule-Single.xml
 Schedule-Multiple.xml
 SchedulePeriod-Single.xml
+SchedulePeriod-Multiple.xml
+ScheduleTerm-Single.xml
+ScheduleTerm-Multiple.xml
