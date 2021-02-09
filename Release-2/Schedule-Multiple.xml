@@ -4,6 +4,210 @@
     <con:setting id="47dc8bb4-a926-4884-9924-c3e83e1a7a4afileName">Schedule-Multiple</con:setting>
   </con:settings>
   <con:savedRecentRuns>1</con:savedRecentRuns>
+  <con:testStep type="properties" name="Properties 1" id="083e23c1-7e2d-4210-aa04-a210a4d936b3">
+    <con:settings/>
+    <con:config xsi:type="con:PropertiesStep" saveFirst="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:properties>
+        <con:property>
+          <con:name>ScheduleName</con:name>
+          <con:value>Primary Schedule - 2020</con:value>
+        </con:property>
+        <con:property>
+          <con:name>StartDate</con:name>
+          <con:value>2020-01-26T00:00:00</con:value>
+        </con:property>
+        <con:property>
+          <con:name>EndDate</con:name>
+          <con:value>2020-12-22T00:00:00</con:value>
+        </con:property>
+      </con:properties>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="datasource" name="LoadTestData-Multiple" id="59818be4-2f01-4d7e-a99f-60fac5b7ae20">
+    <con:settings>
+      <con:setting id="com.eviware.soapui.impl.wsdl.teststeps.datasource.DataSourceContainer@prepared-properties">&lt;xml-fragment/></con:setting>
+    </con:settings>
+    <con:config xsi:type="con:DataSourceStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:dataSource type="Directory">
+        <con:configuration>
+          <directory>C:/TeRito APIs/Te Rito APIs (v3.2-rc2)/v3.2-rc2_multiple_header_wrapped/Schedule/200</directory>
+          <filter>*.json</filter>
+          <encoding/>
+        </con:configuration>
+      </con:dataSource>
+      <con:shared>true</con:shared>
+      <con:restartShared>true</con:restartShared>
+      <con:property>TestData</con:property>
+      <con:completeLastOperation>true</con:completeLastOperation>
+      <con:restartOnRun>true</con:restartOnRun>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="datasource" name="GetPayload" id="1cd87a98-265c-4f0e-84a4-6b40f3473454">
+    <con:settings/>
+    <con:config xsi:type="con:DataSourceStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:dataSource type="JSON">
+        <con:configuration>
+          <sourceStep>LoadTestData-Multiple</sourceStep>
+          <sourceProperty>TestData</sourceProperty>
+          <rowPath>$['testcase']</rowPath>
+          <columnPath/>
+        </con:configuration>
+      </con:dataSource>
+      <con:shared>true</con:shared>
+      <con:restartShared>true</con:restartShared>
+      <con:property>Payload</con:property>
+      <con:completeLastOperation>true</con:completeLastOperation>
+      <con:restartOnRun>true</con:restartOnRun>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="datasource" name="GetOrgRefId" id="e50a3c64-b9fa-46cd-ad89-2a1f177282db">
+    <con:settings/>
+    <con:config xsi:type="con:DataSourceStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:dataSource type="JSON">
+        <con:configuration>
+          <sourceStep>LoadTestData-Multiple</sourceStep>
+          <sourceProperty>TestData</sourceProperty>
+          <rowPath>$['testcase']['Schedules']['Schedule'][0]['Organisation']['RefId']</rowPath>
+          <columnPath/>
+        </con:configuration>
+      </con:dataSource>
+      <con:shared>true</con:shared>
+      <con:restartShared>true</con:restartShared>
+      <con:property>OrgRefId</con:property>
+      <con:completeLastOperation>true</con:completeLastOperation>
+      <con:restartOnRun>true</con:restartOnRun>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="datasource" name="GenDynamicId" id="3c0f1886-3f4a-41d6-9474-57b48a0c4be0">
+    <con:settings/>
+    <con:config xsi:type="con:DataSourceStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:dataSource type="Data Generator">
+        <con:configuration>
+          <generatedDataCount>1</generatedDataCount>
+          <generatorsTotalNumber>1</generatorsTotalNumber>
+          <lastSelectedProperty>0</lastSelectedProperty>
+          <GeneratorType0>STR</GeneratorType0>
+          <PropertyName0>DynamicId</PropertyName0>
+          <repetitionCountDynamicId>0</repetitionCountDynamicId>
+          <repeatValuesDynamicId>false</repeatValuesDynamicId>
+          <PasswordDataGeneratorUseSpacesDynamicId>false</PasswordDataGeneratorUseSpacesDynamicId>
+          <PasswordDataGeneratorUsePunctuationMarksDynamicId>false</PasswordDataGeneratorUsePunctuationMarksDynamicId>
+          <PasswordDataGeneratorUseLettersDynamicId>true</PasswordDataGeneratorUseLettersDynamicId>
+          <PasswordDataGeneratorUseDigitsDynamicId>true</PasswordDataGeneratorUseDigitsDynamicId>
+          <PasswordDataGeneratorMaxCharacterCountDynamicId>8</PasswordDataGeneratorMaxCharacterCountDynamicId>
+          <PasswordDataGeneratorMinCharacterCountDynamicId>8</PasswordDataGeneratorMinCharacterCountDynamicId>
+          <escapeSpaceSequence/>
+        </con:configuration>
+      </con:dataSource>
+      <con:shared>true</con:shared>
+      <con:restartShared>true</con:restartShared>
+      <con:property>DynamicId</con:property>
+      <con:completeLastOperation>true</con:completeLastOperation>
+      <con:restartOnRun>true</con:restartOnRun>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="groovy" name="UpdatePayload" id="8e2ed039-e702-46e9-b4be-11f98627ee7a">
+    <con:settings/>
+    <con:config>
+      <script>// Update Payload by Adding Dynamic Values to Some Fields
+import groovy.json.*
+
+// Load Data
+def scheduleName = context.expand( '${Properties 1#ScheduleName}' )
+def dynamicId = context.expand( '${GenDynamicId#DynamicId}' ) 
+def payload = context.expand( '${GetPayload#Payload}' ) 
+def slurped = new JsonSlurper().parseText(payload)
+
+// Get Total Count
+def scCount = slurped.Schedules.Schedule.size()
+
+// Loop Through and Update Fields for Each
+for ( i = 0; i &lt; scCount; i++)
+{
+	// Get Values 
+	def schedule = new JsonBuilder( slurped.Schedules.Schedule[i]) 
+	def scLocalId = schedule.content.ScheduleLocalId 
+	
+	// Update Fields
+	slurped.Schedules.Schedule[i].ScheduleLocalId = "$scLocalId" + "_" + "$dynamicId"
+	slurped.Schedules.Schedule[i].ScheduleName = "$scheduleName"
+}
+
+// Write Updated Payload to Result
+return new JsonBuilder(slurped)</script>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="restrequest" name="Create" id="4b169652-f4a2-4465-b713-b72775d47cc9">
+    <con:settings/>
+    <con:config service="Te Rito APIs" resourcePath="/schedule" methodName="createSchedules" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest name="Create" id="3785d048-f94f-4cfa-855e-3213233c3c32" mediaType="application/json" postQueryString="false">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:encoding/>
+        <con:endpoint>https://northern.edsby.co.nz/sif</con:endpoint>
+        <con:request>${UpdatePayload#result}</con:request>
+        <con:originalUri>http://mocksifapi.terito.education.govt.nz/sif/schedule</con:originalUri>
+        <con:assertion type="Valid HTTP Status Codes" id="bf409a71-7165-45ca-9b63-376a43d429a7" name="Valid HTTP Status Codes">
+          <con:settings/>
+          <con:configuration>
+            <codes>200</codes>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="JsonPath Existence Match" id="36a20dd4-1731-47e9-b68a-a71f9b417588" name="Check for existence of [0]">
+          <con:configuration>
+            <path>$['Schedules']['Schedule'][0]</path>
+            <content>true</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="JsonPath Match" id="3fc35f64-b5bc-4da8-8199-2c0f915f0408" name="Match content of [ScheduleLocalId]">
+          <con:configuration>
+            <path>$['Schedules']['Schedule'][0]['ScheduleLocalId']</path>
+            <content>*${GenDynamicId#DynamicId}</content>
+            <allowWildcards>true</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="JsonPath Match" id="0ce6ebcc-7358-49e6-a9ab-2c5cf6a25fac" name="Match content of [ScheduleName]">
+          <con:configuration>
+            <path>$['Schedules']['Schedule'][0]['ScheduleName']</path>
+            <content>${Properties 1#ScheduleName}</content>
+            <allowWildcards>true</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="JsonPath Match" id="d793c213-f703-4d1d-ae49-78de54eb9721" name="Match content of [RefId]">
+          <con:configuration>
+            <path>$['Schedules']['Schedule'][0]['Organisation']['RefId']</path>
+            <content>${GetOrgRefId#OrgRefId}</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters>
+          <con:entry key="Accept" value="${#[Release 2#Setup#Properties]#Accept}"/>
+          <con:entry key="X-Edsby-APIClientId" value="${#[Release 2#Setup#Properties]#X-Edsby-ApiClientId}"/>
+          <con:entry key="X-Edsby-OrganisationRefId" value="${GetOrgRefId#OrgRefId}"/>
+        </con:parameters>
+        <con:environmentSpec>
+          <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
   <con:testStep type="restrequest" name="Get" id="1eed1d2a-67f4-4562-8358-72ed22a68182">
     <con:settings/>
     <con:config service="Te Rito APIs" resourcePath="/schedule" methodName="getSchedules" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
@@ -20,6 +224,24 @@
             <codes>200</codes>
           </con:configuration>
         </con:assertion>
+        <con:assertion type="JsonPath Existence Match" id="4abfb7e1-4619-4395-8e21-67881e0fbf73" name="Check for existence of [0]">
+          <con:configuration>
+            <path>$['Schedules']['Schedule'][0]</path>
+            <content>true</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="JsonPath Match" id="98415f7a-cae6-4452-ba13-0289e289574e" name="Match content of [RefId]">
+          <con:configuration>
+            <path>$['Schedules']['Schedule'][0]['Organisation']['RefId']</path>
+            <content>${GetOrgRefId#OrgRefId}</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
         <con:credentials>
           <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
           <con:authType>No Authorization</con:authType>
@@ -28,7 +250,7 @@
         <con:parameters>
           <con:entry key="Accept" value="${#[Release 2#Setup#Properties]#Accept}"/>
           <con:entry key="X-Edsby-APIClientId" value="${#[Release 2#Setup#Properties]#X-Edsby-ApiClientId}"/>
-          <con:entry key="X-Edsby-OrganisationRefId" value="${#[Release 2#Setup#Properties]#OrgRefId}"/>
+          <con:entry key="X-Edsby-OrganisationRefId" value="${GetOrgRefId#OrgRefId}"/>
         </con:parameters>
         <con:environmentSpec>
           <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
@@ -38,23 +260,251 @@
       </con:restRequest>
     </con:config>
   </con:testStep>
-  <con:testStep type="datasource" name="LoadPayloadFile" id="9c83cf8a-d2a3-4009-a67d-c3786f104147">
+  <con:testStep type="groovy" name="UpdatePayload 2" id="121c5065-c0d7-4a12-b2bc-8f8b24db29c0">
     <con:settings/>
-    <con:config xsi:type="con:DataSourceStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-      <con:dataSource type="Directory">
-        <con:configuration>
-          <directory>C:/TeRito APIs/Te Rito APIs (v3.2-rc2)/v3.2-rc2_multiple_header_wrapped/Schedule/200</directory>
-          <filter>200_TeachingGroup_TeWheke_973_multiple_valid_.json</filter>
-          <encoding/>
-        </con:configuration>
-      </con:dataSource>
-      <con:shared>true</con:shared>
-      <con:restartShared>true</con:restartShared>
-      <con:property>PayloadFile</con:property>
-      <con:completeLastOperation>true</con:completeLastOperation>
-      <con:restartOnRun>true</con:restartOnRun>
+    <con:config>
+      <script>// Update Payload by Adding Dynamic Values to Some Fields
+import groovy.json.*
+
+// Load Data
+def scheduleName = context.expand( '${Properties 1#ScheduleName}' )
+def dynamicId = context.expand( '${GenDynamicId#DynamicId}' ) 
+def payload = context.expand( '${Get#Response}' ) 
+def slurped = new JsonSlurper().parseText(payload)
+
+// Get Total Count
+def scCount = slurped.Schedules.Schedule.size()
+
+// Loop Through and Update Fields for Each
+for ( i = 0; i &lt; scCount; i++)
+{
+	// Get Values 
+	def schedule = new JsonBuilder( slurped.Schedules.Schedule[i]) 
+	def scLocalId = schedule.content.ScheduleLocalId 
+	
+	// Update Fields
+	slurped.Schedules.Schedule[i].ScheduleLocalId = "$scLocalId" + "_" + "$dynamicId" 
+	slurped.Schedules.Schedule[i].ScheduleName = "$scheduleName" + "_" + "$dynamicId" 
+	slurped.Schedules.Schedule[i].remove("RecordAudit")
+}
+
+// Write Updated Payload to Result
+return new JsonBuilder(slurped)</script>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="restrequest" name="Update" id="0b68884b-680c-4834-97f9-31ffecd60aab">
+    <con:settings/>
+    <con:config service="Te Rito APIs" resourcePath="/schedule" methodName="updateSchedules" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest name="Update" id="597c0110-4416-4fcc-a41f-8746cc183532" mediaType="application/json" postQueryString="false">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:endpoint>https://northern.edsby.co.nz/sif</con:endpoint>
+        <con:request>${UpdatePayload 2#result}</con:request>
+        <con:originalUri>http://mocksifapi.terito.education.govt.nz/sif/schedule</con:originalUri>
+        <con:assertion type="Valid HTTP Status Codes" id="09bc3013-9f34-41d8-ab76-07b1427dc96c" name="Valid HTTP Status Codes">
+          <con:settings/>
+          <con:configuration>
+            <codes>200</codes>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="JsonPath Existence Match" id="4d261ae6-3b30-472d-b05b-f1e64e7ce134" name="Check for existence of [0]">
+          <con:configuration>
+            <path>$['Schedules']['Schedule'][0]</path>
+            <content>true</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="JsonPath Match" id="677884c8-ed0c-4bdc-8b4a-b7368276851b" name="Match content of [ScheduleName]">
+          <con:configuration>
+            <path>$['Schedules']['Schedule'][0]['ScheduleName']</path>
+            <content>*${GenDynamicId#DynamicId}</content>
+            <allowWildcards>true</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters>
+          <con:entry key="Accept" value="${#[Release 2#Setup#Properties]#Accept}"/>
+          <con:entry key="X-Edsby-APIClientId" value="${#[Release 2#Setup#Properties]#X-Edsby-ApiClientId}"/>
+          <con:entry key="X-Edsby-OrganisationRefId" value="${GetOrgRefId#OrgRefId}"/>
+        </con:parameters>
+        <con:environmentSpec>
+          <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="groovy" name="UpdatePayload 3" id="102cded0-4973-4e20-b4d0-05993b30a419">
+    <con:settings/>
+    <con:config>
+      <script>// Update Payload by Adding Dynamic Values to Some Fields
+import groovy.json.*
+
+// Load Data
+def payload = context.expand( '${Get#Response}' ) 
+def slurped = new JsonSlurper().parseText(payload)
+def startDate = context.expand( '${Properties 1#StartDate}' )
+def endDate = context.expand( '${Properties 1#EndDate}' )
+
+// Get Total Count
+def scCount = slurped.Schedules.Schedule.size()
+
+// Loop Through and Update Fields for Each
+for ( i = 0; i &lt; scCount; i++)
+{
+	// Get Values 
+	def schedule = new JsonBuilder( slurped.Schedules.Schedule[i]) 
+	def scLocalId = schedule.content.ScheduleLocalId 
+	
+	// Update Fields
+	slurped.Schedules.Schedule[i].StartDate = "$startDate"
+	slurped.Schedules.Schedule[i].EndDate = "$endDate"
+	slurped.Schedules.Schedule[i].remove("ScheduleLocalId")
+	slurped.Schedules.Schedule[i].remove("ScheduleName")
+	slurped.Schedules.Schedule[i].remove("Organisation")
+	slurped.Schedules.Schedule[i].remove("AcademicDayList")
+	slurped.Schedules.Schedule[i].remove("AcademicDay")	 
+	slurped.Schedules.Schedule[i].remove("RecordAudit")
+}
+
+// Write Updated Payload to Result
+return new JsonBuilder(slurped)</script>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="restrequest" name="Patch" id="915334af-28ec-451c-a264-619a1b56e654">
+    <con:settings/>
+    <con:config service="Te Rito APIs" resourcePath="/schedule" methodName="patchSchedules" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest name="Patch" id="04f7300c-8983-4e54-8520-5751c02ad250" mediaType="application/json" postQueryString="false">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:endpoint>https://northern.edsby.co.nz/sif</con:endpoint>
+        <con:request>${UpdatePayload 3#result}</con:request>
+        <con:originalUri>http://mocksifapi.terito.education.govt.nz/sif/schedule</con:originalUri>
+        <con:assertion type="Valid HTTP Status Codes" id="f9063624-3d7c-4372-8bd7-b02e73fa04ba" name="Valid HTTP Status Codes">
+          <con:settings/>
+          <con:configuration>
+            <codes>200</codes>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="JsonPath Match" id="7beaf7a3-88d2-4f48-be69-c0c57791bf00" name="Match content of [RefId]">
+          <con:configuration>
+            <path>$['Schedules']['Schedule'][0]['Organisation']['RefId']</path>
+            <content>${GetOrgRefId#OrgRefId}</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="JsonPath Match" id="da534f65-c595-4c80-9366-f2e1a22af9db" name="Match content of [StartDate]">
+          <con:configuration>
+            <path>$['Schedules']['Schedule'][0]['StartDate']</path>
+            <content>${Properties 1#StartDate}</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="JsonPath Match" id="d2f3bf32-f105-42e2-858e-a10ad117b41f" name="Match content of [EndDate]">
+          <con:configuration>
+            <path>$['Schedules']['Schedule'][0]['EndDate']</path>
+            <content>${Properties 1#EndDate}</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters>
+          <con:entry key="Accept" value="${#[Release 2#Setup#Properties]#Accept}"/>
+          <con:entry key="X-Edsby-APIClientId" value="${#[Release 2#Setup#Properties]#X-Edsby-ApiClientId}"/>
+          <con:entry key="X-Edsby-OrganisationRefId" value="${GetOrgRefId#OrgRefId}"/>
+        </con:parameters>
+        <con:environmentSpec>
+          <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="datasourceloop" name="DataSource Loop" id="7ecf5ae3-75ec-4ca9-8e6f-73d4b4dfa663">
+    <con:settings/>
+    <con:config>
+      <dataSourceStep>LoadTestData-Multiple</dataSourceStep>
+      <targetStep>GetPayload</targetStep>
+      <discardResults>true</discardResults>
     </con:config>
   </con:testStep>
   <con:properties/>
   <con:reportParameters/>
+  <con:breakPoints>
+    <con:testStepId>59818be4-2f01-4d7e-a99f-60fac5b7ae20</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>1cd87a98-265c-4f0e-84a4-6b40f3473454</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>e50a3c64-b9fa-46cd-ad89-2a1f177282db</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>3c0f1886-3f4a-41d6-9474-57b48a0c4be0</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>8e2ed039-e702-46e9-b4be-11f98627ee7a</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>4b169652-f4a2-4465-b713-b72775d47cc9</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>0b68884b-680c-4834-97f9-31ffecd60aab</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>915334af-28ec-451c-a264-619a1b56e654</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>121c5065-c0d7-4a12-b2bc-8f8b24db29c0</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>083e23c1-7e2d-4210-aa04-a210a4d936b3</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>102cded0-4973-4e20-b4d0-05993b30a419</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
 </con:testCase>
