@@ -4,6 +4,292 @@
     <con:setting id="42404f48-aaf9-45c6-999e-1f951104e019fileName">ScheduleTerm-Multiple</con:setting>
   </con:settings>
   <con:savedRecentRuns>1</con:savedRecentRuns>
+  <con:testStep type="properties" name="Properties 1" id="f187435e-b68a-4bde-8aa3-1e1d715715c2">
+    <con:settings/>
+    <con:config xsi:type="con:PropertiesStep" saveFirst="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:properties>
+        <con:property>
+          <con:name>ScheduleTermRefId</con:name>
+          <con:value>430524d2-b6a2-4f95-b37d-59e165a798d8</con:value>
+        </con:property>
+        <con:property>
+          <con:name>StartDate</con:name>
+          <con:value>2020-01-28T00:00:00</con:value>
+        </con:property>
+        <con:property>
+          <con:name>EndDate</con:name>
+          <con:value>2020-03-28T00:00:00</con:value>
+        </con:property>
+      </con:properties>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="datasource" name="LoadTestData-Multiple" id="aa8dc8e2-171e-4042-80d5-7dd5e09ecfdc">
+    <con:settings>
+      <con:setting id="com.eviware.soapui.impl.wsdl.teststeps.datasource.DataSourceContainer@prepared-properties">&lt;xml-fragment/></con:setting>
+    </con:settings>
+    <con:config xsi:type="con:DataSourceStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:dataSource type="Directory">
+        <con:configuration>
+          <directory>C:/TeRito APIs/Te Rito APIs (v3.2-rc2)/v3.2-rc2_multiple_header_wrapped/ScheduleTerm/200</directory>
+          <filter>*.json</filter>
+          <encoding/>
+        </con:configuration>
+      </con:dataSource>
+      <con:shared>true</con:shared>
+      <con:restartShared>true</con:restartShared>
+      <con:property>TestData</con:property>
+      <con:completeLastOperation>true</con:completeLastOperation>
+      <con:restartOnRun>true</con:restartOnRun>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="datasource" name="GetPayload" id="c3f21a31-9b92-46c6-a2a4-4dbba13a15b2">
+    <con:settings/>
+    <con:config xsi:type="con:DataSourceStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:dataSource type="JSON">
+        <con:configuration>
+          <sourceStep>LoadTestData-Multiple</sourceStep>
+          <sourceProperty>TestData</sourceProperty>
+          <rowPath>$['testcase']</rowPath>
+          <columnPath/>
+        </con:configuration>
+      </con:dataSource>
+      <con:shared>true</con:shared>
+      <con:restartShared>true</con:restartShared>
+      <con:property>Payload</con:property>
+      <con:completeLastOperation>true</con:completeLastOperation>
+      <con:restartOnRun>true</con:restartOnRun>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="datasource" name="GetOrgRefId" id="c4a0f948-76a8-4af3-a568-5fd0d767da84">
+    <con:settings/>
+    <con:config xsi:type="con:DataSourceStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:dataSource type="JSON">
+        <con:configuration>
+          <sourceStep>GetPayload</sourceStep>
+          <sourceProperty>Payload</sourceProperty>
+          <rowPath>$['ScheduleTerms']['ScheduleTerm'][0]['Organisation']['RefId']</rowPath>
+          <columnPath/>
+        </con:configuration>
+      </con:dataSource>
+      <con:shared>true</con:shared>
+      <con:restartShared>true</con:restartShared>
+      <con:property>OrgRefId</con:property>
+      <con:completeLastOperation>true</con:completeLastOperation>
+      <con:restartOnRun>true</con:restartOnRun>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="datasource" name="GenDynamicId" id="55a34450-4358-47de-b3a8-a43d041b47a0">
+    <con:settings/>
+    <con:config xsi:type="con:DataSourceStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:dataSource type="Data Generator">
+        <con:configuration>
+          <generatedDataCount>1</generatedDataCount>
+          <generatorsTotalNumber>1</generatorsTotalNumber>
+          <lastSelectedProperty>0</lastSelectedProperty>
+          <GeneratorType0>STR</GeneratorType0>
+          <PropertyName0>DynamicId</PropertyName0>
+          <repetitionCountDynamicId>0</repetitionCountDynamicId>
+          <repeatValuesDynamicId>false</repeatValuesDynamicId>
+          <PasswordDataGeneratorUseSpacesDynamicId>false</PasswordDataGeneratorUseSpacesDynamicId>
+          <PasswordDataGeneratorUsePunctuationMarksDynamicId>false</PasswordDataGeneratorUsePunctuationMarksDynamicId>
+          <PasswordDataGeneratorUseLettersDynamicId>true</PasswordDataGeneratorUseLettersDynamicId>
+          <PasswordDataGeneratorUseDigitsDynamicId>true</PasswordDataGeneratorUseDigitsDynamicId>
+          <PasswordDataGeneratorMaxCharacterCountDynamicId>8</PasswordDataGeneratorMaxCharacterCountDynamicId>
+          <PasswordDataGeneratorMinCharacterCountDynamicId>8</PasswordDataGeneratorMinCharacterCountDynamicId>
+          <escapeSpaceSequence/>
+        </con:configuration>
+      </con:dataSource>
+      <con:shared>true</con:shared>
+      <con:restartShared>true</con:restartShared>
+      <con:property>DynamicId</con:property>
+      <con:completeLastOperation>true</con:completeLastOperation>
+      <con:restartOnRun>true</con:restartOnRun>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="groovy" name="UpdatePayload" id="5ec6085f-7940-406e-9fec-071a3d9469e1">
+    <con:settings/>
+    <con:config>
+      <script>// Update Payload by Adding Dynamic Values to Some Fields
+import groovy.json.*
+
+// Load Data
+def orgRefId = context.expand( '${GetOrgRefId#OrgRefId}' )
+def dynamicId = context.expand( '${GenDynamicId#DynamicId}' ) 
+def payload = context.expand( '${GetPayload#Payload}' ) 
+def slurped = new JsonSlurper().parseText(payload)
+
+// Get Total Count
+def stCount = slurped.ScheduleTerms.ScheduleTerm.size()
+
+// Loop Through and Update Fields for Each
+for ( i = 0; i &lt; stCount; i++)
+{
+	// Get Values 
+	def scheduleTerm = new JsonBuilder( slurped.ScheduleTerms.ScheduleTerm[i]) 
+	def stLocalId = scheduleTerm.content.ScheduleTermLocalId 
+	
+	// Update Fields
+	slurped.ScheduleTerms.ScheduleTerm[i].ScheduleLocalId = "$stLocalId" + "_" + "$dynamicId"
+	slurped.ScheduleTerms.ScheduleTerm[i].Organisation.RefId = "$orgRefId"		
+}
+
+// Write Updated Payload to Result
+return new JsonBuilder(slurped)</script>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="restrequest" name="Create" id="5f3b257e-6a76-4010-af23-f2b704c83ea1">
+    <con:settings/>
+    <con:config service="Te Rito APIs" resourcePath="/scheduleterm" methodName="createScheduleTerms" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest name="Create" id="b7ec11a3-4b8c-4684-aa62-58760d4903ca" mediaType="application/json" postQueryString="false">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:endpoint>https://northern.edsby.co.nz/sif</con:endpoint>
+        <con:request>${UpdatePayload#result}</con:request>
+        <con:originalUri>http://mocksifapi.terito.education.govt.nz/sif/scheduleterm</con:originalUri>
+        <con:assertion type="Valid HTTP Status Codes" id="2d4c7d95-1b82-49bb-b9ab-58754fbcd6a8" name="Valid HTTP Status Codes">
+          <con:settings/>
+          <con:configuration>
+            <codes>200</codes>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="Response SLA Assertion" id="6bbd01e4-aa2e-4c9d-9070-f2ce0f4cddbe" name="Response SLA">
+          <con:configuration>
+            <SLA>200</SLA>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters>
+          <con:entry key="Accept" value="${#[Release 2#Setup#Properties]#Accept}"/>
+          <con:entry key="X-Edsby-APIClientId" value="${#[Release 2#Setup#Properties]#X-Edsby-ApiClientId}"/>
+          <con:entry key="X-Edsby-OrganisationRefId" value="${GetOrgRefId#OrgRefId}"/>
+        </con:parameters>
+        <con:environmentSpec>
+          <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="datasourceloop" name="DataSource Loop" id="e77e8d74-ac6c-4762-a5e0-cd5b4b4958c8">
+    <con:settings/>
+    <con:config>
+      <dataSourceStep>LoadTestData-Multiple</dataSourceStep>
+      <targetStep>GetPayload</targetStep>
+      <discardResults>true</discardResults>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="restrequest" name="Get" id="11ae89d7-ca06-466c-ad47-d7480f24cb28" disabled="true">
+    <con:settings/>
+    <con:config service="Te Rito APIs" resourcePath="/scheduleterm" methodName="getScheduleTerms" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest name="Get" id="a3c0bacf-8d97-42de-978a-eb00b6e403c7" mediaType="application/json">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:endpoint>https://northern.edsby.co.nz/sif</con:endpoint>
+        <con:request/>
+        <con:assertion type="Valid HTTP Status Codes" id="24532df0-1d26-4ce6-9929-97183b1d335a" name="Valid HTTP Status Codes">
+          <con:settings/>
+          <con:configuration>
+            <codes>200</codes>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters/>
+        <con:environmentSpec>
+          <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="restrequest" name="Update" id="8760db10-15d7-4275-9cfc-8a24e95bd925" disabled="true">
+    <con:settings/>
+    <con:config service="Te Rito APIs" resourcePath="/scheduleterm" methodName="updateScheduleTerms" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest name="Update" id="3fee4119-483a-4198-929a-a67f3cebcd5f" mediaType="application/json">
+        <con:settings/>
+        <con:endpoint>https://northern.edsby.co.nz/sif</con:endpoint>
+        <con:request>{\r
+  "$ref" : "#/paths/~1scheduleterm/post/requestBody/content/application~1json/example"\r
+}</con:request>
+        <con:assertion type="Valid HTTP Status Codes" id="dd130e80-69c3-435b-97b8-9341b22817de" name="Valid HTTP Status Codes">
+          <con:settings/>
+          <con:configuration>
+            <codes>200</codes>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:parameters/>
+        <con:environmentSpec>
+          <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="restrequest" name="Patch" id="e1012e12-c3b1-4a26-935e-537e7c54a73a" disabled="true">
+    <con:settings/>
+    <con:config service="Te Rito APIs" resourcePath="/scheduleterm" methodName="patchScheduleTerms" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest name="Patch" id="a1fd5eef-4bad-4646-b9a8-acd03435949a" mediaType="application/json" postQueryString="false">
+        <con:settings/>
+        <con:endpoint>https://northern.edsby.co.nz/sif</con:endpoint>
+        <con:request>{\r
+  "$ref" : "#/paths/~1scheduleterm/post/requestBody/content/application~1json/example"\r
+}</con:request>
+        <con:assertion type="Valid HTTP Status Codes" id="57e87851-f7ea-453b-805e-2cb3b1fa2fb5" name="Valid HTTP Status Codes">
+          <con:settings/>
+          <con:configuration>
+            <codes>200</codes>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters/>
+        <con:environmentSpec>
+          <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
   <con:properties/>
   <con:reportParameters/>
+  <con:breakPoints>
+    <con:testStepId>55a34450-4358-47de-b3a8-a43d041b47a0</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>5ec6085f-7940-406e-9fec-071a3d9469e1</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>f187435e-b68a-4bde-8aa3-1e1d715715c2</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>5f3b257e-6a76-4010-af23-f2b704c83ea1</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
 </con:testCase>
