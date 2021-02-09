@@ -38,6 +38,23 @@
       </con:restRequest>
     </con:config>
   </con:testStep>
+  <con:testStep type="datasource" name="LoadPayloadFile" id="9c83cf8a-d2a3-4009-a67d-c3786f104147">
+    <con:settings/>
+    <con:config xsi:type="con:DataSourceStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:dataSource type="Directory">
+        <con:configuration>
+          <directory>C:/TeRito APIs/Te Rito APIs (v3.2-rc2)/v3.2-rc2_multiple_header_wrapped/Schedule/200</directory>
+          <filter>200_TeachingGroup_TeWheke_973_multiple_valid_.json</filter>
+          <encoding/>
+        </con:configuration>
+      </con:dataSource>
+      <con:shared>true</con:shared>
+      <con:restartShared>true</con:restartShared>
+      <con:property>PayloadFile</con:property>
+      <con:completeLastOperation>true</con:completeLastOperation>
+      <con:restartOnRun>true</con:restartOnRun>
+    </con:config>
+  </con:testStep>
   <con:properties/>
   <con:reportParameters/>
 </con:testCase>

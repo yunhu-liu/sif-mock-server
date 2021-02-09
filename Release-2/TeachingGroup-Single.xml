@@ -10,47 +10,12 @@
       <con:properties>
         <con:property>
           <con:name>TeachingGroupRefId</con:name>
-          <con:value>f907fcb0-f9b6-4aed-b954-2f89e99ffd5f</con:value>
+          <con:value>edb85411-7205-4975-bb31-21f01d783123</con:value>
         </con:property>
       </con:properties>
     </con:config>
   </con:testStep>
-  <con:testStep type="datasource" name="LoadPayloadFile" id="a0876a99-8049-4652-af9a-380fa8bb57aa">
-    <con:settings/>
-    <con:config xsi:type="con:DataSourceStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-      <con:dataSource type="Directory">
-        <con:configuration>
-          <directory>C:/TeRito APIs/Te Rito APIs (v3.2-rc2)/v3.2-rc2_multiple_header_wrapped/TeachingGroup/200</directory>
-          <filter>200_TeachingGroup_TeWheke_973_multiple_valid_.json</filter>
-          <encoding/>
-        </con:configuration>
-      </con:dataSource>
-      <con:shared>true</con:shared>
-      <con:restartShared>true</con:restartShared>
-      <con:property>PayloadFile</con:property>
-      <con:completeLastOperation>true</con:completeLastOperation>
-      <con:restartOnRun>true</con:restartOnRun>
-    </con:config>
-  </con:testStep>
-  <con:testStep type="datasource" name="GetPayload" id="6a29c901-b3de-467a-bae8-eea37b26278a">
-    <con:settings/>
-    <con:config xsi:type="con:DataSourceStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-      <con:dataSource type="JSON">
-        <con:configuration>
-          <sourceStep>LoadPayloadFile</sourceStep>
-          <sourceProperty>PayloadFile</sourceProperty>
-          <rowPath>$['testcase']</rowPath>
-          <columnPath/>
-        </con:configuration>
-      </con:dataSource>
-      <con:shared>true</con:shared>
-      <con:restartShared>true</con:restartShared>
-      <con:property>Payload</con:property>
-      <con:completeLastOperation>true</con:completeLastOperation>
-      <con:restartOnRun>true</con:restartOnRun>
-    </con:config>
-  </con:testStep>
-  <con:testStep type="datasource" name="GenDynamicId" id="3bd501c0-a327-4ec6-a293-65fa0837d4bf">
+  <con:testStep type="datasource" name="GenDynamicId" id="73e6a6a0-5803-41ee-bad9-f0a5be368ce3">
     <con:settings/>
     <con:config xsi:type="con:DataSourceStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
       <con:dataSource type="Data Generator">
@@ -78,41 +43,26 @@
       <con:restartOnRun>true</con:restartOnRun>
     </con:config>
   </con:testStep>
-  <con:testStep type="groovy" name="GeneratePayload" id="7d19b12b-9cd2-43b8-9ebd-c4c28341782f">
+  <con:testStep type="datasource" name="GenTeachingGroupLocalId" id="734f9535-00d9-45c0-9e47-0b3588b04727">
     <con:settings/>
-    <con:config>
-      <script>// Generate Payload by Adding Dynamic Values to Some Fields
-import groovy.json.*
-
-// Get Dynamic Values
-def orgRefId = context.expand( '${#[Release 2#Setup#Properties]#OrgRefId}' )
-def dynamicId = context.expand('${GenDynamicId#DynamicId}')
-
-// Load Data for Teaching Groups 
-def payload = context.expand('${GetPayload#Payload}') 
-def slurped = new JsonSlurper().parseText(payload)
-
-// Delete Teaching Group from 1-N
-def tgCount = slurped.TeachingGroups.TeachingGroup.size()
-for ( i = 0; i &lt; tgCount-1; i++)
-{
-	slurped.TeachingGroups.TeachingGroup.remove(1)	
-}
-
-// Get Values from TG #0
-def teachingGroup = new JsonBuilder(slurped.TeachingGroups.TeachingGroup[0]) 
-def tgLocalId = teachingGroup.content.TeachingGroupLocalId
-def tgShortName =  teachingGroup.content.ShortName 
-def tgLongName =  teachingGroup.content.LongName 
-
-// Update Fields
-slurped.TeachingGroups.TeachingGroup[0].TeachingGroupLocalId = "$tgLocalId" + "_" + "$dynamicId" 
-slurped.TeachingGroups.TeachingGroup[0].ShortName = "$tgShortName" + "_" + "$dynamicId" 
-slurped.TeachingGroups.TeachingGroup[0].LongName = "$tgLongName" + "_" + "$dynamicId"
-slurped.TeachingGroups.TeachingGroup[0].Organisation.RefId = "$orgRefId"
-
-// Write Updated Payload to Result
-return new JsonBuilder(slurped)</script>
+    <con:config xsi:type="con:DataSourceStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:dataSource type="Data Generator">
+        <con:configuration>
+          <generatedDataCount>1</generatedDataCount>
+          <generatorsTotalNumber>1</generatorsTotalNumber>
+          <lastSelectedProperty>0</lastSelectedProperty>
+          <GeneratorType0>CUSTOM</GeneratorType0>
+          <PropertyName0>TeachingGroupLocalId</PropertyName0>
+          <repetitionCountTeachingGroupLocalId>0</repetitionCountTeachingGroupLocalId>
+          <repeatValuesTeachingGroupLocalId>false</repeatValuesTeachingGroupLocalId>
+          <CustomStringDataGeneratorFormatTeachingGroupLocalId>2020_8003_HR9_%STR(8,8,False,True,False,False)</CustomStringDataGeneratorFormatTeachingGroupLocalId>
+          <escapeSpaceSequence/>
+        </con:configuration>
+      </con:dataSource>
+      <con:shared>true</con:shared>
+      <con:restartShared>true</con:restartShared>
+      <con:property>TeachingGroupLocalId</con:property>
+      <con:restartOnRun>true</con:restartOnRun>
     </con:config>
   </con:testStep>
   <con:testStep type="restrequest" name="CreateTeachingGroup" id="83b22aa2-461c-4cd2-a3d0-1c37168154b2">
@@ -127,7 +77,7 @@ return new JsonBuilder(slurped)</script>
     "TeachingGroups": {
         "TeachingGroup": [
             {
-                "TeachingGroupLocalId": "2020_8003_HR9${GenDynamicId#DynamicId}",
+                "TeachingGroupLocalId": "${GenTeachingGroupLocalId#TeachingGroupLocalId}",
                 "ShortName": "HR_9",
                 "LongName": "Homeroom Year 9",
                 "GroupType": "RC",
@@ -166,6 +116,15 @@ return new JsonBuilder(slurped)</script>
           <con:configuration>
             <path>$['TeachingGroups']['TeachingGroup'][0]['Organisation']['RefId']</path>
             <content>${#[Release 2#Setup#Properties]#OrgRefId#$}</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="JsonPath Match" id="432bf572-a88f-4b3a-9c33-97d0068d30ed" name="Match content of [TeachingGroupLocalId]">
+          <con:configuration>
+            <path>$['TeachingGroups']['TeachingGroup'][0]['TeachingGroupLocalId']</path>
+            <content>${GenTeachingGroupLocalId#TeachingGroupLocalId}</content>
             <allowWildcards>false</allowWildcards>
             <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
             <ignoreComments>false</ignoreComments>
@@ -239,6 +198,15 @@ return new JsonBuilder(slurped)</script>
             <ignoreComments>false</ignoreComments>
           </con:configuration>
         </con:assertion>
+        <con:assertion type="JsonPath Match" id="f8436018-53f9-491c-a804-6791794c713e" name="Match content of [TeachingGroupLocalId]">
+          <con:configuration>
+            <path>$['TeachingGroup']['TeachingGroupLocalId']</path>
+            <content>${GenTeachingGroupLocalId#TeachingGroupLocalId}</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
         <con:credentials>
           <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
           <con:authType>No Authorization</con:authType>
@@ -267,25 +235,22 @@ return new JsonBuilder(slurped)</script>
         </con:settings>
         <con:endpoint>https://northern.edsby.co.nz/sif</con:endpoint>
         <con:request>{
-    "LearningStandard" :
-	{
-      "LearningStandardRefId": "",
-      "LearningStandardLocalId" : "${GenLearningStandardLocalId#LearningStandardLocalId}",
-      "Title" : "Chemistry, Organic Compounds",
-      "Number" : 91165,
-      "VersionNo" : 2,
-      "Publisher" : {
-        "RefId" : "${GenPublisher#PublisherId}"
-      },
-      "Description" : "Demonstrate understanding of the properties of selected organic compounds",
-      "SubjectAreaList" : {
-        "SubjectArea" : [ "CHEM" ]
-      },
-      "StandardType" : "US",
-      "Status" : "PU",
-      "Credits" : 4,
-      "Level" : 2,
-      "AssessmentType" : "INT"
+    "TeachingGroup": {
+        "TeachingGroupLocalId": "${GenTeachingGroupLocalId#TeachingGroupLocalId}",
+        "ShortName": "HR_9",
+        "LongName": "Homeroom Year 9${GenDynamicId#DynamicId}",
+        "GroupType": "RC",
+        "Organisation": {
+            "RefId": "${#[Release 2#Setup#Properties]#OrgRefId}"
+        },
+        "ScheduleTerm": {
+            "LocalId": "2020_8003_Y"
+        },
+        "YearLevelList": {
+            "YearLevel": [
+                9
+            ]
+        }
     }
 }</con:request>
         <con:originalUri>http://mocksifapi.terito.education.govt.nz/sif/teachinggroup/1f2bdf36-48c7-496f-8c1e-9b1b3d159d3a</con:originalUri>
@@ -309,6 +274,24 @@ return new JsonBuilder(slurped)</script>
             <path>$['TeachingGroup']['Organisation']['RefId']</path>
             <content>${#[Release 2#Setup#Properties]#OrgRefId#$}</content>
             <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="JsonPath Match" id="1e7f3381-cebc-441c-ab8e-49e3717e05f8" name="Match content of [TeachingGroupLocalId]">
+          <con:configuration>
+            <path>$['TeachingGroup']['TeachingGroupLocalId']</path>
+            <content>${GenTeachingGroupLocalId#TeachingGroupLocalId}</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="JsonPath Match" id="d8b57395-f548-492c-bd17-105c03dfb091" name="Match content of [LongName]">
+          <con:configuration>
+            <path>$['TeachingGroup']['LongName']</path>
+            <content>*${GenDynamicId#DynamicId}</content>
+            <allowWildcards>true</allowWildcards>
             <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
             <ignoreComments>false</ignoreComments>
           </con:configuration>
@@ -342,21 +325,8 @@ return new JsonBuilder(slurped)</script>
         <con:endpoint>https://northern.edsby.co.nz/sif</con:endpoint>
         <con:request>{
     "TeachingGroup": {
-        "TeachingGroupLocalId": "2020_8003_HR9${GenDynamicId#DynamicId}",
-        "ShortName": "HR_9",
-        "LongName": "Homeroom Year 9",
-        "GroupType": "RC",
-        "Organisation": {
-            "RefId": "${#[Release 2#Setup#Properties]#OrgRefId}"
-        },
-        "ScheduleTerm": {
-            "LocalId": "2020_8003_Y"
-        },
-        "YearLevelList": {
-            "YearLevel": [
-                9
-            ]
-        }
+        "TeachingGroupRefId": "${Properties 1#TeachingGroupRefId}",
+        "ShortName": "HR_9${GenDynamicId#DynamicId}",
     }
 }</con:request>
         <con:originalUri>http://mocksifapi.terito.education.govt.nz/sif/teachinggroup/1f2bdf36-48c7-496f-8c1e-9b1b3d159d3a</con:originalUri>
@@ -384,6 +354,24 @@ return new JsonBuilder(slurped)</script>
             <ignoreComments>false</ignoreComments>
           </con:configuration>
         </con:assertion>
+        <con:assertion type="JsonPath Match" id="38009a58-01c2-45e6-9d47-738192026b7e" name="Match content of [TeachingGroupLocalId]">
+          <con:configuration>
+            <path>$['TeachingGroupCREATE']['TeachingGroup']['TeachingGroupLocalId']</path>
+            <content>${GenTeachingGroupLocalId#TeachingGroupLocalId}</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="JsonPath Match" id="d4cdb504-0c71-4243-b49a-8614fe27369a" name="Match content of [ShortName]">
+          <con:configuration>
+            <path>$['TeachingGroupCREATE']['TeachingGroup']['ShortName']</path>
+            <content>*${GenDynamicId#DynamicId}</content>
+            <allowWildcards>true</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
         <con:credentials>
           <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
           <con:authType>No Authorization</con:authType>
@@ -406,27 +394,7 @@ return new JsonBuilder(slurped)</script>
   <con:properties/>
   <con:reportParameters/>
   <con:breakPoints>
-    <con:testStepId>a0876a99-8049-4652-af9a-380fa8bb57aa</con:testStepId>
-    <con:status>NONE</con:status>
-    <con:properties/>
-  </con:breakPoints>
-  <con:breakPoints>
-    <con:testStepId>6a29c901-b3de-467a-bae8-eea37b26278a</con:testStepId>
-    <con:status>NONE</con:status>
-    <con:properties/>
-  </con:breakPoints>
-  <con:breakPoints>
     <con:testStepId>83b22aa2-461c-4cd2-a3d0-1c37168154b2</con:testStepId>
-    <con:status>NONE</con:status>
-    <con:properties/>
-  </con:breakPoints>
-  <con:breakPoints>
-    <con:testStepId>7d19b12b-9cd2-43b8-9ebd-c4c28341782f</con:testStepId>
-    <con:status>NONE</con:status>
-    <con:properties/>
-  </con:breakPoints>
-  <con:breakPoints>
-    <con:testStepId>3bd501c0-a327-4ec6-a293-65fa0837d4bf</con:testStepId>
     <con:status>NONE</con:status>
     <con:properties/>
   </con:breakPoints>
@@ -437,6 +405,16 @@ return new JsonBuilder(slurped)</script>
   </con:breakPoints>
   <con:breakPoints>
     <con:testStepId>77eac9b5-83b3-40ee-81ac-663fdd499c78</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>73e6a6a0-5803-41ee-bad9-f0a5be368ce3</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>734f9535-00d9-45c0-9e47-0b3588b04727</con:testStepId>
     <con:status>NONE</con:status>
     <con:properties/>
   </con:breakPoints>
