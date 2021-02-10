@@ -4,14 +4,6 @@
     <con:setting id="0321ad51-2194-4ccf-8b21-792c56696dc0fileName">CreateOrg-Primary</con:setting>
   </con:settings>
   <con:savedRecentRuns>1</con:savedRecentRuns>
-  <con:testStep type="transfer" name="Property Transfer" id="e2882f06-704e-4bac-8e03-80332a331ac7">
-    <con:settings/>
-    <con:config xsi:type="con:PropertyTransfersStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
-  </con:testStep>
-  <con:testStep type="goto" name="Conditional Goto" id="a9657d3b-6847-4e5b-8f46-12eda2b30015">
-    <con:settings/>
-    <con:config xsi:type="con:GotoStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
-  </con:testStep>
   <con:properties/>
   <con:reportParameters/>
 </con:testCase>
