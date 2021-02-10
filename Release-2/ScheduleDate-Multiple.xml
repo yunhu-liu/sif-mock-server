@@ -3,6 +3,7 @@
   <con:settings>
     <con:setting id="bd194e33-9055-435a-aea7-9b93fd1e3bf1fileName">ScheduleDate-Multiple</con:setting>
   </con:settings>
+  <con:savedRecentRuns>1</con:savedRecentRuns>
   <con:properties/>
   <con:reportParameters/>
 </con:testCase>

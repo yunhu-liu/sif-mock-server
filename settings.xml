@@ -5,7 +5,17 @@
   </con:settings>
   <con:savedRecentRuns>1</con:savedRecentRuns>
   <con:requirements/>
-  <con:properties/>
+  <con:properties>
+    <con:property>
+      <con:name>Accept</con:name>
+    </con:property>
+    <con:property>
+      <con:name>Accept</con:name>
+    </con:property>
+    <con:property>
+      <con:name>ApiClientId</con:name>
+    </con:property>
+  </con:properties>
   <con:wssContainer/>
   <con:databaseConnectionContainer>
     <con:databaseConnection>
@@ -52,6 +62,18 @@
     <con:service type="REST" name="Te Rito APIs">
       <con:endpoint authProfile="SIF Mock - Basic Auth" proxyHost="" proxyPort="" proxyUsername="" proxyPassword="">http://mocksifapi.terito.education.govt.nz/sif</con:endpoint>
     </con:service>
+    <con:property>
+      <con:name>X-Edsby-ApiClientId</con:name>
+      <con:value/>
+    </con:property>
+    <con:property>
+      <con:name>Accept</con:name>
+      <con:value>application/json</con:value>
+    </con:property>
+    <con:property>
+      <con:name>ApiClientId</con:name>
+      <con:value>36a7435d-1952-420a-b975-2fb22db649b5</con:value>
+    </con:property>
     <con:databaseConnectionContainer>
       <con:databaseConnection>
         <con:name>SIF Mock Database</con:name>

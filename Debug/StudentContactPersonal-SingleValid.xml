@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<con:testCase id="8892236c-8649-4552-a745-8f3719c555d2" discardOkResults="false" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="StudentContactPersonal-SingleValid" searchProperties="true" timeout="0" xmlns:con="http://eviware.com/soapui/config">
+<con:testCase id="8892236c-8649-4552-a745-8f3719c555d2" discardOkResults="false" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="StudentContactPersonal-SingleValid" searchProperties="true" timeout="0" disabled="true" xmlns:con="http://eviware.com/soapui/config">
   <con:settings>
     <con:setting id="8892236c-8649-4552-a745-8f3719c555d2fileName">StudentContactPersonal-SingleValid</con:setting>
   </con:settings>

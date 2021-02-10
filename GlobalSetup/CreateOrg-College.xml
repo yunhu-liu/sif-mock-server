@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase id="70e00829-295c-452c-b6b7-b9fc8c4d9667" discardOkResults="false" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="CreateOrg-College" searchProperties="true" timeout="0" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="70e00829-295c-452c-b6b7-b9fc8c4d9667fileName">CreateOrg-College</con:setting>
+  </con:settings>
+  <con:savedRecentRuns>1</con:savedRecentRuns>
+  <con:properties/>
+  <con:reportParameters/>
+</con:testCase>

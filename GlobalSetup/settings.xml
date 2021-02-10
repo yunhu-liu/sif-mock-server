@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testSuite id="abb56da4-cee4-4ac4-ab63-21c04c101f91" name="GlobalSetup" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="abb56da4-cee4-4ac4-ab63-21c04c101f91fileName">GlobalSetup</con:setting>
+  </con:settings>
+  <con:savedRecentRuns>1</con:savedRecentRuns>
+  <con:runType>SEQUENTIAL</con:runType>
+  <con:properties/>
+  <con:reportParameters/>
+</con:testSuite>

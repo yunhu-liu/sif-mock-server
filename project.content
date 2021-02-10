@@ -89,5 +89,9 @@ Release-2\Schedule-Multiple.xml
 Release-2\SchedulePeriod-Multiple.xml
 Release-2\ScheduleTerm-Multiple.xml
 Release-2\ScheduleDate-Multiple.xml
+Release-2\StaffTeachingGroupAssignments-Single.xml
 Debug\StudentContactPersonal-SingleValid.xml
 Debug\StudentContactPersonal-MultipleValid.xml
+Debug\Orgnisation.xml
+GlobalSetup\CreateOrg-Primary.xml
+GlobalSetup\CreateOrg-College.xml

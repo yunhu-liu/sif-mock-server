@@ -10,7 +10,11 @@
       <con:properties>
         <con:property>
           <con:name>TeachingGroupRefId</con:name>
-          <con:value>a1548439-fd32-4277-9b7e-68d28c5fe99b</con:value>
+          <con:value>45fc6ea1-bfa7-4dc3-876b-2dbf602f046b</con:value>
+        </con:property>
+        <con:property>
+          <con:name>TeachingGroupLocalId</con:name>
+          <con:value>2020_TG_BIdybpbJ</con:value>
         </con:property>
       </con:properties>
     </con:config>
@@ -55,7 +59,7 @@
           <PropertyName0>TeachingGroupLocalId</PropertyName0>
           <repetitionCountTeachingGroupLocalId>0</repetitionCountTeachingGroupLocalId>
           <repeatValuesTeachingGroupLocalId>false</repeatValuesTeachingGroupLocalId>
-          <CustomStringDataGeneratorFormatTeachingGroupLocalId>2020_8003_HR9_%STR(8,8,False,True,False,False)</CustomStringDataGeneratorFormatTeachingGroupLocalId>
+          <CustomStringDataGeneratorFormatTeachingGroupLocalId>2020_TG_%STR(8,8,False,True,False,False)</CustomStringDataGeneratorFormatTeachingGroupLocalId>
           <escapeSpaceSequence/>
         </con:configuration>
       </con:dataSource>
@@ -159,6 +163,16 @@
         <con:targetType>TeachingGroupRefId</con:targetType>
         <con:targetStep>Properties 1</con:targetStep>
         <con:targetPath/>
+        <con:type>JSONPATH</con:type>
+        <con:upgraded>true</con:upgraded>
+      </con:transfers>
+      <con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" entitize="false" transferChildNodes="false">
+        <con:name>TeachingGroupLocalId</con:name>
+        <con:sourceType>Response</con:sourceType>
+        <con:sourceStep>CreateTeachingGroup</con:sourceStep>
+        <con:sourcePath>$['TeachingGroups']['TeachingGroup'][0]['TeachingGroupLocalId']</con:sourcePath>
+        <con:targetType>TeachingGroupLocalId</con:targetType>
+        <con:targetStep>Properties 1</con:targetStep>
         <con:type>JSONPATH</con:type>
         <con:upgraded>true</con:upgraded>
       </con:transfers>
@@ -325,7 +339,6 @@
         <con:endpoint>https://northern.edsby.co.nz/sif</con:endpoint>
         <con:request>{
     "TeachingGroup": {
-        "TeachingGroupRefId": "${Properties 1#TeachingGroupRefId}",
         "ShortName": "HR_9${GenDynamicId#DynamicId}",
     }
 }</con:request>
