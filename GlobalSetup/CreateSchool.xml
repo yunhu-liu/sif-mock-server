@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase id="b616d85a-e23f-4914-bbdd-b6a36523349c" discardOkResults="false" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="CreateSchool" searchProperties="true" timeout="0" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="b616d85a-e23f-4914-bbdd-b6a36523349cfileName">CreateSchool</con:setting>
+  </con:settings>
+  <con:savedRecentRuns>1</con:savedRecentRuns>
+  <con:testStep type="calltestcase" name="Run TestCase" id="9f74ddb5-3548-4ae9-a36e-61ed49514e34">
+    <con:settings/>
+    <con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:targetTestCase>24ef0e3d-68d7-48b8-a475-5251e955c822</con:targetTestCase>
+      <con:properties>
+        <con:property>
+          <con:name>OrgRefId</con:name>
+          <con:value>1003</con:value>
+        </con:property>
+      </con:properties>
+      <con:returnProperties>
+        <con:entry>OrgRefId</con:entry>
+      </con:returnProperties>
+      <con:runMode>PARALLELL</con:runMode>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="transfer" name="Property Transfer" id="4c370b4f-7007-44d8-b158-0ae4560c8be3">
+    <con:settings/>
+    <con:config xsi:type="con:PropertyTransfersStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" entitize="false" transferChildNodes="false">
+        <con:name>OrgRefId</con:name>
+        <con:sourceType>OrgRefId</con:sourceType>
+        <con:sourceStep>Run TestCase</con:sourceStep>
+        <con:sourcePath/>
+        <con:targetType>OrgRefId</con:targetType>
+        <con:targetStep>#Project#</con:targetStep>
+        <con:targetPath/>
+        <con:upgraded>true</con:upgraded>
+      </con:transfers>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="datasource" name="GenDynamicId" id="82d3b6e7-1e74-4268-9a86-033653b772a2">
+    <con:settings/>
+    <con:config xsi:type="con:DataSourceStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:dataSource type="Data Generator">
+        <con:configuration>
+          <generatedDataCount>1</generatedDataCount>
+          <generatorsTotalNumber>2</generatorsTotalNumber>
+          <lastSelectedProperty>0</lastSelectedProperty>
+          <GeneratorType0>CUSTOM</GeneratorType0>
+          <PropertyName0>SchoolName</PropertyName0>
+          <repetitionCountSchoolName>0</repetitionCountSchoolName>
+          <repeatValuesSchoolName>false</repeatValuesSchoolName>
+          <CustomStringDataGeneratorFormatSchoolName>School %STR(8,16,False,True,False,False)</CustomStringDataGeneratorFormatSchoolName>
+          <GeneratorType1>CUSTOM</GeneratorType1>
+          <PropertyName1>OrganisationLocalId</PropertyName1>
+          <repetitionCountOrganisationLocalId>0</repetitionCountOrganisationLocalId>
+          <repeatValuesOrganisationLocalId>false</repeatValuesOrganisationLocalId>
+          <CustomStringDataGeneratorFormatOrganisationLocalId>0972-%STR(8,16,False,True,False,False)</CustomStringDataGeneratorFormatOrganisationLocalId>
+          <escapeSpaceSequence/>
+        </con:configuration>
+      </con:dataSource>
+      <con:shared>true</con:shared>
+      <con:restartShared>true</con:restartShared>
+      <con:property>SchoolName</con:property>
+      <con:property>OrganisationLocalId</con:property>
+      <con:completeLastOperation>true</con:completeLastOperation>
+      <con:restartOnRun>true</con:restartOnRun>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="restrequest" name="CreateSchool" id="3803b6da-6398-41de-9b02-aeb415536d3d">
+    <con:settings/>
+    <con:config service="Te Rito APIs" resourcePath="/organisation" methodName="createOrganisations" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest name="CreateSchool" id="e168a5dd-ffde-489e-b257-50d4644c6a36" mediaType="application/json" postQueryString="false">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:endpoint>https://northern.edsby.co.nz/sif</con:endpoint>
+        <con:request>{
+    "Organisations": {
+        "Organisation": [
+            {
+                "OrganisationRefId": "${#Project#OrgRefId}",
+                "OrganisationLocalId": "${GenDynamicId#OrganisationLocalId}",
+                "EducationRegion": "12010",
+                "SpecialEducationDistrict": "182006",
+                "EntityOpen": "1950-01-28T00:00:00+12:00",
+                "Name": "${GenDynamicId#SchoolName}",
+                "OperationalStatus": "28001",
+                "Type": "10023",
+                "SectorRole": "35003",
+                "ProviderSMS": "MUS",
+                "Authority": "STATE",
+                "Address": {
+                    "Physical": {
+                        "Type": "TH",
+                        "Line1": "Elder Lane",
+                        "City": "Tauranga",
+                        "Country": "New Zealand",
+                        "PostalCode": "3143",
+                        "GridLocation": {
+                            "Latitude": -37.704974,
+                            "Longitude": 176.11123
+                        }
+                    }
+                },
+                "Email": {
+                    "Main": {
+                        "Address": "principal@972.school.nz"
+                    }
+                },
+                "Phone": {
+                    "Main": {
+                        "Number": "06 555 9766"
+                    }
+                },
+                "TeRitoConfig": {
+                    "DataAnalysisDashboardsInd": "Y",
+                    "StandardisedLearningSupportRegisterInd": "Y",
+                    "VirtualLearningEnvironmentInd": "N"
+                },
+                "SchoolService": {
+                    "CoEdStatus": "COED",
+                    "Decile": 2,
+                    "AllowManualProvisioning": "N",
+                    "SchoolClassificationList": {
+                        "Classification": [
+                            "52003"
+                        ]
+                    },
+                    "SchoolYearList": {
+                        "SchoolYear": [
+                            {
+                                "YearLevel": 1,
+                                "FIRSTSchoolYearGenderId": -9721,
+                                "Gender": "55002"
+                            },
+                            {
+                                "YearLevel": 2,
+                                "FIRSTSchoolYearGenderId": -9722,
+                                "Gender": "55002"
+                            },
+                            {
+                                "YearLevel": 3,
+                                "FIRSTSchoolYearGenderId": -9723,
+                                "Gender": "55002"
+                            },
+                            {
+                                "YearLevel": 4,
+                                "FIRSTSchoolYearGenderId": -9724,
+                                "Gender": "55002"
+                            },
+                            {
+                                "YearLevel": 5,
+                                "FIRSTSchoolYearGenderId": -9725,
+                                "Gender": "55002"
+                            },
+                            {
+                                "YearLevel": 6,
+                                "FIRSTSchoolYearGenderId": -9726,
+                                "Gender": "55002"
+                            },
+                            {
+                                "YearLevel": 7,
+                                "FIRSTSchoolYearGenderId": -9727,
+                                "Gender": "55002"
+                            },
+                            {
+                                "YearLevel": 8,
+                                "FIRSTSchoolYearGenderId": -9728,
+                                "Gender": "55002"
+                            },
+                            {
+                                "YearLevel": 9,
+                                "FIRSTSchoolYearGenderId": -9729,
+                                "Gender": "55002"
+                            },
+                            {
+                                "YearLevel": 10,
+                                "FIRSTSchoolYearGenderId": -9730,
+                                "Gender": "55002"
+                            },
+                            {
+                                "YearLevel": 11,
+                                "FIRSTSchoolYearGenderId": -9731,
+                                "Gender": "55002"
+                            },
+                            {
+                                "YearLevel": 12,
+                                "FIRSTSchoolYearGenderId": -9732,
+                                "Gender": "55002"
+                            },
+                            {
+                                "YearLevel": 13,
+                                "FIRSTSchoolYearGenderId": -9733,
+                                "Gender": "55002"
+                            }
+                        ]
+                    }
+                }
+            }
+        ]
+    }
+}</con:request>
+        <con:originalUri>http://mocksifapi.terito.education.govt.nz/sif/organisation</con:originalUri>
+        <con:assertion type="Valid HTTP Status Codes" id="d27f6319-56a3-45eb-b7fe-6343bf121002" name="Valid HTTP Status Codes">
+          <con:settings/>
+          <con:configuration>
+            <codes>200</codes>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters>
+          <con:entry key="Accept" value="${#Project#Accept}"/>
+          <con:entry key="X-Edsby-APIClientId" value="${#Project#ApiClientId}"/>
+        </con:parameters>
+        <con:environmentSpec>
+          <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="restrequest" name="GetSchool" id="8b426903-9b81-4817-9639-8f9c8aca2ad0">
+    <con:settings/>
+    <con:config service="Te Rito APIs" resourcePath="/organisation/{organisationRefId}" methodName="getOrganisation" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest name="GetSchool" id="ba92a07d-2237-4616-bceb-1e0a13574908" mediaType="application/json">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:endpoint>https://northern.edsby.co.nz/sif</con:endpoint>
+        <con:request/>
+        <con:originalUri>http://mocksifapi.terito.education.govt.nz/sif/organisation/8009</con:originalUri>
+        <con:assertion type="Valid HTTP Status Codes" id="0de51a01-b80d-4f86-93dd-bad9889a7626" name="Valid HTTP Status Codes">
+          <con:settings/>
+          <con:configuration>
+            <codes>200</codes>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="JsonPath Match" id="e3e6d996-7d15-47e1-b4c6-98d9fd1cf21c" name="Match content of [OrganisationRefId]">
+          <con:configuration>
+            <path>$['Organisation']['OrganisationRefId']</path>
+            <content>${#Project#OrgRefId#$}</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="JsonPath Match" id="8bb1f29a-5d61-4825-85ef-378b0a9fee21" name="Match content of [OrganisationLocalId]">
+          <con:configuration>
+            <path>$['Organisation']['OrganisationLocalId']</path>
+            <content>${GenDynamicId#OrganisationLocalId}</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="JsonPath Match" id="874b9d89-310c-49af-80e9-3d6f32d7daff" name="Match content of [Name]">
+          <con:configuration>
+            <path>$['Organisation']['Name']</path>
+            <content>${GenDynamicId#SchoolName}</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters>
+          <con:entry key="Accept" value="${#Project#Accept}"/>
+          <con:entry key="organisationRefId" value="${#Project#OrgRefId}"/>
+          <con:entry key="X-Edsby-APIClientId" value="${#Project#ApiClientId}"/>
+        </con:parameters>
+        <con:environmentSpec>
+          <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:properties/>
+  <con:reportParameters/>
+  <con:breakPoints>
+    <con:testStepId>9f74ddb5-3548-4ae9-a36e-61ed49514e34</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>4c370b4f-7007-44d8-b158-0ae4560c8be3</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>82d3b6e7-1e74-4268-9a86-033653b772a2</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+</con:testCase>
