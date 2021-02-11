@@ -4,6 +4,37 @@
     <con:setting id="70e00829-295c-452c-b6b7-b9fc8c4d9667fileName">CreateOrg-College</con:setting>
   </con:settings>
   <con:savedRecentRuns>1</con:savedRecentRuns>
+  <con:testStep type="calltestcase" name="Run TestCase" id="66b3cdf7-c274-40bd-8675-d423b130c052">
+    <con:settings/>
+    <con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:targetTestCase>24ef0e3d-68d7-48b8-a475-5251e955c822</con:targetTestCase>
+      <con:properties>
+        <con:property>
+          <con:name>OrgRefId</con:name>
+          <con:value>1001</con:value>
+        </con:property>
+      </con:properties>
+      <con:returnProperties>
+        <con:entry>OrgRefId</con:entry>
+      </con:returnProperties>
+      <con:runMode>PARALLELL</con:runMode>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="transfer" name="Property Transfer" id="04daf3f0-ab91-4d9f-9002-54fe79fb6d78">
+    <con:settings/>
+    <con:config xsi:type="con:PropertyTransfersStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" entitize="false" transferChildNodes="false">
+        <con:name>OrgRefId-Primary</con:name>
+        <con:sourceType>OrgRefId</con:sourceType>
+        <con:sourceStep>Run TestCase</con:sourceStep>
+        <con:sourcePath/>
+        <con:targetType>OrgRefId-College</con:targetType>
+        <con:targetStep>#Project#</con:targetStep>
+        <con:targetPath/>
+        <con:upgraded>true</con:upgraded>
+      </con:transfers>
+    </con:config>
+  </con:testStep>
   <con:properties/>
   <con:reportParameters/>
 </con:testCase>

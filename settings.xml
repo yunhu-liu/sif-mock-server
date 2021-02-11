@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<con:soapui-project id="29ca3c59-6cef-4d43-9826-4695c2caf241" created="3.5.0" activeEnvironment="Default environment" name="SIF Mock Server Release 2" resourceRoot="" compositeProjectFormat="1.3" updated="3.5.0" authProfile="SIF Mock - Basic Auth" encryptionMode="Not encrypted" xmlns:con="http://eviware.com/soapui/config">
+<con:soapui-project id="29ca3c59-6cef-4d43-9826-4695c2caf241" created="3.5.0" activeEnvironment="SIF Mock - Release 2" name="SIF Mock Server Release 2" resourceRoot="" compositeProjectFormat="1.3" updated="3.5.0" authProfile="SIF Mock - Basic Auth" encryptionMode="Not encrypted" xmlns:con="http://eviware.com/soapui/config">
   <con:settings>
     <con:setting id="29ca3c59-6cef-4d43-9826-4695c2caf241fileName">SIF-Mock-Server-Release-2</con:setting>
   </con:settings>
@@ -8,10 +8,6 @@
   <con:properties>
     <con:property>
       <con:name>Accept</con:name>
-    </con:property>
-    <con:property>
-      <con:name>Accept</con:name>
-      <con:value>application/json</con:value>
     </con:property>
     <con:property>
       <con:name>ApiClientId</con:name>
@@ -84,11 +80,11 @@
     </con:property>
     <con:property>
       <con:name>OrgRefId-Primary</con:name>
-      <con:value/>
+      <con:value>1001</con:value>
     </con:property>
     <con:property>
       <con:name>OrgRefId-College</con:name>
-      <con:value/>
+      <con:value>1001</con:value>
     </con:property>
     <con:databaseConnectionContainer>
       <con:databaseConnection>

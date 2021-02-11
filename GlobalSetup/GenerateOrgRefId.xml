@@ -4,57 +4,71 @@
     <con:setting id="24ef0e3d-68d7-48b8-a475-5251e955c822fileName">GenerateOrgRefId</con:setting>
   </con:settings>
   <con:savedRecentRuns>1</con:savedRecentRuns>
-  <con:testStep type="groovy" name="Groovy Script" id="c88514b7-06cd-4649-b5c5-107f45767ffd">
-    <con:settings/>
-    <con:config>
-      <script>// Get next candidate organisation reference id
-def nextOrgRefId = testRunner.testCase.getPropertyValue( "OrgRefId" ).toInteger() + 1
-
-// Set the value to the property
-testRunner.testCase.setPropertyValue( "OrgRefId", nextOrgRefId.toString() )</script>
+  <con:testStep type="datasource" name="CountOrgInDb" id="2d4d0685-58d6-423b-9244-07751d40594a">
+    <con:settings>
+      <con:setting id="com.eviware.soapui.impl.wsdl.teststeps.datasource.DataSourceContainer@prepared-properties">&lt;xml-fragment/></con:setting>
+    </con:settings>
+    <con:config xsi:type="con:DataSourceStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:dataSource type="JDBC">
+        <con:configuration>
+          <driver>com.microsoft.sqlserver.jdbc.SQLServerDriver</driver>
+          <connstr>jdbc:sqlserver://mocksifsql.terito.education.govt.nz:1433;databaseName=mocksif;user=sa;password=PASS_VALUE</connstr>
+          <pass>Qwerty2020</pass>
+          <Connection>SIF Mock Database( SIF Mock - Release 2 )</Connection>
+          <query>Select Count(*) As RecordCount
+From Apis
+Where OrganisationRefId = '${#TestCase#OrgRefId}'</query>
+          <fetchSize/>
+          <stored-procedure>false</stored-procedure>
+        </con:configuration>
+      </con:dataSource>
+      <con:shared>true</con:shared>
+      <con:restartShared>true</con:restartShared>
+      <con:property>RecordCount</con:property>
+      <con:restartOnRun>true</con:restartOnRun>
     </con:config>
   </con:testStep>
-  <con:testStep type="restrequest" name="REST Request" id="01dd2cba-07d3-40b7-adf6-ef41176eaaaf">
+  <con:testStep type="groovy" name="GenOrgRefId" id="c88514b7-06cd-4649-b5c5-107f45767ffd">
     <con:settings/>
-    <con:config service="Te Rito APIs" resourcePath="/organisation/{organisationRefId}" methodName="getOrganisation" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-      <con:restRequest name="REST Request" id="ba92a07d-2237-4616-bceb-1e0a13574908" mediaType="application/json">
-        <con:settings/>
-        <con:endpoint>https://northern.edsby.co.nz/sif</con:endpoint>
-        <con:request/>
-        <con:assertion type="Valid HTTP Status Codes" id="1dbeb0c8-84f7-4fb7-8996-2ebf937778c2" name="Valid HTTP Status Codes">
-          <con:settings/>
-          <con:configuration>
-            <codes>200</codes>
-          </con:configuration>
-        </con:assertion>
-        <con:assertion type="Response SLA Assertion" id="da8669bb-5424-4f5d-a22e-a1232b46c38a" name="Response SLA">
-          <con:configuration>
-            <SLA>200</SLA>
-          </con:configuration>
-        </con:assertion>
-        <con:credentials>
-          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
-          <con:authType>No Authorization</con:authType>
-        </con:credentials>
-        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
-        <con:parameters/>
-        <con:environmentSpec>
-          <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
-            <con:authProfile>Inherit From Parent</con:authProfile>
-          </con:entry>
-        </con:environmentSpec>
-      </con:restRequest>
+    <con:config>
+      <script>// Get the candidate organisation reference id
+def orgRefId = testRunner.testCase.getPropertyValue( "OrgRefId" ).toInteger()
+
+// Set index and maximum for loop 
+def idx = 0
+def maximum = 100
+while (context.expand( '${CountOrgInDb#RecordCount}' ) != "0" )
+{
+	// If the limit is reached, test run stopps and fails.
+	if (idx >= maximum)
+	{
+		testRunner.fail("Searching has been done for 100 times. No OrgRefId is found for use!")
+		return
+	}
+	idx = idx + 1
+
+	// Increase OrgRefId by 1 and try again.
+	orgRefId = orgRefId + 1
+	testRunner.testCase.setPropertyValue( "OrgRefId", orgRefId.toString() )
+	testRunner.runTestStepByName( "CountOrgInDb" )
+}</script>
     </con:config>
   </con:testStep>
   <con:properties>
     <con:property>
-      <con:name>Iteration</con:name>
-      <con:value>0</con:value>
-    </con:property>
-    <con:property>
       <con:name>OrgRefId</con:name>
-      <con:value>1006</con:value>
+      <con:value>1001</con:value>
     </con:property>
   </con:properties>
   <con:reportParameters/>
+  <con:breakPoints>
+    <con:testStepId>2d4d0685-58d6-423b-9244-07751d40594a</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>c88514b7-06cd-4649-b5c5-107f45767ffd</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
 </con:testCase>
