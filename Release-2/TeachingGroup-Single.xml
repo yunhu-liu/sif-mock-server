@@ -10,11 +10,11 @@
       <con:properties>
         <con:property>
           <con:name>TeachingGroupRefId</con:name>
-          <con:value>45fc6ea1-bfa7-4dc3-876b-2dbf602f046b</con:value>
+          <con:value>31715dcf-1b5a-42a4-b168-a313ce20dc30</con:value>
         </con:property>
         <con:property>
           <con:name>TeachingGroupLocalId</con:name>
-          <con:value>2020_TG_BIdybpbJ</con:value>
+          <con:value>2020_TG_hhtLIMjT</con:value>
         </con:property>
       </con:properties>
     </con:config>
@@ -86,7 +86,7 @@
                 "LongName": "Homeroom Year 9",
                 "GroupType": "RC",
                 "Organisation": {
-                    "RefId": "${#[Release 2#Setup#Properties]#OrgRefId}"
+                    "RefId": "${#Project#OrgRefId}"
                 },
                 "ScheduleTerm": {
                     "LocalId": "2020_8003_Y"
@@ -119,7 +119,7 @@
         <con:assertion type="JsonPath Match" id="669ae816-1ce8-41a3-9f0b-0bd85d24c44d" name="Match content of [RefId]">
           <con:configuration>
             <path>$['TeachingGroups']['TeachingGroup'][0]['Organisation']['RefId']</path>
-            <content>${#[Release 2#Setup#Properties]#OrgRefId#$}</content>
+            <content>${#Project#OrgRefId}</content>
             <allowWildcards>false</allowWildcards>
             <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
             <ignoreComments>false</ignoreComments>
@@ -140,9 +140,9 @@
         </con:credentials>
         <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
         <con:parameters>
-          <con:entry key="Accept" value="${#[Release 2#Setup#Properties]#Accept}"/>
-          <con:entry key="X-Edsby-APIClientId" value="${#[Release 2#Setup#Properties]#X-Edsby-ApiClientId}"/>
-          <con:entry key="X-Edsby-OrganisationRefId" value="${#[Release 2#Setup#Properties]#OrgRefId}"/>
+          <con:entry key="Accept" value="${#Project#Accept}"/>
+          <con:entry key="X-Edsby-APIClientId" value="${#Project#ApiClientId}"/>
+          <con:entry key="X-Edsby-OrganisationRefId" value="${#Project#OrgRefId}"/>
         </con:parameters>
         <con:environmentSpec>
           <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
@@ -206,7 +206,7 @@
         <con:assertion type="JsonPath Match" id="d0c5f9e9-1f7d-4d71-a26c-ff55fa9152f5" name="Match content of [RefId]">
           <con:configuration>
             <path>$['TeachingGroup']['Organisation']['RefId']</path>
-            <content>${#[Release 2#Setup#Properties]#OrgRefId#$}</content>
+            <content>${#Project#OrgRefId}</content>
             <allowWildcards>false</allowWildcards>
             <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
             <ignoreComments>false</ignoreComments>
@@ -227,9 +227,9 @@
         </con:credentials>
         <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
         <con:parameters>
-          <con:entry key="Accept" value="${#[Release 2#Setup#Properties]#Accept}"/>
-          <con:entry key="X-Edsby-APIClientId" value="${#[Release 2#Setup#Properties]#X-Edsby-ApiClientId}"/>
-          <con:entry key="X-Edsby-OrganisationRefId" value="${#[Release 2#Setup#Properties]#OrgRefId}"/>
+          <con:entry key="Accept" value="${#Project#Accept}"/>
+          <con:entry key="X-Edsby-APIClientId" value="${#Project#ApiClientId}"/>
+          <con:entry key="X-Edsby-OrganisationRefId" value="${#Project#OrgRefId}"/>
           <con:entry key="teachingGroupRefId" value="${Properties 1#TeachingGroupRefId}"/>
         </con:parameters>
         <con:environmentSpec>
@@ -255,7 +255,7 @@
         "LongName": "Homeroom Year 9${GenDynamicId#DynamicId}",
         "GroupType": "RC",
         "Organisation": {
-            "RefId": "${#[Release 2#Setup#Properties]#OrgRefId}"
+            "RefId": "${#Project#OrgRefId}"
         },
         "ScheduleTerm": {
             "LocalId": "2020_8003_Y"
@@ -286,7 +286,7 @@
         <con:assertion type="JsonPath Match" id="6604b20a-6399-4dae-b9a2-5298f1b4a360" name="Match content of [RefId]">
           <con:configuration>
             <path>$['TeachingGroup']['Organisation']['RefId']</path>
-            <content>${#[Release 2#Setup#Properties]#OrgRefId#$}</content>
+            <content>${#Project#OrgRefId}</content>
             <allowWildcards>false</allowWildcards>
             <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
             <ignoreComments>false</ignoreComments>
@@ -316,9 +316,9 @@
         </con:credentials>
         <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
         <con:parameters>
-          <con:entry key="Accept" value="${#[Release 2#Setup#Properties]#Accept}"/>
-          <con:entry key="X-Edsby-APIClientId" value="${#[Release 2#Setup#Properties]#X-Edsby-ApiClientId}"/>
-          <con:entry key="X-Edsby-OrganisationRefId" value="${#[Release 2#Setup#Properties]#OrgRefId}"/>
+          <con:entry key="Accept" value="${#Project#Accept}"/>
+          <con:entry key="X-Edsby-APIClientId" value="${#Project#ApiClientId}"/>
+          <con:entry key="X-Edsby-OrganisationRefId" value="${#Project#OrgRefId}"/>
           <con:entry key="teachingGroupRefId" value="${Properties 1#TeachingGroupRefId}"/>
         </con:parameters>
         <con:environmentSpec>
@@ -361,7 +361,7 @@
         <con:assertion type="JsonPath Match" id="bb0a9fd3-dfe5-40b1-a5ab-b8edff87d02f" name="Match content of [RefId]">
           <con:configuration>
             <path>$['TeachingGroupCREATE']['TeachingGroup']['Organisation']['RefId']</path>
-            <content>${#[Release 2#Setup#Properties]#OrgRefId#$}</content>
+            <content>${#Project#OrgRefId}</content>
             <allowWildcards>false</allowWildcards>
             <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
             <ignoreComments>false</ignoreComments>
@@ -391,9 +391,9 @@
         </con:credentials>
         <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
         <con:parameters>
-          <con:entry key="Accept" value="${#[Release 2#Setup#Properties]#Accept}"/>
-          <con:entry key="X-Edsby-APIClientId" value="${#[Release 2#Setup#Properties]#X-Edsby-ApiClientId}"/>
-          <con:entry key="X-Edsby-OrganisationRefId" value="${#[Release 2#Setup#Properties]#OrgRefId}"/>
+          <con:entry key="Accept" value="${#Project#Accept}"/>
+          <con:entry key="X-Edsby-APIClientId" value="${#Project#ApiClientId}"/>
+          <con:entry key="X-Edsby-OrganisationRefId" value="${#Project#OrgRefId}"/>
           <con:entry key="teachingGroupRefId" value="${Properties 1#TeachingGroupRefId}"/>
         </con:parameters>
         <con:environmentSpec>

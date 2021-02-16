@@ -9,11 +9,13 @@
       <con:setting id="com.eviware.soapui.impl.wsdl.teststeps.datasource.DataSourceContainer@prepared-properties">&lt;xml-fragment/></con:setting>
     </con:settings>
     <con:config xsi:type="con:DataSourceStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-      <con:dataSource type="Directory">
+      <con:dataSource type="File">
         <con:configuration>
-          <directory>C:/TeRito APIs/Te Rito APIs (v3.2-rc2)/v3.2-rc2_multiple_header_wrapped/TeachingGroup/200</directory>
-          <filter>*.json</filter>
-          <encoding/>
+          <fileName>C:/TeRito APIs/Te Rito APIs (v3.2-rc2)/v3.2-rc2_multiple_header_wrapped/TeachingGroup/200/200_TeachingGroup_TeWheke_8005_multiple_valid_.json</fileName>
+          <separator>,</separator>
+          <trim>true</trim>
+          <charset>Cp1252</charset>
+          <quotedValues>false</quotedValues>
         </con:configuration>
       </con:dataSource>
       <con:shared>true</con:shared>

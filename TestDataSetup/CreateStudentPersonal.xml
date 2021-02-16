@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase id="7517d85f-c087-4919-989f-b0b2671fa5e6" discardOkResults="false" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="CreateStudentPersonal" searchProperties="true" timeout="0" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="7517d85f-c087-4919-989f-b0b2671fa5e6fileName">CreateStudentPersonal</con:setting>
+  </con:settings>
+  <con:savedRecentRuns>1</con:savedRecentRuns>
+  <con:testStep type="datasource" name="GenDynamicId" id="2826461f-9bb9-4d0e-8c83-46d84b7cd140">
+    <con:settings/>
+    <con:config xsi:type="con:DataSourceStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:dataSource type="Data Generator">
+        <con:configuration>
+          <generatedDataCount>1</generatedDataCount>
+          <generatorsTotalNumber>2</generatorsTotalNumber>
+          <lastSelectedProperty>1</lastSelectedProperty>
+          <GeneratorType0>CUSTOM</GeneratorType0>
+          <PropertyName0>StudentPeronsalLocalId</PropertyName0>
+          <repetitionCountStudentPeronsalLocalId>0</repetitionCountStudentPeronsalLocalId>
+          <repeatValuesStudentPeronsalLocalId>false</repeatValuesStudentPeronsalLocalId>
+          <CustomStringDataGeneratorFormatStudentPeronsalLocalId>ST%INT(100000,999999,false, 1)</CustomStringDataGeneratorFormatStudentPeronsalLocalId>
+          <GeneratorType1>CUSTOM</GeneratorType1>
+          <PropertyName1>NSN</PropertyName1>
+          <repetitionCountNSN>0</repetitionCountNSN>
+          <repeatValuesNSN>false</repeatValuesNSN>
+          <CustomStringDataGeneratorFormatNSN>9001%INT(100000,999999,false, 1)</CustomStringDataGeneratorFormatNSN>
+          <escapeSpaceSequence/>
+        </con:configuration>
+      </con:dataSource>
+      <con:shared>true</con:shared>
+      <con:restartShared>true</con:restartShared>
+      <con:property>StudentPeronsalLocalId</con:property>
+      <con:property>NSN</con:property>
+      <con:completeLastOperation>true</con:completeLastOperation>
+      <con:restartOnRun>true</con:restartOnRun>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="restrequest" name="CreateStudent" id="eecc18da-bd35-4762-95de-d908b515806d">
+    <con:settings/>
+    <con:config service="Te Rito APIs" resourcePath="/studentpersonal" methodName="createStudentPersonals" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest name="CreateStudent" id="c39cb2e8-4ae2-445f-b615-8be991cdb3c6" mediaType="application/json" postQueryString="false">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:endpoint>https://northern.edsby.co.nz/sif</con:endpoint>
+        <con:request/>
+        <con:originalUri>http://mocksifapi.terito.education.govt.nz/sif/studentpersonal</con:originalUri>
+        <con:assertion type="Valid HTTP Status Codes" id="73be5f9e-c6c9-4622-8597-693b6c1ce60f" name="Valid HTTP Status Codes">
+          <con:settings/>
+          <con:configuration>
+            <codes>200</codes>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters>
+          <con:entry key="Accept" value="${#Project#Accept}"/>
+          <con:entry key="X-Edsby-APIClientId" value="${#Project#ApiClientId}"/>
+          <con:entry key="X-Edsby-OrganisationRefId" value="${#Project#OrgRefId}"/>
+        </con:parameters>
+        <con:environmentSpec>
+          <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:properties/>
+  <con:reportParameters/>
+</con:testCase>

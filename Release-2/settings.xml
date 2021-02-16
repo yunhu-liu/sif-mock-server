@@ -5,7 +5,12 @@
   </con:settings>
   <con:savedRecentRuns>1</con:savedRecentRuns>
   <con:runType>SEQUENTIAL</con:runType>
-  <con:properties/>
+  <con:properties>
+    <con:property>
+      <con:name>StudentPersonalRefId</con:name>
+      <con:value/>
+    </con:property>
+  </con:properties>
   <con:reportParameters/>
   <con:environmentSpec>
     <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">

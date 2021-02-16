@@ -14,12 +14,6 @@
       <con:value>36a7435d-1952-420a-b975-2fb22db649b5</con:value>
     </con:property>
     <con:property>
-      <con:name>OrgRefId-Primary</con:name>
-    </con:property>
-    <con:property>
-      <con:name>OrgRefId-College</con:name>
-    </con:property>
-    <con:property>
       <con:name>OrgRefId</con:name>
     </con:property>
   </con:properties>
@@ -82,16 +76,8 @@
       <con:value>36a7435d-1952-420a-b975-2fb22db649b5</con:value>
     </con:property>
     <con:property>
-      <con:name>OrgRefId-Primary</con:name>
-      <con:value>1001</con:value>
-    </con:property>
-    <con:property>
-      <con:name>OrgRefId-College</con:name>
-      <con:value>1001</con:value>
-    </con:property>
-    <con:property>
       <con:name>OrgRefId</con:name>
-      <con:value>1003</con:value>
+      <con:value>1002</con:value>
     </con:property>
     <con:databaseConnectionContainer>
       <con:databaseConnection>

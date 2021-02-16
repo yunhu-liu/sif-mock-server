@@ -14,7 +14,7 @@
         </con:property>
         <con:property>
           <con:name>WellbeingCharacteristicRefId</con:name>
-          <con:value>beba2f4b-f546-4872-b185-98d907985568</con:value>
+          <con:value>80ca6fa4-6709-448f-8a7e-9569dc66de3e</con:value>
         </con:property>
       </con:properties>
     </con:config>
@@ -86,7 +86,7 @@
         "RefId" : "${Properties 1#StudentPersonalRefId}"\r
       },\r
       "RecordingProvider" : {\r
-        "RefId" : "${#[Release 2#Setup#Properties]#OrgRefId}"\r
+        "RefId" : "${#Project#OrgRefId#$}"\r
       },\r
       "StartDate" : "2017-11-01T00:00:00+1200",\r
       "EndDate" : "2017-11-10T00:00:00+1200",\r
@@ -139,9 +139,9 @@
         </con:credentials>
         <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
         <con:parameters>
-          <con:entry key="Accept" value="${#[Release 2#Setup#Properties]#Accept}"/>
-          <con:entry key="X-Edsby-APIClientId" value="${#[Release 2#Setup#Properties]#X-Edsby-ApiClientId}"/>
-          <con:entry key="X-Edsby-OrganisationRefId" value="${#[Release 2#Setup#Properties]#OrgRefId}"/>
+          <con:entry key="Accept" value="${#Project#Accept}"/>
+          <con:entry key="X-Edsby-APIClientId" value="${#Project#ApiClientId}"/>
+          <con:entry key="X-Edsby-OrganisationRefId" value="${#Project#OrgRefId}"/>
         </con:parameters>
         <con:environmentSpec>
           <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
@@ -204,7 +204,7 @@
         <con:assertion type="JsonPath Match" id="77896590-e548-4991-b938-ec6ceaad639f" name="Match content of [RefId]">
           <con:configuration>
             <path>$['WellbeingCharacteristic']['RecordingProvider']['RefId']</path>
-            <content>${#[Release 2#Setup#Properties]#OrgRefId#$}</content>
+            <content>${#Project#OrgRefId#$}</content>
             <allowWildcards>false</allowWildcards>
             <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
             <ignoreComments>false</ignoreComments>
@@ -216,9 +216,9 @@
         </con:credentials>
         <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
         <con:parameters>
-          <con:entry key="Accept" value="${#[Release 2#Setup#Properties]#Accept}"/>
-          <con:entry key="X-Edsby-APIClientId" value="${#[Release 2#Setup#Properties]#X-Edsby-ApiClientId}"/>
-          <con:entry key="X-Edsby-OrganisationRefId" value="${#[Release 2#Setup#Properties]#OrgRefId}"/>
+          <con:entry key="Accept" value="${#Project#Accept}"/>
+          <con:entry key="X-Edsby-APIClientId" value="${#Project#ApiClientId}"/>
+          <con:entry key="X-Edsby-OrganisationRefId" value="${#Project#OrgRefId}"/>
           <con:entry key="wellbeingCharacteristicRefId" value="${Properties 1#WellbeingCharacteristicRefId}"/>
         </con:parameters>
         <con:environmentSpec>
@@ -260,9 +260,9 @@
         </con:credentials>
         <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
         <con:parameters>
-          <con:entry key="Accept" value="${#[Release 2#Setup#Properties]#Accept}"/>
-          <con:entry key="X-Edsby-APIClientId" value="${#[Release 2#Setup#Properties]#X-Edsby-ApiClientId}"/>
-          <con:entry key="X-Edsby-OrganisationRefId" value="${#[Release 2#Setup#Properties]#OrgRefId}"/>
+          <con:entry key="Accept" value="${#Project#Accept}"/>
+          <con:entry key="X-Edsby-APIClientId" value="${#Project#ApiClientId}"/>
+          <con:entry key="X-Edsby-OrganisationRefId" value="${#Project#OrgRefId}"/>
           <con:entry key="studentPersonalRefId" value="${Properties 1#StudentPersonalRefId}"/>
         </con:parameters>
         <con:environmentSpec>

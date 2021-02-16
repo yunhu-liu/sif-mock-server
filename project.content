@@ -73,9 +73,9 @@ Te-Rito-APIs\%2Fteachinggroup%2F%7BteachingGroupRefId%7D.xml
 Te-Rito-APIs\%2Fteachinggroup.xml
 Te-Rito-APIs\%2Fwellbeingcharacteristic%2F%7BwellbeingCharacteristicRefId%7D.xml
 Te-Rito-APIs\%2Fwellbeingcharacteristic.xml
-GlobalSetup\GenerateOrgRefId.xml
-GlobalSetup\CreateSchool.xml
-Release-2\Setup.xml
+TestDataSetup\GenerateOrgRefId.xml
+TestDataSetup\CreateSchool.xml
+TestDataSetup\CreateStudentPersonal.xml
 Release-2\TeachingGroup-Single.xml
 Release-2\TeachingGroup-Multiple.xml
 Release-2\WellbeingCharacteristic-Single.xml
@@ -94,3 +94,4 @@ Release-2\ScheduleDate-Multiple.xml
 Release-2\StaffTeachingGroupAssignments-Single.xml
 Debug\StudentContactPersonal-SingleValid.xml
 Debug\StudentContactPersonal-MultipleValid.xml
+Debug\Setup.xml
