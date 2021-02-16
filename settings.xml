@@ -16,6 +16,9 @@
     <con:property>
       <con:name>OrgRefId</con:name>
     </con:property>
+    <con:property>
+      <con:name>StudentPersonalRefId</con:name>
+    </con:property>
   </con:properties>
   <con:wssContainer/>
   <con:databaseConnectionContainer>
@@ -77,7 +80,11 @@
     </con:property>
     <con:property>
       <con:name>OrgRefId</con:name>
-      <con:value>1002</con:value>
+      <con:value>1005</con:value>
+    </con:property>
+    <con:property>
+      <con:name>StudentPersonalRefId</con:name>
+      <con:value>ba99a61b-4cbe-46b4-a4f4-3f8545398778</con:value>
     </con:property>
     <con:databaseConnectionContainer>
       <con:databaseConnection>

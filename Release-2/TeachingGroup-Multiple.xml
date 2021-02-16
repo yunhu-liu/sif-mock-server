@@ -1,21 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<con:testCase id="781f0b63-630c-4dcf-b2ac-db3f3cd4057c" discardOkResults="false" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="TeachingGroup-Multiple" searchProperties="true" timeout="0" xmlns:con="http://eviware.com/soapui/config">
+<con:testCase id="bd72adb9-0142-4031-97d5-7cca071c4da2" discardOkResults="false" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="TeachingGroup-Multiple" searchProperties="true" timeout="0" xmlns:con="http://eviware.com/soapui/config">
   <con:settings>
     <con:setting id="781f0b63-630c-4dcf-b2ac-db3f3cd4057cfileName">TeachingGroup-Multiple</con:setting>
+    <con:setting id="bd72adb9-0142-4031-97d5-7cca071c4da2fileName">TeachingGroup-Multiple</con:setting>
   </con:settings>
   <con:savedRecentRuns>1</con:savedRecentRuns>
-  <con:testStep type="datasource" name="LoadTestData-Multiple" id="039da93c-a149-4835-ae4b-18eda3edef98">
+  <con:testStep type="datasource" name="LoadTestData-Multiple" id="116aa873-b92d-4125-8183-26cfbd4572e0">
     <con:settings>
       <con:setting id="com.eviware.soapui.impl.wsdl.teststeps.datasource.DataSourceContainer@prepared-properties">&lt;xml-fragment/></con:setting>
     </con:settings>
     <con:config xsi:type="con:DataSourceStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-      <con:dataSource type="File">
+      <con:dataSource type="Directory">
         <con:configuration>
-          <fileName>C:/TeRito APIs/Te Rito APIs (v3.2-rc2)/v3.2-rc2_multiple_header_wrapped/TeachingGroup/200/200_TeachingGroup_TeWheke_8005_multiple_valid_.json</fileName>
-          <separator>,</separator>
-          <trim>true</trim>
-          <charset>Cp1252</charset>
-          <quotedValues>false</quotedValues>
+          <directory>C:/TeRito APIs/Te Rito APIs (v3.2-rc2)/v3.2-rc2_multiple_header_wrapped/TeachingGroup/200</directory>
+          <filter>200_TeachingGroup_TeWheke_973_multiple_valid_.json</filter>
+          <encoding/>
         </con:configuration>
       </con:dataSource>
       <con:shared>true</con:shared>
@@ -25,7 +24,7 @@
       <con:restartOnRun>true</con:restartOnRun>
     </con:config>
   </con:testStep>
-  <con:testStep type="datasource" name="GetPayload" id="38d42c2b-4333-4bc6-b443-3e23d56292a1">
+  <con:testStep type="datasource" name="GetPayload" id="4b295025-264d-4bfc-b898-82d4b3ddc106">
     <con:settings/>
     <con:config xsi:type="con:DataSourceStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
       <con:dataSource type="JSON">
@@ -43,7 +42,7 @@
       <con:restartOnRun>true</con:restartOnRun>
     </con:config>
   </con:testStep>
-  <con:testStep type="datasource" name="GetOrgRefId" id="711de906-ff9f-415a-846f-3a9de97157b6">
+  <con:testStep type="datasource" name="GetOrgRefId" id="4565d6ef-5aac-4e1e-bc2b-47fb3c5c40c3" disabled="true">
     <con:settings/>
     <con:config xsi:type="con:DataSourceStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
       <con:dataSource type="JSON">
@@ -61,7 +60,7 @@
       <con:restartOnRun>true</con:restartOnRun>
     </con:config>
   </con:testStep>
-  <con:testStep type="datasource" name="GenDynamicId" id="ec1218e4-1363-45d6-b3ae-552bb90c4a3f">
+  <con:testStep type="datasource" name="GenDynamicId" id="00d16d29-d7e9-4dd0-a6ca-1b7c3a8ebc44">
     <con:settings/>
     <con:config xsi:type="con:DataSourceStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
       <con:dataSource type="Data Generator">
@@ -89,13 +88,14 @@
       <con:restartOnRun>true</con:restartOnRun>
     </con:config>
   </con:testStep>
-  <con:testStep type="groovy" name="UpdatePayload" id="b4ed2a80-f8a2-45d6-8871-6b1fee56bd19">
+  <con:testStep type="groovy" name="UpdatePayload" id="aaed01f6-2a2d-4cae-9535-d0cb14c71407">
     <con:settings/>
     <con:config>
       <script>// Update Payload by Adding Dynamic Values to Some Fields
 import groovy.json.*
 
-// Load Data for Teaching Groups 
+// Load Data for Teaching Groups
+def orgRefId = context.expand( '${#Project#OrgRefId}' )
 def dynamicId = context.expand( '${GenDynamicId#DynamicId}' ) 
 def payload = context.expand( '${GetPayload#Payload}' ) 
 def slurped = new JsonSlurper().parseText(payload)
@@ -116,13 +116,14 @@ for ( i = 0; i &lt; tgCount; i++)
 	slurped.TeachingGroups.TeachingGroup[i].TeachingGroupLocalId = "$tgLocalId" + "_" + "$dynamicId" 
 	slurped.TeachingGroups.TeachingGroup[i].ShortName = "$tgShortName" + "_" + "$dynamicId" 
 	slurped.TeachingGroups.TeachingGroup[i].LongName = "$tgLongName" + "_" + "$dynamicId"	
+	slurped.TeachingGroups.TeachingGroup[i].Organisation.RefId = "$orgRefId"
 }
 
 // Write Updated Payload to Result
 return new JsonBuilder(slurped)</script>
     </con:config>
   </con:testStep>
-  <con:testStep type="restrequest" name="CreateTeachingGroups" id="58ae3733-082e-4d41-9598-8ea7dbe43af7">
+  <con:testStep type="restrequest" name="CreateTeachingGroups" id="89eabf38-71e5-41bd-af96-2386ea937bf4">
     <con:settings/>
     <con:config service="Te Rito APIs" resourcePath="/teachinggroup" methodName="createTeachingGroups" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
       <con:restRequest name="CreateTeachingGroups" id="d018ff85-8598-4526-8948-60ca39a76342" mediaType="application/json" postQueryString="false">
@@ -150,7 +151,7 @@ return new JsonBuilder(slurped)</script>
         <con:assertion type="JsonPath Match" id="f44e2572-c7f6-4efc-a1bc-e33a35bf56a8" name="Match content of [RefId]">
           <con:configuration>
             <path>$['TeachingGroups']['TeachingGroup'][0]['Organisation']['RefId']</path>
-            <content>${GetOrgRefId#OrgRefId}</content>
+            <content>${#Project#OrgRefId#$}</content>
             <allowWildcards>false</allowWildcards>
             <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
             <ignoreComments>false</ignoreComments>
@@ -162,9 +163,9 @@ return new JsonBuilder(slurped)</script>
         </con:credentials>
         <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
         <con:parameters>
-          <con:entry key="Accept" value="${#[Release 2#Setup#Properties]#Accept}"/>
-          <con:entry key="X-Edsby-APIClientId" value="${#[Release 2#Setup#Properties]#X-Edsby-ApiClientId}"/>
-          <con:entry key="X-Edsby-OrganisationRefId" value="${GetOrgRefId#OrgRefId}"/>
+          <con:entry key="Accept" value="${#Project#Accept}"/>
+          <con:entry key="X-Edsby-APIClientId" value="${#Project#ApiClientId}"/>
+          <con:entry key="X-Edsby-OrganisationRefId" value="${#Project#OrgRefId}"/>
         </con:parameters>
         <con:environmentSpec>
           <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
@@ -174,7 +175,7 @@ return new JsonBuilder(slurped)</script>
       </con:restRequest>
     </con:config>
   </con:testStep>
-  <con:testStep type="restrequest" name="GetTeachingGroups" id="af334c92-77f9-4a69-9be9-9a1c40427fde">
+  <con:testStep type="restrequest" name="GetTeachingGroups" id="41367a4e-d5ef-41c2-b652-2cd76e460196">
     <con:settings/>
     <con:config service="Te Rito APIs" resourcePath="/teachinggroup" methodName="getTeachingGroups" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
       <con:restRequest name="GetTeachingGroups" id="b8a449bd-89ad-4130-bcb9-ca8395fef91a" mediaType="application/json">
@@ -202,7 +203,7 @@ return new JsonBuilder(slurped)</script>
         <con:assertion type="JsonPath Match" id="5c1fda6f-6516-4b84-9f5c-d2b21c497550" name="Match content of [RefId]">
           <con:configuration>
             <path>$['TeachingGroups']['TeachingGroup'][0]['Organisation']['RefId']</path>
-            <content>${GetOrgRefId#OrgRefId}</content>
+            <content>${#Project#OrgRefId#$}</content>
             <allowWildcards>false</allowWildcards>
             <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
             <ignoreComments>false</ignoreComments>
@@ -214,9 +215,9 @@ return new JsonBuilder(slurped)</script>
         </con:credentials>
         <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
         <con:parameters>
-          <con:entry key="Accept" value="${#[Release 2#Setup#Properties]#Accept}"/>
-          <con:entry key="X-Edsby-APIClientId" value="${#[Release 2#Setup#Properties]#X-Edsby-ApiClientId}"/>
-          <con:entry key="X-Edsby-OrganisationRefId" value="${GetOrgRefId#OrgRefId}"/>
+          <con:entry key="Accept" value="${#Project#Accept}"/>
+          <con:entry key="X-Edsby-APIClientId" value="${#Project#ApiClientId}"/>
+          <con:entry key="X-Edsby-OrganisationRefId" value="${#Project#OrgRefId}"/>
         </con:parameters>
         <con:environmentSpec>
           <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
@@ -226,7 +227,7 @@ return new JsonBuilder(slurped)</script>
       </con:restRequest>
     </con:config>
   </con:testStep>
-  <con:testStep type="restrequest" name="UpdateTeachingGroups" id="a2eee1af-3edf-4039-9605-eca456815971">
+  <con:testStep type="restrequest" name="UpdateTeachingGroups" id="1bbf6d05-db13-4c21-aba8-ec248703340e">
     <con:settings/>
     <con:config service="Te Rito APIs" resourcePath="/teachinggroup" methodName="updateTeachingGroups" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
       <con:restRequest name="UpdateTeachingGroups" id="69196ae2-4f2a-40b5-8121-128ef6905b71" mediaType="application/json" postQueryString="false">
@@ -254,7 +255,7 @@ return new JsonBuilder(slurped)</script>
         <con:assertion type="JsonPath Match" id="3d604d85-70c2-401a-a07c-792319bfd931" name="Match content of [RefId]">
           <con:configuration>
             <path>$['TeachingGroups']['TeachingGroup'][0]['Organisation']['RefId']</path>
-            <content>${GetOrgRefId#OrgRefId}</content>
+            <content>${#Project#OrgRefId#$}</content>
             <allowWildcards>false</allowWildcards>
             <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
             <ignoreComments>false</ignoreComments>
@@ -266,9 +267,9 @@ return new JsonBuilder(slurped)</script>
         </con:credentials>
         <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
         <con:parameters>
-          <con:entry key="Accept" value="${#[Release 2#Setup#Properties]#Accept}"/>
-          <con:entry key="X-Edsby-APIClientId" value="${#[Release 2#Setup#Properties]#X-Edsby-ApiClientId}"/>
-          <con:entry key="X-Edsby-OrganisationRefId" value="${GetOrgRefId#OrgRefId}"/>
+          <con:entry key="Accept" value="${#Project#Accept}"/>
+          <con:entry key="X-Edsby-APIClientId" value="${#Project#ApiClientId}"/>
+          <con:entry key="X-Edsby-OrganisationRefId" value="${#Project#OrgRefId}"/>
         </con:parameters>
         <con:environmentSpec>
           <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
@@ -278,7 +279,7 @@ return new JsonBuilder(slurped)</script>
       </con:restRequest>
     </con:config>
   </con:testStep>
-  <con:testStep type="restrequest" name="PatchTeachingGroups" id="66a9ffb4-8dfd-4675-8d14-f68a115e95c4">
+  <con:testStep type="restrequest" name="PatchTeachingGroups" id="248baaf9-1139-4a23-a296-7ffd190feafb">
     <con:settings/>
     <con:config service="Te Rito APIs" resourcePath="/teachinggroup" methodName="patchTeachingGroups" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
       <con:restRequest name="PatchTeachingGroups" id="33c8ca27-ed67-4508-9285-f751ac39be37" mediaType="application/json" postQueryString="false">
@@ -306,7 +307,7 @@ return new JsonBuilder(slurped)</script>
         <con:assertion type="JsonPath Match" id="a0b28219-f558-4016-980c-f1426366c024" name="Match content of [RefId]">
           <con:configuration>
             <path>$['TeachingGroups']['TeachingGroup'][0]['Organisation']['RefId']</path>
-            <content>${GetOrgRefId#OrgRefId}</content>
+            <content>${#Project#OrgRefId#$}</content>
             <allowWildcards>false</allowWildcards>
             <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
             <ignoreComments>false</ignoreComments>
@@ -318,9 +319,9 @@ return new JsonBuilder(slurped)</script>
         </con:credentials>
         <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
         <con:parameters>
-          <con:entry key="Accept" value="${#[Release 2#Setup#Properties]#Accept}"/>
-          <con:entry key="X-Edsby-APIClientId" value="${#[Release 2#Setup#Properties]#X-Edsby-ApiClientId}"/>
-          <con:entry key="X-Edsby-OrganisationRefId" value="${GetOrgRefId#OrgRefId}"/>
+          <con:entry key="Accept" value="${#Project#Accept}"/>
+          <con:entry key="X-Edsby-APIClientId" value="${#Project#ApiClientId}"/>
+          <con:entry key="X-Edsby-OrganisationRefId" value="${#Project#OrgRefId}"/>
         </con:parameters>
         <con:environmentSpec>
           <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
@@ -328,14 +329,6 @@ return new JsonBuilder(slurped)</script>
           </con:entry>
         </con:environmentSpec>
       </con:restRequest>
-    </con:config>
-  </con:testStep>
-  <con:testStep type="datasourceloop" name="DataSource Loop" id="fe626e1e-8e2e-4065-a5c4-5554157c1a82">
-    <con:settings/>
-    <con:config>
-      <dataSourceStep>LoadTestData-Multiple</dataSourceStep>
-      <targetStep>GetPayload</targetStep>
-      <discardResults>true</discardResults>
     </con:config>
   </con:testStep>
   <con:properties/>

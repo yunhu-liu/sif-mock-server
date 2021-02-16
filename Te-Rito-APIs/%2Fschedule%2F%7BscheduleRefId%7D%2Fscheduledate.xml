@@ -507,7 +507,7 @@
   </ScheduleDate>
 </ScheduleDates>]]></con:sampleContent>
     </con:representation>
-    <con:request name="Request 1" id="67457e1a-7df3-4c58-990e-5aeadedbb0f6" mediaType="application/json">
+    <con:request name="Request 1" id="67457e1a-7df3-4c58-990e-5aeadedbb0f6" mediaType="application/json" postQueryString="false">
       <con:settings/>
       <con:endpoint>https://northern.edsby.co.nz/sif</con:endpoint>
       <con:request>{\r

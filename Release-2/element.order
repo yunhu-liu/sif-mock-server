@@ -1,10 +1,10 @@
 TeachingGroup-Single.xml
 TeachingGroup-Multiple.xml
 WellbeingCharacteristic-Single.xml
-LearningStandard-Single.xml
-LearningStandard-Multiple.xml
 Credential-Single.xml
 Credential-Multiple.xml
+LearningStandard-Single.xml
+LearningStandard-Multiple.xml
 Schedule-Single.xml
 SchedulePeriod-Single.xml
 ScheduleTerm-Single.xml
@@ -13,4 +13,3 @@ Schedule-Multiple.xml
 SchedulePeriod-Multiple.xml
 ScheduleTerm-Multiple.xml
 ScheduleDate-Multiple.xml
-StaffTeachingGroupAssignments-Single.xml

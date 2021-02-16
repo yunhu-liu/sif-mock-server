@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<con:testCase id="c0647fcf-99bd-4c14-8499-fa6e637010de" discardOkResults="false" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="ScheduleDate-Single" searchProperties="true" timeout="0" xmlns:con="http://eviware.com/soapui/config">
+<con:testCase id="df82074d-d382-4bbb-8935-bbd6b3d220bd" discardOkResults="false" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="ScheduleDate-Single" searchProperties="true" timeout="0" xmlns:con="http://eviware.com/soapui/config">
   <con:settings>
-    <con:setting id="c0647fcf-99bd-4c14-8499-fa6e637010defileName">ScheduleDate-Single</con:setting>
+    <con:setting id="df82074d-d382-4bbb-8935-bbd6b3d220bdfileName">ScheduleDate-Single</con:setting>
   </con:settings>
   <con:savedRecentRuns>1</con:savedRecentRuns>
-  <con:testStep type="properties" name="Properties 1" id="f89dde0b-7e3c-4372-b4cf-018da5a5e29e">
+  <con:testStep type="properties" name="Properties 1" id="a5587b53-af4e-4707-a9d9-eb23c02094c8">
     <con:settings/>
     <con:config xsi:type="con:PropertiesStep" saveFirst="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
       <con:properties>
         <con:property>
           <con:name>ScheduleDateRefId</con:name>
-          <con:value>ebdffa27-f8cc-408d-9c45-54446bac2864</con:value>
+          <con:value>fe2a78f4-568e-4ce7-9a12-1c8f15bd3705</con:value>
         </con:property>
         <con:property>
           <con:name>ScheduleDateLocalId</con:name>
-          <con:value>2020_D1_dVTpTQjk</con:value>
+          <con:value>2020_D1_RRKPmcxg</con:value>
         </con:property>
         <con:property>
           <con:name>CalendarDateUpdate</con:name>
@@ -27,7 +27,7 @@
       </con:properties>
     </con:config>
   </con:testStep>
-  <con:testStep type="datasource" name="GenDynamicId" id="30439c2d-5dec-4e17-8240-4ed65d8813c8">
+  <con:testStep type="datasource" name="GenDynamicId" id="dd3081e6-f107-4741-9313-87116d155cce">
     <con:settings/>
     <con:config xsi:type="con:DataSourceStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
       <con:dataSource type="Data Generator">
@@ -55,7 +55,7 @@
       <con:restartOnRun>true</con:restartOnRun>
     </con:config>
   </con:testStep>
-  <con:testStep type="datasource" name="GenScheduleDateLocalId" id="90023ac3-30a1-452b-968d-ed041a4a87a1">
+  <con:testStep type="datasource" name="GenScheduleDateLocalId" id="609e675b-9bec-4d59-8c3d-434af4b8d87b">
     <con:settings/>
     <con:config xsi:type="con:DataSourceStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
       <con:dataSource type="Data Generator">
@@ -77,7 +77,7 @@
       <con:restartOnRun>true</con:restartOnRun>
     </con:config>
   </con:testStep>
-  <con:testStep type="restrequest" name="Create" id="6a4b4a3d-2519-4679-b61e-a8aa3546f9c6">
+  <con:testStep type="restrequest" name="Create" id="4e04e311-96bc-410a-b5cd-975526863cb3">
     <con:settings/>
     <con:config service="Te Rito APIs" resourcePath="/schedule/{scheduleRefId}/scheduledate" methodName="createScheduleDates" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
       <con:restRequest name="Create" id="67457e1a-7df3-4c58-990e-5aeadedbb0f6" mediaType="application/json" postQueryString="false">
@@ -92,7 +92,7 @@
                 "ScheduleDateLocalId": "${GenScheduleDateLocalId#ScheduleDateLocalId}",
                 "CalendarDate": "2020-01-27T00:00:00+1200",
                 "Organisation": {
-                    "RefId": "${#[Release 2#Setup#Properties]#OrgRefId}"
+                    "RefId": "${#Project#OrgRefId}"
                 },
                 "Term": {
                     "LocalId": "${#[Release 2#ScheduleTerm-Single#Properties 1]#ScheduleTermLocalId}"
@@ -140,7 +140,7 @@
         <con:assertion type="JsonPath Match" id="b967b8c3-f116-4afa-8e0a-753dddd63713" name="Match content of [RefId]">
           <con:configuration>
             <path>$['ScheduleDates']['ScheduleDate'][0]['Organisation']['RefId']</path>
-            <content>${#[Release 2#Setup#Properties]#OrgRefId#$}</content>
+            <content>${#Project#OrgRefId#$}</content>
             <allowWildcards>false</allowWildcards>
             <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
             <ignoreComments>false</ignoreComments>
@@ -152,10 +152,10 @@
         </con:credentials>
         <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
         <con:parameters>
-          <con:entry key="Accept" value="${#[Release 2#Setup#Properties]#Accept}"/>
+          <con:entry key="Accept" value="${#Project#Accept}"/>
           <con:entry key="scheduleRefId" value="${#[Release 2#Schedule-Single#Properties 1]#ScheduleRefId}"/>
-          <con:entry key="X-Edsby-APIClientId" value="${#[Release 2#Setup#Properties]#X-Edsby-ApiClientId}"/>
-          <con:entry key="X-Edsby-OrganisationRefId" value="${#[Release 2#Setup#Properties]#OrgRefId}"/>
+          <con:entry key="X-Edsby-APIClientId" value="${#Project#ApiClientId}"/>
+          <con:entry key="X-Edsby-OrganisationRefId" value="${#Project#OrgRefId}"/>
         </con:parameters>
         <con:environmentSpec>
           <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
@@ -165,10 +165,10 @@
       </con:restRequest>
     </con:config>
   </con:testStep>
-  <con:testStep type="transfer" name="PropertyTransfer 1" id="016b1910-cc7e-410e-844a-6dcd50b17875">
+  <con:testStep type="transfer" name="PropertyTransfer 1" id="71f24ebc-1d73-4016-b977-ed696bf78a1a">
     <con:settings/>
     <con:config xsi:type="con:PropertyTransfersStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-      <con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true">
+      <con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" entitize="false" transferChildNodes="false">
         <con:name>ScheduleDateRefId</con:name>
         <con:sourceType>Response</con:sourceType>
         <con:sourceStep>Create</con:sourceStep>
@@ -192,7 +192,7 @@
       </con:transfers>
     </con:config>
   </con:testStep>
-  <con:testStep type="restrequest" name="Get" id="4db41fc1-c807-49b2-8a85-1c3e47bde7a7">
+  <con:testStep type="restrequest" name="Get" id="0de8fcb3-de12-4ea3-a177-0748f38b8f8f">
     <con:settings/>
     <con:config service="Te Rito APIs" resourcePath="/schedule/{scheduleRefId}/scheduledate/{scheduleDateRefId}" methodName="getScheduleDate" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
       <con:restRequest name="Get" id="11eb7cba-9c3d-4aa5-9658-90e7758a827b" mediaType="application/json">
@@ -229,7 +229,7 @@
         <con:assertion type="JsonPath Match" id="458ed272-0247-4fdd-ab9d-2115590217c4" name="Match content of [RefId]">
           <con:configuration>
             <path>$['ScheduleDate']['Organisation']['RefId']</path>
-            <content>${#[Release 2#Setup#Properties]#OrgRefId#$}</content>
+            <content>${#Project#OrgRefId#$}</content>
             <allowWildcards>false</allowWildcards>
             <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
             <ignoreComments>false</ignoreComments>
@@ -241,11 +241,11 @@
         </con:credentials>
         <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
         <con:parameters>
-          <con:entry key="Accept" value="${#[Release 2#Setup#Properties]#Accept}"/>
+          <con:entry key="Accept" value="${#Project#Accept}"/>
           <con:entry key="scheduleRefId" value="${#[Release 2#Schedule-Single#Properties 1]#ScheduleRefId}"/>
           <con:entry key="scheduleDateRefId" value="${Properties 1#ScheduleDateRefId}"/>
-          <con:entry key="X-Edsby-APIClientId" value="${#[Release 2#Setup#Properties]#X-Edsby-ApiClientId}"/>
-          <con:entry key="X-Edsby-OrganisationRefId" value="${#[Release 2#Setup#Properties]#OrgRefId}"/>
+          <con:entry key="X-Edsby-APIClientId" value="${#Project#ApiClientId}"/>
+          <con:entry key="X-Edsby-OrganisationRefId" value="${#Project#OrgRefId}"/>
         </con:parameters>
         <con:environmentSpec>
           <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
@@ -255,7 +255,7 @@
       </con:restRequest>
     </con:config>
   </con:testStep>
-  <con:testStep type="restrequest" name="Update" id="fc60e508-cdfa-41a7-b75b-a6ad35d5fcc5">
+  <con:testStep type="restrequest" name="Update" id="2613e3c8-a67a-4105-9f70-edbb71c70c12">
     <con:settings/>
     <con:config service="Te Rito APIs" resourcePath="/schedule/{scheduleRefId}/scheduledate/{scheduleDateRefId}" methodName="updateScheduleDate" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
       <con:restRequest name="Update" id="844218a6-ff20-45ff-822c-796dbfc91b88" mediaType="application/json" postQueryString="false">
@@ -268,7 +268,7 @@
         "ScheduleDateLocalId": "${GenScheduleDateLocalId#ScheduleDateLocalId}",
         "CalendarDate": "${Properties 1#CalendarDateUpdate}",
         "Organisation": {
-            "RefId": "${#[Release 2#Setup#Properties]#OrgRefId}"
+            "RefId": "${#Project#OrgRefId}"
         },
         "Term": {
             "LocalId": "${#[Release 2#ScheduleTerm-Single#Properties 1]#ScheduleTermLocalId}"
@@ -332,7 +332,7 @@
         <con:assertion type="JsonPath Match" id="8b71014f-69ef-4b80-a6b9-b69c0614269f" name="Match content of [RefId]">
           <con:configuration>
             <path>$['ScheduleDate']['Organisation']['RefId']</path>
-            <content>${#[Release 2#Setup#Properties]#OrgRefId#$}</content>
+            <content>${#Project#OrgRefId#$}</content>
             <allowWildcards>false</allowWildcards>
             <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
             <ignoreComments>false</ignoreComments>
@@ -344,11 +344,11 @@
         </con:credentials>
         <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
         <con:parameters>
-          <con:entry key="Accept" value="${#[Release 2#Setup#Properties]#Accept}"/>
+          <con:entry key="Accept" value="${#Project#Accept}"/>
           <con:entry key="scheduleRefId" value="${#[Release 2#Schedule-Single#Properties 1]#ScheduleRefId}"/>
           <con:entry key="scheduleDateRefId" value="${Properties 1#ScheduleDateRefId}"/>
-          <con:entry key="X-Edsby-APIClientId" value="${#[Release 2#Setup#Properties]#X-Edsby-ApiClientId}"/>
-          <con:entry key="X-Edsby-OrganisationRefId" value="${#[Release 2#Setup#Properties]#OrgRefId}"/>
+          <con:entry key="X-Edsby-APIClientId" value="${#Project#ApiClientId}"/>
+          <con:entry key="X-Edsby-OrganisationRefId" value="${#Project#OrgRefId}"/>
         </con:parameters>
         <con:environmentSpec>
           <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
@@ -358,7 +358,7 @@
       </con:restRequest>
     </con:config>
   </con:testStep>
-  <con:testStep type="restrequest" name="Patch" id="6b139684-56bc-4616-9d9c-f2e079adbcdc">
+  <con:testStep type="restrequest" name="Patch" id="43e8292d-f1ce-4005-b900-02a25b3b238e">
     <con:settings/>
     <con:config service="Te Rito APIs" resourcePath="/schedule/{scheduleRefId}/scheduledate/{scheduleDateRefId}" methodName="patchScheduleDate" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
       <con:restRequest name="Patch" id="360a4edc-f072-45e9-ace6-5924d208f5b6" mediaType="application/json" postQueryString="false">
@@ -408,7 +408,7 @@
         <con:assertion type="JsonPath Match" id="d9c1e8b9-0eb7-49c6-a198-f56c43287789" name="Match content of [RefId]">
           <con:configuration>
             <path>$['ScheduleDateCREATE']['ScheduleDate']['Organisation']['RefId']</path>
-            <content>${#[Release 2#Setup#Properties]#OrgRefId#$}</content>
+            <content>${#Project#OrgRefId#$}</content>
             <allowWildcards>false</allowWildcards>
             <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
             <ignoreComments>false</ignoreComments>
@@ -420,11 +420,11 @@
         </con:credentials>
         <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
         <con:parameters>
-          <con:entry key="Accept" value="${#[Release 2#Setup#Properties]#Accept}"/>
+          <con:entry key="Accept" value="${#Project#Accept}"/>
           <con:entry key="scheduleRefId" value="${#[Release 2#Schedule-Single#Properties 1]#ScheduleRefId}"/>
           <con:entry key="scheduleDateRefId" value="${Properties 1#ScheduleDateRefId}"/>
-          <con:entry key="X-Edsby-APIClientId" value="${#[Release 2#Setup#Properties]#X-Edsby-ApiClientId}"/>
-          <con:entry key="X-Edsby-OrganisationRefId" value="${#[Release 2#Setup#Properties]#OrgRefId}"/>
+          <con:entry key="X-Edsby-APIClientId" value="${#Project#ApiClientId}"/>
+          <con:entry key="X-Edsby-OrganisationRefId" value="${#Project#OrgRefId}"/>
         </con:parameters>
         <con:environmentSpec>
           <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">

@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<con:testCase id="c5d2a95f-5828-439e-94f1-7a7f3e430339" discardOkResults="false" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="LearningStandard-Single" searchProperties="true" timeout="0" xmlns:con="http://eviware.com/soapui/config">
+<con:testCase id="00c9a44b-7970-4f6f-aaec-30a8b4ef588d" discardOkResults="false" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="LearningStandard-Single" searchProperties="true" timeout="0" xmlns:con="http://eviware.com/soapui/config">
   <con:settings>
-    <con:setting id="c5d2a95f-5828-439e-94f1-7a7f3e430339fileName">LearningStandard-Single</con:setting>
+    <con:setting id="00c9a44b-7970-4f6f-aaec-30a8b4ef588dfileName">LearningStandard-Single</con:setting>
   </con:settings>
   <con:savedRecentRuns>1</con:savedRecentRuns>
-  <con:testStep type="properties" name="Properties 1" id="228a9088-75f7-478b-a5cf-62b3432e0f34">
+  <con:testStep type="properties" name="Properties 1" id="c7ed41b4-f1ce-42c5-a918-05e2e7377546">
     <con:settings/>
     <con:config xsi:type="con:PropertiesStep" saveFirst="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
       <con:properties>
         <con:property>
           <con:name>LearningStandardRefId</con:name>
-          <con:value>7d403b89-beeb-4d43-a3cc-ff26604d17b6</con:value>
+          <con:value>e8c0c3c0-646d-4abf-bf29-3cd00f216d87</con:value>
         </con:property>
       </con:properties>
     </con:config>
   </con:testStep>
-  <con:testStep type="datasource" name="GenDynamicId" id="54428dbd-b9a7-44c9-9670-cbf94960d062">
+  <con:testStep type="datasource" name="GenDynamicId" id="f56e26f8-dc74-4b65-9c3c-3c7575e76648">
     <con:settings/>
     <con:config xsi:type="con:DataSourceStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
       <con:dataSource type="Data Generator">
@@ -43,7 +43,7 @@
       <con:restartOnRun>true</con:restartOnRun>
     </con:config>
   </con:testStep>
-  <con:testStep type="datasource" name="GenPublisher" id="91d9e4ce-95ec-486d-b98d-d7238a904467">
+  <con:testStep type="datasource" name="GenPublisher" id="b2dbf99c-af0a-4c9f-8972-2d4a662bf275">
     <con:settings/>
     <con:config xsi:type="con:DataSourceStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
       <con:dataSource type="Data Generator">
@@ -65,7 +65,7 @@
       <con:restartOnRun>true</con:restartOnRun>
     </con:config>
   </con:testStep>
-  <con:testStep type="datasource" name="GenLearningStandardLocalId" id="675b057e-5c58-430e-983d-0eca27c44a37">
+  <con:testStep type="datasource" name="GenLearningStandardLocalId" id="04e30b23-423b-4ecf-9d35-ff35a453aaf5">
     <con:settings/>
     <con:config xsi:type="con:DataSourceStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
       <con:dataSource type="Data Generator">
@@ -88,7 +88,7 @@
       <con:restartOnRun>true</con:restartOnRun>
     </con:config>
   </con:testStep>
-  <con:testStep type="restrequest" name="Create" id="b0ae92ae-a3aa-4c28-81e5-34e82894ab95">
+  <con:testStep type="restrequest" name="Create" id="1e0d0878-6243-45f9-a4b4-a5aec3aba829">
     <con:settings/>
     <con:config service="Te Rito APIs" resourcePath="/learningstandard" methodName="createLearningStandards" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
       <con:restRequest name="Create" id="28dcf268-8a0e-45d4-87c5-cec11ac814d9" mediaType="application/json" postQueryString="false">
@@ -158,8 +158,8 @@
         </con:credentials>
         <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
         <con:parameters>
-          <con:entry key="Accept" value="${#[Release 2#Setup#Properties]#Accept}"/>
-          <con:entry key="X-Edsby-APIClientId" value="${#[Release 2#Setup#Properties]#X-Edsby-ApiClientId}"/>
+          <con:entry key="Accept" value="${#Project#Accept}"/>
+          <con:entry key="X-Edsby-APIClientId" value="${#Project#ApiClientId}"/>
         </con:parameters>
         <con:environmentSpec>
           <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
@@ -169,7 +169,7 @@
       </con:restRequest>
     </con:config>
   </con:testStep>
-  <con:testStep type="transfer" name="PropertyTransfer 1" id="a8b53d79-5372-4af6-900f-b6f6c6e4d413">
+  <con:testStep type="transfer" name="PropertyTransfer 1" id="9df0791e-612e-4259-b441-dff223107c25">
     <con:settings/>
     <con:config xsi:type="con:PropertyTransfersStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
       <con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" entitize="false" transferChildNodes="false">
@@ -185,7 +185,7 @@
       </con:transfers>
     </con:config>
   </con:testStep>
-  <con:testStep type="restrequest" name="Get" id="de8fa9af-641e-4ea7-b16b-0282fe6926ee">
+  <con:testStep type="restrequest" name="Get" id="df4c3826-c12c-49bd-a8ba-9fab84d614b2">
     <con:settings/>
     <con:config service="Te Rito APIs" resourcePath="/learningstandard/{learningStandardRefId}" methodName="getLearningStandard" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
       <con:restRequest name="Get" id="e7685dde-9f79-4eb2-b045-b8d0dd598589" mediaType="application/json">
@@ -234,9 +234,9 @@
         </con:credentials>
         <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
         <con:parameters>
-          <con:entry key="Accept" value="${#[Release 2#Setup#Properties]#Accept}"/>
+          <con:entry key="Accept" value="${#Project#Accept}"/>
           <con:entry key="learningStandardRefId" value="${Properties 1#LearningStandardRefId}"/>
-          <con:entry key="X-Edsby-APIClientId" value="${#[Release 2#Setup#Properties]#X-Edsby-ApiClientId}"/>
+          <con:entry key="X-Edsby-APIClientId" value="${#Project#ApiClientId}"/>
         </con:parameters>
         <con:environmentSpec>
           <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
@@ -246,7 +246,7 @@
       </con:restRequest>
     </con:config>
   </con:testStep>
-  <con:testStep type="restrequest" name="Update" id="2ea685d3-c49d-4403-9f0d-e63631962592">
+  <con:testStep type="restrequest" name="Update" id="f94afe11-04ad-4dc2-a22b-5f1139d49cea">
     <con:settings/>
     <con:config service="Te Rito APIs" resourcePath="/learningstandard/{learningStandardRefId}" methodName="updateLearningStandard" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
       <con:restRequest name="Update" id="7a15dcba-2fba-475b-91b9-a9ee7ce2987d" mediaType="application/json" postQueryString="false">
@@ -307,9 +307,9 @@
         </con:credentials>
         <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
         <con:parameters>
-          <con:entry key="Accept" value="${#[Release 2#Setup#Properties]#Accept}"/>
+          <con:entry key="Accept" value="${#Project#Accept}"/>
           <con:entry key="learningStandardRefId" value="${Properties 1#LearningStandardRefId}"/>
-          <con:entry key="X-Edsby-APIClientId" value="${#[Release 2#Setup#Properties]#X-Edsby-ApiClientId}"/>
+          <con:entry key="X-Edsby-APIClientId" value="${#Project#ApiClientId}"/>
         </con:parameters>
         <con:environmentSpec>
           <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
@@ -319,7 +319,7 @@
       </con:restRequest>
     </con:config>
   </con:testStep>
-  <con:testStep type="restrequest" name="Patch" id="ef5f78a8-29e8-495a-9ba8-606867622ef3">
+  <con:testStep type="restrequest" name="Patch" id="5be95297-3aac-4e17-9620-a4fe912e88a0">
     <con:settings/>
     <con:config service="Te Rito APIs" resourcePath="/learningstandard/{learningStandardRefId}" methodName="patchLearningStandard" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
       <con:restRequest name="Patch" id="978858af-8690-4510-ba61-0f521845afa0" mediaType="application/json" postQueryString="false">
@@ -365,9 +365,9 @@
         </con:credentials>
         <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
         <con:parameters>
-          <con:entry key="Accept" value="${#[Release 2#Setup#Properties]#Accept}"/>
+          <con:entry key="Accept" value="${#Project#Accept}"/>
           <con:entry key="learningStandardRefId" value="${Properties 1#LearningStandardRefId}"/>
-          <con:entry key="X-Edsby-APIClientId" value="${#[Release 2#Setup#Properties]#X-Edsby-ApiClientId}"/>
+          <con:entry key="X-Edsby-APIClientId" value="${#Project#ApiClientId}"/>
         </con:parameters>
         <con:environmentSpec>
           <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">

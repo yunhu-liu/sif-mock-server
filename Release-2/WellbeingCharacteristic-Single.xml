@@ -1,25 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<con:testCase id="7b8c0185-7775-414b-8a83-c7177ff40f55" discardOkResults="false" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="WellbeingCharacteristic-Single" searchProperties="true" timeout="0" xmlns:con="http://eviware.com/soapui/config">
+<con:testCase id="6670bb30-4b2b-4dde-9f8a-7fcee75e8040" discardOkResults="false" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="WellbeingCharacteristic-Single" searchProperties="true" timeout="0" xmlns:con="http://eviware.com/soapui/config">
   <con:settings>
-    <con:setting id="7b8c0185-7775-414b-8a83-c7177ff40f55fileName">WellbeingCharacteristic-Single</con:setting>
+    <con:setting id="6670bb30-4b2b-4dde-9f8a-7fcee75e8040fileName">WellbeingCharacteristic-Single</con:setting>
   </con:settings>
   <con:savedRecentRuns>1</con:savedRecentRuns>
-  <con:testStep type="properties" name="Properties 1" id="437d4622-a948-4590-9186-5ae5c991cfdb">
+  <con:testStep type="properties" name="Properties 1" id="13256d2e-f654-4e1b-a824-4cb15bc73d53">
     <con:settings/>
     <con:config xsi:type="con:PropertiesStep" saveFirst="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
       <con:properties>
         <con:property>
-          <con:name>StudentPersonalRefId</con:name>
-          <con:value>d3e34b35-9d75-101a-8c3d-00aa001a1652</con:value>
-        </con:property>
-        <con:property>
           <con:name>WellbeingCharacteristicRefId</con:name>
-          <con:value>80ca6fa4-6709-448f-8a7e-9569dc66de3e</con:value>
+          <con:value>a16efc27-2e41-452f-bde6-dc86df4074fb</con:value>
         </con:property>
       </con:properties>
     </con:config>
   </con:testStep>
-  <con:testStep type="datasource" name="GenDynamicId" id="679295f3-0201-456c-84f9-1c722f104722">
+  <con:testStep type="datasource" name="GenDynamicId" id="7d923b77-bd48-4cf6-88d7-482dc2197083">
     <con:settings/>
     <con:config xsi:type="con:DataSourceStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
       <con:dataSource type="Data Generator">
@@ -47,7 +43,7 @@
       <con:restartOnRun>true</con:restartOnRun>
     </con:config>
   </con:testStep>
-  <con:testStep type="datasource" name="GenWellbeingCharacteristicLocalId" id="c97d9e51-2c51-4bee-828c-e184fc354dd2">
+  <con:testStep type="datasource" name="GenWellbeingCharacteristicLocalId" id="6ef5c873-f31a-4dc5-b8c6-26aede4f72a3">
     <con:settings/>
     <con:config xsi:type="con:DataSourceStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
       <con:dataSource type="Data Generator">
@@ -70,7 +66,7 @@
       <con:restartOnRun>true</con:restartOnRun>
     </con:config>
   </con:testStep>
-  <con:testStep type="restrequest" name="CreateWellbeingCharacteristic" id="94d827e8-794c-4952-af18-f08475880750">
+  <con:testStep type="restrequest" name="CreateWellbeingCharacteristic" id="8aeda94c-884d-4b36-bb99-633802885a00">
     <con:settings/>
     <con:config service="Te Rito APIs" resourcePath="/wellbeingcharacteristic" methodName="createWellbeingCharacteristics" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
       <con:restRequest name="CreateWellbeingCharacteristic" id="50e9f87d-6871-4fbd-bbf4-7824a9e9beee" mediaType="application/json" postQueryString="false">
@@ -83,7 +79,7 @@
     "WellbeingCharacteristic" : [ {\r
       "WellbeingCharacteristicLocalId" : "${GenWellbeingCharacteristicLocalId#WellbeingCharacteristicLocalId}",\r
       "Student" : {\r
-        "RefId" : "${Properties 1#StudentPersonalRefId}"\r
+        "RefId" : "${#Project#StudentPersonalRefId}"\r
       },\r
       "RecordingProvider" : {\r
         "RefId" : "${#Project#OrgRefId#$}"\r
@@ -127,7 +123,7 @@
         <con:assertion type="JsonPath Match" id="876bbccd-71a3-4b42-8a07-1353bb539ba5" name="Match content of [RefId]">
           <con:configuration>
             <path>$['WellbeingCharacteristics']['WellbeingCharacteristic'][0]['Student']['RefId']</path>
-            <content>${Properties 1#StudentPersonalRefId}</content>
+            <content>${#Project#StudentPersonalRefId}</content>
             <allowWildcards>false</allowWildcards>
             <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
             <ignoreComments>false</ignoreComments>
@@ -151,7 +147,7 @@
       </con:restRequest>
     </con:config>
   </con:testStep>
-  <con:testStep type="transfer" name="PropertyTransfer 1" id="a573e0fb-217f-46c5-96e4-f75eb77f4e79">
+  <con:testStep type="transfer" name="PropertyTransfer 1" id="7429a69f-db38-4625-afe1-50907d2fa8a2">
     <con:settings/>
     <con:config xsi:type="con:PropertyTransfersStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
       <con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" entitize="false" transferChildNodes="false">
@@ -167,7 +163,7 @@
       </con:transfers>
     </con:config>
   </con:testStep>
-  <con:testStep type="restrequest" name="GetWellbeingCharacteristic" id="6944e20a-eb73-4a09-b87b-60ba51b333fb">
+  <con:testStep type="restrequest" name="GetWellbeingCharacteristic" id="2fa6621a-39e8-4067-8b07-26e67f546199">
     <con:settings/>
     <con:config service="Te Rito APIs" resourcePath="/wellbeingcharacteristic/{wellbeingCharacteristicRefId}" methodName="getWellbeingCharacteristic" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
       <con:restRequest name="GetWellbeingCharacteristic" id="669ed471-e404-46c8-ae17-29bc946a4c69" mediaType="application/json">
@@ -229,7 +225,7 @@
       </con:restRequest>
     </con:config>
   </con:testStep>
-  <con:testStep type="restrequest" name="GetbyStudent" id="3a3f82fd-6e20-49a0-89ce-fd57255c162d">
+  <con:testStep type="restrequest" name="GetbyStudent" id="0ab882d9-032f-4ad0-a361-145469d4fe77">
     <con:settings/>
     <con:config service="Te Rito APIs" resourcePath="/studentpersonal/{studentPersonalRefId}/wellbeingcharacteristic" methodName="getWellbeingCharacteristicsByStudent" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
       <con:restRequest name="GetbyStudent" id="61367a66-23f6-4bc4-9555-e64b15ef30f3" mediaType="application/json">
@@ -245,10 +241,10 @@
             <codes>200</codes>
           </con:configuration>
         </con:assertion>
-        <con:assertion type="JsonPath Count" id="2f006dd4-b77f-4081-a963-308161bf206e" name="Check count of [WellbeingCharacteristic]">
+        <con:assertion type="JsonPath Match" id="c346fad7-7cff-47a1-b6e5-3ea00828a8e7" name="Match content of [RefId]">
           <con:configuration>
-            <path>$['WellbeingCharacteristics']['WellbeingCharacteristic']</path>
-            <content>1</content>
+            <path>$['WellbeingCharacteristics']['WellbeingCharacteristic'][0]['Student']['RefId']</path>
+            <content>${#Project#StudentPersonalRefId}</content>
             <allowWildcards>false</allowWildcards>
             <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
             <ignoreComments>false</ignoreComments>
@@ -263,7 +259,7 @@
           <con:entry key="Accept" value="${#Project#Accept}"/>
           <con:entry key="X-Edsby-APIClientId" value="${#Project#ApiClientId}"/>
           <con:entry key="X-Edsby-OrganisationRefId" value="${#Project#OrgRefId}"/>
-          <con:entry key="studentPersonalRefId" value="${Properties 1#StudentPersonalRefId}"/>
+          <con:entry key="studentPersonalRefId" value="${#Project#StudentPersonalRefId}"/>
         </con:parameters>
         <con:environmentSpec>
           <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">

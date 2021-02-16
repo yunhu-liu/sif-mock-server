@@ -16,12 +16,12 @@
           <PropertyName0>StudentPeronsalLocalId</PropertyName0>
           <repetitionCountStudentPeronsalLocalId>0</repetitionCountStudentPeronsalLocalId>
           <repeatValuesStudentPeronsalLocalId>false</repeatValuesStudentPeronsalLocalId>
-          <CustomStringDataGeneratorFormatStudentPeronsalLocalId>ST%INT(100000,999999,false, 1)</CustomStringDataGeneratorFormatStudentPeronsalLocalId>
+          <CustomStringDataGeneratorFormatStudentPeronsalLocalId>ST1000001%INT(100000,999999,false, 1)</CustomStringDataGeneratorFormatStudentPeronsalLocalId>
           <GeneratorType1>CUSTOM</GeneratorType1>
           <PropertyName1>NSN</PropertyName1>
           <repetitionCountNSN>0</repetitionCountNSN>
           <repeatValuesNSN>false</repeatValuesNSN>
-          <CustomStringDataGeneratorFormatNSN>9001%INT(100000,999999,false, 1)</CustomStringDataGeneratorFormatNSN>
+          <CustomStringDataGeneratorFormatNSN>9001%INT(1000,9999,false, 1)</CustomStringDataGeneratorFormatNSN>
           <escapeSpaceSequence/>
         </con:configuration>
       </con:dataSource>
@@ -41,7 +41,71 @@
           <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
         </con:settings>
         <con:endpoint>https://northern.edsby.co.nz/sif</con:endpoint>
-        <con:request/>
+        <con:request>{
+  "StudentPersonals" : {
+    "StudentPersonal" : [ {
+      "StudentPersonalLocalId" : "${GenDynamicId#StudentPeronsalLocalId}",
+      "NationalStudentNumber" : "${GenDynamicId#NSN}",
+      "FirstNZSchoolingDate" : "2015-03-07T00:00:00+1200",
+      "EarlyChildhoodEducation" : {
+        "Type" : "EPG"
+      },
+      "PersonInfo" : {
+        "Name" : {
+          "FamilyName" : "Saunders",
+          "GivenName" : "Thomas",
+          "FullName" : "Thomas Saunders"
+        },
+        "Demographics" : {
+          "BirthDate" : "2010-03-07T00:00:00+1200",
+          "Gender" : "1",
+          "LanguageList" : {
+            "Language" : [ {
+              "Code" : "NZS01112",
+              "Usage" : "SH"
+            } ]
+          },
+          "EthnicityList" : {
+            "Ethnicity" : [ {
+              "Code" : "321"
+            } ]
+          }
+        },
+        "Address" : {
+          "Physical" : {
+            "Type" : "TH",
+            "Line1" : "27 Arataua Street",
+            "Suburb" : "Rotorua",
+            "City" : "Rotorua",
+            "Country" : "New Zealand",
+            "PostalCode" : "3010"
+          }
+        },
+        "Email" : {
+          "Personal" : {
+            "SourceOrganisation" : {
+              "RefId" : "${#Project#OrgRefId}"
+            },
+            "Address" : "tsaunders@mailinator.com"
+          }
+        },
+        "Phone" : {
+          "Home" : {
+            "Number" : "+64 7-943 8050"
+          }
+        }
+      },
+      "StudentProviderEnrolment" : {
+        "StudentProviderEnrolmentLocalId" : "2020_${#Project#OrgRefId}_${GenDynamicId#StudentPeronsalLocalId}",      	      	
+        "EntryDate" : "2020-01-29T00:00:00",
+        "SchoolEnrolment" : {
+          "YearLevel" : 6,
+          "FundingYearLevel" : 7
+        }
+      }
+    } ]
+  }
+}</con:request>
         <con:originalUri>http://mocksifapi.terito.education.govt.nz/sif/studentpersonal</con:originalUri>
         <con:assertion type="Valid HTTP Status Codes" id="73be5f9e-c6c9-4622-8597-693b6c1ce60f" name="Valid HTTP Status Codes">
           <con:settings/>
@@ -65,6 +129,56 @@
           </con:entry>
         </con:environmentSpec>
       </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="restrequest" name="GetStudents" id="ef5e133c-5b08-44a3-acdb-709fed7cbbb5">
+    <con:settings/>
+    <con:config service="Te Rito APIs" resourcePath="/studentpersonal" methodName="getStudentPersonals" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest name="GetStudents" id="817c5073-fd8c-454b-aa52-a5a79fe2bf4b" mediaType="application/json">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:endpoint>https://northern.edsby.co.nz/sif</con:endpoint>
+        <con:request/>
+        <con:originalUri>http://mocksifapi.terito.education.govt.nz/sif/studentpersonal</con:originalUri>
+        <con:assertion type="Valid HTTP Status Codes" id="ebe925f2-4245-41a5-a000-156d644caaa3" name="Valid HTTP Status Codes">
+          <con:settings/>
+          <con:configuration>
+            <codes>200</codes>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters>
+          <con:entry key="Accept" value="${#Project#Accept}"/>
+          <con:entry key="X-Edsby-APIClientId" value="${#Project#ApiClientId}"/>
+          <con:entry key="X-Edsby-OrganisationRefId" value="${#Project#OrgRefId}"/>
+        </con:parameters>
+        <con:environmentSpec>
+          <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="transfer" name="Property Transfer" id="90c85860-1d60-4677-a4c8-31a46492ad7c">
+    <con:settings/>
+    <con:config xsi:type="con:PropertyTransfersStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" entitize="false" transferChildNodes="false">
+        <con:name>StudentPeronsalRefId</con:name>
+        <con:sourceType>Response</con:sourceType>
+        <con:sourceStep>GetStudents</con:sourceStep>
+        <con:sourcePath>$['StudentPersonals']['StudentPersonal'][0]['StudentPersonalRefId']</con:sourcePath>
+        <con:targetType>StudentPersonalRefId</con:targetType>
+        <con:targetStep>#Project#</con:targetStep>
+        <con:targetPath/>
+        <con:type>JSONPATH</con:type>
+        <con:upgraded>true</con:upgraded>
+      </con:transfers>
     </con:config>
   </con:testStep>
   <con:properties/>

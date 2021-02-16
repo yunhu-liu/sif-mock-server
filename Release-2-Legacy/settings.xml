@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<con:testSuite id="8d7dd0dd-0663-4a61-9a8b-4ed147142bdd" name="Release 2" xmlns:con="http://eviware.com/soapui/config">
+<con:testSuite id="a3bbb405-2127-4689-8f81-61478deb38e1" name="Release 2 Legacy" xmlns:con="http://eviware.com/soapui/config">
   <con:settings>
-    <con:setting id="a3bbb405-2127-4689-8f81-61478deb38e1fileName">Release-2</con:setting>
-    <con:setting id="8d7dd0dd-0663-4a61-9a8b-4ed147142bddfileName">Release-2</con:setting>
+    <con:setting id="a3bbb405-2127-4689-8f81-61478deb38e1fileName">Release-2-Legacy</con:setting>
   </con:settings>
   <con:savedRecentRuns>1</con:savedRecentRuns>
   <con:runType>SEQUENTIAL</con:runType>

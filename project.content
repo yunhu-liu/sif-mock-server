@@ -79,10 +79,10 @@ TestDataSetup\CreateStudentPersonal.xml
 Release-2\TeachingGroup-Single.xml
 Release-2\TeachingGroup-Multiple.xml
 Release-2\WellbeingCharacteristic-Single.xml
-Release-2\LearningStandard-Single.xml
-Release-2\LearningStandard-Multiple.xml
 Release-2\Credential-Single.xml
 Release-2\Credential-Multiple.xml
+Release-2\LearningStandard-Single.xml
+Release-2\LearningStandard-Multiple.xml
 Release-2\Schedule-Single.xml
 Release-2\SchedulePeriod-Single.xml
 Release-2\ScheduleTerm-Single.xml
@@ -91,7 +91,7 @@ Release-2\Schedule-Multiple.xml
 Release-2\SchedulePeriod-Multiple.xml
 Release-2\ScheduleTerm-Multiple.xml
 Release-2\ScheduleDate-Multiple.xml
-Release-2\StaffTeachingGroupAssignments-Single.xml
+Release-2-Legacy\StaffTeachingGroupAssignments-Single.xml
 Debug\StudentContactPersonal-SingleValid.xml
 Debug\StudentContactPersonal-MultipleValid.xml
 Debug\Setup.xml

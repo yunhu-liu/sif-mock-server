@@ -486,7 +486,7 @@
   </StaffPersonal>      
 </StaffPersonals>]]></con:sampleContent>
     </con:representation>
-    <con:request name="Request 1" id="8ad11654-9dc8-4653-8756-767b6028da86" mediaType="application/json">
+    <con:request name="Request 1" id="8ad11654-9dc8-4653-8756-767b6028da86" mediaType="application/json" postQueryString="false">
       <con:settings/>
       <con:endpoint>https://northern.edsby.co.nz/sif</con:endpoint>
       <con:request>{\r
