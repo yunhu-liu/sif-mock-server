@@ -5,21 +5,6 @@
     <con:setting id="dae57ace-f5eb-47fd-a81d-31982a633baffileName">TeachingGroup-Single</con:setting>
   </con:settings>
   <con:savedRecentRuns>1</con:savedRecentRuns>
-  <con:testStep type="properties" name="Properties 1" id="f487ec4b-9ebe-4c7a-865f-bfc70f2d2c8d">
-    <con:settings/>
-    <con:config xsi:type="con:PropertiesStep" saveFirst="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-      <con:properties>
-        <con:property>
-          <con:name>TeachingGroupRefId</con:name>
-          <con:value>0004bc41-83c8-4dad-a695-7fc15860edb4</con:value>
-        </con:property>
-        <con:property>
-          <con:name>TeachingGroupLocalId</con:name>
-          <con:value>2020_TG_xxvfBkNd</con:value>
-        </con:property>
-      </con:properties>
-    </con:config>
-  </con:testStep>
   <con:testStep type="datasource" name="GenDynamicId" id="46e43a17-b196-4e30-9852-3b0a39e2e8c4">
     <con:settings/>
     <con:config xsi:type="con:DataSourceStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
@@ -153,7 +138,7 @@
       </con:restRequest>
     </con:config>
   </con:testStep>
-  <con:testStep type="transfer" name="PropertyTransfer 1" id="86ed5dd5-588f-4e3f-8ec6-776e291dcff4">
+  <con:testStep type="transfer" name="Property Transfer" id="ca5d8e93-9758-400f-b80c-8eca26a3d660">
     <con:settings/>
     <con:config xsi:type="con:PropertyTransfersStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
       <con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" entitize="false" transferChildNodes="false">
@@ -162,18 +147,8 @@
         <con:sourceStep>CreateTeachingGroup</con:sourceStep>
         <con:sourcePath>$['TeachingGroups']['TeachingGroup'][0]['TeachingGroupRefId']</con:sourcePath>
         <con:targetType>TeachingGroupRefId</con:targetType>
-        <con:targetStep>Properties 1</con:targetStep>
+        <con:targetStep>#Project#</con:targetStep>
         <con:targetPath/>
-        <con:type>JSONPATH</con:type>
-        <con:upgraded>true</con:upgraded>
-      </con:transfers>
-      <con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" entitize="false" transferChildNodes="false">
-        <con:name>TeachingGroupLocalId</con:name>
-        <con:sourceType>Response</con:sourceType>
-        <con:sourceStep>CreateTeachingGroup</con:sourceStep>
-        <con:sourcePath>$['TeachingGroups']['TeachingGroup'][0]['TeachingGroupLocalId']</con:sourcePath>
-        <con:targetType>TeachingGroupLocalId</con:targetType>
-        <con:targetStep>Properties 1</con:targetStep>
         <con:type>JSONPATH</con:type>
         <con:upgraded>true</con:upgraded>
       </con:transfers>
@@ -198,7 +173,7 @@
         <con:assertion type="JsonPath Match" id="9d3d0c00-e0d9-4218-8544-f37af264e36d" name="Match content of [TeachingGroupRefId]">
           <con:configuration>
             <path>$['TeachingGroup']['TeachingGroupRefId']</path>
-            <content>${Properties 1#TeachingGroupRefId}</content>
+            <content>${#Project#TeachingGroupRefId}</content>
             <allowWildcards>false</allowWildcards>
             <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
             <ignoreComments>false</ignoreComments>
@@ -213,15 +188,6 @@
             <ignoreComments>false</ignoreComments>
           </con:configuration>
         </con:assertion>
-        <con:assertion type="JsonPath Match" id="f8436018-53f9-491c-a804-6791794c713e" name="Match content of [TeachingGroupLocalId]">
-          <con:configuration>
-            <path>$['TeachingGroup']['TeachingGroupLocalId']</path>
-            <content>${GenTeachingGroupLocalId#TeachingGroupLocalId}</content>
-            <allowWildcards>false</allowWildcards>
-            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
-            <ignoreComments>false</ignoreComments>
-          </con:configuration>
-        </con:assertion>
         <con:credentials>
           <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
           <con:authType>No Authorization</con:authType>
@@ -231,7 +197,7 @@
           <con:entry key="Accept" value="${#Project#Accept}"/>
           <con:entry key="X-Edsby-APIClientId" value="${#Project#ApiClientId}"/>
           <con:entry key="X-Edsby-OrganisationRefId" value="${#Project#OrgRefId}"/>
-          <con:entry key="teachingGroupRefId" value="${Properties 1#TeachingGroupRefId}"/>
+          <con:entry key="teachingGroupRefId" value="${#Project#TeachingGroupRefId}"/>
         </con:parameters>
         <con:environmentSpec>
           <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
@@ -278,7 +244,7 @@
         <con:assertion type="JsonPath Match" id="0399f403-d5e1-45b3-921f-1a992e003c37" name="Match content of [TeachingGroupRefId]">
           <con:configuration>
             <path>$['TeachingGroup']['TeachingGroupRefId']</path>
-            <content>${Properties 1#TeachingGroupRefId}</content>
+            <content>${#Project#TeachingGroupRefId}</content>
             <allowWildcards>false</allowWildcards>
             <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
             <ignoreComments>false</ignoreComments>
@@ -288,15 +254,6 @@
           <con:configuration>
             <path>$['TeachingGroup']['Organisation']['RefId']</path>
             <content>${#Project#OrgRefId}</content>
-            <allowWildcards>false</allowWildcards>
-            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
-            <ignoreComments>false</ignoreComments>
-          </con:configuration>
-        </con:assertion>
-        <con:assertion type="JsonPath Match" id="1e7f3381-cebc-441c-ab8e-49e3717e05f8" name="Match content of [TeachingGroupLocalId]">
-          <con:configuration>
-            <path>$['TeachingGroup']['TeachingGroupLocalId']</path>
-            <content>${GenTeachingGroupLocalId#TeachingGroupLocalId}</content>
             <allowWildcards>false</allowWildcards>
             <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
             <ignoreComments>false</ignoreComments>
@@ -320,7 +277,7 @@
           <con:entry key="Accept" value="${#Project#Accept}"/>
           <con:entry key="X-Edsby-APIClientId" value="${#Project#ApiClientId}"/>
           <con:entry key="X-Edsby-OrganisationRefId" value="${#Project#OrgRefId}"/>
-          <con:entry key="teachingGroupRefId" value="${Properties 1#TeachingGroupRefId}"/>
+          <con:entry key="teachingGroupRefId" value="${#Project#TeachingGroupRefId}"/>
         </con:parameters>
         <con:environmentSpec>
           <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
@@ -353,7 +310,7 @@
         <con:assertion type="JsonPath Match" id="3e097e94-d1d8-422e-8221-a0dae986ec45" name="Match content of [TeachingGroupRefId]">
           <con:configuration>
             <path>$['TeachingGroupCREATE']['TeachingGroup']['TeachingGroupRefId']</path>
-            <content>${Properties 1#TeachingGroupRefId}</content>
+            <content>${#Project#TeachingGroupRefId}</content>
             <allowWildcards>false</allowWildcards>
             <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
             <ignoreComments>false</ignoreComments>
@@ -395,7 +352,7 @@
           <con:entry key="Accept" value="${#Project#Accept}"/>
           <con:entry key="X-Edsby-APIClientId" value="${#Project#ApiClientId}"/>
           <con:entry key="X-Edsby-OrganisationRefId" value="${#Project#OrgRefId}"/>
-          <con:entry key="teachingGroupRefId" value="${Properties 1#TeachingGroupRefId}"/>
+          <con:entry key="teachingGroupRefId" value="${#Project#TeachingGroupRefId}"/>
         </con:parameters>
         <con:environmentSpec>
           <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
@@ -429,6 +386,11 @@
   </con:breakPoints>
   <con:breakPoints>
     <con:testStepId>734f9535-00d9-45c0-9e47-0b3588b04727</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>ca5d8e93-9758-400f-b80c-8eca26a3d660</con:testStepId>
     <con:status>NONE</con:status>
     <con:properties/>
   </con:breakPoints>

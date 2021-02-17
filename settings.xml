@@ -19,6 +19,9 @@
     <con:property>
       <con:name>StudentPersonalRefId</con:name>
     </con:property>
+    <con:property>
+      <con:name>TeachingGroupRefId</con:name>
+    </con:property>
   </con:properties>
   <con:wssContainer/>
   <con:databaseConnectionContainer>
@@ -85,6 +88,10 @@
     <con:property>
       <con:name>StudentPersonalRefId</con:name>
       <con:value>e18cbca8-cec0-4b5c-8909-e1b0d9ed8c81</con:value>
+    </con:property>
+    <con:property>
+      <con:name>TeachingGroupRefId</con:name>
+      <con:value>1e5884d6-df5f-4730-a10d-94845d0e8eca</con:value>
     </con:property>
     <con:databaseConnectionContainer>
       <con:databaseConnection>
