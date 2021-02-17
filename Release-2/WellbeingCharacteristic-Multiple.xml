@@ -85,10 +85,11 @@ for ( i = 0; i &lt; wCount; i++)
 {
 	// Get Values 
 	def wellbeingCharacteristic = new JsonBuilder(slurped.WellbeingCharacteristics.WellbeingCharacteristic[i])
-	def notes = wellbeingCharacteristic.content.CharacteristicNotes
+	def localId = wellbeingCharacteristic.content.WellbeingCharacteristicLocalId
 
 	// Update Fields
-	slurped.WellbeingCharacteristics.WellbeingCharacteristic[i].CharacteristicNotes = "$notes" + "$dynamicId"
+	slurped.WellbeingCharacteristics.WellbeingCharacteristic[i].WellbeingCharacteristicLocalId = "$localId" + "$dynamicId"
+	slurped.WellbeingCharacteristics.WellbeingCharacteristic[i].remove("WellbeingCharacteristicRefId")
 	slurped.WellbeingCharacteristics.WellbeingCharacteristic[i].remove("RecordAudit")
 }
 
@@ -96,20 +97,29 @@ for ( i = 0; i &lt; wCount; i++)
 return new JsonBuilder(slurped)</script>
     </con:config>
   </con:testStep>
-  <con:testStep type="restrequest" name="Update" id="7582a635-d474-4105-8983-f8d175650761">
+  <con:testStep type="restrequest" name="Create" id="e4799cd8-734d-4c96-9b20-f456c348c49c">
     <con:settings/>
-    <con:config service="Te Rito APIs" resourcePath="/wellbeingcharacteristic" methodName="updateWellbeingCharacteristics" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-      <con:restRequest name="Update" id="20e004eb-fc57-44d3-abd8-87838d1fe988" mediaType="application/json" postQueryString="false">
+    <con:config service="Te Rito APIs" resourcePath="/wellbeingcharacteristic" methodName="createWellbeingCharacteristics" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest name="Create" id="50e9f87d-6871-4fbd-bbf4-7824a9e9beee" mediaType="application/json" postQueryString="false">
         <con:settings>
           <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
         </con:settings>
         <con:endpoint>https://northern.edsby.co.nz/sif</con:endpoint>
         <con:request>${UpdatePayload#result}</con:request>
         <con:originalUri>http://mocksifapi.terito.education.govt.nz/sif/wellbeingcharacteristic</con:originalUri>
-        <con:assertion type="Valid HTTP Status Codes" id="1e3b31c8-32df-4241-bd41-ecb2c2f8be1f" name="Valid HTTP Status Codes">
+        <con:assertion type="Valid HTTP Status Codes" id="f81d61e7-a0aa-4246-90d2-0d9644244f72" name="Valid HTTP Status Codes">
           <con:settings/>
           <con:configuration>
             <codes>200</codes>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="JsonPath Match" id="876bbccd-71a3-4b42-8a07-1353bb539ba5" name="Match content of [RefId]">
+          <con:configuration>
+            <path>$['WellbeingCharacteristics']['WellbeingCharacteristic'][0]['Student']['RefId']</path>
+            <content>${#Project#StudentPersonalRefId}</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
           </con:configuration>
         </con:assertion>
         <con:credentials>
@@ -138,7 +148,71 @@ import groovy.json.*
 
 // Load Data for Learning Standards 
 def dynamicId = context.expand( '${GenDynamicId#DynamicId}' )
-def response = context.expand( '${Get#Response}' )
+def response = context.expand( '${Create#Response}' )
+def slurped = new JsonSlurper().parseText(response)
+
+// Get Total Count
+def wCount = slurped.WellbeingCharacteristics.WellbeingCharacteristic.size()
+
+// Loop Through and Update Fields for Each
+for ( i = 0; i &lt; wCount; i++)
+{
+	// Get Values 
+	def wellbeingCharacteristic = new JsonBuilder(slurped.WellbeingCharacteristics.WellbeingCharacteristic[i])
+	def notes = wellbeingCharacteristic.content.CharacteristicNotes
+
+	// Update Fields
+	slurped.WellbeingCharacteristics.WellbeingCharacteristic[i].CharacteristicNotes = "$notes" + "$dynamicId"
+	slurped.WellbeingCharacteristics.WellbeingCharacteristic[i].remove("RecordAudit")
+}
+
+// Write Updated Payload to Result
+return new JsonBuilder(slurped)</script>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="restrequest" name="Update" id="7582a635-d474-4105-8983-f8d175650761">
+    <con:settings/>
+    <con:config service="Te Rito APIs" resourcePath="/wellbeingcharacteristic" methodName="updateWellbeingCharacteristics" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest name="Update" id="20e004eb-fc57-44d3-abd8-87838d1fe988" mediaType="application/json" postQueryString="false">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:endpoint>https://northern.edsby.co.nz/sif</con:endpoint>
+        <con:request>${UpdatePayload 2#result}</con:request>
+        <con:originalUri>http://mocksifapi.terito.education.govt.nz/sif/wellbeingcharacteristic</con:originalUri>
+        <con:assertion type="Valid HTTP Status Codes" id="1e3b31c8-32df-4241-bd41-ecb2c2f8be1f" name="Valid HTTP Status Codes">
+          <con:settings/>
+          <con:configuration>
+            <codes>200</codes>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters>
+          <con:entry key="Accept" value="${#Project#Accept}"/>
+          <con:entry key="X-Edsby-APIClientId" value="${#Project#ApiClientId}"/>
+          <con:entry key="X-Edsby-OrganisationRefId" value="${#Project#OrgRefId}"/>
+        </con:parameters>
+        <con:environmentSpec>
+          <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="groovy" name="UpdatePayload 3" id="614b11e2-b706-4c1d-a1e4-7ca7ad7a0443">
+    <con:settings/>
+    <con:config>
+      <script>// Update Payload by Adding Dynamic Values to Some Fields
+import groovy.json.*
+
+// Load Data for Learning Standards 
+def dynamicId = context.expand( '${GenDynamicId#DynamicId}' )
+def response = context.expand( '${Update#Response}' )
 def slurped = new JsonSlurper().parseText(response)
 
 // Get Total Count
@@ -177,7 +251,7 @@ return new JsonBuilder(slurped)</script>
           <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
         </con:settings>
         <con:endpoint>https://northern.edsby.co.nz/sif</con:endpoint>
-        <con:request>${UpdatePayload 2#result}</con:request>
+        <con:request>${UpdatePayload 3#result}</con:request>
         <con:originalUri>http://mocksifapi.terito.education.govt.nz/sif/wellbeingcharacteristic</con:originalUri>
         <con:assertion type="Valid HTTP Status Codes" id="8bdc3280-54d5-43b1-b784-211d696363d4" name="Valid HTTP Status Codes">
           <con:settings/>
@@ -217,6 +291,16 @@ return new JsonBuilder(slurped)</script>
   </con:breakPoints>
   <con:breakPoints>
     <con:testStepId>d1855943-988b-490a-860b-c9886cadeba8</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>e4799cd8-734d-4c96-9b20-f456c348c49c</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>614b11e2-b706-4c1d-a1e4-7ca7ad7a0443</con:testStepId>
     <con:status>NONE</con:status>
     <con:properties/>
   </con:breakPoints>

@@ -10,7 +10,7 @@
       <con:properties>
         <con:property>
           <con:name>ScheduleTermRefId</con:name>
-          <con:value>0fb874bb-63b9-40c9-8897-3c2dc8c82e84</con:value>
+          <con:value>e27faf22-334b-4d26-a0c4-dddbee268e7a</con:value>
         </con:property>
         <con:property>
           <con:name>StartDate</con:name>
@@ -22,7 +22,7 @@
         </con:property>
         <con:property>
           <con:name>ScheduleTermLocalId</con:name>
-          <con:value>2020_T1_IEXonNKP</con:value>
+          <con:value>2020_T1_EIibMPVg</con:value>
         </con:property>
       </con:properties>
     </con:config>
