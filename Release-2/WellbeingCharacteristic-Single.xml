@@ -10,7 +10,7 @@
       <con:properties>
         <con:property>
           <con:name>WellbeingCharacteristicRefId</con:name>
-          <con:value>a16efc27-2e41-452f-bde6-dc86df4074fb</con:value>
+          <con:value>6e370259-5023-42c0-b29e-559d1835882e</con:value>
         </con:property>
       </con:properties>
     </con:config>
@@ -20,7 +20,7 @@
     <con:config xsi:type="con:DataSourceStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
       <con:dataSource type="Data Generator">
         <con:configuration>
-          <generatedDataCount>1</generatedDataCount>
+          <generatedDataCount>5</generatedDataCount>
           <generatorsTotalNumber>1</generatorsTotalNumber>
           <lastSelectedProperty>0</lastSelectedProperty>
           <GeneratorType0>STR</GeneratorType0>
@@ -267,6 +267,14 @@
           </con:entry>
         </con:environmentSpec>
       </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="datasourceloop" name="DataSource Loop" id="941dc36f-c228-4538-afae-65eb7a6ddea7">
+    <con:settings/>
+    <con:config>
+      <dataSourceStep>GenDynamicId</dataSourceStep>
+      <targetStep>GenWellbeingCharacteristicLocalId</targetStep>
+      <discardResults>true</discardResults>
     </con:config>
   </con:testStep>
   <con:properties/>

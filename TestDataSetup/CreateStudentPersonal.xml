@@ -9,7 +9,7 @@
     <con:config xsi:type="con:DataSourceStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
       <con:dataSource type="Data Generator">
         <con:configuration>
-          <generatedDataCount>1</generatedDataCount>
+          <generatedDataCount>10</generatedDataCount>
           <generatorsTotalNumber>2</generatorsTotalNumber>
           <lastSelectedProperty>1</lastSelectedProperty>
           <GeneratorType0>CUSTOM</GeneratorType0>
@@ -179,6 +179,14 @@
         <con:type>JSONPATH</con:type>
         <con:upgraded>true</con:upgraded>
       </con:transfers>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="datasourceloop" name="DataSource Loop" id="3479f4c1-14ba-4af8-b393-ced108bc0230">
+    <con:settings/>
+    <con:config>
+      <dataSourceStep>GenDynamicId</dataSourceStep>
+      <targetStep>CreateStudent</targetStep>
+      <discardResults>true</discardResults>
     </con:config>
   </con:testStep>
   <con:properties/>

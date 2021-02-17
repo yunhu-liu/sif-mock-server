@@ -79,6 +79,7 @@ TestDataSetup\CreateStudentPersonal.xml
 Release-2\TeachingGroup-Single.xml
 Release-2\TeachingGroup-Multiple.xml
 Release-2\WellbeingCharacteristic-Single.xml
+Release-2\WellbeingCharacteristic-Multiple.xml
 Release-2\Credential-Single.xml
 Release-2\Credential-Multiple.xml
 Release-2\LearningStandard-Single.xml

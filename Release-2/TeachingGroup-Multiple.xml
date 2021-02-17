@@ -42,24 +42,6 @@
       <con:restartOnRun>true</con:restartOnRun>
     </con:config>
   </con:testStep>
-  <con:testStep type="datasource" name="GetOrgRefId" id="4565d6ef-5aac-4e1e-bc2b-47fb3c5c40c3" disabled="true">
-    <con:settings/>
-    <con:config xsi:type="con:DataSourceStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-      <con:dataSource type="JSON">
-        <con:configuration>
-          <sourceStep>GetPayload</sourceStep>
-          <sourceProperty>Payload</sourceProperty>
-          <rowPath>$['TeachingGroups']['TeachingGroup'][0]</rowPath>
-          <columnPath>['Organisation']['RefId']</columnPath>
-        </con:configuration>
-      </con:dataSource>
-      <con:shared>true</con:shared>
-      <con:restartShared>true</con:restartShared>
-      <con:property>OrgRefId</con:property>
-      <con:completeLastOperation>true</con:completeLastOperation>
-      <con:restartOnRun>true</con:restartOnRun>
-    </con:config>
-  </con:testStep>
   <con:testStep type="datasource" name="GenDynamicId" id="00d16d29-d7e9-4dd0-a6ca-1b7c3a8ebc44">
     <con:settings/>
     <con:config xsi:type="con:DataSourceStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
@@ -155,6 +137,844 @@ return new JsonBuilder(slurped)</script>
             <allowWildcards>false</allowWildcards>
             <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
             <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="MessageContentAssertion" id="01cef5b6-e5c1-4f96-a913-0918336ed0b5" name="Message Content Assertion">
+          <con:configuration xsi:type="con:MessageContentAssertion">
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/teachinggroup';
+//ns1:Response[1]/ns1:TeachingGroups[1]/ns1:TeachingGroup[1]/ns1:e[1]/ns1:TeachingGroupRefId[1]</con:xpath>
+              <con:element>TeachingGroupRefId</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>=</con:operator>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>410049b7-849c-45bf-a018-d837442401a1</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/teachinggroup';
+//ns1:Response[1]/ns1:TeachingGroups[1]/ns1:TeachingGroup[1]/ns1:e[1]/ns1:TeachingGroupLocalId[1]</con:xpath>
+              <con:element>TeachingGroupLocalId</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>=</con:operator>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>2020_8005_JR_6tiec92Q</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/teachinggroup';
+//ns1:Response[1]/ns1:TeachingGroups[1]/ns1:TeachingGroup[1]/ns1:e[1]/ns1:ShortName[1]</con:xpath>
+              <con:element>ShortName</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>=</con:operator>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>Room 1_6tiec92Q</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/teachinggroup';
+//ns1:Response[1]/ns1:TeachingGroups[1]/ns1:TeachingGroup[1]/ns1:e[1]/ns1:LongName[1]</con:xpath>
+              <con:element>LongName</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>=</con:operator>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>Room 1 - Jrs_6tiec92Q</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/teachinggroup';
+//ns1:Response[1]/ns1:TeachingGroups[1]/ns1:TeachingGroup[1]/ns1:e[1]/ns1:GroupType[1]</con:xpath>
+              <con:element>GroupType</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>=</con:operator>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>HR</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/teachinggroup';
+//ns1:Response[1]/ns1:TeachingGroups[1]/ns1:TeachingGroup[1]/ns1:e[1]/ns1:Organisation[1]/ns1:RefId[1]</con:xpath>
+              <con:element>RefId</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>=</con:operator>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>1005</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/teachinggroup';
+//ns1:Response[1]/ns1:TeachingGroups[1]/ns1:TeachingGroup[1]/ns1:e[1]/ns1:ScheduleTerm[1]/ns1:LocalId[1]</con:xpath>
+              <con:element>LocalId</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>=</con:operator>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>2020_8005_Y</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/teachinggroup';
+//ns1:Response[1]/ns1:TeachingGroups[1]/ns1:TeachingGroup[1]/ns1:e[1]/ns1:YearLevelList[1]/ns1:YearLevel[1]/ns1:e[1]</con:xpath>
+              <con:element>e</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>=</con:operator>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>1</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/teachinggroup';
+//ns1:Response[1]/ns1:TeachingGroups[1]/ns1:TeachingGroup[1]/ns1:e[1]/ns1:YearLevelList[1]/ns1:YearLevel[1]/ns1:e[2]</con:xpath>
+              <con:element>e</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>=</con:operator>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>2</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/teachinggroup';
+//ns1:Response[1]/ns1:TeachingGroups[1]/ns1:TeachingGroup[1]/ns1:e[1]/ns1:RecordAudit[1]/ns1:CreatedDateTime[1]</con:xpath>
+              <con:element>CreatedDateTime</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>=</con:operator>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>2021-02-16T21:02:46.1221435+00:00</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/teachinggroup';
+//ns1:Response[1]/ns1:TeachingGroups[1]/ns1:TeachingGroup[1]/ns1:e[1]/ns1:RecordAudit[1]/ns1:CreatedBy[1]/ns1:Name[1]</con:xpath>
+              <con:element>Name</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>=</con:operator>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>MockServerClient</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/teachinggroup';
+//ns1:Response[1]/ns1:TeachingGroups[1]/ns1:TeachingGroup[1]/ns1:e[2]/ns1:TeachingGroupRefId[1]</con:xpath>
+              <con:element>TeachingGroupRefId</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>=</con:operator>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>933b2930-b8f9-4aff-b929-0bc1971c796f</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/teachinggroup';
+//ns1:Response[1]/ns1:TeachingGroups[1]/ns1:TeachingGroup[1]/ns1:e[2]/ns1:TeachingGroupLocalId[1]</con:xpath>
+              <con:element>TeachingGroupLocalId</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>=</con:operator>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>2020_8005_HR3_6tiec92Q</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/teachinggroup';
+//ns1:Response[1]/ns1:TeachingGroups[1]/ns1:TeachingGroup[1]/ns1:e[2]/ns1:ShortName[1]</con:xpath>
+              <con:element>ShortName</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>=</con:operator>
+              <con:enabled>true</con:enabled>
+              <con:expectedValue>Room 2_6tiec92Q</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/teachinggroup';
+//ns1:Response[1]/ns1:TeachingGroups[1]/ns1:TeachingGroup[1]/ns1:e[2]/ns1:LongName[1]</con:xpath>
+              <con:element>LongName</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>=</con:operator>
+              <con:enabled>true</con:enabled>
+              <con:expectedValue>Room 2 - Year 3_6tiec92Q</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/teachinggroup';
+//ns1:Response[1]/ns1:TeachingGroups[1]/ns1:TeachingGroup[1]/ns1:e[2]/ns1:GroupType[1]</con:xpath>
+              <con:element>GroupType</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>=</con:operator>
+              <con:enabled>true</con:enabled>
+              <con:expectedValue>HR</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/teachinggroup';
+//ns1:Response[1]/ns1:TeachingGroups[1]/ns1:TeachingGroup[1]/ns1:e[2]/ns1:Organisation[1]/ns1:RefId[1]</con:xpath>
+              <con:element>RefId</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>=</con:operator>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>1005</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/teachinggroup';
+//ns1:Response[1]/ns1:TeachingGroups[1]/ns1:TeachingGroup[1]/ns1:e[2]/ns1:ScheduleTerm[1]/ns1:LocalId[1]</con:xpath>
+              <con:element>LocalId</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>=</con:operator>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>2020_8005_Y</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/teachinggroup';
+//ns1:Response[1]/ns1:TeachingGroups[1]/ns1:TeachingGroup[1]/ns1:e[2]/ns1:YearLevelList[1]/ns1:YearLevel[1]/ns1:e[1]</con:xpath>
+              <con:element>e</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>=</con:operator>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>3</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/teachinggroup';
+//ns1:Response[1]/ns1:TeachingGroups[1]/ns1:TeachingGroup[1]/ns1:e[2]/ns1:RecordAudit[1]/ns1:CreatedDateTime[1]</con:xpath>
+              <con:element>CreatedDateTime</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>=</con:operator>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>2021-02-16T21:02:46.153827+00:00</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/teachinggroup';
+//ns1:Response[1]/ns1:TeachingGroups[1]/ns1:TeachingGroup[1]/ns1:e[2]/ns1:RecordAudit[1]/ns1:CreatedBy[1]/ns1:Name[1]</con:xpath>
+              <con:element>Name</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>=</con:operator>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>MockServerClient</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/teachinggroup';
+//ns1:Response[1]/ns1:TeachingGroups[1]/ns1:TeachingGroup[1]/ns1:e[3]/ns1:TeachingGroupRefId[1]</con:xpath>
+              <con:element>TeachingGroupRefId</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>=</con:operator>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>5d9fe409-4059-403e-9e55-c44b1d0e8cc9</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/teachinggroup';
+//ns1:Response[1]/ns1:TeachingGroups[1]/ns1:TeachingGroup[1]/ns1:e[3]/ns1:TeachingGroupLocalId[1]</con:xpath>
+              <con:element>TeachingGroupLocalId</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>=</con:operator>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>2020_8005_HR4_6tiec92Q</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/teachinggroup';
+//ns1:Response[1]/ns1:TeachingGroups[1]/ns1:TeachingGroup[1]/ns1:e[3]/ns1:ShortName[1]</con:xpath>
+              <con:element>ShortName</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>=</con:operator>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>Room 3_6tiec92Q</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/teachinggroup';
+//ns1:Response[1]/ns1:TeachingGroups[1]/ns1:TeachingGroup[1]/ns1:e[3]/ns1:LongName[1]</con:xpath>
+              <con:element>LongName</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>=</con:operator>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>Room 3 - Year 4_6tiec92Q</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/teachinggroup';
+//ns1:Response[1]/ns1:TeachingGroups[1]/ns1:TeachingGroup[1]/ns1:e[3]/ns1:GroupType[1]</con:xpath>
+              <con:element>GroupType</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>=</con:operator>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>HR</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/teachinggroup';
+//ns1:Response[1]/ns1:TeachingGroups[1]/ns1:TeachingGroup[1]/ns1:e[3]/ns1:Organisation[1]/ns1:RefId[1]</con:xpath>
+              <con:element>RefId</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>=</con:operator>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>1005</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/teachinggroup';
+//ns1:Response[1]/ns1:TeachingGroups[1]/ns1:TeachingGroup[1]/ns1:e[3]/ns1:ScheduleTerm[1]/ns1:LocalId[1]</con:xpath>
+              <con:element>LocalId</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>=</con:operator>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>2020_8005_Y</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/teachinggroup';
+//ns1:Response[1]/ns1:TeachingGroups[1]/ns1:TeachingGroup[1]/ns1:e[3]/ns1:YearLevelList[1]/ns1:YearLevel[1]/ns1:e[1]</con:xpath>
+              <con:element>e</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>=</con:operator>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>4</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/teachinggroup';
+//ns1:Response[1]/ns1:TeachingGroups[1]/ns1:TeachingGroup[1]/ns1:e[3]/ns1:RecordAudit[1]/ns1:CreatedDateTime[1]</con:xpath>
+              <con:element>CreatedDateTime</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>=</con:operator>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>2021-02-16T21:02:46.197337+00:00</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/teachinggroup';
+//ns1:Response[1]/ns1:TeachingGroups[1]/ns1:TeachingGroup[1]/ns1:e[3]/ns1:RecordAudit[1]/ns1:CreatedBy[1]/ns1:Name[1]</con:xpath>
+              <con:element>Name</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>=</con:operator>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>MockServerClient</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/teachinggroup';
+//ns1:Response[1]/ns1:TeachingGroups[1]/ns1:TeachingGroup[1]/ns1:e[4]/ns1:TeachingGroupRefId[1]</con:xpath>
+              <con:element>TeachingGroupRefId</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>=</con:operator>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>d467ebe2-b454-4b9c-9085-f3eae8a09a8e</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/teachinggroup';
+//ns1:Response[1]/ns1:TeachingGroups[1]/ns1:TeachingGroup[1]/ns1:e[4]/ns1:TeachingGroupLocalId[1]</con:xpath>
+              <con:element>TeachingGroupLocalId</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>=</con:operator>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>2020_8005_HR5_6tiec92Q</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/teachinggroup';
+//ns1:Response[1]/ns1:TeachingGroups[1]/ns1:TeachingGroup[1]/ns1:e[4]/ns1:ShortName[1]</con:xpath>
+              <con:element>ShortName</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>=</con:operator>
+              <con:enabled>true</con:enabled>
+              <con:expectedValue>Room 4_6tiec92Q</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/teachinggroup';
+//ns1:Response[1]/ns1:TeachingGroups[1]/ns1:TeachingGroup[1]/ns1:e[4]/ns1:LongName[1]</con:xpath>
+              <con:element>LongName</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>=</con:operator>
+              <con:enabled>true</con:enabled>
+              <con:expectedValue>Room 4 - Year 5_6tiec92Q</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/teachinggroup';
+//ns1:Response[1]/ns1:TeachingGroups[1]/ns1:TeachingGroup[1]/ns1:e[4]/ns1:GroupType[1]</con:xpath>
+              <con:element>GroupType</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>=</con:operator>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>HR</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/teachinggroup';
+//ns1:Response[1]/ns1:TeachingGroups[1]/ns1:TeachingGroup[1]/ns1:e[4]/ns1:Organisation[1]/ns1:RefId[1]</con:xpath>
+              <con:element>RefId</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>=</con:operator>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>1005</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/teachinggroup';
+//ns1:Response[1]/ns1:TeachingGroups[1]/ns1:TeachingGroup[1]/ns1:e[4]/ns1:ScheduleTerm[1]/ns1:LocalId[1]</con:xpath>
+              <con:element>LocalId</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>=</con:operator>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>2020_8005_Y</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/teachinggroup';
+//ns1:Response[1]/ns1:TeachingGroups[1]/ns1:TeachingGroup[1]/ns1:e[4]/ns1:YearLevelList[1]/ns1:YearLevel[1]/ns1:e[1]</con:xpath>
+              <con:element>e</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>=</con:operator>
+              <con:enabled>true</con:enabled>
+              <con:expectedValue>5</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/teachinggroup';
+//ns1:Response[1]/ns1:TeachingGroups[1]/ns1:TeachingGroup[1]/ns1:e[4]/ns1:RecordAudit[1]/ns1:CreatedDateTime[1]</con:xpath>
+              <con:element>CreatedDateTime</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>=</con:operator>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>2021-02-16T21:02:46.2461307+00:00</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/teachinggroup';
+//ns1:Response[1]/ns1:TeachingGroups[1]/ns1:TeachingGroup[1]/ns1:e[4]/ns1:RecordAudit[1]/ns1:CreatedBy[1]/ns1:Name[1]</con:xpath>
+              <con:element>Name</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>=</con:operator>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>MockServerClient</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/teachinggroup';
+//ns1:Response[1]/ns1:TeachingGroups[1]/ns1:TeachingGroup[1]/ns1:e[5]/ns1:TeachingGroupRefId[1]</con:xpath>
+              <con:element>TeachingGroupRefId</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>=</con:operator>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>3597a84f-78cc-44bd-8e36-2e70ba9fbb69</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/teachinggroup';
+//ns1:Response[1]/ns1:TeachingGroups[1]/ns1:TeachingGroup[1]/ns1:e[5]/ns1:TeachingGroupLocalId[1]</con:xpath>
+              <con:element>TeachingGroupLocalId</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>=</con:operator>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>2020_8005_HR6_6tiec92Q</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/teachinggroup';
+//ns1:Response[1]/ns1:TeachingGroups[1]/ns1:TeachingGroup[1]/ns1:e[5]/ns1:ShortName[1]</con:xpath>
+              <con:element>ShortName</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>=</con:operator>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>Room 5_6tiec92Q</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/teachinggroup';
+//ns1:Response[1]/ns1:TeachingGroups[1]/ns1:TeachingGroup[1]/ns1:e[5]/ns1:LongName[1]</con:xpath>
+              <con:element>LongName</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>=</con:operator>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>Room 5 - Year 6_6tiec92Q</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/teachinggroup';
+//ns1:Response[1]/ns1:TeachingGroups[1]/ns1:TeachingGroup[1]/ns1:e[5]/ns1:GroupType[1]</con:xpath>
+              <con:element>GroupType</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>=</con:operator>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>HR</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/teachinggroup';
+//ns1:Response[1]/ns1:TeachingGroups[1]/ns1:TeachingGroup[1]/ns1:e[5]/ns1:Organisation[1]/ns1:RefId[1]</con:xpath>
+              <con:element>RefId</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>=</con:operator>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>1005</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/teachinggroup';
+//ns1:Response[1]/ns1:TeachingGroups[1]/ns1:TeachingGroup[1]/ns1:e[5]/ns1:ScheduleTerm[1]/ns1:LocalId[1]</con:xpath>
+              <con:element>LocalId</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>=</con:operator>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>2020_8005_Y</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/teachinggroup';
+//ns1:Response[1]/ns1:TeachingGroups[1]/ns1:TeachingGroup[1]/ns1:e[5]/ns1:YearLevelList[1]/ns1:YearLevel[1]/ns1:e[1]</con:xpath>
+              <con:element>e</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>=</con:operator>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>6</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/teachinggroup';
+//ns1:Response[1]/ns1:TeachingGroups[1]/ns1:TeachingGroup[1]/ns1:e[5]/ns1:RecordAudit[1]/ns1:CreatedDateTime[1]</con:xpath>
+              <con:element>CreatedDateTime</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>=</con:operator>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>2021-02-16T21:02:46.2773799+00:00</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/teachinggroup';
+//ns1:Response[1]/ns1:TeachingGroups[1]/ns1:TeachingGroup[1]/ns1:e[5]/ns1:RecordAudit[1]/ns1:CreatedBy[1]/ns1:Name[1]</con:xpath>
+              <con:element>Name</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>=</con:operator>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>MockServerClient</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/teachinggroup';
+//ns1:Response[1]/ns1:TeachingGroups[1]/ns1:TeachingGroup[1]/ns1:e[6]/ns1:TeachingGroupRefId[1]</con:xpath>
+              <con:element>TeachingGroupRefId</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>=</con:operator>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>43057908-5a45-49ac-a3b4-58acab980718</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/teachinggroup';
+//ns1:Response[1]/ns1:TeachingGroups[1]/ns1:TeachingGroup[1]/ns1:e[6]/ns1:TeachingGroupLocalId[1]</con:xpath>
+              <con:element>TeachingGroupLocalId</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>=</con:operator>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>2020_8005_HR7_HR8_6tiec92Q</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/teachinggroup';
+//ns1:Response[1]/ns1:TeachingGroups[1]/ns1:TeachingGroup[1]/ns1:e[6]/ns1:ShortName[1]</con:xpath>
+              <con:element>ShortName</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>=</con:operator>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>Room 6_6tiec92Q</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/teachinggroup';
+//ns1:Response[1]/ns1:TeachingGroups[1]/ns1:TeachingGroup[1]/ns1:e[6]/ns1:LongName[1]</con:xpath>
+              <con:element>LongName</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>=</con:operator>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>Room 6 - Years 7 &amp; 8_6tiec92Q</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/teachinggroup';
+//ns1:Response[1]/ns1:TeachingGroups[1]/ns1:TeachingGroup[1]/ns1:e[6]/ns1:GroupType[1]</con:xpath>
+              <con:element>GroupType</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>=</con:operator>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>HR</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/teachinggroup';
+//ns1:Response[1]/ns1:TeachingGroups[1]/ns1:TeachingGroup[1]/ns1:e[6]/ns1:Organisation[1]/ns1:RefId[1]</con:xpath>
+              <con:element>RefId</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>=</con:operator>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>1005</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/teachinggroup';
+//ns1:Response[1]/ns1:TeachingGroups[1]/ns1:TeachingGroup[1]/ns1:e[6]/ns1:ScheduleTerm[1]/ns1:LocalId[1]</con:xpath>
+              <con:element>LocalId</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>=</con:operator>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>2020_8005_Y</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/teachinggroup';
+//ns1:Response[1]/ns1:TeachingGroups[1]/ns1:TeachingGroup[1]/ns1:e[6]/ns1:YearLevelList[1]/ns1:YearLevel[1]/ns1:e[1]</con:xpath>
+              <con:element>e</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>=</con:operator>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>7</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/teachinggroup';
+//ns1:Response[1]/ns1:TeachingGroups[1]/ns1:TeachingGroup[1]/ns1:e[6]/ns1:YearLevelList[1]/ns1:YearLevel[1]/ns1:e[2]</con:xpath>
+              <con:element>e</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>=</con:operator>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>8</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/teachinggroup';
+//ns1:Response[1]/ns1:TeachingGroups[1]/ns1:TeachingGroup[1]/ns1:e[6]/ns1:RecordAudit[1]/ns1:CreatedDateTime[1]</con:xpath>
+              <con:element>CreatedDateTime</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>=</con:operator>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>2021-02-16T21:02:46.3071344+00:00</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/teachinggroup';
+//ns1:Response[1]/ns1:TeachingGroups[1]/ns1:TeachingGroup[1]/ns1:e[6]/ns1:RecordAudit[1]/ns1:CreatedBy[1]/ns1:Name[1]</con:xpath>
+              <con:element>Name</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>=</con:operator>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>MockServerClient</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:originalMessage><![CDATA[<Response xmlns="http://mocksifapi.terito.education.govt.nz/sif/teachinggroup">
+   <TeachingGroups>
+      <TeachingGroup>
+         <e>
+            <TeachingGroupRefId>410049b7-849c-45bf-a018-d837442401a1</TeachingGroupRefId>
+            <TeachingGroupLocalId>2020_8005_JR_6tiec92Q</TeachingGroupLocalId>
+            <ShortName>Room 1_6tiec92Q</ShortName>
+            <LongName>Room 1 - Jrs_6tiec92Q</LongName>
+            <GroupType>HR</GroupType>
+            <Organisation>
+               <RefId>1005</RefId>
+            </Organisation>
+            <ScheduleTerm>
+               <LocalId>2020_8005_Y</LocalId>
+            </ScheduleTerm>
+            <YearLevelList>
+               <YearLevel>
+                  <e>1</e>
+                  <e>2</e>
+               </YearLevel>
+            </YearLevelList>
+            <RecordAudit>
+               <CreatedDateTime>2021-02-16T21:02:46.1221435+00:00</CreatedDateTime>
+               <CreatedBy>
+                  <Name>MockServerClient</Name>
+               </CreatedBy>
+            </RecordAudit>
+         </e>
+         <e>
+            <TeachingGroupRefId>933b2930-b8f9-4aff-b929-0bc1971c796f</TeachingGroupRefId>
+            <TeachingGroupLocalId>2020_8005_HR3_6tiec92Q</TeachingGroupLocalId>
+            <ShortName>Room 2_6tiec92Q</ShortName>
+            <LongName>Room 2 - Year 3_6tiec92Q</LongName>
+            <GroupType>HR</GroupType>
+            <Organisation>
+               <RefId>1005</RefId>
+            </Organisation>
+            <ScheduleTerm>
+               <LocalId>2020_8005_Y</LocalId>
+            </ScheduleTerm>
+            <YearLevelList>
+               <YearLevel>
+                  <e>3</e>
+               </YearLevel>
+            </YearLevelList>
+            <RecordAudit>
+               <CreatedDateTime>2021-02-16T21:02:46.153827+00:00</CreatedDateTime>
+               <CreatedBy>
+                  <Name>MockServerClient</Name>
+               </CreatedBy>
+            </RecordAudit>
+         </e>
+         <e>
+            <TeachingGroupRefId>5d9fe409-4059-403e-9e55-c44b1d0e8cc9</TeachingGroupRefId>
+            <TeachingGroupLocalId>2020_8005_HR4_6tiec92Q</TeachingGroupLocalId>
+            <ShortName>Room 3_6tiec92Q</ShortName>
+            <LongName>Room 3 - Year 4_6tiec92Q</LongName>
+            <GroupType>HR</GroupType>
+            <Organisation>
+               <RefId>1005</RefId>
+            </Organisation>
+            <ScheduleTerm>
+               <LocalId>2020_8005_Y</LocalId>
+            </ScheduleTerm>
+            <YearLevelList>
+               <YearLevel>
+                  <e>4</e>
+               </YearLevel>
+            </YearLevelList>
+            <RecordAudit>
+               <CreatedDateTime>2021-02-16T21:02:46.197337+00:00</CreatedDateTime>
+               <CreatedBy>
+                  <Name>MockServerClient</Name>
+               </CreatedBy>
+            </RecordAudit>
+         </e>
+         <e>
+            <TeachingGroupRefId>d467ebe2-b454-4b9c-9085-f3eae8a09a8e</TeachingGroupRefId>
+            <TeachingGroupLocalId>2020_8005_HR5_6tiec92Q</TeachingGroupLocalId>
+            <ShortName>Room 4_6tiec92Q</ShortName>
+            <LongName>Room 4 - Year 5_6tiec92Q</LongName>
+            <GroupType>HR</GroupType>
+            <Organisation>
+               <RefId>1005</RefId>
+            </Organisation>
+            <ScheduleTerm>
+               <LocalId>2020_8005_Y</LocalId>
+            </ScheduleTerm>
+            <YearLevelList>
+               <YearLevel>
+                  <e>5</e>
+               </YearLevel>
+            </YearLevelList>
+            <RecordAudit>
+               <CreatedDateTime>2021-02-16T21:02:46.2461307+00:00</CreatedDateTime>
+               <CreatedBy>
+                  <Name>MockServerClient</Name>
+               </CreatedBy>
+            </RecordAudit>
+         </e>
+         <e>
+            <TeachingGroupRefId>3597a84f-78cc-44bd-8e36-2e70ba9fbb69</TeachingGroupRefId>
+            <TeachingGroupLocalId>2020_8005_HR6_6tiec92Q</TeachingGroupLocalId>
+            <ShortName>Room 5_6tiec92Q</ShortName>
+            <LongName>Room 5 - Year 6_6tiec92Q</LongName>
+            <GroupType>HR</GroupType>
+            <Organisation>
+               <RefId>1005</RefId>
+            </Organisation>
+            <ScheduleTerm>
+               <LocalId>2020_8005_Y</LocalId>
+            </ScheduleTerm>
+            <YearLevelList>
+               <YearLevel>
+                  <e>6</e>
+               </YearLevel>
+            </YearLevelList>
+            <RecordAudit>
+               <CreatedDateTime>2021-02-16T21:02:46.2773799+00:00</CreatedDateTime>
+               <CreatedBy>
+                  <Name>MockServerClient</Name>
+               </CreatedBy>
+            </RecordAudit>
+         </e>
+         <e>
+            <TeachingGroupRefId>43057908-5a45-49ac-a3b4-58acab980718</TeachingGroupRefId>
+            <TeachingGroupLocalId>2020_8005_HR7_HR8_6tiec92Q</TeachingGroupLocalId>
+            <ShortName>Room 6_6tiec92Q</ShortName>
+            <LongName>Room 6 - Years 7 &amp; 8_6tiec92Q</LongName>
+            <GroupType>HR</GroupType>
+            <Organisation>
+               <RefId>1005</RefId>
+            </Organisation>
+            <ScheduleTerm>
+               <LocalId>2020_8005_Y</LocalId>
+            </ScheduleTerm>
+            <YearLevelList>
+               <YearLevel>
+                  <e>7</e>
+                  <e>8</e>
+               </YearLevel>
+            </YearLevelList>
+            <RecordAudit>
+               <CreatedDateTime>2021-02-16T21:02:46.3071344+00:00</CreatedDateTime>
+               <CreatedBy>
+                  <Name>MockServerClient</Name>
+               </CreatedBy>
+            </RecordAudit>
+         </e>
+      </TeachingGroup>
+   </TeachingGroups>
+</Response>]]></con:originalMessage>
           </con:configuration>
         </con:assertion>
         <con:credentials>

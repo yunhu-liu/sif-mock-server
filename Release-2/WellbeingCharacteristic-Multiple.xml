@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase id="ed6e4e08-b11a-4c05-ba7d-e84547c24cca" discardOkResults="false" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="WellbeingCharacteristic-Multiple" searchProperties="true" timeout="0" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="ed6e4e08-b11a-4c05-ba7d-e84547c24ccafileName">WellbeingCharacteristic-Multiple</con:setting>
+  </con:settings>
+  <con:savedRecentRuns>1</con:savedRecentRuns>
+  <con:testStep type="restrequest" name="Get" id="70da1626-e323-47a9-a4f3-6d38eed6a4fc">
+    <con:settings/>
+    <con:config service="Te Rito APIs" resourcePath="/wellbeingcharacteristic" methodName="getWellbeingCharacteristics" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest name="Get" id="4cf540a4-a366-4d0b-ab23-f799443f0900" mediaType="application/json">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:endpoint>https://northern.edsby.co.nz/sif</con:endpoint>
+        <con:request/>
+        <con:originalUri>http://mocksifapi.terito.education.govt.nz/sif/wellbeingcharacteristic</con:originalUri>
+        <con:assertion type="Valid HTTP Status Codes" id="ec04bda8-e9b5-47b4-8ef6-263a069666df" name="Valid HTTP Status Codes">
+          <con:settings/>
+          <con:configuration>
+            <codes>200</codes>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters>
+          <con:entry key="Accept" value="${#Project#Accept}"/>
+          <con:entry key="X-Edsby-APIClientId" value="${#Project#ApiClientId}"/>
+          <con:entry key="X-Edsby-OrganisationRefId" value="${#Project#OrgRefId}"/>
+        </con:parameters>
+        <con:environmentSpec>
+          <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="datasource" name="GenDynamicId" id="ce690c02-d6c2-4a03-bbbf-8f9179cb6f0d">
+    <con:settings/>
+    <con:config xsi:type="con:DataSourceStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:dataSource type="Data Generator">
+        <con:configuration>
+          <generatedDataCount>1</generatedDataCount>
+          <generatorsTotalNumber>1</generatorsTotalNumber>
+          <lastSelectedProperty>0</lastSelectedProperty>
+          <GeneratorType0>STR</GeneratorType0>
+          <PropertyName0>DynamicId</PropertyName0>
+          <repetitionCountDynamicId>0</repetitionCountDynamicId>
+          <repeatValuesDynamicId>false</repeatValuesDynamicId>
+          <PasswordDataGeneratorUseSpacesDynamicId>false</PasswordDataGeneratorUseSpacesDynamicId>
+          <PasswordDataGeneratorUsePunctuationMarksDynamicId>false</PasswordDataGeneratorUsePunctuationMarksDynamicId>
+          <PasswordDataGeneratorUseLettersDynamicId>true</PasswordDataGeneratorUseLettersDynamicId>
+          <PasswordDataGeneratorUseDigitsDynamicId>true</PasswordDataGeneratorUseDigitsDynamicId>
+          <PasswordDataGeneratorMaxCharacterCountDynamicId>8</PasswordDataGeneratorMaxCharacterCountDynamicId>
+          <PasswordDataGeneratorMinCharacterCountDynamicId>8</PasswordDataGeneratorMinCharacterCountDynamicId>
+          <escapeSpaceSequence/>
+        </con:configuration>
+      </con:dataSource>
+      <con:shared>true</con:shared>
+      <con:restartShared>true</con:restartShared>
+      <con:property>DynamicId</con:property>
+      <con:completeLastOperation>true</con:completeLastOperation>
+      <con:restartOnRun>true</con:restartOnRun>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="groovy" name="UpdatePayload" id="59995ca3-1c37-4e08-a5e3-9f8273596fe0">
+    <con:settings/>
+    <con:config>
+      <script>// Update Payload by Adding Dynamic Values to Some Fields
+import groovy.json.*
+
+// Load Data for Learning Standards 
+def dynamicId = context.expand( '${GenDynamicId#DynamicId}' )
+def response = context.expand( '${Get#Response}' )
+def slurped = new JsonSlurper().parseText(response)
+
+// Get Total Count
+def wCount = slurped.WellbeingCharacteristics.WellbeingCharacteristic.size()
+
+// Loop Through and Update Fields for Each
+for ( i = 0; i &lt; wCount; i++)
+{
+	// Get Values 
+	def wellbeingCharacteristic = new JsonBuilder(slurped.WellbeingCharacteristics.WellbeingCharacteristic[i])
+	def notes = wellbeingCharacteristic.content.CharacteristicNotes
+
+	// Update Fields
+	slurped.WellbeingCharacteristics.WellbeingCharacteristic[i].CharacteristicNotes = "$notes" + "$dynamicId"
+	slurped.WellbeingCharacteristics.WellbeingCharacteristic[i].remove("RecordAudit")
+}
+
+// Write Updated Payload to Result
+return new JsonBuilder(slurped)</script>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="restrequest" name="Update" id="7582a635-d474-4105-8983-f8d175650761">
+    <con:settings/>
+    <con:config service="Te Rito APIs" resourcePath="/wellbeingcharacteristic" methodName="updateWellbeingCharacteristics" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest name="Update" id="20e004eb-fc57-44d3-abd8-87838d1fe988" mediaType="application/json" postQueryString="false">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:endpoint>https://northern.edsby.co.nz/sif</con:endpoint>
+        <con:request>${UpdatePayload#result}</con:request>
+        <con:originalUri>http://mocksifapi.terito.education.govt.nz/sif/wellbeingcharacteristic</con:originalUri>
+        <con:assertion type="Valid HTTP Status Codes" id="1e3b31c8-32df-4241-bd41-ecb2c2f8be1f" name="Valid HTTP Status Codes">
+          <con:settings/>
+          <con:configuration>
+            <codes>200</codes>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters>
+          <con:entry key="Accept" value="${#Project#Accept}"/>
+          <con:entry key="X-Edsby-APIClientId" value="${#Project#ApiClientId}"/>
+          <con:entry key="X-Edsby-OrganisationRefId" value="${#Project#OrgRefId}"/>
+        </con:parameters>
+        <con:environmentSpec>
+          <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="groovy" name="UpdatePayload 2" id="d1855943-988b-490a-860b-c9886cadeba8">
+    <con:settings/>
+    <con:config>
+      <script>// Update Payload by Adding Dynamic Values to Some Fields
+import groovy.json.*
+
+// Load Data for Learning Standards 
+def dynamicId = context.expand( '${GenDynamicId#DynamicId}' )
+def response = context.expand( '${Get#Response}' )
+def slurped = new JsonSlurper().parseText(response)
+
+// Get Total Count
+def wCount = slurped.WellbeingCharacteristics.WellbeingCharacteristic.size()
+
+// Loop Through and Update Fields for Each
+for ( i = 0; i &lt; wCount; i++)
+{
+	// Get Values 
+	def wellbeingCharacteristic = new JsonBuilder(slurped.WellbeingCharacteristics.WellbeingCharacteristic[i])
+	def notes = wellbeingCharacteristic.content.CharacteristicNotes
+
+	// Update Fields
+	slurped.WellbeingCharacteristics.WellbeingCharacteristic[i].CharacteristicNotes = "$notes" + "$dynamicId"
+	slurped.WellbeingCharacteristics.WellbeingCharacteristic[i].remove("Student")
+	slurped.WellbeingCharacteristics.WellbeingCharacteristic[i].remove("RecordingProvider")
+	slurped.WellbeingCharacteristics.WellbeingCharacteristic[i].remove("StartDate")
+	slurped.WellbeingCharacteristics.WellbeingCharacteristic[i].remove("EndDate")
+	slurped.WellbeingCharacteristics.WellbeingCharacteristic[i].remove("Classification")
+	slurped.WellbeingCharacteristics.WellbeingCharacteristic[i].remove("Category")
+	slurped.WellbeingCharacteristics.WellbeingCharacteristic[i].remove("SubCategory")
+	slurped.WellbeingCharacteristics.WellbeingCharacteristic[i].remove("SubSubCategory")
+	slurped.WellbeingCharacteristics.WellbeingCharacteristic[i].remove("CaseLeadContactPerson")	
+	slurped.WellbeingCharacteristics.WellbeingCharacteristic[i].remove("RecordAudit")
+}
+
+// Write Updated Payload to Result
+return new JsonBuilder(slurped)</script>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="restrequest" name="Patch" id="562da2dc-fa8c-4019-8f6b-6d67fb56d6cc">
+    <con:settings/>
+    <con:config service="Te Rito APIs" resourcePath="/wellbeingcharacteristic" methodName="patchWellbeingCharacteristics" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest name="Patch" id="0d84190e-371a-4cc1-ba46-799a84d1308e" mediaType="application/json" postQueryString="false">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:endpoint>https://northern.edsby.co.nz/sif</con:endpoint>
+        <con:request>${UpdatePayload 2#result}</con:request>
+        <con:originalUri>http://mocksifapi.terito.education.govt.nz/sif/wellbeingcharacteristic</con:originalUri>
+        <con:assertion type="Valid HTTP Status Codes" id="8bdc3280-54d5-43b1-b784-211d696363d4" name="Valid HTTP Status Codes">
+          <con:settings/>
+          <con:configuration>
+            <codes>200</codes>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters>
+          <con:entry key="Accept" value="${#Project#Accept}"/>
+          <con:entry key="X-Edsby-APIClientId" value="${#Project#ApiClientId}"/>
+          <con:entry key="X-Edsby-OrganisationRefId" value="${#Project#OrgRefId}"/>
+        </con:parameters>
+        <con:environmentSpec>
+          <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:properties/>
+  <con:reportParameters/>
+  <con:breakPoints>
+    <con:testStepId>ce690c02-d6c2-4a03-bbbf-8f9179cb6f0d</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>59995ca3-1c37-4e08-a5e3-9f8273596fe0</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>d1855943-988b-490a-860b-c9886cadeba8</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+</con:testCase>
