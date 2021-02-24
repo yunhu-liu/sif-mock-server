@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<con:testCase id="b616d85a-e23f-4914-bbdd-b6a36523349c" discardOkResults="false" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="CreateSchool" searchProperties="true" timeout="0" xmlns:con="http://eviware.com/soapui/config">
+<con:testCase id="df0cad27-6893-4981-a0e9-46f6c9fa9138" discardOkResults="false" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="CreateSchool2" searchProperties="true" timeout="0" xmlns:con="http://eviware.com/soapui/config">
   <con:settings>
-    <con:setting id="b616d85a-e23f-4914-bbdd-b6a36523349cfileName">CreateSchool</con:setting>
+    <con:setting id="df0cad27-6893-4981-a0e9-46f6c9fa9138fileName">CreateSchool2</con:setting>
   </con:settings>
   <con:savedRecentRuns>1</con:savedRecentRuns>
-  <con:testStep type="calltestcase" name="Run TestCase" id="9f74ddb5-3548-4ae9-a36e-61ed49514e34">
+  <con:testStep type="calltestcase" name="Run TestCase" id="bfe83b68-4be4-4658-923d-f1fea31bbe65">
     <con:settings/>
     <con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
       <con:targetTestCase>24ef0e3d-68d7-48b8-a475-5251e955c822</con:targetTestCase>
       <con:properties>
         <con:property>
           <con:name>OrgRefId</con:name>
-          <con:value>1011</con:value>
+          <con:value>1012</con:value>
         </con:property>
       </con:properties>
       <con:returnProperties>
@@ -20,7 +20,7 @@
       <con:runMode>PARALLELL</con:runMode>
     </con:config>
   </con:testStep>
-  <con:testStep type="transfer" name="Property Transfer" id="4c370b4f-7007-44d8-b158-0ae4560c8be3">
+  <con:testStep type="transfer" name="Property Transfer" id="8b33c3f4-b5f6-41f7-aa4c-9c8678a69ec5">
     <con:settings/>
     <con:config xsi:type="con:PropertyTransfersStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
       <con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" entitize="false" transferChildNodes="false">
@@ -28,14 +28,14 @@
         <con:sourceType>OrgRefId</con:sourceType>
         <con:sourceStep>Run TestCase</con:sourceStep>
         <con:sourcePath/>
-        <con:targetType>OrgRefId</con:targetType>
+        <con:targetType>OrgRefId2</con:targetType>
         <con:targetStep>#Project#</con:targetStep>
         <con:targetPath/>
         <con:upgraded>true</con:upgraded>
       </con:transfers>
     </con:config>
   </con:testStep>
-  <con:testStep type="datasource" name="GenDynamicId" id="82d3b6e7-1e74-4268-9a86-033653b772a2">
+  <con:testStep type="datasource" name="GenDynamicId" id="4c6dcab2-bee3-4aa4-b094-47776475d4a4">
     <con:settings/>
     <con:config xsi:type="con:DataSourceStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
       <con:dataSource type="Data Generator">
@@ -64,7 +64,7 @@
       <con:restartOnRun>true</con:restartOnRun>
     </con:config>
   </con:testStep>
-  <con:testStep type="restrequest" name="CreateSchool" id="3803b6da-6398-41de-9b02-aeb415536d3d">
+  <con:testStep type="restrequest" name="CreateSchool" id="3d50964b-88b2-46df-882a-15932493716f">
     <con:settings/>
     <con:config service="Te Rito APIs" resourcePath="/organisation" methodName="createOrganisations" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
       <con:restRequest name="CreateSchool" id="e168a5dd-ffde-489e-b257-50d4644c6a36" mediaType="application/json" postQueryString="false">
@@ -76,7 +76,7 @@
     "Organisations": {
         "Organisation": [
             {
-                "OrganisationRefId": "${#Project#OrgRefId}",
+                "OrganisationRefId": "${#Project#OrgRefId2}",
                 "OrganisationLocalId": "${GenDynamicId#OrganisationLocalId}",
                 "EducationRegion": "12010",
                 "SpecialEducationDistrict": "182006",
@@ -222,7 +222,7 @@
       </con:restRequest>
     </con:config>
   </con:testStep>
-  <con:testStep type="restrequest" name="GetSchool" id="8b426903-9b81-4817-9639-8f9c8aca2ad0">
+  <con:testStep type="restrequest" name="GetSchool" id="b5d1c7f7-81af-4217-8037-04c8739e33ac">
     <con:settings/>
     <con:config service="Te Rito APIs" resourcePath="/organisation/{organisationRefId}" methodName="getOrganisation" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
       <con:restRequest name="GetSchool" id="ba92a07d-2237-4616-bceb-1e0a13574908" mediaType="application/json">
@@ -241,7 +241,7 @@
         <con:assertion type="JsonPath Match" id="e3e6d996-7d15-47e1-b4c6-98d9fd1cf21c" name="Match content of [OrganisationRefId]">
           <con:configuration>
             <path>$['Organisation']['OrganisationRefId']</path>
-            <content>${#Project#OrgRefId#$}</content>
+            <content>${#Project#OrgRefId2#$}</content>
             <allowWildcards>false</allowWildcards>
             <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
             <ignoreComments>false</ignoreComments>
@@ -272,7 +272,7 @@
         <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
         <con:parameters>
           <con:entry key="Accept" value="${#Project#Accept}"/>
-          <con:entry key="organisationRefId" value="${#Project#OrgRefId}"/>
+          <con:entry key="organisationRefId" value="${#Project#OrgRefId2}"/>
           <con:entry key="X-Edsby-APIClientId" value="${#Project#ApiClientId}"/>
         </con:parameters>
         <con:environmentSpec>

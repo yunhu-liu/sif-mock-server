@@ -14,16 +14,16 @@
   "LearningStandards": {
     "LearningStandard": [
       {
-        "LearningStandardRefId": "222010b6-88bf-4c13-bd8e-2138f4ef073d",
-        "LearningStandardLocalId": "91165-v2-vQdQsScQ_1moEoQ8k",
-        "Title": "Chemistry, Organic Compounds7n2p4xS2",
+        "LearningStandardRefId": "cb749d14-fc46-408e-a022-6b243589cc4d",
+        "LearningStandardLocalId": "91165-v2-dVzdrCmx_1VdlxsH4",
+        "Title": "Chemistry, Organic CompoundsiXmIj1S8",
         "Number": 91165,
         "VersionNo": 2.0,
         "Publisher": {
-          "RefId": "9e1d78bc-d1cd-4ff2-afa7-f740387b18d2"
+          "RefId": "6419f2e5-1e9b-4b89-96c2-ff480263aaa9"
         },
         "StandardType": "US",
-        "Description": "Demonstrate understanding of the properties of selected organic compounds7n2p4xS2",
+        "Description": "Demonstrate understanding of the properties of selected organic compoundsiXmIj1S8",
         "SubjectAreaList": {
           "SubjectArea": [
             "CHEM"
@@ -34,7 +34,7 @@
         "Level": 2.0,
         "AssessmentType": "INT",
         "RecordAudit": {
-          "CreatedDateTime": "2021-02-17T01:24:46.6963011+00:00",
+          "CreatedDateTime": "2021-02-23T02:04:16.4919328+00:00",
           "CreatedBy": {
             "Name": "MockServerClient"
           }

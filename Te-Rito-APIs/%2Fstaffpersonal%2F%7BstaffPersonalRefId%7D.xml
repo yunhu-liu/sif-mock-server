@@ -490,7 +490,7 @@
       <con:params/>
       <con:sampleContent>&lt;ObjectNode>&lt;$ref>#/paths/~1staffpersonal~1%7BstaffPersonalRefId%7D/get/responses/200/content/application~1xml/example&lt;/$ref>&lt;/ObjectNode></con:sampleContent>
     </con:representation>
-    <con:request name="Request 1" id="c1213ae1-0f93-411e-8a70-908051cde91a" mediaType="application/json">
+    <con:request name="Request 1" id="c1213ae1-0f93-411e-8a70-908051cde91a" mediaType="application/json" postQueryString="false">
       <con:settings/>
       <con:endpoint>https://northern.edsby.co.nz/sif</con:endpoint>
       <con:request>{\r

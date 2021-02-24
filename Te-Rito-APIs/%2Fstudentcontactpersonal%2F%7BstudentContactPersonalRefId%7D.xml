@@ -65,12 +65,12 @@
       </con:parameter>
       <con:parameter required="true">
         <con:name>studentPersonalRefId</con:name>
-        <con:style>TEMPLATE</con:style>
+        <con:style>HEADER</con:style>
         <con:description>System RefId of the student.</con:description>
       </con:parameter>
       <con:parameter required="true">
         <con:name>studentContactPersonalRefId</con:name>
-        <con:style>TEMPLATE</con:style>
+        <con:style>HEADER</con:style>
         <con:description>&lt;p>The GUID identifying the record of the personal contact and demographic information of the particular student;s whānau member.&lt;/p></con:description>
       </con:parameter>
     </con:parameters>
@@ -514,7 +514,7 @@
       <con:params/>
       <con:sampleContent>&lt;ObjectNode>&lt;$ref>#/paths/~1studentcontactpersonal~1%7BstudentContactPersonalRefId%7D/get/responses/200/content/application~1xml/example&lt;/$ref>&lt;/ObjectNode></con:sampleContent>
     </con:representation>
-    <con:request name="Request 1" id="d8212ebc-b3c1-4ee4-89eb-1ee45ae80a6c" mediaType="application/json">
+    <con:request name="Request 1" id="d8212ebc-b3c1-4ee4-89eb-1ee45ae80a6c" mediaType="application/json" postQueryString="false">
       <con:settings/>
       <con:endpoint>https://northern.edsby.co.nz/sif</con:endpoint>
       <con:request>{\r

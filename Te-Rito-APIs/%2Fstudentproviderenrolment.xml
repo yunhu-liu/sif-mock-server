@@ -408,7 +408,7 @@
   </SchoolEnrolmentList>
 </StudentProviderEnrolment>]]></con:sampleContent>
     </con:representation>
-    <con:request name="Request 1" id="103d5822-49d2-4b5f-86d6-fd5b7bf53521" mediaType="application/json">
+    <con:request name="Request 1" id="103d5822-49d2-4b5f-86d6-fd5b7bf53521" mediaType="application/json" postQueryString="false">
       <con:settings/>
       <con:endpoint>https://northern.edsby.co.nz/sif</con:endpoint>
       <con:request>{\r
@@ -624,7 +624,7 @@
       <con:params/>
       <con:sampleContent>&lt;ObjectNode>&lt;$ref>#/paths/~1studentproviderenrolment/post/requestBody/content/application~1xml/example&lt;/$ref>&lt;/ObjectNode></con:sampleContent>
     </con:representation>
-    <con:request name="Request 1" id="ff1f6569-eab3-4736-8bac-cab33f8b55c3" mediaType="application/json">
+    <con:request name="Request 1" id="ff1f6569-eab3-4736-8bac-cab33f8b55c3" mediaType="application/json" postQueryString="false">
       <con:settings/>
       <con:endpoint>https://northern.edsby.co.nz/sif</con:endpoint>
       <con:request>{\r
@@ -805,7 +805,7 @@
       <con:params/>
       <con:sampleContent>&lt;ObjectNode>&lt;$ref>#/paths/~1studentproviderenrolment/post/requestBody/content/application~1xml/example&lt;/$ref>&lt;/ObjectNode></con:sampleContent>
     </con:representation>
-    <con:request name="Request 1" id="92aff384-e6a5-4b78-8b4a-2feac5e7000a" mediaType="application/json">
+    <con:request name="Request 1" id="92aff384-e6a5-4b78-8b4a-2feac5e7000a" mediaType="application/json" postQueryString="false">
       <con:settings/>
       <con:endpoint>https://northern.edsby.co.nz/sif</con:endpoint>
       <con:request>{\r

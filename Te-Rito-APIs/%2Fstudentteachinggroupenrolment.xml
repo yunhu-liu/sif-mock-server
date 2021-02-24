@@ -392,7 +392,7 @@
   </StudentTeachingGroupEnrolment>
 </StudentTeachingGroupEnrolments>]]></con:sampleContent>
     </con:representation>
-    <con:request name="Request 1" id="b4d6a1c2-4a6a-4931-a752-06a6683070be" mediaType="application/json">
+    <con:request name="Request 1" id="b4d6a1c2-4a6a-4931-a752-06a6683070be" mediaType="application/json" postQueryString="false">
       <con:settings/>
       <con:endpoint>https://northern.edsby.co.nz/sif</con:endpoint>
       <con:request>{\r

@@ -31,8 +31,8 @@ Where OrganisationRefId = '${#TestCase#OrgRefId}'</query>
   <con:testStep type="groovy" name="GenOrgRefId" id="c88514b7-06cd-4649-b5c5-107f45767ffd">
     <con:settings/>
     <con:config>
-      <script>// Get the candidate organisation reference id
-def orgRefId = testRunner.testCase.getPropertyValue( "OrgRefId" ).toInteger()
+      <script>// Candidate organisation reference id
+int orgRefId = new Integer(context.expand( '${#TestCase#OrgRefId}' ))
 
 // Set index and maximum for loop 
 def idx = 0
@@ -57,7 +57,7 @@ while (context.expand( '${CountOrgInDb#RecordCount}' ) != "0" )
   <con:properties>
     <con:property>
       <con:name>OrgRefId</con:name>
-      <con:value>1006</con:value>
+      <con:value>1011</con:value>
     </con:property>
   </con:properties>
   <con:reportParameters/>

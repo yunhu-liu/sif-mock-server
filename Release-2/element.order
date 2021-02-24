@@ -1,4 +1,6 @@
 TeachingGroup-Single.xml
+StudentTeachingGroupEnrolment-Single.xml
+StaffTeachingGroupEnrolment-Single.xml
 TeachingGroup-Multiple.xml
 WellbeingCharacteristic-Single.xml
 WellbeingCharacteristic-Multiple.xml

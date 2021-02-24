@@ -1,0 +1,324 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase id="32913985-a508-46be-b62d-2ac824297a65" discardOkResults="false" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="StudentProviderEnrolment-Multiple" searchProperties="true" timeout="0" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="32913985-a508-46be-b62d-2ac824297a65fileName">StudentProviderEnrolment-Multiple</con:setting>
+  </con:settings>
+  <con:savedRecentRuns>1</con:savedRecentRuns>
+  <con:testStep type="datasource" name="LoadTestData-Multiple" id="c633e12f-e0b6-4628-b80a-7b9d385d16aa">
+    <con:settings>
+      <con:setting id="com.eviware.soapui.impl.wsdl.teststeps.datasource.DataSourceContainer@prepared-properties">&lt;xml-fragment/></con:setting>
+    </con:settings>
+    <con:config xsi:type="con:DataSourceStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:dataSource type="Directory">
+        <con:configuration>
+          <directory>C:/TeRito APIs/Te Rito APIs (v3.2-rc2)/v3.2-rc2_multiple_header_wrapped/StudentProviderEnrolment/200</directory>
+          <filter>200_StudentProviderEnrolment_TeWheke_8005_multiple_valid_.json</filter>
+          <encoding/>
+        </con:configuration>
+      </con:dataSource>
+      <con:shared>true</con:shared>
+      <con:restartShared>true</con:restartShared>
+      <con:property>TestData</con:property>
+      <con:completeLastOperation>true</con:completeLastOperation>
+      <con:restartOnRun>true</con:restartOnRun>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="datasource" name="GetPayload" id="759774a4-7e8b-4d16-a77c-e5ef4d26154b">
+    <con:settings/>
+    <con:config xsi:type="con:DataSourceStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:dataSource type="JSON">
+        <con:configuration>
+          <sourceStep>LoadTestData-Multiple</sourceStep>
+          <sourceProperty>TestData</sourceProperty>
+          <rowPath>$['testcase']</rowPath>
+          <columnPath/>
+        </con:configuration>
+      </con:dataSource>
+      <con:shared>true</con:shared>
+      <con:restartShared>true</con:restartShared>
+      <con:property>Payload</con:property>
+      <con:completeLastOperation>true</con:completeLastOperation>
+      <con:restartOnRun>true</con:restartOnRun>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="datasource" name="GenDynamicId" id="60f24a4f-8ac2-4e31-bd44-ac8bab86e6e3">
+    <con:settings/>
+    <con:config xsi:type="con:DataSourceStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:dataSource type="Data Generator">
+        <con:configuration>
+          <generatedDataCount>1</generatedDataCount>
+          <generatorsTotalNumber>1</generatorsTotalNumber>
+          <lastSelectedProperty>0</lastSelectedProperty>
+          <GeneratorType0>STR</GeneratorType0>
+          <PropertyName0>DynamicId</PropertyName0>
+          <repetitionCountDynamicId>0</repetitionCountDynamicId>
+          <repeatValuesDynamicId>false</repeatValuesDynamicId>
+          <PasswordDataGeneratorUseSpacesDynamicId>false</PasswordDataGeneratorUseSpacesDynamicId>
+          <PasswordDataGeneratorUsePunctuationMarksDynamicId>false</PasswordDataGeneratorUsePunctuationMarksDynamicId>
+          <PasswordDataGeneratorUseLettersDynamicId>true</PasswordDataGeneratorUseLettersDynamicId>
+          <PasswordDataGeneratorUseDigitsDynamicId>true</PasswordDataGeneratorUseDigitsDynamicId>
+          <PasswordDataGeneratorMaxCharacterCountDynamicId>8</PasswordDataGeneratorMaxCharacterCountDynamicId>
+          <PasswordDataGeneratorMinCharacterCountDynamicId>8</PasswordDataGeneratorMinCharacterCountDynamicId>
+          <escapeSpaceSequence/>
+        </con:configuration>
+      </con:dataSource>
+      <con:shared>true</con:shared>
+      <con:restartShared>true</con:restartShared>
+      <con:property>DynamicId</con:property>
+      <con:completeLastOperation>true</con:completeLastOperation>
+      <con:restartOnRun>true</con:restartOnRun>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="groovy" name="UpdatePayload" id="7f0f67a6-eb82-49d3-874e-f520c9d82698">
+    <con:settings/>
+    <con:config>
+      <script>// Update Payload by Adding Dynamic Values to Some Fields
+import groovy.json.*
+
+def orgRefId = context.expand( '${#Project#OrgRefId2}' )
+
+// Get Payload from Previous Test Case
+def response = context.expand( '${#[TestSuite 1#StudentPersonal-Multiple#GetStudentPersonals]#Response}' )
+def studentSlurped = new JsonSlurper().parseText(response)
+
+// Load Data
+def payload = context.expand( '${GetPayload#Payload}' ) 
+def slurped = new JsonSlurper().parseText(payload)
+
+// Get Total Count
+def speCount = slurped.StudentProviderEnrolments.StudentProviderEnrolment.size()
+def spCount = studentSlurped.StudentPersonals.StudentPersonal.size()
+def lBound = speCount &lt; spCount ? speCount : spCount
+
+// Loop Through and Update Fields for Each
+for ( i = 0; i &lt; lBound; i++)
+{
+	def studentLocalId = slurped.StudentProviderEnrolments.StudentProviderEnrolment[i].Student.LocalId
+	def nsn = studentSlurped.StudentPersonals.StudentPersonal[i].NationalStudentNumber
+	
+	// Update Fields
+	slurped.StudentProviderEnrolments.StudentProviderEnrolment[i].StudentProviderEnrolmentLocalId = "$orgRefId" + "_" + "$studentLocalId" 
+	slurped.StudentProviderEnrolments.StudentProviderEnrolment[i].Student &lt;&lt; [NationalStudentNumber : "$nsn"]	
+	slurped.StudentProviderEnrolments.StudentProviderEnrolment[i].Provider.RefId = "$orgRefId"
+	slurped.StudentProviderEnrolments.StudentProviderEnrolment[i].Student.remove("LocalId")	
+}
+
+while ( slurped.StudentProviderEnrolments.StudentProviderEnrolment.size() > lBound)
+{
+	slurped.StudentProviderEnrolments.StudentProviderEnrolment.remove(lBound)		
+}
+
+// Write Updated Payload to Result
+return new JsonBuilder(slurped)</script>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="restrequest" name="CreateStudentProviderEnrolment" id="6a423d2f-3b6b-401a-b706-b0e3561693f9">
+    <con:settings/>
+    <con:config service="Te Rito APIs" resourcePath="/studentproviderenrolment" methodName="createStudentProviderEnrolments" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest name="CreateStudentProviderEnrolment" id="103d5822-49d2-4b5f-86d6-fd5b7bf53521" mediaType="application/json" postQueryString="false">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:endpoint>https://northern.edsby.co.nz/sif</con:endpoint>
+        <con:request>${UpdatePayload#result}</con:request>
+        <con:originalUri>http://mocksifapi.terito.education.govt.nz/sif/studentproviderenrolment</con:originalUri>
+        <con:assertion type="Valid HTTP Status Codes" id="aa5befbf-5cc8-4ecb-948d-6454194b4407" name="Valid HTTP Status Codes">
+          <con:settings/>
+          <con:configuration>
+            <codes>200</codes>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters>
+          <con:entry key="Accept" value="${#Project#Accept}"/>
+          <con:entry key="X-Edsby-APIClientId" value="${#Project#ApiClientId}"/>
+          <con:entry key="X-Edsby-OrganisationRefId" value="${#Project#OrgRefId2}"/>
+        </con:parameters>
+        <con:environmentSpec>
+          <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="restrequest" name="GetStudentProviderEnrolments" id="67648a92-a45d-4ead-9163-c8207ba31957">
+    <con:settings/>
+    <con:config service="Te Rito APIs" resourcePath="/studentproviderenrolment" methodName="getStudentProviderEnrolments" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest name="GetStudentProviderEnrolments" id="21a32d9e-9fea-49de-9ebc-60f85c25f1a6" mediaType="application/json">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:endpoint>https://northern.edsby.co.nz/sif</con:endpoint>
+        <con:request/>
+        <con:originalUri>http://mocksifapi.terito.education.govt.nz/sif/studentproviderenrolment</con:originalUri>
+        <con:assertion type="Valid HTTP Status Codes" id="4aea7a1b-3b35-4629-9b07-7c2e32c955e1" name="Valid HTTP Status Codes">
+          <con:settings/>
+          <con:configuration>
+            <codes>200</codes>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters>
+          <con:entry key="Accept" value="${#Project#Accept}"/>
+          <con:entry key="X-Edsby-APIClientId" value="${#Project#ApiClientId}"/>
+          <con:entry key="X-Edsby-OrganisationRefId" value="${#Project#OrgRefId2}"/>
+        </con:parameters>
+        <con:environmentSpec>
+          <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="groovy" name="UpdatePayload 2" id="5d71605a-25dc-4cc4-9778-74841722a009">
+    <con:settings/>
+    <con:config>
+      <script>// Update Payload by Adding Dynamic Values to Some Fields
+import groovy.json.*
+
+// Load Data
+def response = context.expand( '${GetStudentProviderEnrolments#Response}' )
+def slurped = new JsonSlurper().parseText(response)
+
+// Get Total Count
+def speCount = slurped.StudentProviderEnrolments.StudentProviderEnrolment.size()
+
+// Loop Through and Update Fields for Each
+for ( i = 0; i &lt; speCount; i++)
+{
+	def studentLocalId = slurped.StudentProviderEnrolments.StudentProviderEnrolment[i].Student.LocalId
+	
+	// Update Fields
+	slurped.StudentProviderEnrolments.StudentProviderEnrolment[i].EntryDate = "2013-03-30T12:00:00+00:00"
+	slurped.StudentProviderEnrolments.StudentProviderEnrolment[i].remove("Status")	
+	slurped.StudentProviderEnrolments.StudentProviderEnrolment[i].remove("RecordAudit")	
+}
+
+// Write Updated Payload to Result
+return new JsonBuilder(slurped)</script>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="restrequest" name="UpdateStudentProviderEnrolments" id="36df2d98-9a33-404f-837b-8c5a9f741e6f">
+    <con:settings/>
+    <con:config service="Te Rito APIs" resourcePath="/studentproviderenrolment" methodName="updateStudentProviderEnrolments" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest name="UpdateStudentProviderEnrolments" id="ff1f6569-eab3-4736-8bac-cab33f8b55c3" mediaType="application/json" postQueryString="false">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:endpoint>https://northern.edsby.co.nz/sif</con:endpoint>
+        <con:request>${UpdatePayload 2#result}</con:request>
+        <con:originalUri>http://mocksifapi.terito.education.govt.nz/sif/studentproviderenrolment</con:originalUri>
+        <con:assertion type="Valid HTTP Status Codes" id="3cbc452a-d886-49c9-9526-aa3a3d16a52d" name="Valid HTTP Status Codes">
+          <con:settings/>
+          <con:configuration>
+            <codes>200</codes>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters>
+          <con:entry key="Accept" value="${#Project#Accept}"/>
+          <con:entry key="X-Edsby-APIClientId" value="${#Project#ApiClientId}"/>
+          <con:entry key="X-Edsby-OrganisationRefId" value="${#Project#OrgRefId2}"/>
+        </con:parameters>
+        <con:environmentSpec>
+          <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="groovy" name="UpdatePayload 3" id="fdc07d9b-25d0-4bc1-a226-4786aff3b276">
+    <con:settings/>
+    <con:config>
+      <script>// Update Payload by Adding Dynamic Values to Some Fields
+import groovy.json.*
+
+// Load Data
+def response = context.expand( '${GetStudentProviderEnrolments#Response}' )
+def slurped = new JsonSlurper().parseText(response)
+
+// Get Total Count
+def speCount = slurped.StudentProviderEnrolments.StudentProviderEnrolment.size()
+
+// Loop Through and Update Fields for Each
+for ( i = 0; i &lt; speCount; i++)
+{
+	def studentLocalId = slurped.StudentProviderEnrolments.StudentProviderEnrolment[i].Student.LocalId
+	
+	// Update Fields
+	slurped.StudentProviderEnrolments.StudentProviderEnrolment[i].EntryDate = "2013-03-29T12:00:00+00:00"
+	slurped.StudentProviderEnrolments.StudentProviderEnrolment[i].remove("StudentProviderEnrolmentLocalId")
+	slurped.StudentProviderEnrolments.StudentProviderEnrolment[i].remove("Provider")
+	slurped.StudentProviderEnrolments.StudentProviderEnrolment[i].remove("StudentId")
+	slurped.StudentProviderEnrolments.StudentProviderEnrolment[i].remove("ECEEducationHistoryList")
+	slurped.StudentProviderEnrolments.StudentProviderEnrolment[i].remove("SchoolEnrolmentList")
+	slurped.StudentProviderEnrolments.StudentProviderEnrolment[i].remove("Status")		
+	slurped.StudentProviderEnrolments.StudentProviderEnrolment[i].remove("RecordAudit")
+}
+
+// Write Updated Payload to Result
+return new JsonBuilder(slurped)</script>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="restrequest" name="PatchStudentProviderEnrolments" id="f0eda15d-60ad-4852-a300-4b24d6e025e7">
+    <con:settings/>
+    <con:config service="Te Rito APIs" resourcePath="/studentproviderenrolment" methodName="patchStudentProviderEnrolments" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest name="PatchStudentProviderEnrolments" id="92aff384-e6a5-4b78-8b4a-2feac5e7000a" mediaType="application/json" postQueryString="false">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:endpoint>https://northern.edsby.co.nz/sif</con:endpoint>
+        <con:request>${UpdatePayload 3#result}</con:request>
+        <con:originalUri>http://mocksifapi.terito.education.govt.nz/sif/studentproviderenrolment</con:originalUri>
+        <con:assertion type="Valid HTTP Status Codes" id="5fd275ba-7857-4dd3-9fdc-2dd299173cdb" name="Valid HTTP Status Codes">
+          <con:settings/>
+          <con:configuration>
+            <codes>200</codes>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters>
+          <con:entry key="Accept" value="${#Project#Accept}"/>
+          <con:entry key="X-Edsby-APIClientId" value="${#Project#ApiClientId}"/>
+          <con:entry key="X-Edsby-OrganisationRefId" value="${#Project#OrgRefId2}"/>
+        </con:parameters>
+        <con:environmentSpec>
+          <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:properties/>
+  <con:reportParameters/>
+  <con:breakPoints>
+    <con:testStepId>5d71605a-25dc-4cc4-9778-74841722a009</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>fdc07d9b-25d0-4bc1-a226-4786aff3b276</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+</con:testCase>

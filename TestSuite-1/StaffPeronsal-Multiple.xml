@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase id="334dca71-4bfe-4984-b721-9f54387e6445" discardOkResults="false" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="StaffPeronsal-Multiple" searchProperties="true" timeout="0" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="334dca71-4bfe-4984-b721-9f54387e6445fileName">StaffPeronsal-Multiple</con:setting>
+  </con:settings>
+  <con:savedRecentRuns>1</con:savedRecentRuns>
+  <con:testStep type="datasource" name="LoadTestData-Multiple" id="cb3ec86e-c584-40a3-954d-9843dfe8b292">
+    <con:settings>
+      <con:setting id="com.eviware.soapui.impl.wsdl.teststeps.datasource.DataSourceContainer@prepared-properties">&lt;xml-fragment/></con:setting>
+    </con:settings>
+    <con:config xsi:type="con:DataSourceStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:dataSource type="Directory">
+        <con:configuration>
+          <directory>C:/TeRito APIs/Te Rito APIs (v3.2-rc2)/v3.2-rc2_multiple_header_wrapped/StaffPersonal/200</directory>
+          <filter>200_StaffPersonal_TeWheke_8005_multiple_valid_.json</filter>
+          <encoding/>
+        </con:configuration>
+      </con:dataSource>
+      <con:shared>true</con:shared>
+      <con:restartShared>true</con:restartShared>
+      <con:property>TestData</con:property>
+      <con:completeLastOperation>true</con:completeLastOperation>
+      <con:restartOnRun>true</con:restartOnRun>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="datasource" name="GetPayload" id="33fcca37-ec64-4777-9d66-14f98720cf9a">
+    <con:settings/>
+    <con:config xsi:type="con:DataSourceStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:dataSource type="JSON">
+        <con:configuration>
+          <sourceStep>LoadTestData-Multiple</sourceStep>
+          <sourceProperty>TestData</sourceProperty>
+          <rowPath>$['testcase']</rowPath>
+          <columnPath/>
+        </con:configuration>
+      </con:dataSource>
+      <con:shared>true</con:shared>
+      <con:restartShared>true</con:restartShared>
+      <con:property>Payload</con:property>
+      <con:completeLastOperation>true</con:completeLastOperation>
+      <con:restartOnRun>true</con:restartOnRun>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="datasource" name="GenDynamicId" id="2285a06f-e489-415f-8d91-fcf3792dc03c">
+    <con:settings/>
+    <con:config xsi:type="con:DataSourceStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:dataSource type="Data Generator">
+        <con:configuration>
+          <generatedDataCount>1</generatedDataCount>
+          <generatorsTotalNumber>1</generatorsTotalNumber>
+          <lastSelectedProperty>0</lastSelectedProperty>
+          <GeneratorType0>STR</GeneratorType0>
+          <PropertyName0>DynamicId</PropertyName0>
+          <repetitionCountDynamicId>0</repetitionCountDynamicId>
+          <repeatValuesDynamicId>false</repeatValuesDynamicId>
+          <PasswordDataGeneratorUseSpacesDynamicId>false</PasswordDataGeneratorUseSpacesDynamicId>
+          <PasswordDataGeneratorUsePunctuationMarksDynamicId>false</PasswordDataGeneratorUsePunctuationMarksDynamicId>
+          <PasswordDataGeneratorUseLettersDynamicId>true</PasswordDataGeneratorUseLettersDynamicId>
+          <PasswordDataGeneratorUseDigitsDynamicId>true</PasswordDataGeneratorUseDigitsDynamicId>
+          <PasswordDataGeneratorMaxCharacterCountDynamicId>8</PasswordDataGeneratorMaxCharacterCountDynamicId>
+          <PasswordDataGeneratorMinCharacterCountDynamicId>8</PasswordDataGeneratorMinCharacterCountDynamicId>
+          <escapeSpaceSequence/>
+        </con:configuration>
+      </con:dataSource>
+      <con:shared>true</con:shared>
+      <con:restartShared>true</con:restartShared>
+      <con:property>DynamicId</con:property>
+      <con:completeLastOperation>true</con:completeLastOperation>
+      <con:restartOnRun>true</con:restartOnRun>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="groovy" name="UpdatePayload" id="e5e4dfe1-c4c8-4fb7-a93c-8fbeb91651f9">
+    <con:settings/>
+    <con:config>
+      <script>// Update Payload by Adding Dynamic Values to Some Fields
+import groovy.json.*
+
+// Load Data
+def orgRefId = context.expand( '${#Project#OrgRefId}' )
+def payload = context.expand( '${GetPayload#Payload}' ) 
+def slurped = new JsonSlurper().parseText(payload)
+
+// Get Total Count
+def spCount = slurped.StaffPersonals.StaffPersonal.size()
+
+// Loop Through and Update Fields for Each
+for ( i = 0; i &lt; spCount; i++)
+{
+	def staffPersonalLocalId = slurped.StaffPersonals.StaffPersonal[i].StaffPersonalLocalId
+	
+	// Update Fields
+	slurped.StaffPersonals.StaffPersonal[i].PersonInfo.Email.Work.SourceOrganisation.RefId = "$orgRefId"
+	slurped.StaffPersonals.StaffPersonal[i] &lt;&lt; 
+	[StaffAssignment: [
+		StaffAssignmentLocalId: "$staffPersonalLocalId" + "_" + "$orgRefId",
+          StaffRole: "1002",
+          StartDate: "2020-09-03T00:00:00+1200"  
+          ]
+	]
+}
+
+// Write Updated Payload to Result
+return new JsonBuilder(slurped)</script>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="restrequest" name="CreateStaffPersonals" id="4565f04c-66d1-4518-a269-c68b1b98d07a">
+    <con:settings/>
+    <con:config service="Te Rito APIs" resourcePath="/staffpersonal" methodName="createStaffPersonals" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest name="CreateStaffPersonals" id="8ad11654-9dc8-4653-8756-767b6028da86" mediaType="application/json" postQueryString="false">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:endpoint>https://northern.edsby.co.nz/sif</con:endpoint>
+        <con:request>${UpdatePayload#result}</con:request>
+        <con:originalUri>http://mocksifapi.terito.education.govt.nz/sif/staffpersonal</con:originalUri>
+        <con:assertion type="Valid HTTP Status Codes" id="5694bccc-94b5-4906-83d2-b6f19efc46cb" name="Valid HTTP Status Codes">
+          <con:settings/>
+          <con:configuration>
+            <codes>200</codes>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters>
+          <con:entry key="Accept" value="${#Project#Accept}"/>
+          <con:entry key="X-Edsby-APIClientId" value="${#Project#ApiClientId}"/>
+          <con:entry key="X-Edsby-OrganisationRefId" value="${#Project#OrgRefId}"/>
+        </con:parameters>
+        <con:environmentSpec>
+          <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="restrequest" name="GetStaffPersonals" id="e82629e1-2088-43d5-8832-e10828a17baa">
+    <con:settings/>
+    <con:config service="Te Rito APIs" resourcePath="/staffpersonal" methodName="getStaffPersonals" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest name="GetStaffPersonals" id="3c8ebaad-a898-4cfe-9890-8dfd20326c04" mediaType="application/json">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:endpoint>https://northern.edsby.co.nz/sif</con:endpoint>
+        <con:request/>
+        <con:originalUri>http://mocksifapi.terito.education.govt.nz/sif/staffpersonal</con:originalUri>
+        <con:assertion type="Valid HTTP Status Codes" id="6a2dd70c-1802-49da-b00f-cc767f9a2937" name="Valid HTTP Status Codes">
+          <con:settings/>
+          <con:configuration>
+            <codes>200</codes>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters>
+          <con:entry key="Accept" value="${#Project#Accept}"/>
+          <con:entry key="X-Edsby-APIClientId" value="${#Project#ApiClientId}"/>
+          <con:entry key="X-Edsby-OrganisationRefId" value="${#Project#OrgRefId}"/>
+        </con:parameters>
+        <con:environmentSpec>
+          <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="groovy" name="UpdatePayload 2" id="d2f773d1-523a-447b-bf41-37e9e5351a51">
+    <con:settings/>
+    <con:config>
+      <script>// Update Payload by Adding Dynamic Values to Some Fields
+import groovy.json.*
+
+// Load Data
+def dynamicId = context.expand( '${GenDynamicId#DynamicId}' )
+def response = context.expand( '${GetStaffPersonals#Response}' )
+def slurped = new JsonSlurper().parseText(response)
+
+// Get Total Count
+def spCount = slurped.StaffPersonals.StaffPersonal.size()
+
+// Loop Through and Update Fields for Each
+for ( i = 0; i &lt; spCount; i++)
+{
+	def givenName = slurped.StaffPersonals.StaffPersonal[i].PersonInfo.Name.GivenName
+	
+	// Update Fields
+	slurped.StaffPersonals.StaffPersonal[i].PersonInfo.Name.GivenName = "$givenName" + "$dynamicId"
+	slurped.StaffPersonals.StaffPersonal[i].remove("RecordAudit")
+}
+
+// Write Updated Payload to Result
+return new JsonBuilder(slurped)</script>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="restrequest" name="UpdateStaffPeronals" id="25e2f805-650f-4a0a-ad4c-d15b46f43208">
+    <con:settings/>
+    <con:config service="Te Rito APIs" resourcePath="/staffpersonal" methodName="updateStaffPersonals" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest name="UpdateStaffPeronals" id="805f81c7-e274-471b-9d10-65c904295cc6" mediaType="application/json" postQueryString="false">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:endpoint>https://northern.edsby.co.nz/sif</con:endpoint>
+        <con:request>${UpdatePayload 2#result}</con:request>
+        <con:originalUri>http://mocksifapi.terito.education.govt.nz/sif/staffpersonal</con:originalUri>
+        <con:assertion type="Valid HTTP Status Codes" id="8f7e8a31-236f-4b1e-9a47-f0500d39be22" name="Valid HTTP Status Codes">
+          <con:settings/>
+          <con:configuration>
+            <codes>200</codes>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters>
+          <con:entry key="Accept" value="${#Project#Accept}"/>
+          <con:entry key="X-Edsby-APIClientId" value="${#Project#ApiClientId}"/>
+          <con:entry key="X-Edsby-OrganisationRefId" value="${#Project#OrgRefId}"/>
+        </con:parameters>
+        <con:environmentSpec>
+          <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="groovy" name="UpdatePayload 3" id="585cb611-5164-438e-91d4-f5ff165f0e9b">
+    <con:settings/>
+    <con:config>
+      <script>// Update Payload by Adding Dynamic Values to Some Fields
+import groovy.json.*
+
+// Load Data
+def dynamicId = context.expand( '${GenDynamicId#DynamicId}' )
+def response = context.expand( '${GetStaffPersonals#Response}' )
+def slurped = new JsonSlurper().parseText(response)
+
+// Get Total Count
+def spCount = slurped.StaffPersonals.StaffPersonal.size()
+
+// Loop Through and Update Fields for Each
+for ( i = 0; i &lt; spCount; i++)
+{
+	def fullName = slurped.StaffPersonals.StaffPersonal[i].PersonInfo.Name.FullName
+	
+	// Update Fields
+	slurped.StaffPersonals.StaffPersonal[i].PersonInfo.Name.FullName = "$fullName" + "$dynamicId"		
+	slurped.StaffPersonals.StaffPersonal[i].remove("StaffPersonalLocalId")
+	slurped.StaffPersonals.StaffPersonal[i].remove("SchoolSMSUserId")
+	slurped.StaffPersonals.StaffPersonal[i].remove("RecordAudit")
+}
+
+// Write Updated Payload to Result
+return new JsonBuilder(slurped)</script>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="restrequest" name="PatchStaffPersonals" id="ced67401-3e08-4520-85ba-6589fd34d858">
+    <con:settings/>
+    <con:config service="Te Rito APIs" resourcePath="/staffpersonal" methodName="patchStaffPersonals" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest name="PatchStaffPersonals" id="9766a434-c180-45c0-bebc-e859808a1f2e" mediaType="application/json" postQueryString="false">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:endpoint>https://northern.edsby.co.nz/sif</con:endpoint>
+        <con:request>${UpdatePayload 3#result}</con:request>
+        <con:originalUri>http://mocksifapi.terito.education.govt.nz/sif/staffpersonal</con:originalUri>
+        <con:assertion type="Valid HTTP Status Codes" id="310708e0-0740-4dac-a5d1-af7f08e57dd3" name="Valid HTTP Status Codes">
+          <con:settings/>
+          <con:configuration>
+            <codes>200</codes>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters>
+          <con:entry key="Accept" value="${#Project#Accept}"/>
+          <con:entry key="X-Edsby-APIClientId" value="${#Project#ApiClientId}"/>
+          <con:entry key="X-Edsby-OrganisationRefId" value="${#Project#OrgRefId}"/>
+        </con:parameters>
+        <con:environmentSpec>
+          <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:properties/>
+  <con:reportParameters/>
+  <con:breakPoints>
+    <con:testStepId>e5e4dfe1-c4c8-4fb7-a93c-8fbeb91651f9</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+</con:testCase>

@@ -17,6 +17,9 @@
       <con:name>OrgRefId</con:name>
     </con:property>
     <con:property>
+      <con:name>OrgRefId2</con:name>
+    </con:property>
+    <con:property>
       <con:name>StudentPersonalRefId</con:name>
     </con:property>
     <con:property>
@@ -83,15 +86,19 @@
     </con:property>
     <con:property>
       <con:name>OrgRefId</con:name>
-      <con:value>1005</con:value>
+      <con:value>1011</con:value>
     </con:property>
     <con:property>
       <con:name>StudentPersonalRefId</con:name>
-      <con:value>e18cbca8-cec0-4b5c-8909-e1b0d9ed8c81</con:value>
+      <con:value>0d7d355d-76f9-4971-9626-7ca7b8651040</con:value>
     </con:property>
     <con:property>
       <con:name>TeachingGroupRefId</con:name>
-      <con:value>1e5884d6-df5f-4730-a10d-94845d0e8eca</con:value>
+      <con:value>f349a66a-d58b-4b3a-aaae-48ecaf518af8</con:value>
+    </con:property>
+    <con:property>
+      <con:name>OrgRefId2</con:name>
+      <con:value>1012</con:value>
     </con:property>
     <con:databaseConnectionContainer>
       <con:databaseConnection>

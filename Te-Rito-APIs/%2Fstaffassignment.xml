@@ -368,7 +368,7 @@
   </StaffAssignment>
 </StaffAssignments>]]></con:sampleContent>
     </con:representation>
-    <con:request name="Request 1" id="f78fd41b-0c20-4e9e-b23f-8dab31a87331" mediaType="application/json">
+    <con:request name="Request 1" id="f78fd41b-0c20-4e9e-b23f-8dab31a87331" mediaType="application/json" postQueryString="false">
       <con:settings/>
       <con:endpoint>https://northern.edsby.co.nz/sif</con:endpoint>
       <con:request>{\r
@@ -550,7 +550,7 @@
       <con:params/>
       <con:sampleContent>&lt;ObjectNode>&lt;$ref>#/paths/~1staffassignment/post/requestBody/content/application~1xml/example&lt;/$ref>&lt;/ObjectNode></con:sampleContent>
     </con:representation>
-    <con:request name="Request 1" id="847d54e8-4d64-4ac5-aa26-23b09a9f574f" mediaType="application/json">
+    <con:request name="Request 1" id="847d54e8-4d64-4ac5-aa26-23b09a9f574f" mediaType="application/json" postQueryString="false">
       <con:settings/>
       <con:endpoint>https://northern.edsby.co.nz/sif</con:endpoint>
       <con:request>{\r
@@ -710,7 +710,7 @@
       <con:params/>
       <con:sampleContent>&lt;ObjectNode>&lt;$ref>#/paths/~1staffassignment/post/requestBody/content/application~1xml/example&lt;/$ref>&lt;/ObjectNode></con:sampleContent>
     </con:representation>
-    <con:request name="Request 1" id="090c1564-cf70-4c4f-a93f-119867330010" mediaType="application/json">
+    <con:request name="Request 1" id="090c1564-cf70-4c4f-a93f-119867330010" mediaType="application/json" postQueryString="false">
       <con:settings/>
       <con:endpoint>https://northern.edsby.co.nz/sif</con:endpoint>
       <con:request>{\r
