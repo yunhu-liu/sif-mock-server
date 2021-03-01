@@ -2,6 +2,11 @@
 <con:testSuite id="c4345979-b83b-45a5-8726-5514b2d69e8c" name="TestSuite 1" xmlns:con="http://eviware.com/soapui/config">
   <con:settings>
     <con:setting id="c4345979-b83b-45a5-8726-5514b2d69e8cfileName">TestSuite-1</con:setting>
+    <con:setting id="IncludeOverview">true</con:setting>
+    <con:setting id="IncludeResults">true</con:setting>
+    <con:setting id="FlowLayout">false</con:setting>
+    <con:setting id="ErrorDetails">true</con:setting>
+    <con:setting id="IncludeCoverage">true</con:setting>
   </con:settings>
   <con:savedRecentRuns>1</con:savedRecentRuns>
   <con:runType>SEQUENTIAL</con:runType>
@@ -9,7 +14,7 @@
   <con:reportParameters/>
   <con:environmentSpec>
     <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
-      <con:authProfile>SIF Mock - Basic Auth</con:authProfile>
+      <con:authProfile>Inherit From Parent</con:authProfile>
     </con:entry>
   </con:environmentSpec>
 </con:testSuite>

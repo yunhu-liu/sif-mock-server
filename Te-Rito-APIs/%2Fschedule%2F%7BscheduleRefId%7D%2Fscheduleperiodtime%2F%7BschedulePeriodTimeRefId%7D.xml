@@ -1,0 +1,359 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:resource name="/schedule/{scheduleRefId}/scheduleperiodtime/{schedulePeriodTimeRefId}" path="/schedule/{scheduleRefId}/scheduleperiodtime/{schedulePeriodTimeRefId}" id="84f02671-615e-4527-9338-9971fabc9a5a" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="84f02671-615e-4527-9338-9971fabc9a5afileName">%2Fschedule%2F%7BscheduleRefId%7D%2Fscheduleperiodtime%2F%7BschedulePeriodTimeRefId%7D</con:setting>
+  </con:settings>
+  <con:parameters/>
+  <con:method name="getSchedulePeriodTime" id="6316ee95-0e10-43ec-bfee-80223a485b3d" method="GET">
+    <con:settings/>
+    <con:parameters>
+      <con:parameter>
+        <con:name>fields</con:name>
+        <con:value/>
+        <con:style>QUERY</con:style>
+        <con:default/>
+      </con:parameter>
+      <con:parameter>
+        <con:name>page</con:name>
+        <con:value/>
+        <con:style>QUERY</con:style>
+        <con:default/>
+      </con:parameter>
+      <con:parameter>
+        <con:name>max</con:name>
+        <con:value/>
+        <con:style>QUERY</con:style>
+        <con:default/>
+      </con:parameter>
+      <con:parameter>
+        <con:name>unwrap</con:name>
+        <con:value/>
+        <con:style>QUERY</con:style>
+        <con:default/>
+      </con:parameter>
+      <con:parameter>
+        <con:name>human</con:name>
+        <con:value/>
+        <con:style>QUERY</con:style>
+        <con:default/>
+      </con:parameter>
+      <con:parameter>
+        <con:name>sort</con:name>
+        <con:value/>
+        <con:style>QUERY</con:style>
+        <con:default/>
+      </con:parameter>
+      <con:parameter>
+        <con:name>field</con:name>
+        <con:value/>
+        <con:style>QUERY</con:style>
+        <con:default/>
+      </con:parameter>
+      <con:parameter>
+        <con:name>pattern</con:name>
+        <con:value/>
+        <con:style>QUERY</con:style>
+        <con:default/>
+      </con:parameter>
+      <con:parameter>
+        <con:name>Accept</con:name>
+        <con:value/>
+        <con:style>HEADER</con:style>
+        <con:default/>
+      </con:parameter>
+      <con:parameter>
+        <con:name>X-Edsby-APIClientId</con:name>
+        <con:value/>
+        <con:style>HEADER</con:style>
+        <con:default/>
+      </con:parameter>
+      <con:parameter>
+        <con:name>X-Edsby-OrganisationRefId</con:name>
+        <con:value/>
+        <con:style>HEADER</con:style>
+        <con:default/>
+      </con:parameter>
+      <con:parameter>
+        <con:name>scheduleRefId</con:name>
+        <con:value/>
+        <con:style>TEMPLATE</con:style>
+        <con:default/>
+      </con:parameter>
+      <con:parameter>
+        <con:name>schedulePeriodTimeRefId</con:name>
+        <con:value/>
+        <con:style>TEMPLATE</con:style>
+        <con:default/>
+      </con:parameter>
+    </con:parameters>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>200</con:status>
+      <con:params/>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/xml</con:mediaType>
+      <con:status>200</con:status>
+      <con:params/>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>401</con:status>
+      <con:params/>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>403</con:status>
+      <con:params/>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>404</con:status>
+      <con:params/>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>422</con:status>
+      <con:params/>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/xml</con:mediaType>
+      <con:status>422</con:status>
+      <con:params/>
+    </con:representation>
+    <con:request name="Request 1" id="eacd1927-72a7-4b70-a768-5e4f06887bb9" mediaType="application/json">
+      <con:settings/>
+      <con:endpoint>https://northern.edsby.co.nz/sif</con:endpoint>
+      <con:credentials>
+        <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+        <con:authType>No Authorization</con:authType>
+      </con:credentials>
+      <con:parameters>
+        <con:entry key="Accept" value=""/>
+        <con:entry key="max" value=""/>
+        <con:entry key="pattern" value=""/>
+        <con:entry key="X-Edsby-APIClientId" value=""/>
+        <con:entry key="X-Edsby-OrganisationRefId" value=""/>
+        <con:entry key="sort" value=""/>
+        <con:entry key="unwrap" value=""/>
+        <con:entry key="field" value=""/>
+        <con:entry key="scheduleRefId" value=""/>
+        <con:entry key="schedulePeriodTimeRefId" value=""/>
+        <con:entry key="page" value=""/>
+        <con:entry key="fields" value=""/>
+        <con:entry key="human" value=""/>
+      </con:parameters>
+      <con:environmentSpec>
+        <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
+          <con:authProfile>SIF Mock - Basic Auth</con:authProfile>
+        </con:entry>
+      </con:environmentSpec>
+    </con:request>
+  </con:method>
+  <con:method name="updateSchedulePeriodTime" id="4b50a7a4-8797-44bb-9112-1bd21e1867c7" method="PUT">
+    <con:settings/>
+    <con:parameters>
+      <con:parameter>
+        <con:name>Accept</con:name>
+        <con:value/>
+        <con:style>HEADER</con:style>
+        <con:default/>
+      </con:parameter>
+      <con:parameter>
+        <con:name>X-Edsby-APIClientId</con:name>
+        <con:value/>
+        <con:style>HEADER</con:style>
+        <con:default/>
+      </con:parameter>
+      <con:parameter>
+        <con:name>X-Edsby-OrganisationRefId</con:name>
+        <con:value/>
+        <con:style>HEADER</con:style>
+        <con:default/>
+      </con:parameter>
+      <con:parameter>
+        <con:name>scheduleRefId</con:name>
+        <con:value/>
+        <con:style>TEMPLATE</con:style>
+        <con:default/>
+      </con:parameter>
+      <con:parameter>
+        <con:name>schedulePeriodTimeRefId</con:name>
+        <con:value/>
+        <con:style>TEMPLATE</con:style>
+        <con:default/>
+      </con:parameter>
+    </con:parameters>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>200</con:status>
+      <con:params/>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/xml</con:mediaType>
+      <con:status>200</con:status>
+      <con:params/>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>400</con:status>
+      <con:params/>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>401</con:status>
+      <con:params/>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>403</con:status>
+      <con:params/>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>404</con:status>
+      <con:params/>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>422</con:status>
+      <con:params/>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/xml</con:mediaType>
+      <con:status>422</con:status>
+      <con:params/>
+    </con:representation>
+    <con:representation type="REQUEST">
+      <con:mediaType>application/json</con:mediaType>
+      <con:params/>
+    </con:representation>
+    <con:representation type="REQUEST">
+      <con:mediaType>application/xml</con:mediaType>
+      <con:params/>
+    </con:representation>
+    <con:request name="Request 1" id="32a71e70-bbfc-4540-85e2-4f6cb40c0396" mediaType="application/json">
+      <con:settings/>
+      <con:endpoint>https://northern.edsby.co.nz/sif</con:endpoint>
+      <con:credentials>
+        <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+        <con:authType>No Authorization</con:authType>
+      </con:credentials>
+      <con:parameters>
+        <con:entry key="Accept" value=""/>
+        <con:entry key="scheduleRefId" value=""/>
+        <con:entry key="X-Edsby-APIClientId" value=""/>
+        <con:entry key="schedulePeriodTimeRefId" value=""/>
+        <con:entry key="X-Edsby-OrganisationRefId" value=""/>
+      </con:parameters>
+      <con:environmentSpec>
+        <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
+          <con:authProfile>SIF Mock - Basic Auth</con:authProfile>
+        </con:entry>
+      </con:environmentSpec>
+    </con:request>
+  </con:method>
+  <con:method name="patchSchedulePeriodTime" id="20545a37-5222-45d7-9f1d-e8ca305f9079" method="PATCH">
+    <con:settings/>
+    <con:parameters>
+      <con:parameter>
+        <con:name>Accept</con:name>
+        <con:value/>
+        <con:style>HEADER</con:style>
+        <con:default/>
+      </con:parameter>
+      <con:parameter>
+        <con:name>X-Edsby-APIClientId</con:name>
+        <con:value/>
+        <con:style>HEADER</con:style>
+        <con:default/>
+      </con:parameter>
+      <con:parameter>
+        <con:name>X-Edsby-OrganisationRefId</con:name>
+        <con:value/>
+        <con:style>HEADER</con:style>
+        <con:default/>
+      </con:parameter>
+      <con:parameter>
+        <con:name>scheduleRefId</con:name>
+        <con:value/>
+        <con:style>TEMPLATE</con:style>
+        <con:default/>
+      </con:parameter>
+      <con:parameter>
+        <con:name>schedulePeriodTimeRefId</con:name>
+        <con:value/>
+        <con:style>TEMPLATE</con:style>
+        <con:default/>
+      </con:parameter>
+    </con:parameters>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>200</con:status>
+      <con:params/>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/xml</con:mediaType>
+      <con:status>200</con:status>
+      <con:params/>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>400</con:status>
+      <con:params/>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>401</con:status>
+      <con:params/>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>403</con:status>
+      <con:params/>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>404</con:status>
+      <con:params/>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>422</con:status>
+      <con:params/>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/xml</con:mediaType>
+      <con:status>422</con:status>
+      <con:params/>
+    </con:representation>
+    <con:representation type="REQUEST">
+      <con:mediaType>application/json</con:mediaType>
+      <con:params/>
+    </con:representation>
+    <con:representation type="REQUEST">
+      <con:mediaType>application/xml</con:mediaType>
+      <con:params/>
+    </con:representation>
+    <con:request name="Request 1" id="c99f8612-fe41-4108-9665-d152790c5a98" mediaType="application/json">
+      <con:settings/>
+      <con:endpoint>https://northern.edsby.co.nz/sif</con:endpoint>
+      <con:credentials>
+        <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+        <con:authType>No Authorization</con:authType>
+      </con:credentials>
+      <con:parameters>
+        <con:entry key="Accept" value=""/>
+        <con:entry key="scheduleRefId" value=""/>
+        <con:entry key="X-Edsby-APIClientId" value=""/>
+        <con:entry key="schedulePeriodTimeRefId" value=""/>
+        <con:entry key="X-Edsby-OrganisationRefId" value=""/>
+      </con:parameters>
+      <con:environmentSpec>
+        <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
+          <con:authProfile>SIF Mock - Basic Auth</con:authProfile>
+        </con:entry>
+      </con:environmentSpec>
+    </con:request>
+  </con:method>
+</con:resource>

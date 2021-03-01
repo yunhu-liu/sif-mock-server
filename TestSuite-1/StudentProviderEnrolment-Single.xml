@@ -10,7 +10,7 @@
       <con:properties>
         <con:property>
           <con:name>StudentProviderEnrolmentRefId</con:name>
-          <con:value>2a8b6589-0705-4087-a256-8c567a9919d7</con:value>
+          <con:value>db4eb948-1d12-4700-b9f7-3b1819f5e449</con:value>
         </con:property>
       </con:properties>
     </con:config>
@@ -24,7 +24,6 @@ import groovy.json.*
 
 // Get Payload from Previous Test Case
 def response = context.expand( '${#[TestSuite 1#StudentProviderEnrolment-Multiple#GetStudentProviderEnrolments]#Response}' )
-
 def slurped = new JsonSlurper().parseText(response)
 
 // Get RefId from Random Record
@@ -81,6 +80,410 @@ testRunner.testCase.testSteps["Properties 1"].setPropertyValue( "StudentProvider
             <codes>200</codes>
           </con:configuration>
         </con:assertion>
+        <con:assertion type="MessageContentAssertion" id="a64371ac-3e7a-47cd-b1ec-1e3b3fc04682" name="Message Content Assertion">
+          <con:configuration xsi:type="con:MessageContentAssertion">
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/studentproviderenrolment/512e6625-7d54-4115-855a-629c1f409c34';
+//ns1:Response[1]/ns1:StudentProviderEnrolment[1]/ns1:StudentProviderEnrolmentRefId[1]</con:xpath>
+              <con:element>StudentProviderEnrolmentRefId</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>=</con:operator>
+              <con:enabled>true</con:enabled>
+              <con:expectedValue>${Properties 1#StudentProviderEnrolmentRefId}</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/studentproviderenrolment/512e6625-7d54-4115-855a-629c1f409c34';
+//ns1:Response[1]/ns1:StudentProviderEnrolment[1]/ns1:StudentProviderEnrolmentLocalId[1]</con:xpath>
+              <con:element>StudentProviderEnrolmentLocalId</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>exists</con:operator>
+              <con:enabled>true</con:enabled>
+              <con:expectedValue>1030_ST5000000</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/studentproviderenrolment/512e6625-7d54-4115-855a-629c1f409c34';
+//ns1:Response[1]/ns1:StudentProviderEnrolment[1]/ns1:Student[1]/ns1:RefId[1]</con:xpath>
+              <con:element>RefId</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>exists</con:operator>
+              <con:enabled>true</con:enabled>
+              <con:expectedValue>faef5e05-a1e3-4c0a-8e50-0ba397ae5d86</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/studentproviderenrolment/512e6625-7d54-4115-855a-629c1f409c34';
+//ns1:Response[1]/ns1:StudentProviderEnrolment[1]/ns1:Student[1]/ns1:NationalStudentNumber[1]</con:xpath>
+              <con:element>NationalStudentNumber</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>exists</con:operator>
+              <con:enabled>true</con:enabled>
+              <con:expectedValue>9005000000</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/studentproviderenrolment/512e6625-7d54-4115-855a-629c1f409c34';
+//ns1:Response[1]/ns1:StudentProviderEnrolment[1]/ns1:Provider[1]/ns1:RefId[1]</con:xpath>
+              <con:element>RefId</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>=</con:operator>
+              <con:enabled>true</con:enabled>
+              <con:expectedValue>${#Project#OrgRefId2}</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/studentproviderenrolment/512e6625-7d54-4115-855a-629c1f409c34';
+//ns1:Response[1]/ns1:StudentProviderEnrolment[1]/ns1:StudentId[1]</con:xpath>
+              <con:element>StudentId</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>exists</con:operator>
+              <con:enabled>true</con:enabled>
+              <con:expectedValue>ST5000000</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/studentproviderenrolment/512e6625-7d54-4115-855a-629c1f409c34';
+//ns1:Response[1]/ns1:StudentProviderEnrolment[1]/ns1:EntryDate[1]</con:xpath>
+              <con:element>EntryDate</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>exists</con:operator>
+              <con:enabled>true</con:enabled>
+              <con:expectedValue>2013-03-29T12:00:00+00:00</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/studentproviderenrolment/512e6625-7d54-4115-855a-629c1f409c34';
+//ns1:Response[1]/ns1:StudentProviderEnrolment[1]/ns1:Status[1]</con:xpath>
+              <con:element>Status</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>exists</con:operator>
+              <con:enabled>true</con:enabled>
+              <con:expectedValue>ACT</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/studentproviderenrolment/512e6625-7d54-4115-855a-629c1f409c34';
+//ns1:Response[1]/ns1:StudentProviderEnrolment[1]/ns1:ECEEducationHistoryList[1]/ns1:ECEType[1]/ns1:e[1]/ns1:Type[1]</con:xpath>
+              <con:element>Type</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>=</con:operator>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>EPG</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/studentproviderenrolment/512e6625-7d54-4115-855a-629c1f409c34';
+//ns1:Response[1]/ns1:StudentProviderEnrolment[1]/ns1:SchoolEnrolmentList[1]/ns1:SchoolEnrolment[1]/ns1:e[1]/ns1:SchoolEnrolmentLocalId[1]</con:xpath>
+              <con:element>SchoolEnrolmentLocalId</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>=</con:operator>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>2020_8005_ST5000000</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/studentproviderenrolment/512e6625-7d54-4115-855a-629c1f409c34';
+//ns1:Response[1]/ns1:StudentProviderEnrolment[1]/ns1:SchoolEnrolmentList[1]/ns1:SchoolEnrolment[1]/ns1:e[1]/ns1:SchoolCalendarYear[1]</con:xpath>
+              <con:element>SchoolCalendarYear</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>=</con:operator>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>2020</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/studentproviderenrolment/512e6625-7d54-4115-855a-629c1f409c34';
+//ns1:Response[1]/ns1:StudentProviderEnrolment[1]/ns1:SchoolEnrolmentList[1]/ns1:SchoolEnrolment[1]/ns1:e[1]/ns1:StartDate[1]</con:xpath>
+              <con:element>StartDate</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>=</con:operator>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>2020-01-26T12:00:00+00:00</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/studentproviderenrolment/512e6625-7d54-4115-855a-629c1f409c34';
+//ns1:Response[1]/ns1:StudentProviderEnrolment[1]/ns1:SchoolEnrolmentList[1]/ns1:SchoolEnrolment[1]/ns1:e[1]/ns1:MembershipType[1]</con:xpath>
+              <con:element>MembershipType</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>=</con:operator>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>BASE</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/studentproviderenrolment/512e6625-7d54-4115-855a-629c1f409c34';
+//ns1:Response[1]/ns1:StudentProviderEnrolment[1]/ns1:SchoolEnrolmentList[1]/ns1:SchoolEnrolment[1]/ns1:e[1]/ns1:YearLevel[1]</con:xpath>
+              <con:element>YearLevel</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>=</con:operator>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>8</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/studentproviderenrolment/512e6625-7d54-4115-855a-629c1f409c34';
+//ns1:Response[1]/ns1:StudentProviderEnrolment[1]/ns1:SchoolEnrolmentList[1]/ns1:SchoolEnrolment[1]/ns1:e[1]/ns1:FTE[1]</con:xpath>
+              <con:element>FTE</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>=</con:operator>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>1.0</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/studentproviderenrolment/512e6625-7d54-4115-855a-629c1f409c34';
+//ns1:Response[1]/ns1:StudentProviderEnrolment[1]/ns1:SchoolEnrolmentList[1]/ns1:SchoolEnrolment[1]/ns1:e[1]/ns1:FundingType[1]</con:xpath>
+              <con:element>FundingType</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>=</con:operator>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>SF</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/studentproviderenrolment/512e6625-7d54-4115-855a-629c1f409c34';
+//ns1:Response[1]/ns1:StudentProviderEnrolment[1]/ns1:SchoolEnrolmentList[1]/ns1:SchoolEnrolment[1]/ns1:e[1]/ns1:FundingYearLevel[1]</con:xpath>
+              <con:element>FundingYearLevel</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>=</con:operator>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>8</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/studentproviderenrolment/512e6625-7d54-4115-855a-629c1f409c34';
+//ns1:Response[1]/ns1:StudentProviderEnrolment[1]/ns1:SchoolEnrolmentList[1]/ns1:SchoolEnrolment[1]/ns1:e[1]/ns1:Curriculum[1]</con:xpath>
+              <con:element>Curriculum</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>=</con:operator>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>NZC</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/studentproviderenrolment/512e6625-7d54-4115-855a-629c1f409c34';
+//ns1:Response[1]/ns1:StudentProviderEnrolment[1]/ns1:SchoolEnrolmentList[1]/ns1:SchoolEnrolment[1]/ns1:e[2]/ns1:SchoolEnrolmentLocalId[1]</con:xpath>
+              <con:element>SchoolEnrolmentLocalId</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>=</con:operator>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>2019_8005_ST5000000</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/studentproviderenrolment/512e6625-7d54-4115-855a-629c1f409c34';
+//ns1:Response[1]/ns1:StudentProviderEnrolment[1]/ns1:SchoolEnrolmentList[1]/ns1:SchoolEnrolment[1]/ns1:e[2]/ns1:SchoolCalendarYear[1]</con:xpath>
+              <con:element>SchoolCalendarYear</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>=</con:operator>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>2019</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/studentproviderenrolment/512e6625-7d54-4115-855a-629c1f409c34';
+//ns1:Response[1]/ns1:StudentProviderEnrolment[1]/ns1:SchoolEnrolmentList[1]/ns1:SchoolEnrolment[1]/ns1:e[2]/ns1:StartDate[1]</con:xpath>
+              <con:element>StartDate</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>=</con:operator>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>2019-01-27T12:00:00+00:00</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/studentproviderenrolment/512e6625-7d54-4115-855a-629c1f409c34';
+//ns1:Response[1]/ns1:StudentProviderEnrolment[1]/ns1:SchoolEnrolmentList[1]/ns1:SchoolEnrolment[1]/ns1:e[2]/ns1:MembershipType[1]</con:xpath>
+              <con:element>MembershipType</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>=</con:operator>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>BASE</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/studentproviderenrolment/512e6625-7d54-4115-855a-629c1f409c34';
+//ns1:Response[1]/ns1:StudentProviderEnrolment[1]/ns1:SchoolEnrolmentList[1]/ns1:SchoolEnrolment[1]/ns1:e[2]/ns1:YearLevel[1]</con:xpath>
+              <con:element>YearLevel</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>=</con:operator>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>7</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/studentproviderenrolment/512e6625-7d54-4115-855a-629c1f409c34';
+//ns1:Response[1]/ns1:StudentProviderEnrolment[1]/ns1:SchoolEnrolmentList[1]/ns1:SchoolEnrolment[1]/ns1:e[2]/ns1:FTE[1]</con:xpath>
+              <con:element>FTE</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>=</con:operator>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>1.0</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/studentproviderenrolment/512e6625-7d54-4115-855a-629c1f409c34';
+//ns1:Response[1]/ns1:StudentProviderEnrolment[1]/ns1:SchoolEnrolmentList[1]/ns1:SchoolEnrolment[1]/ns1:e[2]/ns1:FundingType[1]</con:xpath>
+              <con:element>FundingType</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>=</con:operator>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>SF</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/studentproviderenrolment/512e6625-7d54-4115-855a-629c1f409c34';
+//ns1:Response[1]/ns1:StudentProviderEnrolment[1]/ns1:SchoolEnrolmentList[1]/ns1:SchoolEnrolment[1]/ns1:e[2]/ns1:FundingYearLevel[1]</con:xpath>
+              <con:element>FundingYearLevel</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>=</con:operator>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>7</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/studentproviderenrolment/512e6625-7d54-4115-855a-629c1f409c34';
+//ns1:Response[1]/ns1:StudentProviderEnrolment[1]/ns1:SchoolEnrolmentList[1]/ns1:SchoolEnrolment[1]/ns1:e[2]/ns1:Curriculum[1]</con:xpath>
+              <con:element>Curriculum</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>=</con:operator>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>NZC</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/studentproviderenrolment/512e6625-7d54-4115-855a-629c1f409c34';
+//ns1:Response[1]/ns1:StudentProviderEnrolment[1]/ns1:RecordAudit[1]/ns1:CreatedDateTime[1]</con:xpath>
+              <con:element>CreatedDateTime</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>=</con:operator>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>2021-03-01T07:52:00.7064668+00:00</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/studentproviderenrolment/512e6625-7d54-4115-855a-629c1f409c34';
+//ns1:Response[1]/ns1:StudentProviderEnrolment[1]/ns1:RecordAudit[1]/ns1:LastUpdatedDateTime[1]</con:xpath>
+              <con:element>LastUpdatedDateTime</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>=</con:operator>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>2021-03-01T07:52:11.3931523+00:00</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/studentproviderenrolment/512e6625-7d54-4115-855a-629c1f409c34';
+//ns1:Response[1]/ns1:StudentProviderEnrolment[1]/ns1:RecordAudit[1]/ns1:CreatedBy[1]/ns1:Name[1]</con:xpath>
+              <con:element>Name</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>=</con:operator>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>MockServerClient</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/studentproviderenrolment/512e6625-7d54-4115-855a-629c1f409c34';
+//ns1:Response[1]/ns1:StudentProviderEnrolment[1]/ns1:RecordAudit[1]/ns1:LastUpdatedBy[1]/ns1:Name[1]</con:xpath>
+              <con:element>Name</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>=</con:operator>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>MockServerClient (byPatch)</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:originalMessage><![CDATA[<Response xmlns="http://mocksifapi.terito.education.govt.nz/sif/studentproviderenrolment/512e6625-7d54-4115-855a-629c1f409c34">
+   <StudentProviderEnrolment>
+      <StudentProviderEnrolmentRefId>296eb586-d66a-41e1-b70a-370cfc9766ba</StudentProviderEnrolmentRefId>
+      <StudentProviderEnrolmentLocalId>1030_ST5000000</StudentProviderEnrolmentLocalId>
+      <Student>
+         <RefId>faef5e05-a1e3-4c0a-8e50-0ba397ae5d86</RefId>
+         <NationalStudentNumber>9005000000</NationalStudentNumber>
+      </Student>
+      <Provider>
+         <RefId>1030</RefId>
+      </Provider>
+      <StudentId>ST5000000</StudentId>
+      <EntryDate>2013-03-29T12:00:00+00:00</EntryDate>
+      <Status>ACT</Status>
+      <ECEEducationHistoryList>
+         <ECEType>
+            <e>
+               <Type>EPG</Type>
+            </e>
+         </ECEType>
+      </ECEEducationHistoryList>
+      <SchoolEnrolmentList>
+         <SchoolEnrolment>
+            <e>
+               <SchoolEnrolmentLocalId>2020_8005_ST5000000</SchoolEnrolmentLocalId>
+               <SchoolCalendarYear>2020</SchoolCalendarYear>
+               <StartDate>2020-01-26T12:00:00+00:00</StartDate>
+               <MembershipType>BASE</MembershipType>
+               <YearLevel>8</YearLevel>
+               <FTE>1.0</FTE>
+               <FundingType>SF</FundingType>
+               <FundingYearLevel>8</FundingYearLevel>
+               <Curriculum>NZC</Curriculum>
+            </e>
+            <e>
+               <SchoolEnrolmentLocalId>2019_8005_ST5000000</SchoolEnrolmentLocalId>
+               <SchoolCalendarYear>2019</SchoolCalendarYear>
+               <StartDate>2019-01-27T12:00:00+00:00</StartDate>
+               <MembershipType>BASE</MembershipType>
+               <YearLevel>7</YearLevel>
+               <FTE>1.0</FTE>
+               <FundingType>SF</FundingType>
+               <FundingYearLevel>7</FundingYearLevel>
+               <Curriculum>NZC</Curriculum>
+            </e>
+         </SchoolEnrolment>
+      </SchoolEnrolmentList>
+      <RecordAudit>
+         <CreatedDateTime>2021-03-01T07:52:00.7064668+00:00</CreatedDateTime>
+         <LastUpdatedDateTime>2021-03-01T07:52:11.3931523+00:00</LastUpdatedDateTime>
+         <CreatedBy>
+            <Name>MockServerClient</Name>
+         </CreatedBy>
+         <LastUpdatedBy>
+            <Name>MockServerClient (byPatch)</Name>
+         </LastUpdatedBy>
+      </RecordAudit>
+   </StudentProviderEnrolment>
+</Response>]]></con:originalMessage>
+          </con:configuration>
+        </con:assertion>
         <con:credentials>
           <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
           <con:authType>No Authorization</con:authType>
@@ -88,13 +491,23 @@ testRunner.testCase.testSteps["Properties 1"].setPropertyValue( "StudentProvider
         <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
         <con:parameters>
           <con:entry key="Accept" value="${#Project#Accept}"/>
+          <con:entry key="max" value=""/>
           <con:entry key="X-Edsby-APIClientId" value="${#Project#ApiClientId}"/>
-          <con:entry key="studentProviderEnrolmentRefId" value="${Properties 1#StudentProviderEnrolmentRefId}"/>
+          <con:entry key="start" value=""/>
+          <con:entry key="pattern" value=""/>
           <con:entry key="X-Edsby-OrganisationRefId" value="${#Project#OrgRefId2}"/>
+          <con:entry key="sort" value=""/>
+          <con:entry key="unwrap" value=""/>
+          <con:entry key="field" value=""/>
+          <con:entry key="studentProviderEnrolmentRefId" value="${Properties 1#StudentProviderEnrolmentRefId}"/>
+          <con:entry key="end" value=""/>
+          <con:entry key="page" value=""/>
+          <con:entry key="fields" value=""/>
+          <con:entry key="human" value=""/>
         </con:parameters>
         <con:environmentSpec>
           <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
-            <con:authProfile>Inherit From Parent</con:authProfile>
+            <con:authProfile>SIF Mock - Basic Auth</con:authProfile>
           </con:entry>
         </con:environmentSpec>
       </con:restRequest>
@@ -136,6 +549,398 @@ return new JsonBuilder(slurped)</script>
             <codes>200</codes>
           </con:configuration>
         </con:assertion>
+        <con:assertion type="MessageContentAssertion" id="e0bdca7a-ebe3-4bca-ade7-bd63f39b88f3" name="Message Content Assertion">
+          <con:configuration xsi:type="con:MessageContentAssertion">
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/studentproviderenrolment/512e6625-7d54-4115-855a-629c1f409c34';
+//ns1:Response[1]/ns1:StudentProviderEnrolment[1]/ns1:StudentProviderEnrolmentRefId[1]</con:xpath>
+              <con:element>StudentProviderEnrolmentRefId</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>=</con:operator>
+              <con:enabled>true</con:enabled>
+              <con:expectedValue>${Properties 1#StudentProviderEnrolmentRefId}</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/studentproviderenrolment/512e6625-7d54-4115-855a-629c1f409c34';
+//ns1:Response[1]/ns1:StudentProviderEnrolment[1]/ns1:StudentProviderEnrolmentLocalId[1]</con:xpath>
+              <con:element>StudentProviderEnrolmentLocalId</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>=</con:operator>
+              <con:enabled>true</con:enabled>
+              <con:expectedValue>${GetStudentProviderEnrolment#Response#$['StudentProviderEnrolment']['StudentProviderEnrolmentLocalId']}</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/studentproviderenrolment/512e6625-7d54-4115-855a-629c1f409c34';
+//ns1:Response[1]/ns1:StudentProviderEnrolment[1]/ns1:Student[1]/ns1:RefId[1]</con:xpath>
+              <con:element>RefId</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>=</con:operator>
+              <con:enabled>true</con:enabled>
+              <con:expectedValue>${GetStudentProviderEnrolment#Response#$['StudentProviderEnrolment']['Student']['RefId']}</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/studentproviderenrolment/512e6625-7d54-4115-855a-629c1f409c34';
+//ns1:Response[1]/ns1:StudentProviderEnrolment[1]/ns1:Student[1]/ns1:NationalStudentNumber[1]</con:xpath>
+              <con:element>NationalStudentNumber</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>=</con:operator>
+              <con:enabled>true</con:enabled>
+              <con:expectedValue>${GetStudentProviderEnrolment#Response#$['StudentProviderEnrolment']['Student']['NationalStudentNumber']}</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/studentproviderenrolment/512e6625-7d54-4115-855a-629c1f409c34';
+//ns1:Response[1]/ns1:StudentProviderEnrolment[1]/ns1:Provider[1]/ns1:RefId[1]</con:xpath>
+              <con:element>RefId</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>=</con:operator>
+              <con:enabled>true</con:enabled>
+              <con:expectedValue>${#Project#OrgRefId2}</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/studentproviderenrolment/512e6625-7d54-4115-855a-629c1f409c34';
+//ns1:Response[1]/ns1:StudentProviderEnrolment[1]/ns1:StudentId[1]</con:xpath>
+              <con:element>StudentId</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>=</con:operator>
+              <con:enabled>true</con:enabled>
+              <con:expectedValue>${GetStudentProviderEnrolment#Response#$['StudentProviderEnrolment']['StudentId']}</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/studentproviderenrolment/512e6625-7d54-4115-855a-629c1f409c34';
+//ns1:Response[1]/ns1:StudentProviderEnrolment[1]/ns1:EntryDate[1]</con:xpath>
+              <con:element>EntryDate</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>=</con:operator>
+              <con:enabled>true</con:enabled>
+              <con:expectedValue>${GetStudentProviderEnrolment#Response#$['StudentProviderEnrolment']['EntryDate']}</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/studentproviderenrolment/512e6625-7d54-4115-855a-629c1f409c34';
+//ns1:Response[1]/ns1:StudentProviderEnrolment[1]/ns1:ECEEducationHistoryList[1]/ns1:ECEType[1]/ns1:e[1]/ns1:Type[1]</con:xpath>
+              <con:element>Type</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>=</con:operator>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>${GetStudentProviderEnrolment#Response}</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/studentproviderenrolment/512e6625-7d54-4115-855a-629c1f409c34';
+//ns1:Response[1]/ns1:StudentProviderEnrolment[1]/ns1:SchoolEnrolmentList[1]/ns1:SchoolEnrolment[1]/ns1:e[1]/ns1:SchoolEnrolmentLocalId[1]</con:xpath>
+              <con:element>SchoolEnrolmentLocalId</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>=</con:operator>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>2020_8005_ST5000000</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/studentproviderenrolment/512e6625-7d54-4115-855a-629c1f409c34';
+//ns1:Response[1]/ns1:StudentProviderEnrolment[1]/ns1:SchoolEnrolmentList[1]/ns1:SchoolEnrolment[1]/ns1:e[1]/ns1:SchoolCalendarYear[1]</con:xpath>
+              <con:element>SchoolCalendarYear</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>=</con:operator>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>2020</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/studentproviderenrolment/512e6625-7d54-4115-855a-629c1f409c34';
+//ns1:Response[1]/ns1:StudentProviderEnrolment[1]/ns1:SchoolEnrolmentList[1]/ns1:SchoolEnrolment[1]/ns1:e[1]/ns1:StartDate[1]</con:xpath>
+              <con:element>StartDate</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>=</con:operator>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>2020-01-26T12:00:00+00:00</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/studentproviderenrolment/512e6625-7d54-4115-855a-629c1f409c34';
+//ns1:Response[1]/ns1:StudentProviderEnrolment[1]/ns1:SchoolEnrolmentList[1]/ns1:SchoolEnrolment[1]/ns1:e[1]/ns1:MembershipType[1]</con:xpath>
+              <con:element>MembershipType</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>=</con:operator>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>BASE</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/studentproviderenrolment/512e6625-7d54-4115-855a-629c1f409c34';
+//ns1:Response[1]/ns1:StudentProviderEnrolment[1]/ns1:SchoolEnrolmentList[1]/ns1:SchoolEnrolment[1]/ns1:e[1]/ns1:YearLevel[1]</con:xpath>
+              <con:element>YearLevel</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>=</con:operator>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>8</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/studentproviderenrolment/512e6625-7d54-4115-855a-629c1f409c34';
+//ns1:Response[1]/ns1:StudentProviderEnrolment[1]/ns1:SchoolEnrolmentList[1]/ns1:SchoolEnrolment[1]/ns1:e[1]/ns1:FTE[1]</con:xpath>
+              <con:element>FTE</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>=</con:operator>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>1.0</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/studentproviderenrolment/512e6625-7d54-4115-855a-629c1f409c34';
+//ns1:Response[1]/ns1:StudentProviderEnrolment[1]/ns1:SchoolEnrolmentList[1]/ns1:SchoolEnrolment[1]/ns1:e[1]/ns1:FundingType[1]</con:xpath>
+              <con:element>FundingType</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>=</con:operator>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>SF</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/studentproviderenrolment/512e6625-7d54-4115-855a-629c1f409c34';
+//ns1:Response[1]/ns1:StudentProviderEnrolment[1]/ns1:SchoolEnrolmentList[1]/ns1:SchoolEnrolment[1]/ns1:e[1]/ns1:FundingYearLevel[1]</con:xpath>
+              <con:element>FundingYearLevel</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>=</con:operator>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>8</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/studentproviderenrolment/512e6625-7d54-4115-855a-629c1f409c34';
+//ns1:Response[1]/ns1:StudentProviderEnrolment[1]/ns1:SchoolEnrolmentList[1]/ns1:SchoolEnrolment[1]/ns1:e[1]/ns1:Curriculum[1]</con:xpath>
+              <con:element>Curriculum</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>=</con:operator>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>NZC</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/studentproviderenrolment/512e6625-7d54-4115-855a-629c1f409c34';
+//ns1:Response[1]/ns1:StudentProviderEnrolment[1]/ns1:SchoolEnrolmentList[1]/ns1:SchoolEnrolment[1]/ns1:e[2]/ns1:SchoolEnrolmentLocalId[1]</con:xpath>
+              <con:element>SchoolEnrolmentLocalId</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>=</con:operator>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>2019_8005_ST5000000</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/studentproviderenrolment/512e6625-7d54-4115-855a-629c1f409c34';
+//ns1:Response[1]/ns1:StudentProviderEnrolment[1]/ns1:SchoolEnrolmentList[1]/ns1:SchoolEnrolment[1]/ns1:e[2]/ns1:SchoolCalendarYear[1]</con:xpath>
+              <con:element>SchoolCalendarYear</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>=</con:operator>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>2019</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/studentproviderenrolment/512e6625-7d54-4115-855a-629c1f409c34';
+//ns1:Response[1]/ns1:StudentProviderEnrolment[1]/ns1:SchoolEnrolmentList[1]/ns1:SchoolEnrolment[1]/ns1:e[2]/ns1:StartDate[1]</con:xpath>
+              <con:element>StartDate</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>=</con:operator>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>2019-01-27T12:00:00+00:00</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/studentproviderenrolment/512e6625-7d54-4115-855a-629c1f409c34';
+//ns1:Response[1]/ns1:StudentProviderEnrolment[1]/ns1:SchoolEnrolmentList[1]/ns1:SchoolEnrolment[1]/ns1:e[2]/ns1:MembershipType[1]</con:xpath>
+              <con:element>MembershipType</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>=</con:operator>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>BASE</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/studentproviderenrolment/512e6625-7d54-4115-855a-629c1f409c34';
+//ns1:Response[1]/ns1:StudentProviderEnrolment[1]/ns1:SchoolEnrolmentList[1]/ns1:SchoolEnrolment[1]/ns1:e[2]/ns1:YearLevel[1]</con:xpath>
+              <con:element>YearLevel</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>=</con:operator>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>7</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/studentproviderenrolment/512e6625-7d54-4115-855a-629c1f409c34';
+//ns1:Response[1]/ns1:StudentProviderEnrolment[1]/ns1:SchoolEnrolmentList[1]/ns1:SchoolEnrolment[1]/ns1:e[2]/ns1:FTE[1]</con:xpath>
+              <con:element>FTE</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>=</con:operator>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>1.0</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/studentproviderenrolment/512e6625-7d54-4115-855a-629c1f409c34';
+//ns1:Response[1]/ns1:StudentProviderEnrolment[1]/ns1:SchoolEnrolmentList[1]/ns1:SchoolEnrolment[1]/ns1:e[2]/ns1:FundingType[1]</con:xpath>
+              <con:element>FundingType</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>=</con:operator>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>SF</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/studentproviderenrolment/512e6625-7d54-4115-855a-629c1f409c34';
+//ns1:Response[1]/ns1:StudentProviderEnrolment[1]/ns1:SchoolEnrolmentList[1]/ns1:SchoolEnrolment[1]/ns1:e[2]/ns1:FundingYearLevel[1]</con:xpath>
+              <con:element>FundingYearLevel</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>=</con:operator>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>7</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/studentproviderenrolment/512e6625-7d54-4115-855a-629c1f409c34';
+//ns1:Response[1]/ns1:StudentProviderEnrolment[1]/ns1:SchoolEnrolmentList[1]/ns1:SchoolEnrolment[1]/ns1:e[2]/ns1:Curriculum[1]</con:xpath>
+              <con:element>Curriculum</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>=</con:operator>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>NZC</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/studentproviderenrolment/512e6625-7d54-4115-855a-629c1f409c34';
+//ns1:Response[1]/ns1:StudentProviderEnrolment[1]/ns1:RecordAudit[1]/ns1:CreatedDateTime[1]</con:xpath>
+              <con:element>CreatedDateTime</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>=</con:operator>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>2021-03-01T07:52:00.7064668+00:00</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/studentproviderenrolment/512e6625-7d54-4115-855a-629c1f409c34';
+//ns1:Response[1]/ns1:StudentProviderEnrolment[1]/ns1:RecordAudit[1]/ns1:LastUpdatedDateTime[1]</con:xpath>
+              <con:element>LastUpdatedDateTime</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>=</con:operator>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>2021-03-01T10:30:12.3967551+00:00</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/studentproviderenrolment/512e6625-7d54-4115-855a-629c1f409c34';
+//ns1:Response[1]/ns1:StudentProviderEnrolment[1]/ns1:RecordAudit[1]/ns1:CreatedBy[1]/ns1:Name[1]</con:xpath>
+              <con:element>Name</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>=</con:operator>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>MockServerClient</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/studentproviderenrolment/512e6625-7d54-4115-855a-629c1f409c34';
+//ns1:Response[1]/ns1:StudentProviderEnrolment[1]/ns1:RecordAudit[1]/ns1:LastUpdatedBy[1]/ns1:Name[1]</con:xpath>
+              <con:element>Name</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>=</con:operator>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>MockServerClient (byPut)</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:originalMessage><![CDATA[<Response xmlns="http://mocksifapi.terito.education.govt.nz/sif/studentproviderenrolment/512e6625-7d54-4115-855a-629c1f409c34">
+   <StudentProviderEnrolment>
+      <StudentProviderEnrolmentRefId>296eb586-d66a-41e1-b70a-370cfc9766ba</StudentProviderEnrolmentRefId>
+      <StudentProviderEnrolmentLocalId>1030_ST5000000</StudentProviderEnrolmentLocalId>
+      <Student>
+         <RefId>faef5e05-a1e3-4c0a-8e50-0ba397ae5d86</RefId>
+         <NationalStudentNumber>9005000000</NationalStudentNumber>
+      </Student>
+      <Provider>
+         <RefId>1030</RefId>
+      </Provider>
+      <StudentId>ST5000000</StudentId>
+      <EntryDate>2013-03-29T12:00:00+00:00</EntryDate>
+      <ECEEducationHistoryList>
+         <ECEType>
+            <e>
+               <Type>EPG</Type>
+            </e>
+         </ECEType>
+      </ECEEducationHistoryList>
+      <SchoolEnrolmentList>
+         <SchoolEnrolment>
+            <e>
+               <SchoolEnrolmentLocalId>2020_8005_ST5000000</SchoolEnrolmentLocalId>
+               <SchoolCalendarYear>2020</SchoolCalendarYear>
+               <StartDate>2020-01-26T12:00:00+00:00</StartDate>
+               <MembershipType>BASE</MembershipType>
+               <YearLevel>8</YearLevel>
+               <FTE>1.0</FTE>
+               <FundingType>SF</FundingType>
+               <FundingYearLevel>8</FundingYearLevel>
+               <Curriculum>NZC</Curriculum>
+            </e>
+            <e>
+               <SchoolEnrolmentLocalId>2019_8005_ST5000000</SchoolEnrolmentLocalId>
+               <SchoolCalendarYear>2019</SchoolCalendarYear>
+               <StartDate>2019-01-27T12:00:00+00:00</StartDate>
+               <MembershipType>BASE</MembershipType>
+               <YearLevel>7</YearLevel>
+               <FTE>1.0</FTE>
+               <FundingType>SF</FundingType>
+               <FundingYearLevel>7</FundingYearLevel>
+               <Curriculum>NZC</Curriculum>
+            </e>
+         </SchoolEnrolment>
+      </SchoolEnrolmentList>
+      <RecordAudit>
+         <CreatedDateTime>2021-03-01T07:52:00.7064668+00:00</CreatedDateTime>
+         <LastUpdatedDateTime>2021-03-01T10:30:12.3967551+00:00</LastUpdatedDateTime>
+         <CreatedBy>
+            <Name>MockServerClient</Name>
+         </CreatedBy>
+         <LastUpdatedBy>
+            <Name>MockServerClient (byPut)</Name>
+         </LastUpdatedBy>
+      </RecordAudit>
+   </StudentProviderEnrolment>
+</Response>]]></con:originalMessage>
+          </con:configuration>
+        </con:assertion>
         <con:credentials>
           <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
           <con:authType>No Authorization</con:authType>
@@ -149,7 +954,7 @@ return new JsonBuilder(slurped)</script>
         </con:parameters>
         <con:environmentSpec>
           <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
-            <con:authProfile>Inherit From Parent</con:authProfile>
+            <con:authProfile>SIF Mock - Basic Auth</con:authProfile>
           </con:entry>
         </con:environmentSpec>
       </con:restRequest>
@@ -196,6 +1001,400 @@ return new JsonBuilder(slurped)</script>
             <codes>200</codes>
           </con:configuration>
         </con:assertion>
+        <con:assertion type="MessageContentAssertion" id="1a9792da-0935-4c50-a6b9-505a67a7e8cf" name="Message Content Assertion">
+          <con:configuration xsi:type="con:MessageContentAssertion">
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/studentproviderenrolment/512e6625-7d54-4115-855a-629c1f409c34';
+//ns1:Response[1]/ns1:StudentProviderEnrolmentCREATE[1]/ns1:StudentProviderEnrolment[1]/ns1:StudentProviderEnrolmentRefId[1]</con:xpath>
+              <con:element>StudentProviderEnrolmentRefId</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>=</con:operator>
+              <con:enabled>true</con:enabled>
+              <con:expectedValue>${Properties 1#StudentProviderEnrolmentRefId}</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/studentproviderenrolment/512e6625-7d54-4115-855a-629c1f409c34';
+//ns1:Response[1]/ns1:StudentProviderEnrolmentCREATE[1]/ns1:StudentProviderEnrolment[1]/ns1:StudentProviderEnrolmentLocalId[1]</con:xpath>
+              <con:element>StudentProviderEnrolmentLocalId</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>=</con:operator>
+              <con:enabled>true</con:enabled>
+              <con:expectedValue>${UpdateStudentProviderEnrolment#Response#$['StudentProviderEnrolment']['StudentProviderEnrolmentLocalId']}</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/studentproviderenrolment/512e6625-7d54-4115-855a-629c1f409c34';
+//ns1:Response[1]/ns1:StudentProviderEnrolmentCREATE[1]/ns1:StudentProviderEnrolment[1]/ns1:Student[1]/ns1:RefId[1]</con:xpath>
+              <con:element>RefId</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>=</con:operator>
+              <con:enabled>true</con:enabled>
+              <con:expectedValue>${UpdateStudentProviderEnrolment#Response#$['StudentProviderEnrolment']['Student']['RefId']}</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/studentproviderenrolment/512e6625-7d54-4115-855a-629c1f409c34';
+//ns1:Response[1]/ns1:StudentProviderEnrolmentCREATE[1]/ns1:StudentProviderEnrolment[1]/ns1:Student[1]/ns1:NationalStudentNumber[1]</con:xpath>
+              <con:element>NationalStudentNumber</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>=</con:operator>
+              <con:enabled>true</con:enabled>
+              <con:expectedValue>${UpdateStudentProviderEnrolment#Response#$['StudentProviderEnrolment']['Student']['NationalStudentNumber']}</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/studentproviderenrolment/512e6625-7d54-4115-855a-629c1f409c34';
+//ns1:Response[1]/ns1:StudentProviderEnrolmentCREATE[1]/ns1:StudentProviderEnrolment[1]/ns1:Provider[1]/ns1:RefId[1]</con:xpath>
+              <con:element>RefId</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>=</con:operator>
+              <con:enabled>true</con:enabled>
+              <con:expectedValue>${UpdateStudentProviderEnrolment#Response#$['StudentProviderEnrolment']['Provider']['RefId']}</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/studentproviderenrolment/512e6625-7d54-4115-855a-629c1f409c34';
+//ns1:Response[1]/ns1:StudentProviderEnrolmentCREATE[1]/ns1:StudentProviderEnrolment[1]/ns1:StudentId[1]</con:xpath>
+              <con:element>StudentId</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>=</con:operator>
+              <con:enabled>true</con:enabled>
+              <con:expectedValue>${UpdateStudentProviderEnrolment#Response#$['StudentProviderEnrolment']['StudentId']}</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/studentproviderenrolment/512e6625-7d54-4115-855a-629c1f409c34';
+//ns1:Response[1]/ns1:StudentProviderEnrolmentCREATE[1]/ns1:StudentProviderEnrolment[1]/ns1:EntryDate[1]</con:xpath>
+              <con:element>EntryDate</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>exists</con:operator>
+              <con:enabled>true</con:enabled>
+              <con:expectedValue>${UpdateStudentProviderEnrolment#RawRequest}</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/studentproviderenrolment/512e6625-7d54-4115-855a-629c1f409c34';
+//ns1:Response[1]/ns1:StudentProviderEnrolmentCREATE[1]/ns1:StudentProviderEnrolment[1]/ns1:ECEEducationHistoryList[1]/ns1:ECEType[1]/ns1:e[1]/ns1:Type[1]</con:xpath>
+              <con:element>Type</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>=</con:operator>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>EPG</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/studentproviderenrolment/512e6625-7d54-4115-855a-629c1f409c34';
+//ns1:Response[1]/ns1:StudentProviderEnrolmentCREATE[1]/ns1:StudentProviderEnrolment[1]/ns1:SchoolEnrolmentList[1]/ns1:SchoolEnrolment[1]/ns1:e[1]/ns1:SchoolEnrolmentLocalId[1]</con:xpath>
+              <con:element>SchoolEnrolmentLocalId</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>=</con:operator>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>2020_8005_ST5000000</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/studentproviderenrolment/512e6625-7d54-4115-855a-629c1f409c34';
+//ns1:Response[1]/ns1:StudentProviderEnrolmentCREATE[1]/ns1:StudentProviderEnrolment[1]/ns1:SchoolEnrolmentList[1]/ns1:SchoolEnrolment[1]/ns1:e[1]/ns1:SchoolCalendarYear[1]</con:xpath>
+              <con:element>SchoolCalendarYear</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>=</con:operator>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>2020</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/studentproviderenrolment/512e6625-7d54-4115-855a-629c1f409c34';
+//ns1:Response[1]/ns1:StudentProviderEnrolmentCREATE[1]/ns1:StudentProviderEnrolment[1]/ns1:SchoolEnrolmentList[1]/ns1:SchoolEnrolment[1]/ns1:e[1]/ns1:StartDate[1]</con:xpath>
+              <con:element>StartDate</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>=</con:operator>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>2020-01-26T12:00:00+00:00</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/studentproviderenrolment/512e6625-7d54-4115-855a-629c1f409c34';
+//ns1:Response[1]/ns1:StudentProviderEnrolmentCREATE[1]/ns1:StudentProviderEnrolment[1]/ns1:SchoolEnrolmentList[1]/ns1:SchoolEnrolment[1]/ns1:e[1]/ns1:MembershipType[1]</con:xpath>
+              <con:element>MembershipType</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>=</con:operator>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>BASE</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/studentproviderenrolment/512e6625-7d54-4115-855a-629c1f409c34';
+//ns1:Response[1]/ns1:StudentProviderEnrolmentCREATE[1]/ns1:StudentProviderEnrolment[1]/ns1:SchoolEnrolmentList[1]/ns1:SchoolEnrolment[1]/ns1:e[1]/ns1:YearLevel[1]</con:xpath>
+              <con:element>YearLevel</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>=</con:operator>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>8</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/studentproviderenrolment/512e6625-7d54-4115-855a-629c1f409c34';
+//ns1:Response[1]/ns1:StudentProviderEnrolmentCREATE[1]/ns1:StudentProviderEnrolment[1]/ns1:SchoolEnrolmentList[1]/ns1:SchoolEnrolment[1]/ns1:e[1]/ns1:FTE[1]</con:xpath>
+              <con:element>FTE</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>=</con:operator>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>1.0</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/studentproviderenrolment/512e6625-7d54-4115-855a-629c1f409c34';
+//ns1:Response[1]/ns1:StudentProviderEnrolmentCREATE[1]/ns1:StudentProviderEnrolment[1]/ns1:SchoolEnrolmentList[1]/ns1:SchoolEnrolment[1]/ns1:e[1]/ns1:FundingType[1]</con:xpath>
+              <con:element>FundingType</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>=</con:operator>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>SF</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/studentproviderenrolment/512e6625-7d54-4115-855a-629c1f409c34';
+//ns1:Response[1]/ns1:StudentProviderEnrolmentCREATE[1]/ns1:StudentProviderEnrolment[1]/ns1:SchoolEnrolmentList[1]/ns1:SchoolEnrolment[1]/ns1:e[1]/ns1:FundingYearLevel[1]</con:xpath>
+              <con:element>FundingYearLevel</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>=</con:operator>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>8</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/studentproviderenrolment/512e6625-7d54-4115-855a-629c1f409c34';
+//ns1:Response[1]/ns1:StudentProviderEnrolmentCREATE[1]/ns1:StudentProviderEnrolment[1]/ns1:SchoolEnrolmentList[1]/ns1:SchoolEnrolment[1]/ns1:e[1]/ns1:Curriculum[1]</con:xpath>
+              <con:element>Curriculum</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>=</con:operator>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>NZC</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/studentproviderenrolment/512e6625-7d54-4115-855a-629c1f409c34';
+//ns1:Response[1]/ns1:StudentProviderEnrolmentCREATE[1]/ns1:StudentProviderEnrolment[1]/ns1:SchoolEnrolmentList[1]/ns1:SchoolEnrolment[1]/ns1:e[2]/ns1:SchoolEnrolmentLocalId[1]</con:xpath>
+              <con:element>SchoolEnrolmentLocalId</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>=</con:operator>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>2019_8005_ST5000000</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/studentproviderenrolment/512e6625-7d54-4115-855a-629c1f409c34';
+//ns1:Response[1]/ns1:StudentProviderEnrolmentCREATE[1]/ns1:StudentProviderEnrolment[1]/ns1:SchoolEnrolmentList[1]/ns1:SchoolEnrolment[1]/ns1:e[2]/ns1:SchoolCalendarYear[1]</con:xpath>
+              <con:element>SchoolCalendarYear</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>=</con:operator>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>2019</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/studentproviderenrolment/512e6625-7d54-4115-855a-629c1f409c34';
+//ns1:Response[1]/ns1:StudentProviderEnrolmentCREATE[1]/ns1:StudentProviderEnrolment[1]/ns1:SchoolEnrolmentList[1]/ns1:SchoolEnrolment[1]/ns1:e[2]/ns1:StartDate[1]</con:xpath>
+              <con:element>StartDate</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>=</con:operator>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>2019-01-27T12:00:00+00:00</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/studentproviderenrolment/512e6625-7d54-4115-855a-629c1f409c34';
+//ns1:Response[1]/ns1:StudentProviderEnrolmentCREATE[1]/ns1:StudentProviderEnrolment[1]/ns1:SchoolEnrolmentList[1]/ns1:SchoolEnrolment[1]/ns1:e[2]/ns1:MembershipType[1]</con:xpath>
+              <con:element>MembershipType</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>=</con:operator>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>BASE</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/studentproviderenrolment/512e6625-7d54-4115-855a-629c1f409c34';
+//ns1:Response[1]/ns1:StudentProviderEnrolmentCREATE[1]/ns1:StudentProviderEnrolment[1]/ns1:SchoolEnrolmentList[1]/ns1:SchoolEnrolment[1]/ns1:e[2]/ns1:YearLevel[1]</con:xpath>
+              <con:element>YearLevel</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>=</con:operator>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>7</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/studentproviderenrolment/512e6625-7d54-4115-855a-629c1f409c34';
+//ns1:Response[1]/ns1:StudentProviderEnrolmentCREATE[1]/ns1:StudentProviderEnrolment[1]/ns1:SchoolEnrolmentList[1]/ns1:SchoolEnrolment[1]/ns1:e[2]/ns1:FTE[1]</con:xpath>
+              <con:element>FTE</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>=</con:operator>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>1.0</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/studentproviderenrolment/512e6625-7d54-4115-855a-629c1f409c34';
+//ns1:Response[1]/ns1:StudentProviderEnrolmentCREATE[1]/ns1:StudentProviderEnrolment[1]/ns1:SchoolEnrolmentList[1]/ns1:SchoolEnrolment[1]/ns1:e[2]/ns1:FundingType[1]</con:xpath>
+              <con:element>FundingType</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>=</con:operator>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>SF</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/studentproviderenrolment/512e6625-7d54-4115-855a-629c1f409c34';
+//ns1:Response[1]/ns1:StudentProviderEnrolmentCREATE[1]/ns1:StudentProviderEnrolment[1]/ns1:SchoolEnrolmentList[1]/ns1:SchoolEnrolment[1]/ns1:e[2]/ns1:FundingYearLevel[1]</con:xpath>
+              <con:element>FundingYearLevel</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>=</con:operator>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>7</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/studentproviderenrolment/512e6625-7d54-4115-855a-629c1f409c34';
+//ns1:Response[1]/ns1:StudentProviderEnrolmentCREATE[1]/ns1:StudentProviderEnrolment[1]/ns1:SchoolEnrolmentList[1]/ns1:SchoolEnrolment[1]/ns1:e[2]/ns1:Curriculum[1]</con:xpath>
+              <con:element>Curriculum</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>=</con:operator>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>NZC</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/studentproviderenrolment/512e6625-7d54-4115-855a-629c1f409c34';
+//ns1:Response[1]/ns1:StudentProviderEnrolmentCREATE[1]/ns1:StudentProviderEnrolment[1]/ns1:RecordAudit[1]/ns1:CreatedDateTime[1]</con:xpath>
+              <con:element>CreatedDateTime</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>=</con:operator>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>2021-03-01T07:52:00.7064668+00:00</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/studentproviderenrolment/512e6625-7d54-4115-855a-629c1f409c34';
+//ns1:Response[1]/ns1:StudentProviderEnrolmentCREATE[1]/ns1:StudentProviderEnrolment[1]/ns1:RecordAudit[1]/ns1:LastUpdatedDateTime[1]</con:xpath>
+              <con:element>LastUpdatedDateTime</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>=</con:operator>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>2021-03-01T10:30:12.5490937+00:00</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/studentproviderenrolment/512e6625-7d54-4115-855a-629c1f409c34';
+//ns1:Response[1]/ns1:StudentProviderEnrolmentCREATE[1]/ns1:StudentProviderEnrolment[1]/ns1:RecordAudit[1]/ns1:CreatedBy[1]/ns1:Name[1]</con:xpath>
+              <con:element>Name</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>=</con:operator>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>MockServerClient</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/studentproviderenrolment/512e6625-7d54-4115-855a-629c1f409c34';
+//ns1:Response[1]/ns1:StudentProviderEnrolmentCREATE[1]/ns1:StudentProviderEnrolment[1]/ns1:RecordAudit[1]/ns1:LastUpdatedBy[1]/ns1:Name[1]</con:xpath>
+              <con:element>Name</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>=</con:operator>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>MockServerClient (byPatch)</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:originalMessage><![CDATA[<Response xmlns="http://mocksifapi.terito.education.govt.nz/sif/studentproviderenrolment/512e6625-7d54-4115-855a-629c1f409c34">
+   <StudentProviderEnrolmentCREATE>
+      <StudentProviderEnrolment>
+         <StudentProviderEnrolmentRefId>296eb586-d66a-41e1-b70a-370cfc9766ba</StudentProviderEnrolmentRefId>
+         <StudentProviderEnrolmentLocalId>1030_ST5000000</StudentProviderEnrolmentLocalId>
+         <Student>
+            <RefId>faef5e05-a1e3-4c0a-8e50-0ba397ae5d86</RefId>
+            <NationalStudentNumber>9005000000</NationalStudentNumber>
+         </Student>
+         <Provider>
+            <RefId>1030</RefId>
+         </Provider>
+         <StudentId>ST5000000</StudentId>
+         <EntryDate>2013-03-28T12:00:00+00:00</EntryDate>
+         <ECEEducationHistoryList>
+            <ECEType>
+               <e>
+                  <Type>EPG</Type>
+               </e>
+            </ECEType>
+         </ECEEducationHistoryList>
+         <SchoolEnrolmentList>
+            <SchoolEnrolment>
+               <e>
+                  <SchoolEnrolmentLocalId>2020_8005_ST5000000</SchoolEnrolmentLocalId>
+                  <SchoolCalendarYear>2020</SchoolCalendarYear>
+                  <StartDate>2020-01-26T12:00:00+00:00</StartDate>
+                  <MembershipType>BASE</MembershipType>
+                  <YearLevel>8</YearLevel>
+                  <FTE>1.0</FTE>
+                  <FundingType>SF</FundingType>
+                  <FundingYearLevel>8</FundingYearLevel>
+                  <Curriculum>NZC</Curriculum>
+               </e>
+               <e>
+                  <SchoolEnrolmentLocalId>2019_8005_ST5000000</SchoolEnrolmentLocalId>
+                  <SchoolCalendarYear>2019</SchoolCalendarYear>
+                  <StartDate>2019-01-27T12:00:00+00:00</StartDate>
+                  <MembershipType>BASE</MembershipType>
+                  <YearLevel>7</YearLevel>
+                  <FTE>1.0</FTE>
+                  <FundingType>SF</FundingType>
+                  <FundingYearLevel>7</FundingYearLevel>
+                  <Curriculum>NZC</Curriculum>
+               </e>
+            </SchoolEnrolment>
+         </SchoolEnrolmentList>
+         <RecordAudit>
+            <CreatedDateTime>2021-03-01T07:52:00.7064668+00:00</CreatedDateTime>
+            <LastUpdatedDateTime>2021-03-01T10:30:12.5490937+00:00</LastUpdatedDateTime>
+            <CreatedBy>
+               <Name>MockServerClient</Name>
+            </CreatedBy>
+            <LastUpdatedBy>
+               <Name>MockServerClient (byPatch)</Name>
+            </LastUpdatedBy>
+         </RecordAudit>
+      </StudentProviderEnrolment>
+   </StudentProviderEnrolmentCREATE>
+</Response>]]></con:originalMessage>
+          </con:configuration>
+        </con:assertion>
         <con:credentials>
           <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
           <con:authType>No Authorization</con:authType>
@@ -209,7 +1408,7 @@ return new JsonBuilder(slurped)</script>
         </con:parameters>
         <con:environmentSpec>
           <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
-            <con:authProfile>Inherit From Parent</con:authProfile>
+            <con:authProfile>SIF Mock - Basic Auth</con:authProfile>
           </con:entry>
         </con:environmentSpec>
       </con:restRequest>

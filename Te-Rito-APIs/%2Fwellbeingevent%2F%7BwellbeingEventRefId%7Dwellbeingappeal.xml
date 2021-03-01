@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:resource name="/wellbeingevent/{wellbeingEventRefId}wellbeingappeal" path="/wellbeingevent/{wellbeingEventRefId}wellbeingappeal" id="52967e8c-110d-4f8a-99ad-5815008e65af" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="52967e8c-110d-4f8a-99ad-5815008e65affileName">%2Fwellbeingevent%2F%7BwellbeingEventRefId%7Dwellbeingappeal</con:setting>
+  </con:settings>
+  <con:parameters/>
+  <con:method name="getWellbeingAppealsByEvent" id="f7de78d7-14ee-4e38-9de2-df68935bf5f7" method="GET">
+    <con:settings/>
+    <con:parameters>
+      <con:parameter>
+        <con:name>fields</con:name>
+        <con:value/>
+        <con:style>QUERY</con:style>
+        <con:default/>
+      </con:parameter>
+      <con:parameter>
+        <con:name>page</con:name>
+        <con:value/>
+        <con:style>QUERY</con:style>
+        <con:default/>
+      </con:parameter>
+      <con:parameter>
+        <con:name>max</con:name>
+        <con:value/>
+        <con:style>QUERY</con:style>
+        <con:default/>
+      </con:parameter>
+      <con:parameter>
+        <con:name>unwrap</con:name>
+        <con:value/>
+        <con:style>QUERY</con:style>
+        <con:default/>
+      </con:parameter>
+      <con:parameter>
+        <con:name>human</con:name>
+        <con:value/>
+        <con:style>QUERY</con:style>
+        <con:default/>
+      </con:parameter>
+      <con:parameter>
+        <con:name>sort</con:name>
+        <con:value/>
+        <con:style>QUERY</con:style>
+        <con:default/>
+      </con:parameter>
+      <con:parameter>
+        <con:name>field</con:name>
+        <con:value/>
+        <con:style>QUERY</con:style>
+        <con:default/>
+      </con:parameter>
+      <con:parameter>
+        <con:name>pattern</con:name>
+        <con:value/>
+        <con:style>QUERY</con:style>
+        <con:default/>
+      </con:parameter>
+      <con:parameter>
+        <con:name>Accept</con:name>
+        <con:value/>
+        <con:style>HEADER</con:style>
+        <con:default/>
+      </con:parameter>
+      <con:parameter>
+        <con:name>X-Edsby-APIClientId</con:name>
+        <con:value/>
+        <con:style>HEADER</con:style>
+        <con:default/>
+      </con:parameter>
+      <con:parameter>
+        <con:name>X-Edsby-OrganisationRefId</con:name>
+        <con:value/>
+        <con:style>HEADER</con:style>
+        <con:default/>
+      </con:parameter>
+      <con:parameter>
+        <con:name>WellbeingEventRefId</con:name>
+        <con:value/>
+        <con:style>TEMPLATE</con:style>
+        <con:default/>
+      </con:parameter>
+    </con:parameters>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>200</con:status>
+      <con:params/>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/xml</con:mediaType>
+      <con:status>200</con:status>
+      <con:params/>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>401</con:status>
+      <con:params/>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>403</con:status>
+      <con:params/>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>404</con:status>
+      <con:params/>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>422</con:status>
+      <con:params/>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/xml</con:mediaType>
+      <con:status>422</con:status>
+      <con:params/>
+    </con:representation>
+    <con:request name="Request 1" id="1e1c60e3-e41a-4c6a-81ec-009e5cedcf56" mediaType="application/json">
+      <con:settings/>
+      <con:endpoint>https://northern.edsby.co.nz/sif</con:endpoint>
+      <con:credentials>
+        <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+        <con:authType>No Authorization</con:authType>
+      </con:credentials>
+      <con:parameters/>
+      <con:environmentSpec>
+        <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
+          <con:authProfile>SIF Mock - Basic Auth</con:authProfile>
+        </con:entry>
+      </con:environmentSpec>
+    </con:request>
+  </con:method>
+</con:resource>

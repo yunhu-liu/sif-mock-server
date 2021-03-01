@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:resource name="/studentpersonal/{studentPersonalRefId}/StudentActivityParticipation" path="/studentpersonal/{studentPersonalRefId}/StudentActivityParticipation" id="5104dbdf-aebc-4d6b-9e72-1c827fa594a1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="5104dbdf-aebc-4d6b-9e72-1c827fa594a1fileName">%2Fstudentpersonal%2F%7BstudentPersonalRefId%7D%2FStudentActivityParticipation</con:setting>
+  </con:settings>
+  <con:parameters/>
+  <con:method name="getStudentActivityParticipationsByStudent" id="6b71c6b7-3c73-4575-9386-81f37033fcfc" method="GET">
+    <con:settings/>
+    <con:parameters>
+      <con:parameter>
+        <con:name>fields</con:name>
+        <con:value/>
+        <con:style>QUERY</con:style>
+        <con:default/>
+      </con:parameter>
+      <con:parameter>
+        <con:name>page</con:name>
+        <con:value/>
+        <con:style>QUERY</con:style>
+        <con:default/>
+      </con:parameter>
+      <con:parameter>
+        <con:name>max</con:name>
+        <con:value/>
+        <con:style>QUERY</con:style>
+        <con:default/>
+      </con:parameter>
+      <con:parameter>
+        <con:name>unwrap</con:name>
+        <con:value/>
+        <con:style>QUERY</con:style>
+        <con:default/>
+      </con:parameter>
+      <con:parameter>
+        <con:name>human</con:name>
+        <con:value/>
+        <con:style>QUERY</con:style>
+        <con:default/>
+      </con:parameter>
+      <con:parameter>
+        <con:name>sort</con:name>
+        <con:value/>
+        <con:style>QUERY</con:style>
+        <con:default/>
+      </con:parameter>
+      <con:parameter>
+        <con:name>field</con:name>
+        <con:value/>
+        <con:style>QUERY</con:style>
+        <con:default/>
+      </con:parameter>
+      <con:parameter>
+        <con:name>pattern</con:name>
+        <con:value/>
+        <con:style>QUERY</con:style>
+        <con:default/>
+      </con:parameter>
+      <con:parameter>
+        <con:name>Accept</con:name>
+        <con:value/>
+        <con:style>HEADER</con:style>
+        <con:default/>
+      </con:parameter>
+      <con:parameter>
+        <con:name>X-Edsby-APIClientId</con:name>
+        <con:value/>
+        <con:style>HEADER</con:style>
+        <con:default/>
+      </con:parameter>
+      <con:parameter>
+        <con:name>X-Edsby-OrganisationRefId</con:name>
+        <con:value/>
+        <con:style>HEADER</con:style>
+        <con:default/>
+      </con:parameter>
+      <con:parameter>
+        <con:name>studentPersonalRefId</con:name>
+        <con:value/>
+        <con:style>TEMPLATE</con:style>
+        <con:default/>
+      </con:parameter>
+    </con:parameters>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>200</con:status>
+      <con:params/>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/xml</con:mediaType>
+      <con:status>200</con:status>
+      <con:params/>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>401</con:status>
+      <con:params/>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>403</con:status>
+      <con:params/>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>404</con:status>
+      <con:params/>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>422</con:status>
+      <con:params/>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/xml</con:mediaType>
+      <con:status>422</con:status>
+      <con:params/>
+    </con:representation>
+    <con:request name="Request 1" id="1a11b4db-d252-4ff2-9511-6f9d20444651" mediaType="application/json">
+      <con:settings/>
+      <con:endpoint>https://northern.edsby.co.nz/sif</con:endpoint>
+      <con:credentials>
+        <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+        <con:authType>No Authorization</con:authType>
+      </con:credentials>
+      <con:parameters/>
+      <con:environmentSpec>
+        <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
+          <con:authProfile>SIF Mock - Basic Auth</con:authProfile>
+        </con:entry>
+      </con:environmentSpec>
+    </con:request>
+  </con:method>
+</con:resource>

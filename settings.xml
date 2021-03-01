@@ -70,7 +70,7 @@
   </con:eventHandlers>
   <con:environment id="02e1b66e-5963-4de7-b043-dcb6acc71d67" name="SIF Mock - Release 2" index="0">
     <con:service type="REST" name="Te Rito APIs">
-      <con:endpoint authProfile="SIF Mock - Basic Auth" proxyHost="" proxyPort="" proxyUsername="" proxyPassword="">http://mocksifapi.terito.education.govt.nz/sif</con:endpoint>
+      <con:endpoint authProfile="SIF Mock - Basic Auth" proxyHost="" proxyPort="" proxyUsername="" proxyPassword="">https://northern.edsby.co.nz/sif</con:endpoint>
     </con:service>
     <con:property>
       <con:name>X-Edsby-ApiClientId</con:name>
@@ -86,7 +86,7 @@
     </con:property>
     <con:property>
       <con:name>OrgRefId</con:name>
-      <con:value>1011</con:value>
+      <con:value>1033</con:value>
     </con:property>
     <con:property>
       <con:name>StudentPersonalRefId</con:name>
@@ -98,7 +98,7 @@
     </con:property>
     <con:property>
       <con:name>OrgRefId2</con:name>
-      <con:value>1012</con:value>
+      <con:value>1034</con:value>
     </con:property>
     <con:databaseConnectionContainer>
       <con:databaseConnection>
@@ -122,7 +122,7 @@
   </con:authRepository>
   <con:environmentSpec>
     <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
-      <con:authProfile>No Authorization</con:authProfile>
+      <con:authProfile>SIF Mock - Basic Auth</con:authProfile>
     </con:entry>
   </con:environmentSpec>
   <con:tags/>

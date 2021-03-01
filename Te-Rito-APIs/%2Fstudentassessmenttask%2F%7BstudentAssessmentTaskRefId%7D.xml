@@ -10,72 +10,100 @@
     <con:parameters>
       <con:parameter>
         <con:name>fields</con:name>
+        <con:value/>
         <con:style>QUERY</con:style>
+        <con:default/>
         <con:description>Return only specified fields	`fields=name,nid`</con:description>
       </con:parameter>
       <con:parameter>
         <con:name>page</con:name>
+        <con:value/>
         <con:style>QUERY</con:style>
+        <con:default/>
         <con:description>Return nth page of results; default 0	`page=2`; applies to any call with repeated data</con:description>
       </con:parameter>
       <con:parameter>
         <con:name>max</con:name>
+        <con:value/>
         <con:style>QUERY</con:style>
+        <con:default/>
         <con:description>Maximum items per page, default 10,000; `max=100`; applies to any call with repeated data</con:description>
       </con:parameter>
       <con:parameter>
         <con:name>unwrap</con:name>
+        <con:value/>
         <con:style>QUERY</con:style>
+        <con:default/>
         <con:description>Remove top level wrapper from json results in single result reponses;	`unwrap=1`</con:description>
       </con:parameter>
       <con:parameter>
         <con:name>human</con:name>
+        <con:value/>
         <con:style>QUERY</con:style>
+        <con:default/>
         <con:description>For code set fields, translate code to human readable form;	`human=1`</con:description>
       </con:parameter>
       <con:parameter>
         <con:name>start</con:name>
+        <con:value/>
         <con:style>QUERY</con:style>
+        <con:default/>
         <con:description>Include only items from start date;	`start=2017-08-01`</con:description>
       </con:parameter>
       <con:parameter>
         <con:name>end</con:name>
+        <con:value/>
         <con:style>QUERY</con:style>
+        <con:default/>
         <con:description>Include only items before end date;	`end=2017-08-31`</con:description>
       </con:parameter>
       <con:parameter>
         <con:name>sort</con:name>
+        <con:value/>
         <con:style>QUERY</con:style>
+        <con:default/>
         <con:description>Sort results by specified field;	`sort=FamilyName`</con:description>
       </con:parameter>
       <con:parameter>
         <con:name>field</con:name>
+        <con:value/>
         <con:style>QUERY</con:style>
+        <con:default/>
         <con:description>Field to filter on when used with **pattern**;	`field=FamilyName`</con:description>
       </con:parameter>
       <con:parameter>
         <con:name>pattern</con:name>
+        <con:value/>
         <con:style>QUERY</con:style>
+        <con:default/>
         <con:description>Filter results using pattern on **field**; `pattern=We*`</con:description>
       </con:parameter>
       <con:parameter required="true">
         <con:name>Accept</con:name>
+        <con:value/>
         <con:style>HEADER</con:style>
+        <con:default/>
         <con:description>Standard HTTP accept header, choose between JSON and XML for response. Defaults to XML if this header is missing.</con:description>
       </con:parameter>
       <con:parameter required="true">
         <con:name>X-Edsby-APIClientId</con:name>
+        <con:value/>
         <con:style>HEADER</con:style>
+        <con:default/>
         <con:description>&lt;p>Identifies the client making the API call to network infrastructure allowing WAFs to conduct rate limiting, gather usage statistics, etc. without having to unpack the username, subject claim or API key from the Authorization header.&lt;/p> &lt;p>Must be populated with the subject claim GUID from the access token in the Authorization header.&lt;/p></con:description>
       </con:parameter>
       <con:parameter required="true">
         <con:name>X-Edsby-OrganisationRefId</con:name>
+        <con:value/>
         <con:style>HEADER</con:style>
+        <con:default/>
         <con:description>&lt;p>The Ministry of Education Organisation Id of the Provider(or other Organisation); used to limit the scope of the API endpoint to a particular MoE Organisation.&lt;/p></con:description>
       </con:parameter>
       <con:parameter required="true">
         <con:name>studentAssessmentTaskRefId</con:name>
+        <con:value/>
         <con:style>TEMPLATE</con:style>
+        <con:default/>
         <con:description>&lt;p>Unique identifier (GUID) that uniquely identifies the particular student's attempt at the particular assignment, essay, class test, internal or external assessment exam, or any other &lt;a href="#tag/AssessmentTask">AssessmentTask&lt;/a> that is being attempted.&lt;/p></con:description>
       </con:parameter>
     </con:parameters>
@@ -212,10 +240,25 @@
         <con:authType>No Authorization</con:authType>
       </con:credentials>
       <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
-      <con:parameters/>
+      <con:parameters>
+        <con:entry key="studentAssessmentTaskRefId" value=""/>
+        <con:entry key="Accept" value=""/>
+        <con:entry key="max" value=""/>
+        <con:entry key="start" value=""/>
+        <con:entry key="pattern" value=""/>
+        <con:entry key="X-Edsby-APIClientId" value=""/>
+        <con:entry key="X-Edsby-OrganisationRefId" value=""/>
+        <con:entry key="sort" value=""/>
+        <con:entry key="unwrap" value=""/>
+        <con:entry key="field" value=""/>
+        <con:entry key="end" value=""/>
+        <con:entry key="page" value=""/>
+        <con:entry key="fields" value=""/>
+        <con:entry key="human" value=""/>
+      </con:parameters>
       <con:environmentSpec>
         <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
-          <con:authProfile>Inherit From Parent</con:authProfile>
+          <con:authProfile>SIF Mock - Basic Auth</con:authProfile>
         </con:entry>
       </con:environmentSpec>
     </con:request>
@@ -231,22 +274,30 @@
     <con:parameters>
       <con:parameter required="true">
         <con:name>Accept</con:name>
+        <con:value/>
         <con:style>HEADER</con:style>
+        <con:default/>
         <con:description>Standard HTTP accept header, choose between JSON and XML for response. Defaults to XML if this header is missing.</con:description>
       </con:parameter>
       <con:parameter required="true">
         <con:name>X-Edsby-APIClientId</con:name>
+        <con:value/>
         <con:style>HEADER</con:style>
+        <con:default/>
         <con:description>&lt;p>Identifies the client making the API call to network infrastructure allowing WAFs to conduct rate limiting, gather usage statistics, etc. without having to unpack the username, subject claim or API key from the Authorization header.&lt;/p> &lt;p>Must be populated with the subject claim GUID from the access token in the Authorization header.&lt;/p></con:description>
       </con:parameter>
       <con:parameter required="true">
         <con:name>X-Edsby-OrganisationRefId</con:name>
+        <con:value/>
         <con:style>HEADER</con:style>
+        <con:default/>
         <con:description>&lt;p>The Ministry of Education Organisation Id of the Provider(or other Organisation); used to limit the scope of the API endpoint to a particular MoE Organisation.&lt;/p></con:description>
       </con:parameter>
       <con:parameter required="true">
         <con:name>studentAssessmentTaskRefId</con:name>
+        <con:value/>
         <con:style>TEMPLATE</con:style>
+        <con:default/>
         <con:description>&lt;p>Unique identifier (GUID) that uniquely identifies the particular student's attempt at the particular assignment, essay, class test, internal or external assessment exam, or any other &lt;a href="#tag/AssessmentTask">AssessmentTask&lt;/a> that is being attempted.&lt;/p></con:description>
       </con:parameter>
     </con:parameters>
@@ -357,10 +408,15 @@
         <con:authType>No Authorization</con:authType>
       </con:credentials>
       <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
-      <con:parameters/>
+      <con:parameters>
+        <con:entry key="studentAssessmentTaskRefId" value=""/>
+        <con:entry key="Accept" value=""/>
+        <con:entry key="X-Edsby-APIClientId" value=""/>
+        <con:entry key="X-Edsby-OrganisationRefId" value=""/>
+      </con:parameters>
       <con:environmentSpec>
         <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
-          <con:authProfile>Inherit From Parent</con:authProfile>
+          <con:authProfile>SIF Mock - Basic Auth</con:authProfile>
         </con:entry>
       </con:environmentSpec>
     </con:request>
@@ -373,10 +429,15 @@
         <con:authType>No Authorization</con:authType>
       </con:credentials>
       <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
-      <con:parameters/>
+      <con:parameters>
+        <con:entry key="studentAssessmentTaskRefId" value=""/>
+        <con:entry key="Accept" value=""/>
+        <con:entry key="X-Edsby-APIClientId" value=""/>
+        <con:entry key="X-Edsby-OrganisationRefId" value=""/>
+      </con:parameters>
       <con:environmentSpec>
         <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
-          <con:authProfile>Inherit From Parent</con:authProfile>
+          <con:authProfile>SIF Mock - Basic Auth</con:authProfile>
         </con:entry>
       </con:environmentSpec>
     </con:request>
@@ -392,22 +453,30 @@
     <con:parameters>
       <con:parameter required="true">
         <con:name>Accept</con:name>
+        <con:value/>
         <con:style>HEADER</con:style>
+        <con:default/>
         <con:description>Standard HTTP accept header, choose between JSON and XML for response. Defaults to XML if this header is missing.</con:description>
       </con:parameter>
       <con:parameter required="true">
         <con:name>X-Edsby-APIClientId</con:name>
+        <con:value/>
         <con:style>HEADER</con:style>
+        <con:default/>
         <con:description>&lt;p>Identifies the client making the API call to network infrastructure allowing WAFs to conduct rate limiting, gather usage statistics, etc. without having to unpack the username, subject claim or API key from the Authorization header.&lt;/p> &lt;p>Must be populated with the subject claim GUID from the access token in the Authorization header.&lt;/p></con:description>
       </con:parameter>
       <con:parameter required="true">
         <con:name>X-Edsby-OrganisationRefId</con:name>
+        <con:value/>
         <con:style>HEADER</con:style>
+        <con:default/>
         <con:description>&lt;p>The Ministry of Education Organisation Id of the Provider(or other Organisation); used to limit the scope of the API endpoint to a particular MoE Organisation.&lt;/p></con:description>
       </con:parameter>
       <con:parameter required="true">
         <con:name>studentAssessmentTaskRefId</con:name>
+        <con:value/>
         <con:style>TEMPLATE</con:style>
+        <con:default/>
         <con:description>&lt;p>Unique identifier (GUID) that uniquely identifies the particular student's attempt at the particular assignment, essay, class test, internal or external assessment exam, or any other &lt;a href="#tag/AssessmentTask">AssessmentTask&lt;/a> that is being attempted.&lt;/p></con:description>
       </con:parameter>
     </con:parameters>
@@ -518,10 +587,15 @@
         <con:authType>No Authorization</con:authType>
       </con:credentials>
       <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
-      <con:parameters/>
+      <con:parameters>
+        <con:entry key="studentAssessmentTaskRefId" value=""/>
+        <con:entry key="Accept" value=""/>
+        <con:entry key="X-Edsby-APIClientId" value=""/>
+        <con:entry key="X-Edsby-OrganisationRefId" value=""/>
+      </con:parameters>
       <con:environmentSpec>
         <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
-          <con:authProfile>Inherit From Parent</con:authProfile>
+          <con:authProfile>SIF Mock - Basic Auth</con:authProfile>
         </con:entry>
       </con:environmentSpec>
     </con:request>
@@ -534,10 +608,15 @@
         <con:authType>No Authorization</con:authType>
       </con:credentials>
       <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
-      <con:parameters/>
+      <con:parameters>
+        <con:entry key="studentAssessmentTaskRefId" value=""/>
+        <con:entry key="Accept" value=""/>
+        <con:entry key="X-Edsby-APIClientId" value=""/>
+        <con:entry key="X-Edsby-OrganisationRefId" value=""/>
+      </con:parameters>
       <con:environmentSpec>
         <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
-          <con:authProfile>Inherit From Parent</con:authProfile>
+          <con:authProfile>SIF Mock - Basic Auth</con:authProfile>
         </con:entry>
       </con:environmentSpec>
     </con:request>

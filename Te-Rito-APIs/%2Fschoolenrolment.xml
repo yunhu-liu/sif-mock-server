@@ -4,178 +4,6 @@
     <con:setting id="44bfbccf-9470-4798-b9f6-cdddd1a86ecbfileName">%2Fschoolenrolment</con:setting>
   </con:settings>
   <con:parameters/>
-  <con:method name="getSchoolEnrolments" id="eb03b990-0b1b-4c82-bd7d-d7045695afdb" method="GET">
-    <con:description><![CDATA[<p>Bulk operation to retrieve all available per-year school enrolments with the given StudentProviderEnrolment.</p>
-<p>Provider enrolments span multiple years with the ProviderEnrolment containing one  or more ECE, School or Tertiary Enrolment sub-objects for each particular year. Individual per-year school enrolment details are available via this SchoolEnrolment sub-object</p>
-<p><strong>Note:</strong> StudentProviderEnrolmentRefId and StudentProviderEnrolmentLocalId fields are included in the object to enable bulk CRUD operations to operate across multiple student enrolments within the same provider.</p>]]></con:description>
-    <con:settings/>
-    <con:parameters>
-      <con:parameter>
-        <con:name>fields</con:name>
-        <con:style>QUERY</con:style>
-        <con:description>Return only specified fields	`fields=name,nid`</con:description>
-      </con:parameter>
-      <con:parameter>
-        <con:name>page</con:name>
-        <con:style>QUERY</con:style>
-        <con:description>Return nth page of results; default 0	`page=2`; applies to any call with repeated data</con:description>
-      </con:parameter>
-      <con:parameter>
-        <con:name>max</con:name>
-        <con:style>QUERY</con:style>
-        <con:description>Maximum items per page, default 10,000; `max=100`; applies to any call with repeated data</con:description>
-      </con:parameter>
-      <con:parameter>
-        <con:name>unwrap</con:name>
-        <con:style>QUERY</con:style>
-        <con:description>Remove top level wrapper from json results in single result reponses;	`unwrap=1`</con:description>
-      </con:parameter>
-      <con:parameter>
-        <con:name>human</con:name>
-        <con:style>QUERY</con:style>
-        <con:description>For code set fields, translate code to human readable form;	`human=1`</con:description>
-      </con:parameter>
-      <con:parameter>
-        <con:name>start</con:name>
-        <con:style>QUERY</con:style>
-        <con:description>Include only items from start date;	`start=2017-08-01`</con:description>
-      </con:parameter>
-      <con:parameter>
-        <con:name>end</con:name>
-        <con:style>QUERY</con:style>
-        <con:description>Include only items before end date;	`end=2017-08-31`</con:description>
-      </con:parameter>
-      <con:parameter>
-        <con:name>sort</con:name>
-        <con:style>QUERY</con:style>
-        <con:description>Sort results by specified field;	`sort=FamilyName`</con:description>
-      </con:parameter>
-      <con:parameter>
-        <con:name>field</con:name>
-        <con:style>QUERY</con:style>
-        <con:description>Field to filter on when used with **pattern**;	`field=FamilyName`</con:description>
-      </con:parameter>
-      <con:parameter>
-        <con:name>pattern</con:name>
-        <con:style>QUERY</con:style>
-        <con:description>Filter results using pattern on **field**; `pattern=We*`</con:description>
-      </con:parameter>
-      <con:parameter required="true">
-        <con:name>Accept</con:name>
-        <con:style>HEADER</con:style>
-        <con:description>Standard HTTP accept header, choose between JSON and XML for response. Defaults to XML if this header is missing.</con:description>
-      </con:parameter>
-      <con:parameter required="true">
-        <con:name>X-Edsby-APIClientId</con:name>
-        <con:style>HEADER</con:style>
-        <con:description>&lt;p>Identifies the client making the API call to network infrastructure allowing WAFs to conduct rate limiting, gather usage statistics, etc. without having to unpack the username, subject claim or API key from the Authorization header.&lt;/p> &lt;p>Must be populated with the subject claim GUID from the access token in the Authorization header.&lt;/p></con:description>
-      </con:parameter>
-      <con:parameter required="true">
-        <con:name>X-Edsby-OrganisationRefId</con:name>
-        <con:style>HEADER</con:style>
-        <con:description>&lt;p>The Ministry of Education Organisation Id of the Provider(or other Organisation); used to limit the scope of the API endpoint to a particular MoE Organisation.&lt;/p></con:description>
-      </con:parameter>
-      <con:parameter required="true">
-        <con:name>studentProviderEnrolmentRefId</con:name>
-        <con:style>TEMPLATE</con:style>
-        <con:description>System RefId of the parent StudentProviderEnrolment that the SchoolEnrolment(s) are part of</con:description>
-      </con:parameter>
-    </con:parameters>
-    <con:representation type="RESPONSE">
-      <con:mediaType>application/json</con:mediaType>
-      <con:status>200</con:status>
-      <con:params/>
-      <con:description>successful operation</con:description>
-      <con:sampleContent>{
-  "$ref" : "#/paths/~1schoolenrolment/post/responses/200/content/application~1json/example"
-}</con:sampleContent>
-    </con:representation>
-    <con:representation type="RESPONSE">
-      <con:mediaType>application/xml</con:mediaType>
-      <con:status>200</con:status>
-      <con:params/>
-      <con:description>successful operation</con:description>
-      <con:sampleContent>&lt;ObjectNode>&lt;$ref>#/paths/~1schoolenrolment/post/requestBody/content/application~1xml/example&lt;/$ref>&lt;/ObjectNode></con:sampleContent>
-    </con:representation>
-    <con:representation type="RESPONSE">
-      <con:mediaType>application/json</con:mediaType>
-      <con:status>401</con:status>
-      <con:params/>
-      <con:description>Unauthorised - Authorization header missing, or contents incorrect.</con:description>
-      <con:sampleContent>{
-  "error" : 401,
-  "when" : "2020-07-16T20:00:46.000Z",
-  "errorstr" : "Unauthorised request: Authorisation header missing, or incorrect."
-}</con:sampleContent>
-    </con:representation>
-    <con:representation type="RESPONSE">
-      <con:mediaType>application/json</con:mediaType>
-      <con:status>403</con:status>
-      <con:params/>
-      <con:description>Forbidden - API client has successfully authenticated, but is not authorised to make this API call</con:description>
-      <con:sampleContent>{
-  "error" : 401,
-  "when" : "2020-07-16T20:00:46.000Z",
-  "errorstr" : "Forbidden request: API endpoint not permitted to client"
-}</con:sampleContent>
-    </con:representation>
-    <con:representation type="RESPONSE">
-      <con:mediaType>application/json</con:mediaType>
-      <con:status>404</con:status>
-      <con:params/>
-      <con:description>Not Found - resource in URL not found.</con:description>
-      <con:sampleContent>{
-  "error" : 404,
-  "when" : "2020-07-16T20:00:46.000Z",
-  "errorstr" : "Not Found: URL doesn't refer to known object"
-}</con:sampleContent>
-    </con:representation>
-    <con:representation type="RESPONSE">
-      <con:mediaType>application/json</con:mediaType>
-      <con:status>422</con:status>
-      <con:params/>
-      <con:description>Failed to retrieve object(s).</con:description>
-      <con:sampleContent>{
-  "error" : 1009,
-  "when" : "2020-07-16T20:00:46.000Z",
-  "errorstr" : "Bad field: PersonInfo-Name-FamilyName: missing required field PersonInfo-Name-FamilyName (LastName) 'None'",
-  "localId" : "ST-002"
-}</con:sampleContent>
-    </con:representation>
-    <con:representation type="RESPONSE">
-      <con:mediaType>application/xml</con:mediaType>
-      <con:status>422</con:status>
-      <con:params/>
-      <con:description>Failed to retrieve object(s).</con:description>
-      <con:sampleContent><![CDATA[<Error>
-  <error>1009</error>
-  <when>2020-07-16T20:00:46.000Z</when>
-  <errorstr>Bad field: PersonInfo-Name-FamilyName: missing required field PersonInfo-Name-FamilyName (LastName) 'None'</errorstr>
-  <localId>ST-002</localId>
-</Error>]]></con:sampleContent>
-    </con:representation>
-    <con:request name="Request 1" id="662d4cc7-8013-4081-b0ae-11ed23091b6b" mediaType="application/json">
-      <con:settings/>
-      <con:endpoint>https://northern.edsby.co.nz/sif</con:endpoint>
-      <con:request/>
-      <con:credentials>
-        <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
-        <con:authType>No Authorization</con:authType>
-      </con:credentials>
-      <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
-      <con:parameters/>
-      <con:environmentSpec>
-        <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
-          <con:authProfile>Inherit From Parent</con:authProfile>
-        </con:entry>
-      </con:environmentSpec>
-    </con:request>
-    <con:environmentSpec>
-      <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
-        <con:authProfile>Inherit From Parent</con:authProfile>
-      </con:entry>
-    </con:environmentSpec>
-  </con:method>
   <con:method name="createSchoolEnrolments" id="e6c543a2-9443-47c2-a10e-e4368d826e70" method="POST">
     <con:description><![CDATA[<p>Bulk operation to create one or more school enrolments as part of the given StudentProviderEnrolment.</p> 
 <p>Provider enrolments span multiple years with the StudentProviderEnrolment containing one  or more ECE, School or Tertiary Enrolment sub-objects for each particular year. Individual per-year school enrolment details are available via this SchoolEnrolment sub-object</p>
@@ -184,22 +12,30 @@
     <con:parameters>
       <con:parameter>
         <con:name>x-http-method-override</con:name>
+        <con:value/>
         <con:style>HEADER</con:style>
+        <con:default/>
         <con:description>Rather than CREATE records, treat this request as a SYNC request.</con:description>
       </con:parameter>
       <con:parameter required="true">
         <con:name>Accept</con:name>
+        <con:value/>
         <con:style>HEADER</con:style>
+        <con:default/>
         <con:description>Standard HTTP accept header, choose between JSON and XML for response. Defaults to XML if this header is missing.</con:description>
       </con:parameter>
       <con:parameter required="true">
         <con:name>X-Edsby-APIClientId</con:name>
+        <con:value/>
         <con:style>HEADER</con:style>
+        <con:default/>
         <con:description>&lt;p>Identifies the client making the API call to network infrastructure allowing WAFs to conduct rate limiting, gather usage statistics, etc. without having to unpack the username, subject claim or API key from the Authorization header.&lt;/p> &lt;p>Must be populated with the subject claim GUID from the access token in the Authorization header.&lt;/p></con:description>
       </con:parameter>
       <con:parameter required="true">
         <con:name>X-Edsby-OrganisationRefId</con:name>
+        <con:value/>
         <con:style>HEADER</con:style>
+        <con:default/>
         <con:description>&lt;p>The Ministry of Education Organisation Id of the Provider(or other Organisation); used to limit the scope of the API endpoint to a particular MoE Organisation.&lt;/p></con:description>
       </con:parameter>
     </con:parameters>
@@ -361,10 +197,15 @@
         <con:authType>No Authorization</con:authType>
       </con:credentials>
       <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
-      <con:parameters/>
+      <con:parameters>
+        <con:entry key="Accept" value=""/>
+        <con:entry key="X-Edsby-APIClientId" value=""/>
+        <con:entry key="X-Edsby-OrganisationRefId" value=""/>
+        <con:entry key="x-http-method-override" value=""/>
+      </con:parameters>
       <con:environmentSpec>
         <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
-          <con:authProfile>Inherit From Parent</con:authProfile>
+          <con:authProfile>SIF Mock - Basic Auth</con:authProfile>
         </con:entry>
       </con:environmentSpec>
     </con:request>
@@ -388,10 +229,15 @@
         <con:authType>No Authorization</con:authType>
       </con:credentials>
       <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
-      <con:parameters/>
+      <con:parameters>
+        <con:entry key="Accept" value=""/>
+        <con:entry key="X-Edsby-APIClientId" value=""/>
+        <con:entry key="X-Edsby-OrganisationRefId" value=""/>
+        <con:entry key="x-http-method-override" value=""/>
+      </con:parameters>
       <con:environmentSpec>
         <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
-          <con:authProfile>Inherit From Parent</con:authProfile>
+          <con:authProfile>SIF Mock - Basic Auth</con:authProfile>
         </con:entry>
       </con:environmentSpec>
     </con:request>
@@ -409,17 +255,23 @@
     <con:parameters>
       <con:parameter required="true">
         <con:name>Accept</con:name>
+        <con:value/>
         <con:style>HEADER</con:style>
+        <con:default/>
         <con:description>Standard HTTP accept header, choose between JSON and XML for response. Defaults to XML if this header is missing.</con:description>
       </con:parameter>
       <con:parameter required="true">
         <con:name>X-Edsby-APIClientId</con:name>
+        <con:value/>
         <con:style>HEADER</con:style>
+        <con:default/>
         <con:description>&lt;p>Identifies the client making the API call to network infrastructure allowing WAFs to conduct rate limiting, gather usage statistics, etc. without having to unpack the username, subject claim or API key from the Authorization header.&lt;/p> &lt;p>Must be populated with the subject claim GUID from the access token in the Authorization header.&lt;/p></con:description>
       </con:parameter>
       <con:parameter required="true">
         <con:name>X-Edsby-OrganisationRefId</con:name>
+        <con:value/>
         <con:style>HEADER</con:style>
+        <con:default/>
         <con:description>&lt;p>The Ministry of Education Organisation Id of the Provider(or other Organisation); used to limit the scope of the API endpoint to a particular MoE Organisation.&lt;/p></con:description>
       </con:parameter>
     </con:parameters>
@@ -522,10 +374,14 @@
         <con:authType>No Authorization</con:authType>
       </con:credentials>
       <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
-      <con:parameters/>
+      <con:parameters>
+        <con:entry key="Accept" value=""/>
+        <con:entry key="X-Edsby-APIClientId" value=""/>
+        <con:entry key="X-Edsby-OrganisationRefId" value=""/>
+      </con:parameters>
       <con:environmentSpec>
         <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
-          <con:authProfile>Inherit From Parent</con:authProfile>
+          <con:authProfile>SIF Mock - Basic Auth</con:authProfile>
         </con:entry>
       </con:environmentSpec>
     </con:request>
@@ -538,10 +394,14 @@
         <con:authType>No Authorization</con:authType>
       </con:credentials>
       <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
-      <con:parameters/>
+      <con:parameters>
+        <con:entry key="Accept" value=""/>
+        <con:entry key="X-Edsby-APIClientId" value=""/>
+        <con:entry key="X-Edsby-OrganisationRefId" value=""/>
+      </con:parameters>
       <con:environmentSpec>
         <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
-          <con:authProfile>Inherit From Parent</con:authProfile>
+          <con:authProfile>SIF Mock - Basic Auth</con:authProfile>
         </con:entry>
       </con:environmentSpec>
     </con:request>
@@ -559,17 +419,23 @@
     <con:parameters>
       <con:parameter required="true">
         <con:name>Accept</con:name>
+        <con:value/>
         <con:style>HEADER</con:style>
+        <con:default/>
         <con:description>Standard HTTP accept header, choose between JSON and XML for response. Defaults to XML if this header is missing.</con:description>
       </con:parameter>
       <con:parameter required="true">
         <con:name>X-Edsby-APIClientId</con:name>
+        <con:value/>
         <con:style>HEADER</con:style>
+        <con:default/>
         <con:description>&lt;p>Identifies the client making the API call to network infrastructure allowing WAFs to conduct rate limiting, gather usage statistics, etc. without having to unpack the username, subject claim or API key from the Authorization header.&lt;/p> &lt;p>Must be populated with the subject claim GUID from the access token in the Authorization header.&lt;/p></con:description>
       </con:parameter>
       <con:parameter required="true">
         <con:name>X-Edsby-OrganisationRefId</con:name>
+        <con:value/>
         <con:style>HEADER</con:style>
+        <con:default/>
         <con:description>&lt;p>The Ministry of Education Organisation Id of the Provider(or other Organisation); used to limit the scope of the API endpoint to a particular MoE Organisation.&lt;/p></con:description>
       </con:parameter>
     </con:parameters>
@@ -681,10 +547,14 @@
         <con:authType>No Authorization</con:authType>
       </con:credentials>
       <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
-      <con:parameters/>
+      <con:parameters>
+        <con:entry key="Accept" value=""/>
+        <con:entry key="X-Edsby-APIClientId" value=""/>
+        <con:entry key="X-Edsby-OrganisationRefId" value=""/>
+      </con:parameters>
       <con:environmentSpec>
         <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
-          <con:authProfile>Inherit From Parent</con:authProfile>
+          <con:authProfile>SIF Mock - Basic Auth</con:authProfile>
         </con:entry>
       </con:environmentSpec>
     </con:request>
@@ -706,10 +576,14 @@
         <con:authType>No Authorization</con:authType>
       </con:credentials>
       <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
-      <con:parameters/>
+      <con:parameters>
+        <con:entry key="Accept" value=""/>
+        <con:entry key="X-Edsby-APIClientId" value=""/>
+        <con:entry key="X-Edsby-OrganisationRefId" value=""/>
+      </con:parameters>
       <con:environmentSpec>
         <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
-          <con:authProfile>Inherit From Parent</con:authProfile>
+          <con:authProfile>SIF Mock - Basic Auth</con:authProfile>
         </con:entry>
       </con:environmentSpec>
     </con:request>

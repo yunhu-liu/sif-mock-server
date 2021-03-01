@@ -156,10 +156,11 @@
           <con:entry key="scheduleRefId" value="${#[Release 2#Schedule-Single#Properties 1]#ScheduleRefId}"/>
           <con:entry key="X-Edsby-APIClientId" value="${#Project#ApiClientId}"/>
           <con:entry key="X-Edsby-OrganisationRefId" value="${#Project#OrgRefId}"/>
+          <con:entry key="x-http-method-override" value=""/>
         </con:parameters>
         <con:environmentSpec>
           <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
-            <con:authProfile>Inherit From Parent</con:authProfile>
+            <con:authProfile>SIF Mock - Basic Auth</con:authProfile>
           </con:entry>
         </con:environmentSpec>
       </con:restRequest>
@@ -242,14 +243,24 @@
         <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
         <con:parameters>
           <con:entry key="Accept" value="${#Project#Accept}"/>
-          <con:entry key="scheduleRefId" value="${#[Release 2#Schedule-Single#Properties 1]#ScheduleRefId}"/>
+          <con:entry key="max" value=""/>
           <con:entry key="scheduleDateRefId" value="${Properties 1#ScheduleDateRefId}"/>
           <con:entry key="X-Edsby-APIClientId" value="${#Project#ApiClientId}"/>
+          <con:entry key="start" value=""/>
+          <con:entry key="pattern" value=""/>
           <con:entry key="X-Edsby-OrganisationRefId" value="${#Project#OrgRefId}"/>
+          <con:entry key="sort" value=""/>
+          <con:entry key="unwrap" value=""/>
+          <con:entry key="scheduleRefId" value="${#[Release 2#Schedule-Single#Properties 1]#ScheduleRefId}"/>
+          <con:entry key="field" value=""/>
+          <con:entry key="end" value=""/>
+          <con:entry key="page" value=""/>
+          <con:entry key="fields" value=""/>
+          <con:entry key="human" value=""/>
         </con:parameters>
         <con:environmentSpec>
           <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
-            <con:authProfile>Inherit From Parent</con:authProfile>
+            <con:authProfile>SIF Mock - Basic Auth</con:authProfile>
           </con:entry>
         </con:environmentSpec>
       </con:restRequest>
@@ -352,7 +363,7 @@
         </con:parameters>
         <con:environmentSpec>
           <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
-            <con:authProfile>Inherit From Parent</con:authProfile>
+            <con:authProfile>SIF Mock - Basic Auth</con:authProfile>
           </con:entry>
         </con:environmentSpec>
       </con:restRequest>
@@ -428,7 +439,7 @@
         </con:parameters>
         <con:environmentSpec>
           <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
-            <con:authProfile>Inherit From Parent</con:authProfile>
+            <con:authProfile>SIF Mock - Basic Auth</con:authProfile>
           </con:entry>
         </con:environmentSpec>
       </con:restRequest>

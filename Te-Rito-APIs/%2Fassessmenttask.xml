@@ -1,0 +1,413 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:resource name="/assessmenttask" path="/assessmenttask" id="f00c62c0-a278-4201-9c8e-d4ccd413e08e" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="f00c62c0-a278-4201-9c8e-d4ccd413e08efileName">%2Fassessmenttask</con:setting>
+  </con:settings>
+  <con:parameters/>
+  <con:method name="getAssessmentTasks" id="51559b18-5bf3-481a-abd0-02ab05b39174" method="GET">
+    <con:settings/>
+    <con:parameters>
+      <con:parameter>
+        <con:name>fields</con:name>
+        <con:value/>
+        <con:style>QUERY</con:style>
+        <con:default/>
+      </con:parameter>
+      <con:parameter>
+        <con:name>page</con:name>
+        <con:value/>
+        <con:style>QUERY</con:style>
+        <con:default/>
+      </con:parameter>
+      <con:parameter>
+        <con:name>max</con:name>
+        <con:value/>
+        <con:style>QUERY</con:style>
+        <con:default/>
+      </con:parameter>
+      <con:parameter>
+        <con:name>unwrap</con:name>
+        <con:value/>
+        <con:style>QUERY</con:style>
+        <con:default/>
+      </con:parameter>
+      <con:parameter>
+        <con:name>human</con:name>
+        <con:value/>
+        <con:style>QUERY</con:style>
+        <con:default/>
+      </con:parameter>
+      <con:parameter>
+        <con:name>sort</con:name>
+        <con:value/>
+        <con:style>QUERY</con:style>
+        <con:default/>
+      </con:parameter>
+      <con:parameter>
+        <con:name>field</con:name>
+        <con:value/>
+        <con:style>QUERY</con:style>
+        <con:default/>
+      </con:parameter>
+      <con:parameter>
+        <con:name>pattern</con:name>
+        <con:value/>
+        <con:style>QUERY</con:style>
+        <con:default/>
+      </con:parameter>
+      <con:parameter>
+        <con:name>Accept</con:name>
+        <con:value/>
+        <con:style>HEADER</con:style>
+        <con:default/>
+      </con:parameter>
+      <con:parameter>
+        <con:name>X-Edsby-APIClientId</con:name>
+        <con:value/>
+        <con:style>HEADER</con:style>
+        <con:default/>
+      </con:parameter>
+      <con:parameter>
+        <con:name>X-Edsby-OrganisationRefId</con:name>
+        <con:value/>
+        <con:style>HEADER</con:style>
+        <con:default/>
+      </con:parameter>
+    </con:parameters>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>200</con:status>
+      <con:params/>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/xml</con:mediaType>
+      <con:status>200</con:status>
+      <con:params/>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>401</con:status>
+      <con:params/>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>403</con:status>
+      <con:params/>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>404</con:status>
+      <con:params/>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>422</con:status>
+      <con:params/>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/xml</con:mediaType>
+      <con:status>422</con:status>
+      <con:params/>
+    </con:representation>
+    <con:request name="Request 1" id="d7cd4cf9-c6a1-4bce-8461-529ad500ae57" mediaType="application/json">
+      <con:settings/>
+      <con:endpoint>https://northern.edsby.co.nz/sif</con:endpoint>
+      <con:credentials>
+        <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+        <con:authType>No Authorization</con:authType>
+      </con:credentials>
+      <con:parameters>
+        <con:entry key="field" value=""/>
+        <con:entry key="Accept" value=""/>
+        <con:entry key="max" value=""/>
+        <con:entry key="pattern" value=""/>
+        <con:entry key="X-Edsby-APIClientId" value=""/>
+        <con:entry key="X-Edsby-OrganisationRefId" value=""/>
+        <con:entry key="page" value=""/>
+        <con:entry key="sort" value=""/>
+        <con:entry key="fields" value=""/>
+        <con:entry key="human" value=""/>
+        <con:entry key="unwrap" value=""/>
+      </con:parameters>
+      <con:environmentSpec>
+        <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
+          <con:authProfile>SIF Mock - Basic Auth</con:authProfile>
+        </con:entry>
+      </con:environmentSpec>
+    </con:request>
+  </con:method>
+  <con:method name="createAssessmentTasks" id="ce2b0253-b3c9-488c-a753-e8b80a18d0e7" method="POST">
+    <con:settings/>
+    <con:parameters>
+      <con:parameter>
+        <con:name>x-http-method-override</con:name>
+        <con:value/>
+        <con:style>HEADER</con:style>
+        <con:default/>
+      </con:parameter>
+      <con:parameter>
+        <con:name>Accept</con:name>
+        <con:value/>
+        <con:style>HEADER</con:style>
+        <con:default/>
+      </con:parameter>
+      <con:parameter>
+        <con:name>X-Edsby-APIClientId</con:name>
+        <con:value/>
+        <con:style>HEADER</con:style>
+        <con:default/>
+      </con:parameter>
+      <con:parameter>
+        <con:name>X-Edsby-OrganisationRefId</con:name>
+        <con:value/>
+        <con:style>HEADER</con:style>
+        <con:default/>
+      </con:parameter>
+    </con:parameters>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>200</con:status>
+      <con:params/>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/xml</con:mediaType>
+      <con:status>200</con:status>
+      <con:params/>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>400</con:status>
+      <con:params/>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>401</con:status>
+      <con:params/>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>403</con:status>
+      <con:params/>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>404</con:status>
+      <con:params/>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>422</con:status>
+      <con:params/>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/xml</con:mediaType>
+      <con:status>422</con:status>
+      <con:params/>
+    </con:representation>
+    <con:representation type="REQUEST">
+      <con:mediaType>application/json</con:mediaType>
+      <con:params/>
+    </con:representation>
+    <con:representation type="REQUEST">
+      <con:mediaType>application/xml</con:mediaType>
+      <con:params/>
+    </con:representation>
+    <con:request name="Request 1" id="8c8ca207-72fb-4344-bc0e-a53d5e2246b1" mediaType="application/json">
+      <con:settings/>
+      <con:endpoint>https://northern.edsby.co.nz/sif</con:endpoint>
+      <con:credentials>
+        <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+        <con:authType>No Authorization</con:authType>
+      </con:credentials>
+      <con:parameters>
+        <con:entry key="Accept" value=""/>
+        <con:entry key="X-Edsby-APIClientId" value=""/>
+        <con:entry key="X-Edsby-OrganisationRefId" value=""/>
+        <con:entry key="x-http-method-override" value=""/>
+      </con:parameters>
+      <con:environmentSpec>
+        <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
+          <con:authProfile>SIF Mock - Basic Auth</con:authProfile>
+        </con:entry>
+      </con:environmentSpec>
+    </con:request>
+  </con:method>
+  <con:method name="updateAssessmentTasks" id="c37ac613-a741-4531-b445-06e53b3a1934" method="PUT">
+    <con:settings/>
+    <con:parameters>
+      <con:parameter>
+        <con:name>Accept</con:name>
+        <con:value/>
+        <con:style>HEADER</con:style>
+        <con:default/>
+      </con:parameter>
+      <con:parameter>
+        <con:name>X-Edsby-APIClientId</con:name>
+        <con:value/>
+        <con:style>HEADER</con:style>
+        <con:default/>
+      </con:parameter>
+      <con:parameter>
+        <con:name>X-Edsby-OrganisationRefId</con:name>
+        <con:value/>
+        <con:style>HEADER</con:style>
+        <con:default/>
+      </con:parameter>
+    </con:parameters>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>200</con:status>
+      <con:params/>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/xml</con:mediaType>
+      <con:status>200</con:status>
+      <con:params/>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>400</con:status>
+      <con:params/>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>401</con:status>
+      <con:params/>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>403</con:status>
+      <con:params/>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>404</con:status>
+      <con:params/>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>422</con:status>
+      <con:params/>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/xml</con:mediaType>
+      <con:status>422</con:status>
+      <con:params/>
+    </con:representation>
+    <con:representation type="REQUEST">
+      <con:mediaType>application/json</con:mediaType>
+      <con:params/>
+    </con:representation>
+    <con:representation type="REQUEST">
+      <con:mediaType>application/xml</con:mediaType>
+      <con:params/>
+    </con:representation>
+    <con:request name="Request 1" id="375b0a0e-650f-453b-a901-b11edd09efef" mediaType="application/json">
+      <con:settings/>
+      <con:endpoint>https://northern.edsby.co.nz/sif</con:endpoint>
+      <con:credentials>
+        <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+        <con:authType>No Authorization</con:authType>
+      </con:credentials>
+      <con:parameters>
+        <con:entry key="Accept" value=""/>
+        <con:entry key="X-Edsby-APIClientId" value=""/>
+        <con:entry key="X-Edsby-OrganisationRefId" value=""/>
+      </con:parameters>
+      <con:environmentSpec>
+        <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
+          <con:authProfile>SIF Mock - Basic Auth</con:authProfile>
+        </con:entry>
+      </con:environmentSpec>
+    </con:request>
+  </con:method>
+  <con:method name="patchAssessmentTasks" id="c91f4d3b-ccba-40bd-845d-71e5576ce0be" method="PATCH">
+    <con:settings/>
+    <con:parameters>
+      <con:parameter>
+        <con:name>Accept</con:name>
+        <con:value/>
+        <con:style>HEADER</con:style>
+        <con:default/>
+      </con:parameter>
+      <con:parameter>
+        <con:name>X-Edsby-APIClientId</con:name>
+        <con:value/>
+        <con:style>HEADER</con:style>
+        <con:default/>
+      </con:parameter>
+      <con:parameter>
+        <con:name>X-Edsby-OrganisationRefId</con:name>
+        <con:value/>
+        <con:style>HEADER</con:style>
+        <con:default/>
+      </con:parameter>
+    </con:parameters>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>200</con:status>
+      <con:params/>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/xml</con:mediaType>
+      <con:status>200</con:status>
+      <con:params/>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>400</con:status>
+      <con:params/>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>401</con:status>
+      <con:params/>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>403</con:status>
+      <con:params/>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>404</con:status>
+      <con:params/>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>422</con:status>
+      <con:params/>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/xml</con:mediaType>
+      <con:status>422</con:status>
+      <con:params/>
+    </con:representation>
+    <con:representation type="REQUEST">
+      <con:mediaType>application/json</con:mediaType>
+      <con:params/>
+    </con:representation>
+    <con:representation type="REQUEST">
+      <con:mediaType>application/xml</con:mediaType>
+      <con:params/>
+    </con:representation>
+    <con:request name="Request 1" id="7731c19e-6926-479e-b7ea-a56ff25347c6" mediaType="application/json">
+      <con:settings/>
+      <con:endpoint>https://northern.edsby.co.nz/sif</con:endpoint>
+      <con:credentials>
+        <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+        <con:authType>No Authorization</con:authType>
+      </con:credentials>
+      <con:parameters>
+        <con:entry key="Accept" value=""/>
+        <con:entry key="X-Edsby-APIClientId" value=""/>
+        <con:entry key="X-Edsby-OrganisationRefId" value=""/>
+      </con:parameters>
+      <con:environmentSpec>
+        <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
+          <con:authProfile>SIF Mock - Basic Auth</con:authProfile>
+        </con:entry>
+      </con:environmentSpec>
+    </con:request>
+  </con:method>
+</con:resource>

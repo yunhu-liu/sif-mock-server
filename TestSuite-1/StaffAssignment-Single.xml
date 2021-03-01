@@ -10,7 +10,7 @@
       <con:properties>
         <con:property>
           <con:name>StaffAssignmentRefId</con:name>
-          <con:value>5b53390d-ac5f-46e6-b6b7-1f3b9a943096</con:value>
+          <con:value>99be8ad0-4253-43e9-a0e9-c12835806009</con:value>
         </con:property>
       </con:properties>
     </con:config>
@@ -90,6 +90,156 @@ testRunner.testCase.testSteps["Properties 1"].setPropertyValue( "StaffAssignment
             <codes>200</codes>
           </con:configuration>
         </con:assertion>
+        <con:assertion type="MessageContentAssertion" id="a877ce76-5b01-404d-b969-57f78dfb14cb" name="Message Content Assertion">
+          <con:configuration xsi:type="con:MessageContentAssertion">
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/staffassignment/b39575c7-6c90-468c-861e-0d2b237d332d';
+//ns1:Response[1]/ns1:StaffAssignment[1]/ns1:StaffAssignmentRefId[1]</con:xpath>
+              <con:element>StaffAssignmentRefId</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>exists</con:operator>
+              <con:enabled>true</con:enabled>
+              <con:expectedValue>${Properties 1#StaffAssignmentRefId}</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/staffassignment/b39575c7-6c90-468c-861e-0d2b237d332d';
+//ns1:Response[1]/ns1:StaffAssignment[1]/ns1:StaffAssignmentLocalId[1]</con:xpath>
+              <con:element>StaffAssignmentLocalId</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>exists</con:operator>
+              <con:enabled>true</con:enabled>
+              <con:expectedValue>T98008_1030</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/staffassignment/b39575c7-6c90-468c-861e-0d2b237d332d';
+//ns1:Response[1]/ns1:StaffAssignment[1]/ns1:StaffAssignmentStatus[1]</con:xpath>
+              <con:element>StaffAssignmentStatus</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>=</con:operator>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>A</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/staffassignment/b39575c7-6c90-468c-861e-0d2b237d332d';
+//ns1:Response[1]/ns1:StaffAssignment[1]/ns1:StaffMember[1]/ns1:RefId[1]</con:xpath>
+              <con:element>RefId</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>=</con:operator>
+              <con:enabled>true</con:enabled>
+              <con:expectedValue>${#[TestSuite 1#StaffPersonal-Single#Properties 1]#StaffPersonalRefId}</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/staffassignment/b39575c7-6c90-468c-861e-0d2b237d332d';
+//ns1:Response[1]/ns1:StaffAssignment[1]/ns1:AssignedLocation[1]/ns1:RefId[1]</con:xpath>
+              <con:element>RefId</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>=</con:operator>
+              <con:enabled>true</con:enabled>
+              <con:expectedValue>${#Project#OrgRefId2}</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/staffassignment/b39575c7-6c90-468c-861e-0d2b237d332d';
+//ns1:Response[1]/ns1:StaffAssignment[1]/ns1:StaffRole[1]</con:xpath>
+              <con:element>StaffRole</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>exists</con:operator>
+              <con:enabled>true</con:enabled>
+              <con:expectedValue>1002</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/staffassignment/b39575c7-6c90-468c-861e-0d2b237d332d';
+//ns1:Response[1]/ns1:StaffAssignment[1]/ns1:StartDate[1]</con:xpath>
+              <con:element>StartDate</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>exists</con:operator>
+              <con:enabled>true</con:enabled>
+              <con:expectedValue>1995-01-03T12:00:00+00:00</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/staffassignment/b39575c7-6c90-468c-861e-0d2b237d332d';
+//ns1:Response[1]/ns1:StaffAssignment[1]/ns1:RecordAudit[1]/ns1:CreatedDateTime[1]</con:xpath>
+              <con:element>CreatedDateTime</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>=</con:operator>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>2021-03-01T08:35:07.2510764+00:00</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/staffassignment/b39575c7-6c90-468c-861e-0d2b237d332d';
+//ns1:Response[1]/ns1:StaffAssignment[1]/ns1:RecordAudit[1]/ns1:LastUpdatedDateTime[1]</con:xpath>
+              <con:element>LastUpdatedDateTime</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>=</con:operator>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>2021-03-01T08:35:11.2241458+00:00</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/staffassignment/b39575c7-6c90-468c-861e-0d2b237d332d';
+//ns1:Response[1]/ns1:StaffAssignment[1]/ns1:RecordAudit[1]/ns1:CreatedBy[1]/ns1:Name[1]</con:xpath>
+              <con:element>Name</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>=</con:operator>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>MockServerClient</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/staffassignment/b39575c7-6c90-468c-861e-0d2b237d332d';
+//ns1:Response[1]/ns1:StaffAssignment[1]/ns1:RecordAudit[1]/ns1:LastUpdatedBy[1]/ns1:Name[1]</con:xpath>
+              <con:element>Name</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>=</con:operator>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>MockServerClient (byPatch)</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:originalMessage><![CDATA[<Response xmlns="http://mocksifapi.terito.education.govt.nz/sif/staffassignment/b39575c7-6c90-468c-861e-0d2b237d332d">
+   <StaffAssignment>
+      <StaffAssignmentRefId>80dfa5d1-69d0-4d1f-9ee2-456fedb9aef6</StaffAssignmentRefId>
+      <StaffAssignmentLocalId>T98008_1030</StaffAssignmentLocalId>
+      <StaffAssignmentStatus>A</StaffAssignmentStatus>
+      <StaffMember>
+         <RefId>60efc8a1-7834-4707-9bfe-d25c90c83833</RefId>
+      </StaffMember>
+      <AssignedLocation>
+         <RefId>1030</RefId>
+      </AssignedLocation>
+      <StaffRole>1002</StaffRole>
+      <StartDate>1995-01-03T12:00:00+00:00</StartDate>
+      <RecordAudit>
+         <CreatedDateTime>2021-03-01T08:35:07.2510764+00:00</CreatedDateTime>
+         <LastUpdatedDateTime>2021-03-01T08:35:11.2241458+00:00</LastUpdatedDateTime>
+         <CreatedBy>
+            <Name>MockServerClient</Name>
+         </CreatedBy>
+         <LastUpdatedBy>
+            <Name>MockServerClient (byPatch)</Name>
+         </LastUpdatedBy>
+      </RecordAudit>
+   </StaffAssignment>
+</Response>]]></con:originalMessage>
+          </con:configuration>
+        </con:assertion>
         <con:credentials>
           <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
           <con:authType>No Authorization</con:authType>
@@ -97,13 +247,23 @@ testRunner.testCase.testSteps["Properties 1"].setPropertyValue( "StaffAssignment
         <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
         <con:parameters>
           <con:entry key="Accept" value="${#Project#Accept}"/>
+          <con:entry key="max" value=""/>
           <con:entry key="X-Edsby-APIClientId" value="${#Project#ApiClientId}"/>
-          <con:entry key="staffPersonalRefId" value="${#[TestSuite 1#StaffPersonal-Single#Properties 1]#StaffPersonalRefId}"/>
+          <con:entry key="start" value=""/>
+          <con:entry key="pattern" value=""/>
           <con:entry key="X-Edsby-OrganisationRefId" value="${#Project#OrgRefId2}"/>
+          <con:entry key="sort" value=""/>
+          <con:entry key="unwrap" value=""/>
+          <con:entry key="field" value=""/>
+          <con:entry key="staffPersonalRefId" value="${#[TestSuite 1#StaffPersonal-Single#Properties 1]#StaffPersonalRefId}"/>
+          <con:entry key="end" value=""/>
+          <con:entry key="page" value=""/>
+          <con:entry key="fields" value=""/>
+          <con:entry key="human" value=""/>
         </con:parameters>
         <con:environmentSpec>
           <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
-            <con:authProfile>Inherit From Parent</con:authProfile>
+            <con:authProfile>SIF Mock - Basic Auth</con:authProfile>
           </con:entry>
         </con:environmentSpec>
       </con:restRequest>
@@ -145,6 +305,144 @@ return new JsonBuilder(slurped)</script>
             <codes>200</codes>
           </con:configuration>
         </con:assertion>
+        <con:assertion type="MessageContentAssertion" id="bccf6323-7868-4792-a940-cbf6ee18d2cd" name="Message Content Assertion">
+          <con:configuration xsi:type="con:MessageContentAssertion">
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/staffassignment/b39575c7-6c90-468c-861e-0d2b237d332d';
+//ns1:Response[1]/ns1:StaffAssignment[1]/ns1:StaffAssignmentRefId[1]</con:xpath>
+              <con:element>StaffAssignmentRefId</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>=</con:operator>
+              <con:enabled>true</con:enabled>
+              <con:expectedValue>${UpdateStaffAssignment#Response#$['StaffAssignment']['StaffAssignmentRefId']}</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/staffassignment/b39575c7-6c90-468c-861e-0d2b237d332d';
+//ns1:Response[1]/ns1:StaffAssignment[1]/ns1:StaffAssignmentLocalId[1]</con:xpath>
+              <con:element>StaffAssignmentLocalId</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>=</con:operator>
+              <con:enabled>true</con:enabled>
+              <con:expectedValue>${UpdateStaffAssignment#Response#$['StaffAssignment']['StaffAssignmentLocalId']}</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/staffassignment/b39575c7-6c90-468c-861e-0d2b237d332d';
+//ns1:Response[1]/ns1:StaffAssignment[1]/ns1:StaffMember[1]/ns1:RefId[1]</con:xpath>
+              <con:element>RefId</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>=</con:operator>
+              <con:enabled>true</con:enabled>
+              <con:expectedValue>${UpdateStaffAssignment#Response#$['StaffAssignment']['StaffMember']['RefId']}</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/staffassignment/b39575c7-6c90-468c-861e-0d2b237d332d';
+//ns1:Response[1]/ns1:StaffAssignment[1]/ns1:AssignedLocation[1]/ns1:RefId[1]</con:xpath>
+              <con:element>RefId</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>=</con:operator>
+              <con:enabled>true</con:enabled>
+              <con:expectedValue>${UpdateStaffAssignment#Response#$['StaffAssignment']['AssignedLocation']['RefId']}</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/staffassignment/b39575c7-6c90-468c-861e-0d2b237d332d';
+//ns1:Response[1]/ns1:StaffAssignment[1]/ns1:StaffRole[1]</con:xpath>
+              <con:element>StaffRole</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>=</con:operator>
+              <con:enabled>true</con:enabled>
+              <con:expectedValue>${UpdateStaffAssignment#Response#$['StaffAssignment']['StaffRole']}</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/staffassignment/b39575c7-6c90-468c-861e-0d2b237d332d';
+//ns1:Response[1]/ns1:StaffAssignment[1]/ns1:StartDate[1]</con:xpath>
+              <con:element>StartDate</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>=</con:operator>
+              <con:enabled>true</con:enabled>
+              <con:expectedValue>${UpdateStaffAssignment#Response#$['StaffAssignment']['StartDate']}</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/staffassignment/b39575c7-6c90-468c-861e-0d2b237d332d';
+//ns1:Response[1]/ns1:StaffAssignment[1]/ns1:RecordAudit[1]/ns1:CreatedDateTime[1]</con:xpath>
+              <con:element>CreatedDateTime</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>=</con:operator>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>2021-03-01T08:35:07.2510764+00:00</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/staffassignment/b39575c7-6c90-468c-861e-0d2b237d332d';
+//ns1:Response[1]/ns1:StaffAssignment[1]/ns1:RecordAudit[1]/ns1:LastUpdatedDateTime[1]</con:xpath>
+              <con:element>LastUpdatedDateTime</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>=</con:operator>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>2021-03-01T10:46:53.1064761+00:00</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/staffassignment/b39575c7-6c90-468c-861e-0d2b237d332d';
+//ns1:Response[1]/ns1:StaffAssignment[1]/ns1:RecordAudit[1]/ns1:CreatedBy[1]/ns1:Name[1]</con:xpath>
+              <con:element>Name</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>=</con:operator>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>MockServerClient</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/staffassignment/b39575c7-6c90-468c-861e-0d2b237d332d';
+//ns1:Response[1]/ns1:StaffAssignment[1]/ns1:RecordAudit[1]/ns1:LastUpdatedBy[1]/ns1:Name[1]</con:xpath>
+              <con:element>Name</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>=</con:operator>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>MockServerClient (byPut)</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:originalMessage><![CDATA[<Response xmlns="http://mocksifapi.terito.education.govt.nz/sif/staffassignment/b39575c7-6c90-468c-861e-0d2b237d332d">
+   <StaffAssignment>
+      <StaffAssignmentRefId>80dfa5d1-69d0-4d1f-9ee2-456fedb9aef6</StaffAssignmentRefId>
+      <StaffAssignmentLocalId>T98008_1030</StaffAssignmentLocalId>
+      <StaffMember>
+         <RefId>60efc8a1-7834-4707-9bfe-d25c90c83833</RefId>
+      </StaffMember>
+      <AssignedLocation>
+         <RefId>1030</RefId>
+      </AssignedLocation>
+      <StaffRole>1002</StaffRole>
+      <StartDate>1995-01-03T12:00:00+00:00</StartDate>
+      <RecordAudit>
+         <CreatedDateTime>2021-03-01T08:35:07.2510764+00:00</CreatedDateTime>
+         <LastUpdatedDateTime>2021-03-01T10:46:53.1064761+00:00</LastUpdatedDateTime>
+         <CreatedBy>
+            <Name>MockServerClient</Name>
+         </CreatedBy>
+         <LastUpdatedBy>
+            <Name>MockServerClient (byPut)</Name>
+         </LastUpdatedBy>
+      </RecordAudit>
+   </StaffAssignment>
+</Response>]]></con:originalMessage>
+          </con:configuration>
+        </con:assertion>
         <con:credentials>
           <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
           <con:authType>No Authorization</con:authType>
@@ -158,7 +456,7 @@ return new JsonBuilder(slurped)</script>
         </con:parameters>
         <con:environmentSpec>
           <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
-            <con:authProfile>Inherit From Parent</con:authProfile>
+            <con:authProfile>SIF Mock - Basic Auth</con:authProfile>
           </con:entry>
         </con:environmentSpec>
       </con:restRequest>
@@ -203,6 +501,146 @@ return new JsonBuilder(slurped)</script>
             <codes>200</codes>
           </con:configuration>
         </con:assertion>
+        <con:assertion type="MessageContentAssertion" id="78ca53bf-eb78-43f6-a351-ad41c1af50f8" name="Message Content Assertion">
+          <con:configuration xsi:type="con:MessageContentAssertion">
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/staffassignment/5b53390d-ac5f-46e6-b6b7-1f3b9a943096';
+//ns1:Response[1]/ns1:StaffAssignmentCREATE[1]/ns1:StaffAssignment[1]/ns1:StaffAssignmentRefId[1]</con:xpath>
+              <con:element>StaffAssignmentRefId</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>=</con:operator>
+              <con:enabled>true</con:enabled>
+              <con:expectedValue>${UpdateStaffAssignment#Response#$['StaffAssignment']['StaffAssignmentRefId']}</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/staffassignment/5b53390d-ac5f-46e6-b6b7-1f3b9a943096';
+//ns1:Response[1]/ns1:StaffAssignmentCREATE[1]/ns1:StaffAssignment[1]/ns1:StaffAssignmentLocalId[1]</con:xpath>
+              <con:element>StaffAssignmentLocalId</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>=</con:operator>
+              <con:enabled>true</con:enabled>
+              <con:expectedValue>${UpdateStaffAssignment#Response#$['StaffAssignment']['StaffAssignmentLocalId']}</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/staffassignment/5b53390d-ac5f-46e6-b6b7-1f3b9a943096';
+//ns1:Response[1]/ns1:StaffAssignmentCREATE[1]/ns1:StaffAssignment[1]/ns1:StaffMember[1]/ns1:RefId[1]</con:xpath>
+              <con:element>RefId</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>=</con:operator>
+              <con:enabled>true</con:enabled>
+              <con:expectedValue>${UpdateStaffAssignment#Response#$['StaffAssignment']['StaffMember']['RefId']}</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/staffassignment/5b53390d-ac5f-46e6-b6b7-1f3b9a943096';
+//ns1:Response[1]/ns1:StaffAssignmentCREATE[1]/ns1:StaffAssignment[1]/ns1:AssignedLocation[1]/ns1:RefId[1]</con:xpath>
+              <con:element>RefId</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>=</con:operator>
+              <con:enabled>true</con:enabled>
+              <con:expectedValue>${UpdateStaffAssignment#Response#$['StaffAssignment']['AssignedLocation']['RefId']}</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/staffassignment/5b53390d-ac5f-46e6-b6b7-1f3b9a943096';
+//ns1:Response[1]/ns1:StaffAssignmentCREATE[1]/ns1:StaffAssignment[1]/ns1:StaffRole[1]</con:xpath>
+              <con:element>StaffRole</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>=</con:operator>
+              <con:enabled>true</con:enabled>
+              <con:expectedValue>${UpdateStaffAssignment#Response#$['StaffAssignment']['StaffRole']}</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/staffassignment/5b53390d-ac5f-46e6-b6b7-1f3b9a943096';
+//ns1:Response[1]/ns1:StaffAssignmentCREATE[1]/ns1:StaffAssignment[1]/ns1:StartDate[1]</con:xpath>
+              <con:element>StartDate</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>=</con:operator>
+              <con:enabled>true</con:enabled>
+              <con:expectedValue>${PatchStaffAssignment#RawRequest#$['StaffAssignment']['StartDate']}</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/staffassignment/5b53390d-ac5f-46e6-b6b7-1f3b9a943096';
+//ns1:Response[1]/ns1:StaffAssignmentCREATE[1]/ns1:StaffAssignment[1]/ns1:RecordAudit[1]/ns1:CreatedDateTime[1]</con:xpath>
+              <con:element>CreatedDateTime</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>=</con:operator>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>2021-03-01T08:35:07.2510764+00:00</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/staffassignment/5b53390d-ac5f-46e6-b6b7-1f3b9a943096';
+//ns1:Response[1]/ns1:StaffAssignmentCREATE[1]/ns1:StaffAssignment[1]/ns1:RecordAudit[1]/ns1:LastUpdatedDateTime[1]</con:xpath>
+              <con:element>LastUpdatedDateTime</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>=</con:operator>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>2021-03-01T10:46:59.1437866+00:00</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/staffassignment/5b53390d-ac5f-46e6-b6b7-1f3b9a943096';
+//ns1:Response[1]/ns1:StaffAssignmentCREATE[1]/ns1:StaffAssignment[1]/ns1:RecordAudit[1]/ns1:CreatedBy[1]/ns1:Name[1]</con:xpath>
+              <con:element>Name</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>=</con:operator>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>MockServerClient</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/staffassignment/5b53390d-ac5f-46e6-b6b7-1f3b9a943096';
+//ns1:Response[1]/ns1:StaffAssignmentCREATE[1]/ns1:StaffAssignment[1]/ns1:RecordAudit[1]/ns1:LastUpdatedBy[1]/ns1:Name[1]</con:xpath>
+              <con:element>Name</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>=</con:operator>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>MockServerClient (byPatch)</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:originalMessage><![CDATA[<Response xmlns="http://mocksifapi.terito.education.govt.nz/sif/staffassignment/5b53390d-ac5f-46e6-b6b7-1f3b9a943096">
+   <StaffAssignmentCREATE>
+      <StaffAssignment>
+         <StaffAssignmentRefId>80dfa5d1-69d0-4d1f-9ee2-456fedb9aef6</StaffAssignmentRefId>
+         <StaffAssignmentLocalId>T98008_1030</StaffAssignmentLocalId>
+         <StaffMember>
+            <RefId>60efc8a1-7834-4707-9bfe-d25c90c83833</RefId>
+         </StaffMember>
+         <AssignedLocation>
+            <RefId>1030</RefId>
+         </AssignedLocation>
+         <StaffRole>1002</StaffRole>
+         <StartDate>1995-01-04T12:00:00+00:00</StartDate>
+         <RecordAudit>
+            <CreatedDateTime>2021-03-01T08:35:07.2510764+00:00</CreatedDateTime>
+            <LastUpdatedDateTime>2021-03-01T10:46:59.1437866+00:00</LastUpdatedDateTime>
+            <CreatedBy>
+               <Name>MockServerClient</Name>
+            </CreatedBy>
+            <LastUpdatedBy>
+               <Name>MockServerClient (byPatch)</Name>
+            </LastUpdatedBy>
+         </RecordAudit>
+      </StaffAssignment>
+   </StaffAssignmentCREATE>
+</Response>]]></con:originalMessage>
+          </con:configuration>
+        </con:assertion>
         <con:credentials>
           <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
           <con:authType>No Authorization</con:authType>
@@ -216,7 +654,7 @@ return new JsonBuilder(slurped)</script>
         </con:parameters>
         <con:environmentSpec>
           <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
-            <con:authProfile>Inherit From Parent</con:authProfile>
+            <con:authProfile>SIF Mock - Basic Auth</con:authProfile>
           </con:entry>
         </con:environmentSpec>
       </con:restRequest>
