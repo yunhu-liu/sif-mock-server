@@ -8,106 +8,106 @@
     <con:description>&lt;p>Retrieve a single student's attempt at a single assignment, essay, class test,  internal or external assessment exam, or any other task that is set to students and  assessed as part of the learning process, within the scope of the Provider that the student is enrolled in.&lt;/p></con:description>
     <con:settings/>
     <con:parameters>
-      <con:parameter>
+      <con:parameter required="false">
         <con:name>fields</con:name>
         <con:value/>
         <con:style>QUERY</con:style>
-        <con:default/>
+        <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
         <con:description>Return only specified fields	`fields=name,nid`</con:description>
       </con:parameter>
-      <con:parameter>
+      <con:parameter required="false">
         <con:name>page</con:name>
         <con:value/>
         <con:style>QUERY</con:style>
-        <con:default/>
+        <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
         <con:description>Return nth page of results; default 0	`page=2`; applies to any call with repeated data</con:description>
       </con:parameter>
-      <con:parameter>
+      <con:parameter required="false">
         <con:name>max</con:name>
         <con:value/>
         <con:style>QUERY</con:style>
-        <con:default/>
+        <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
         <con:description>Maximum items per page, default 10,000; `max=100`; applies to any call with repeated data</con:description>
       </con:parameter>
-      <con:parameter>
+      <con:parameter required="false">
         <con:name>unwrap</con:name>
         <con:value/>
         <con:style>QUERY</con:style>
-        <con:default/>
+        <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
         <con:description>Remove top level wrapper from json results in single result reponses;	`unwrap=1`</con:description>
       </con:parameter>
-      <con:parameter>
+      <con:parameter required="false">
         <con:name>human</con:name>
         <con:value/>
         <con:style>QUERY</con:style>
-        <con:default/>
+        <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
         <con:description>For code set fields, translate code to human readable form;	`human=1`</con:description>
       </con:parameter>
-      <con:parameter>
+      <con:parameter required="false">
         <con:name>start</con:name>
         <con:value/>
         <con:style>QUERY</con:style>
-        <con:default/>
+        <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
         <con:description>Include only items from start date;	`start=2017-08-01`</con:description>
       </con:parameter>
-      <con:parameter>
+      <con:parameter required="false">
         <con:name>end</con:name>
         <con:value/>
         <con:style>QUERY</con:style>
-        <con:default/>
+        <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
         <con:description>Include only items before end date;	`end=2017-08-31`</con:description>
       </con:parameter>
-      <con:parameter>
+      <con:parameter required="false">
         <con:name>sort</con:name>
         <con:value/>
         <con:style>QUERY</con:style>
-        <con:default/>
+        <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
         <con:description>Sort results by specified field;	`sort=FamilyName`</con:description>
       </con:parameter>
-      <con:parameter>
+      <con:parameter required="false">
         <con:name>field</con:name>
         <con:value/>
         <con:style>QUERY</con:style>
-        <con:default/>
+        <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
         <con:description>Field to filter on when used with **pattern**;	`field=FamilyName`</con:description>
       </con:parameter>
-      <con:parameter>
+      <con:parameter required="false">
         <con:name>pattern</con:name>
         <con:value/>
         <con:style>QUERY</con:style>
-        <con:default/>
+        <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
         <con:description>Filter results using pattern on **field**; `pattern=We*`</con:description>
       </con:parameter>
       <con:parameter required="true">
         <con:name>Accept</con:name>
         <con:value/>
         <con:style>HEADER</con:style>
-        <con:default/>
+        <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
         <con:description>Standard HTTP accept header, choose between JSON and XML for response. Defaults to XML if this header is missing.</con:description>
       </con:parameter>
       <con:parameter required="true">
         <con:name>X-Edsby-APIClientId</con:name>
         <con:value/>
         <con:style>HEADER</con:style>
-        <con:default/>
+        <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
         <con:description>&lt;p>Identifies the client making the API call to network infrastructure allowing WAFs to conduct rate limiting, gather usage statistics, etc. without having to unpack the username, subject claim or API key from the Authorization header.&lt;/p> &lt;p>Must be populated with the subject claim GUID from the access token in the Authorization header.&lt;/p></con:description>
       </con:parameter>
       <con:parameter required="true">
         <con:name>X-Edsby-OrganisationRefId</con:name>
         <con:value/>
         <con:style>HEADER</con:style>
-        <con:default/>
+        <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
         <con:description>&lt;p>The Ministry of Education Organisation Id of the Provider(or other Organisation); used to limit the scope of the API endpoint to a particular MoE Organisation.&lt;/p></con:description>
       </con:parameter>
       <con:parameter required="true">
         <con:name>studentAssessmentTaskRefId</con:name>
         <con:value/>
         <con:style>TEMPLATE</con:style>
-        <con:default/>
+        <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
         <con:description>&lt;p>Unique identifier (GUID) that uniquely identifies the particular student's attempt at the particular assignment, essay, class test, internal or external assessment exam, or any other &lt;a href="#tag/AssessmentTask">AssessmentTask&lt;/a> that is being attempted.&lt;/p></con:description>
       </con:parameter>
     </con:parameters>
-    <con:representation type="RESPONSE">
+    <con:representation type="RESPONSE" id="">
       <con:mediaType>application/json</con:mediaType>
       <con:status>200</con:status>
       <con:params/>
@@ -118,8 +118,7 @@
     "StudentAssessmentTaskLocalId" : "TST-HPotter-3a",
     "Student" : {
       "RefId" : "cd106d6d-d9d5-41fb-9943-5feb967c9435",
-      "LocalId" : "HP-850139",
-      "Name" : "Harry Potter"
+      "LocalId" : "HP-850139"
     },
     "AssessmentTask" : {
       "RefId" : "d0a0a27a-d0a8-510a-d9d7-5101a8c3da39"
@@ -143,7 +142,7 @@
   }
 }</con:sampleContent>
     </con:representation>
-    <con:representation type="RESPONSE">
+    <con:representation type="RESPONSE" id="">
       <con:mediaType>application/xml</con:mediaType>
       <con:status>200</con:status>
       <con:params/>
@@ -153,7 +152,6 @@
   <Student>
     <RefId>cd106d6d-d9d5-41fb-9943-5feb967c9435</RefId>
     <LocalId>HP-850139</LocalId>
-    <Name>Harry Potter</Name>
   </Student>
   <AssessmentTask>
     <RefId>d0a0a27a-d0a8-510a-d9d7-5101a8c3da39</RefId>
@@ -174,7 +172,7 @@
   <DateTimeAssessmentScheduled>2018-11-25T09:00:00+12:00</DateTimeAssessmentScheduled>
 </StudentAssessmentTask>]]></con:sampleContent>
     </con:representation>
-    <con:representation type="RESPONSE">
+    <con:representation type="RESPONSE" id="">
       <con:mediaType>application/json</con:mediaType>
       <con:status>401</con:status>
       <con:params/>
@@ -185,7 +183,7 @@
   "errorstr" : "Unauthorised request: Authorisation header missing, or incorrect."
 }</con:sampleContent>
     </con:representation>
-    <con:representation type="RESPONSE">
+    <con:representation type="RESPONSE" id="">
       <con:mediaType>application/json</con:mediaType>
       <con:status>403</con:status>
       <con:params/>
@@ -196,7 +194,7 @@
   "errorstr" : "Forbidden request: API endpoint not permitted to client"
 }</con:sampleContent>
     </con:representation>
-    <con:representation type="RESPONSE">
+    <con:representation type="RESPONSE" id="">
       <con:mediaType>application/json</con:mediaType>
       <con:status>404</con:status>
       <con:params/>
@@ -207,7 +205,7 @@
   "errorstr" : "Not Found: URL doesn't refer to known object"
 }</con:sampleContent>
     </con:representation>
-    <con:representation type="RESPONSE">
+    <con:representation type="RESPONSE" id="">
       <con:mediaType>application/json</con:mediaType>
       <con:status>422</con:status>
       <con:params/>
@@ -219,7 +217,7 @@
   "localId" : "ST-002"
 }</con:sampleContent>
     </con:representation>
-    <con:representation type="RESPONSE">
+    <con:representation type="RESPONSE" id="">
       <con:mediaType>application/xml</con:mediaType>
       <con:status>422</con:status>
       <con:params/>
@@ -232,6 +230,7 @@
 </Error>]]></con:sampleContent>
     </con:representation>
     <con:request name="Request 1" id="4df98113-2242-4b62-96f1-c84d7e47488f" mediaType="application/json">
+      <con:description xsi:nil="true"/>
       <con:settings/>
       <con:endpoint>https://northern.edsby.co.nz/sif</con:endpoint>
       <con:request/>
@@ -240,22 +239,23 @@
         <con:authType>No Authorization</con:authType>
       </con:credentials>
       <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
-      <con:parameters>
-        <con:entry key="studentAssessmentTaskRefId" value=""/>
-        <con:entry key="Accept" value=""/>
-        <con:entry key="max" value=""/>
-        <con:entry key="start" value=""/>
-        <con:entry key="pattern" value=""/>
-        <con:entry key="X-Edsby-APIClientId" value=""/>
-        <con:entry key="X-Edsby-OrganisationRefId" value=""/>
-        <con:entry key="sort" value=""/>
-        <con:entry key="unwrap" value=""/>
-        <con:entry key="field" value=""/>
-        <con:entry key="end" value=""/>
-        <con:entry key="page" value=""/>
-        <con:entry key="fields" value=""/>
-        <con:entry key="human" value=""/>
-      </con:parameters>
+      <con:parameters/>
+      <con:parameterOrder>
+        <con:entry>fields</con:entry>
+        <con:entry>page</con:entry>
+        <con:entry>max</con:entry>
+        <con:entry>unwrap</con:entry>
+        <con:entry>human</con:entry>
+        <con:entry>start</con:entry>
+        <con:entry>end</con:entry>
+        <con:entry>sort</con:entry>
+        <con:entry>field</con:entry>
+        <con:entry>pattern</con:entry>
+        <con:entry>Accept</con:entry>
+        <con:entry>X-Edsby-APIClientId</con:entry>
+        <con:entry>X-Edsby-OrganisationRefId</con:entry>
+        <con:entry>studentAssessmentTaskRefId</con:entry>
+      </con:parameterOrder>
       <con:environmentSpec>
         <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
           <con:authProfile>SIF Mock - Basic Auth</con:authProfile>
@@ -276,32 +276,32 @@
         <con:name>Accept</con:name>
         <con:value/>
         <con:style>HEADER</con:style>
-        <con:default/>
+        <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
         <con:description>Standard HTTP accept header, choose between JSON and XML for response. Defaults to XML if this header is missing.</con:description>
       </con:parameter>
       <con:parameter required="true">
         <con:name>X-Edsby-APIClientId</con:name>
         <con:value/>
         <con:style>HEADER</con:style>
-        <con:default/>
+        <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
         <con:description>&lt;p>Identifies the client making the API call to network infrastructure allowing WAFs to conduct rate limiting, gather usage statistics, etc. without having to unpack the username, subject claim or API key from the Authorization header.&lt;/p> &lt;p>Must be populated with the subject claim GUID from the access token in the Authorization header.&lt;/p></con:description>
       </con:parameter>
       <con:parameter required="true">
         <con:name>X-Edsby-OrganisationRefId</con:name>
         <con:value/>
         <con:style>HEADER</con:style>
-        <con:default/>
+        <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
         <con:description>&lt;p>The Ministry of Education Organisation Id of the Provider(or other Organisation); used to limit the scope of the API endpoint to a particular MoE Organisation.&lt;/p></con:description>
       </con:parameter>
       <con:parameter required="true">
         <con:name>studentAssessmentTaskRefId</con:name>
         <con:value/>
         <con:style>TEMPLATE</con:style>
-        <con:default/>
+        <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
         <con:description>&lt;p>Unique identifier (GUID) that uniquely identifies the particular student's attempt at the particular assignment, essay, class test, internal or external assessment exam, or any other &lt;a href="#tag/AssessmentTask">AssessmentTask&lt;/a> that is being attempted.&lt;/p></con:description>
       </con:parameter>
     </con:parameters>
-    <con:representation type="RESPONSE">
+    <con:representation type="RESPONSE" id="">
       <con:mediaType>application/json</con:mediaType>
       <con:status>200</con:status>
       <con:params/>
@@ -310,14 +310,14 @@
   "$ref" : "#/paths/~1studentassessmenttask~1%7BstudentAssessmentTaskRefId%7D/get/responses/200/content/application~1json/example"
 }</con:sampleContent>
     </con:representation>
-    <con:representation type="RESPONSE">
+    <con:representation type="RESPONSE" id="">
       <con:mediaType>application/xml</con:mediaType>
       <con:status>200</con:status>
       <con:params/>
       <con:description>Update successful; returns updated object</con:description>
       <con:sampleContent>&lt;ObjectNode>&lt;$ref>#/paths/~1studentassessmenttask~1%7BstudentAssessmentTaskRefId%7D/get/responses/200/content/application~1xml/example&lt;/$ref>&lt;/ObjectNode></con:sampleContent>
     </con:representation>
-    <con:representation type="RESPONSE">
+    <con:representation type="RESPONSE" id="">
       <con:mediaType>application/json</con:mediaType>
       <con:status>400</con:status>
       <con:params/>
@@ -328,7 +328,7 @@
   "errorstr" : "Unprocessable request: Request body invalid according to JSON schema? Accept or X-Edsby-OrganisationRefId header missing?"
 }</con:sampleContent>
     </con:representation>
-    <con:representation type="RESPONSE">
+    <con:representation type="RESPONSE" id="">
       <con:mediaType>application/json</con:mediaType>
       <con:status>401</con:status>
       <con:params/>
@@ -339,7 +339,7 @@
   "errorstr" : "Unauthorised request: Authorisation header missing, or incorrect."
 }</con:sampleContent>
     </con:representation>
-    <con:representation type="RESPONSE">
+    <con:representation type="RESPONSE" id="">
       <con:mediaType>application/json</con:mediaType>
       <con:status>403</con:status>
       <con:params/>
@@ -350,7 +350,7 @@
   "errorstr" : "Forbidden request: API endpoint not permitted to client"
 }</con:sampleContent>
     </con:representation>
-    <con:representation type="RESPONSE">
+    <con:representation type="RESPONSE" id="">
       <con:mediaType>application/json</con:mediaType>
       <con:status>404</con:status>
       <con:params/>
@@ -361,7 +361,7 @@
   "errorstr" : "Not Found: URL doesn't refer to known object"
 }</con:sampleContent>
     </con:representation>
-    <con:representation type="RESPONSE">
+    <con:representation type="RESPONSE" id="">
       <con:mediaType>application/json</con:mediaType>
       <con:status>422</con:status>
       <con:params/>
@@ -373,7 +373,7 @@
   "localId" : "ST-002"
 }</con:sampleContent>
     </con:representation>
-    <con:representation type="RESPONSE">
+    <con:representation type="RESPONSE" id="">
       <con:mediaType>application/xml</con:mediaType>
       <con:status>422</con:status>
       <con:params/>
@@ -385,19 +385,24 @@
   <localId>ST-002</localId>
 </Error>]]></con:sampleContent>
     </con:representation>
-    <con:representation type="REQUEST">
+    <con:representation type="REQUEST" id="">
       <con:mediaType>application/json</con:mediaType>
+      <con:status/>
       <con:params/>
+      <con:description xsi:nil="true"/>
       <con:sampleContent>{
   "$ref" : "#/paths/~1studentassessmenttask~1%7BstudentAssessmentTaskRefId%7D/get/responses/200/content/application~1json/example"
 }</con:sampleContent>
     </con:representation>
-    <con:representation type="REQUEST">
+    <con:representation type="REQUEST" id="">
       <con:mediaType>application/xml</con:mediaType>
+      <con:status/>
       <con:params/>
+      <con:description xsi:nil="true"/>
       <con:sampleContent>&lt;ObjectNode>&lt;$ref>#/paths/~1studentassessmenttask~1%7BstudentAssessmentTaskRefId%7D/get/responses/200/content/application~1xml/example&lt;/$ref>&lt;/ObjectNode></con:sampleContent>
     </con:representation>
     <con:request name="Request 1" id="a63fe0dd-5249-420c-9932-dd286265acfb" mediaType="application/json">
+      <con:description>&lt;p>Update a single student's attempt at a single assignment, essay, class test,  internal or external assessment exam, or any other task that is set to students and  assessed as part of the learning process, within the scope of the Provider that the student is enrolled in.&lt;/p></con:description>
       <con:settings/>
       <con:endpoint>https://northern.edsby.co.nz/sif</con:endpoint>
       <con:request>{\r
@@ -408,12 +413,13 @@
         <con:authType>No Authorization</con:authType>
       </con:credentials>
       <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
-      <con:parameters>
-        <con:entry key="studentAssessmentTaskRefId" value=""/>
-        <con:entry key="Accept" value=""/>
-        <con:entry key="X-Edsby-APIClientId" value=""/>
-        <con:entry key="X-Edsby-OrganisationRefId" value=""/>
-      </con:parameters>
+      <con:parameters/>
+      <con:parameterOrder>
+        <con:entry>Accept</con:entry>
+        <con:entry>X-Edsby-APIClientId</con:entry>
+        <con:entry>X-Edsby-OrganisationRefId</con:entry>
+        <con:entry>studentAssessmentTaskRefId</con:entry>
+      </con:parameterOrder>
       <con:environmentSpec>
         <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
           <con:authProfile>SIF Mock - Basic Auth</con:authProfile>
@@ -421,6 +427,7 @@
       </con:environmentSpec>
     </con:request>
     <con:request name="Request 2" id="f9a2884a-84f8-4c83-b84a-f4390c2a8108" mediaType="application/xml">
+      <con:description>&lt;p>Update a single student's attempt at a single assignment, essay, class test,  internal or external assessment exam, or any other task that is set to students and  assessed as part of the learning process, within the scope of the Provider that the student is enrolled in.&lt;/p></con:description>
       <con:settings/>
       <con:endpoint>https://northern.edsby.co.nz/sif</con:endpoint>
       <con:request>&lt;ObjectNode>&lt;$ref>#/paths/~1studentassessmenttask~1%7BstudentAssessmentTaskRefId%7D/get/responses/200/content/application~1xml/example&lt;/$ref>&lt;/ObjectNode></con:request>
@@ -429,12 +436,13 @@
         <con:authType>No Authorization</con:authType>
       </con:credentials>
       <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
-      <con:parameters>
-        <con:entry key="studentAssessmentTaskRefId" value=""/>
-        <con:entry key="Accept" value=""/>
-        <con:entry key="X-Edsby-APIClientId" value=""/>
-        <con:entry key="X-Edsby-OrganisationRefId" value=""/>
-      </con:parameters>
+      <con:parameters/>
+      <con:parameterOrder>
+        <con:entry>Accept</con:entry>
+        <con:entry>X-Edsby-APIClientId</con:entry>
+        <con:entry>X-Edsby-OrganisationRefId</con:entry>
+        <con:entry>studentAssessmentTaskRefId</con:entry>
+      </con:parameterOrder>
       <con:environmentSpec>
         <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
           <con:authProfile>SIF Mock - Basic Auth</con:authProfile>
@@ -455,32 +463,32 @@
         <con:name>Accept</con:name>
         <con:value/>
         <con:style>HEADER</con:style>
-        <con:default/>
+        <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
         <con:description>Standard HTTP accept header, choose between JSON and XML for response. Defaults to XML if this header is missing.</con:description>
       </con:parameter>
       <con:parameter required="true">
         <con:name>X-Edsby-APIClientId</con:name>
         <con:value/>
         <con:style>HEADER</con:style>
-        <con:default/>
+        <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
         <con:description>&lt;p>Identifies the client making the API call to network infrastructure allowing WAFs to conduct rate limiting, gather usage statistics, etc. without having to unpack the username, subject claim or API key from the Authorization header.&lt;/p> &lt;p>Must be populated with the subject claim GUID from the access token in the Authorization header.&lt;/p></con:description>
       </con:parameter>
       <con:parameter required="true">
         <con:name>X-Edsby-OrganisationRefId</con:name>
         <con:value/>
         <con:style>HEADER</con:style>
-        <con:default/>
+        <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
         <con:description>&lt;p>The Ministry of Education Organisation Id of the Provider(or other Organisation); used to limit the scope of the API endpoint to a particular MoE Organisation.&lt;/p></con:description>
       </con:parameter>
       <con:parameter required="true">
         <con:name>studentAssessmentTaskRefId</con:name>
         <con:value/>
         <con:style>TEMPLATE</con:style>
-        <con:default/>
+        <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
         <con:description>&lt;p>Unique identifier (GUID) that uniquely identifies the particular student's attempt at the particular assignment, essay, class test, internal or external assessment exam, or any other &lt;a href="#tag/AssessmentTask">AssessmentTask&lt;/a> that is being attempted.&lt;/p></con:description>
       </con:parameter>
     </con:parameters>
-    <con:representation type="RESPONSE">
+    <con:representation type="RESPONSE" id="">
       <con:mediaType>application/json</con:mediaType>
       <con:status>200</con:status>
       <con:params/>
@@ -489,14 +497,14 @@
   "$ref" : "#/paths/~1studentassessmenttask~1%7BstudentAssessmentTaskRefId%7D/get/responses/200/content/application~1json/example"
 }</con:sampleContent>
     </con:representation>
-    <con:representation type="RESPONSE">
+    <con:representation type="RESPONSE" id="">
       <con:mediaType>application/xml</con:mediaType>
       <con:status>200</con:status>
       <con:params/>
       <con:description>Patch successful; returns patched object</con:description>
       <con:sampleContent>&lt;ObjectNode>&lt;$ref>#/paths/~1studentassessmenttask~1%7BstudentAssessmentTaskRefId%7D/get/responses/200/content/application~1xml/example&lt;/$ref>&lt;/ObjectNode></con:sampleContent>
     </con:representation>
-    <con:representation type="RESPONSE">
+    <con:representation type="RESPONSE" id="">
       <con:mediaType>application/json</con:mediaType>
       <con:status>400</con:status>
       <con:params/>
@@ -507,7 +515,7 @@
   "errorstr" : "Unprocessable request: Request body invalid according to JSON schema? Accept or X-Edsby-OrganisationRefId header missing?"
 }</con:sampleContent>
     </con:representation>
-    <con:representation type="RESPONSE">
+    <con:representation type="RESPONSE" id="">
       <con:mediaType>application/json</con:mediaType>
       <con:status>401</con:status>
       <con:params/>
@@ -518,7 +526,7 @@
   "errorstr" : "Unauthorised request: Authorisation header missing, or incorrect."
 }</con:sampleContent>
     </con:representation>
-    <con:representation type="RESPONSE">
+    <con:representation type="RESPONSE" id="">
       <con:mediaType>application/json</con:mediaType>
       <con:status>403</con:status>
       <con:params/>
@@ -529,7 +537,7 @@
   "errorstr" : "Forbidden request: API endpoint not permitted to client"
 }</con:sampleContent>
     </con:representation>
-    <con:representation type="RESPONSE">
+    <con:representation type="RESPONSE" id="">
       <con:mediaType>application/json</con:mediaType>
       <con:status>404</con:status>
       <con:params/>
@@ -540,7 +548,7 @@
   "errorstr" : "Not Found: URL doesn't refer to known object"
 }</con:sampleContent>
     </con:representation>
-    <con:representation type="RESPONSE">
+    <con:representation type="RESPONSE" id="">
       <con:mediaType>application/json</con:mediaType>
       <con:status>422</con:status>
       <con:params/>
@@ -552,7 +560,7 @@
   "localId" : "ST-002"
 }</con:sampleContent>
     </con:representation>
-    <con:representation type="RESPONSE">
+    <con:representation type="RESPONSE" id="">
       <con:mediaType>application/xml</con:mediaType>
       <con:status>422</con:status>
       <con:params/>
@@ -564,19 +572,24 @@
   <localId>ST-002</localId>
 </Error>]]></con:sampleContent>
     </con:representation>
-    <con:representation type="REQUEST">
+    <con:representation type="REQUEST" id="">
       <con:mediaType>application/json</con:mediaType>
+      <con:status/>
       <con:params/>
+      <con:description xsi:nil="true"/>
       <con:sampleContent>{
   "$ref" : "#/paths/~1studentassessmenttask~1%7BstudentAssessmentTaskRefId%7D/get/responses/200/content/application~1json/example"
 }</con:sampleContent>
     </con:representation>
-    <con:representation type="REQUEST">
+    <con:representation type="REQUEST" id="">
       <con:mediaType>application/xml</con:mediaType>
+      <con:status/>
       <con:params/>
+      <con:description xsi:nil="true"/>
       <con:sampleContent>&lt;ObjectNode>&lt;$ref>#/paths/~1studentassessmenttask~1%7BstudentAssessmentTaskRefId%7D/get/responses/200/content/application~1xml/example&lt;/$ref>&lt;/ObjectNode></con:sampleContent>
     </con:representation>
     <con:request name="Request 1" id="302ba1d2-3f0b-453f-9651-da6bf4462123" mediaType="application/json">
+      <con:description>&lt;p>Update one or more fields of a single student's attempt at a single assignment, essay, class test,  internal or external assessment exam, or any other task that is set to students and  assessed as part of the learning process, within the scope of the Provider that the student is enrolled in.&lt;/p></con:description>
       <con:settings/>
       <con:endpoint>https://northern.edsby.co.nz/sif</con:endpoint>
       <con:request>{\r
@@ -587,12 +600,13 @@
         <con:authType>No Authorization</con:authType>
       </con:credentials>
       <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
-      <con:parameters>
-        <con:entry key="studentAssessmentTaskRefId" value=""/>
-        <con:entry key="Accept" value=""/>
-        <con:entry key="X-Edsby-APIClientId" value=""/>
-        <con:entry key="X-Edsby-OrganisationRefId" value=""/>
-      </con:parameters>
+      <con:parameters/>
+      <con:parameterOrder>
+        <con:entry>Accept</con:entry>
+        <con:entry>X-Edsby-APIClientId</con:entry>
+        <con:entry>X-Edsby-OrganisationRefId</con:entry>
+        <con:entry>studentAssessmentTaskRefId</con:entry>
+      </con:parameterOrder>
       <con:environmentSpec>
         <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
           <con:authProfile>SIF Mock - Basic Auth</con:authProfile>
@@ -600,6 +614,7 @@
       </con:environmentSpec>
     </con:request>
     <con:request name="Request 2" id="ee89cc5f-dd8c-47c4-873a-4030bd6395ad" mediaType="application/xml">
+      <con:description>&lt;p>Update one or more fields of a single student's attempt at a single assignment, essay, class test,  internal or external assessment exam, or any other task that is set to students and  assessed as part of the learning process, within the scope of the Provider that the student is enrolled in.&lt;/p></con:description>
       <con:settings/>
       <con:endpoint>https://northern.edsby.co.nz/sif</con:endpoint>
       <con:request>&lt;ObjectNode>&lt;$ref>#/paths/~1studentassessmenttask~1%7BstudentAssessmentTaskRefId%7D/get/responses/200/content/application~1xml/example&lt;/$ref>&lt;/ObjectNode></con:request>
@@ -608,12 +623,13 @@
         <con:authType>No Authorization</con:authType>
       </con:credentials>
       <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
-      <con:parameters>
-        <con:entry key="studentAssessmentTaskRefId" value=""/>
-        <con:entry key="Accept" value=""/>
-        <con:entry key="X-Edsby-APIClientId" value=""/>
-        <con:entry key="X-Edsby-OrganisationRefId" value=""/>
-      </con:parameters>
+      <con:parameters/>
+      <con:parameterOrder>
+        <con:entry>Accept</con:entry>
+        <con:entry>X-Edsby-APIClientId</con:entry>
+        <con:entry>X-Edsby-OrganisationRefId</con:entry>
+        <con:entry>studentAssessmentTaskRefId</con:entry>
+      </con:parameterOrder>
       <con:environmentSpec>
         <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
           <con:authProfile>SIF Mock - Basic Auth</con:authProfile>

@@ -9,106 +9,106 @@
 &lt;p>Provider enrolments span multiple years with the ProviderEnrolment containing one  or more ECE, School or Tertiary Enrolment sub-objects for each particular year.&lt;/p></con:description>
     <con:settings/>
     <con:parameters>
-      <con:parameter>
+      <con:parameter required="false">
         <con:name>fields</con:name>
         <con:value/>
         <con:style>QUERY</con:style>
-        <con:default/>
+        <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
         <con:description>Return only specified fields	`fields=name,nid`</con:description>
       </con:parameter>
-      <con:parameter>
+      <con:parameter required="false">
         <con:name>page</con:name>
         <con:value/>
         <con:style>QUERY</con:style>
-        <con:default/>
+        <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
         <con:description>Return nth page of results; default 0	`page=2`; applies to any call with repeated data</con:description>
       </con:parameter>
-      <con:parameter>
+      <con:parameter required="false">
         <con:name>max</con:name>
         <con:value/>
         <con:style>QUERY</con:style>
-        <con:default/>
+        <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
         <con:description>Maximum items per page, default 10,000; `max=100`; applies to any call with repeated data</con:description>
       </con:parameter>
-      <con:parameter>
+      <con:parameter required="false">
         <con:name>unwrap</con:name>
         <con:value/>
         <con:style>QUERY</con:style>
-        <con:default/>
+        <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
         <con:description>Remove top level wrapper from json results in single result reponses;	`unwrap=1`</con:description>
       </con:parameter>
-      <con:parameter>
+      <con:parameter required="false">
         <con:name>human</con:name>
         <con:value/>
         <con:style>QUERY</con:style>
-        <con:default/>
+        <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
         <con:description>For code set fields, translate code to human readable form;	`human=1`</con:description>
       </con:parameter>
-      <con:parameter>
+      <con:parameter required="false">
         <con:name>start</con:name>
         <con:value/>
         <con:style>QUERY</con:style>
-        <con:default/>
+        <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
         <con:description>Include only items from start date;	`start=2017-08-01`</con:description>
       </con:parameter>
-      <con:parameter>
+      <con:parameter required="false">
         <con:name>end</con:name>
         <con:value/>
         <con:style>QUERY</con:style>
-        <con:default/>
+        <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
         <con:description>Include only items before end date;	`end=2017-08-31`</con:description>
       </con:parameter>
-      <con:parameter>
+      <con:parameter required="false">
         <con:name>sort</con:name>
         <con:value/>
         <con:style>QUERY</con:style>
-        <con:default/>
+        <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
         <con:description>Sort results by specified field;	`sort=FamilyName`</con:description>
       </con:parameter>
-      <con:parameter>
+      <con:parameter required="false">
         <con:name>field</con:name>
         <con:value/>
         <con:style>QUERY</con:style>
-        <con:default/>
+        <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
         <con:description>Field to filter on when used with **pattern**;	`field=FamilyName`</con:description>
       </con:parameter>
-      <con:parameter>
+      <con:parameter required="false">
         <con:name>pattern</con:name>
         <con:value/>
         <con:style>QUERY</con:style>
-        <con:default/>
+        <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
         <con:description>Filter results using pattern on **field**; `pattern=We*`</con:description>
       </con:parameter>
       <con:parameter required="true">
         <con:name>Accept</con:name>
         <con:value/>
         <con:style>HEADER</con:style>
-        <con:default/>
+        <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
         <con:description>Standard HTTP accept header, choose between JSON and XML for response. Defaults to XML if this header is missing.</con:description>
       </con:parameter>
       <con:parameter required="true">
         <con:name>X-Edsby-APIClientId</con:name>
         <con:value/>
         <con:style>HEADER</con:style>
-        <con:default/>
+        <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
         <con:description>&lt;p>Identifies the client making the API call to network infrastructure allowing WAFs to conduct rate limiting, gather usage statistics, etc. without having to unpack the username, subject claim or API key from the Authorization header.&lt;/p> &lt;p>Must be populated with the subject claim GUID from the access token in the Authorization header.&lt;/p></con:description>
       </con:parameter>
       <con:parameter required="true">
         <con:name>X-Edsby-OrganisationRefId</con:name>
         <con:value/>
         <con:style>HEADER</con:style>
-        <con:default/>
+        <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
         <con:description>&lt;p>The Ministry of Education Organisation Id of the Provider(or other Organisation); used to limit the scope of the API endpoint to a particular MoE Organisation.&lt;/p></con:description>
       </con:parameter>
-      <con:parameter>
+      <con:parameter required="false">
         <con:name>status</con:name>
         <con:value/>
         <con:style>QUERY</con:style>
-        <con:default/>
+        <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
         <con:description>Filter the results; based upon the Status of the enrolment</con:description>
       </con:parameter>
     </con:parameters>
-    <con:representation type="RESPONSE">
+    <con:representation type="RESPONSE" id="">
       <con:mediaType>application/json</con:mediaType>
       <con:status>200</con:status>
       <con:params/>
@@ -117,14 +117,14 @@
   "$ref" : "#/paths/~1studentproviderenrolment/post/requestBody/content/application~1json/example"
 }</con:sampleContent>
     </con:representation>
-    <con:representation type="RESPONSE">
+    <con:representation type="RESPONSE" id="">
       <con:mediaType>application/xml</con:mediaType>
       <con:status>200</con:status>
       <con:params/>
       <con:description>successful operation</con:description>
       <con:sampleContent>&lt;ObjectNode>&lt;$ref>#/paths/~1studentproviderenrolment/post/requestBody/content/application~1xml/example&lt;/$ref>&lt;/ObjectNode></con:sampleContent>
     </con:representation>
-    <con:representation type="RESPONSE">
+    <con:representation type="RESPONSE" id="">
       <con:mediaType>application/json</con:mediaType>
       <con:status>401</con:status>
       <con:params/>
@@ -135,7 +135,7 @@
   "errorstr" : "Unauthorised request: Authorisation header missing, or incorrect."
 }</con:sampleContent>
     </con:representation>
-    <con:representation type="RESPONSE">
+    <con:representation type="RESPONSE" id="">
       <con:mediaType>application/json</con:mediaType>
       <con:status>403</con:status>
       <con:params/>
@@ -146,7 +146,7 @@
   "errorstr" : "Forbidden request: API endpoint not permitted to client"
 }</con:sampleContent>
     </con:representation>
-    <con:representation type="RESPONSE">
+    <con:representation type="RESPONSE" id="">
       <con:mediaType>application/json</con:mediaType>
       <con:status>404</con:status>
       <con:params/>
@@ -157,7 +157,7 @@
   "errorstr" : "Not Found: URL doesn't refer to known object"
 }</con:sampleContent>
     </con:representation>
-    <con:representation type="RESPONSE">
+    <con:representation type="RESPONSE" id="">
       <con:mediaType>application/json</con:mediaType>
       <con:status>422</con:status>
       <con:params/>
@@ -169,7 +169,7 @@
   "localId" : "ST-002"
 }</con:sampleContent>
     </con:representation>
-    <con:representation type="RESPONSE">
+    <con:representation type="RESPONSE" id="">
       <con:mediaType>application/xml</con:mediaType>
       <con:status>422</con:status>
       <con:params/>
@@ -182,6 +182,7 @@
 </Error>]]></con:sampleContent>
     </con:representation>
     <con:request name="Request 1" id="21a32d9e-9fea-49de-9ebc-60f85c25f1a6" mediaType="application/json">
+      <con:description xsi:nil="true"/>
       <con:settings/>
       <con:endpoint>https://northern.edsby.co.nz/sif</con:endpoint>
       <con:request/>
@@ -190,22 +191,23 @@
         <con:authType>No Authorization</con:authType>
       </con:credentials>
       <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
-      <con:parameters>
-        <con:entry key="Accept" value=""/>
-        <con:entry key="max" value=""/>
-        <con:entry key="start" value=""/>
-        <con:entry key="pattern" value=""/>
-        <con:entry key="X-Edsby-APIClientId" value=""/>
-        <con:entry key="X-Edsby-OrganisationRefId" value=""/>
-        <con:entry key="sort" value=""/>
-        <con:entry key="unwrap" value=""/>
-        <con:entry key="field" value=""/>
-        <con:entry key="end" value=""/>
-        <con:entry key="page" value=""/>
-        <con:entry key="fields" value=""/>
-        <con:entry key="human" value=""/>
-        <con:entry key="status" value=""/>
-      </con:parameters>
+      <con:parameters/>
+      <con:parameterOrder>
+        <con:entry>fields</con:entry>
+        <con:entry>page</con:entry>
+        <con:entry>max</con:entry>
+        <con:entry>unwrap</con:entry>
+        <con:entry>human</con:entry>
+        <con:entry>start</con:entry>
+        <con:entry>end</con:entry>
+        <con:entry>sort</con:entry>
+        <con:entry>field</con:entry>
+        <con:entry>pattern</con:entry>
+        <con:entry>Accept</con:entry>
+        <con:entry>X-Edsby-APIClientId</con:entry>
+        <con:entry>X-Edsby-OrganisationRefId</con:entry>
+        <con:entry>status</con:entry>
+      </con:parameterOrder>
       <con:environmentSpec>
         <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
           <con:authProfile>SIF Mock - Basic Auth</con:authProfile>
@@ -223,36 +225,36 @@
 &lt;p>Provider enrolments span multiple years with the ProviderEnrolment containing one  or more ECE, School or Tertiary Enrolment sub-objects for each particular year.&lt;/p></con:description>
     <con:settings/>
     <con:parameters>
-      <con:parameter>
+      <con:parameter required="false">
         <con:name>x-http-method-override</con:name>
         <con:value/>
         <con:style>HEADER</con:style>
-        <con:default/>
+        <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
         <con:description>Rather than CREATE records, treat this request as a SYNC request.</con:description>
       </con:parameter>
       <con:parameter required="true">
         <con:name>Accept</con:name>
         <con:value/>
         <con:style>HEADER</con:style>
-        <con:default/>
+        <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
         <con:description>Standard HTTP accept header, choose between JSON and XML for response. Defaults to XML if this header is missing.</con:description>
       </con:parameter>
       <con:parameter required="true">
         <con:name>X-Edsby-APIClientId</con:name>
         <con:value/>
         <con:style>HEADER</con:style>
-        <con:default/>
+        <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
         <con:description>&lt;p>Identifies the client making the API call to network infrastructure allowing WAFs to conduct rate limiting, gather usage statistics, etc. without having to unpack the username, subject claim or API key from the Authorization header.&lt;/p> &lt;p>Must be populated with the subject claim GUID from the access token in the Authorization header.&lt;/p></con:description>
       </con:parameter>
       <con:parameter required="true">
         <con:name>X-Edsby-OrganisationRefId</con:name>
         <con:value/>
         <con:style>HEADER</con:style>
-        <con:default/>
+        <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
         <con:description>&lt;p>The Ministry of Education Organisation Id of the Provider(or other Organisation); used to limit the scope of the API endpoint to a particular MoE Organisation.&lt;/p></con:description>
       </con:parameter>
     </con:parameters>
-    <con:representation type="RESPONSE">
+    <con:representation type="RESPONSE" id="">
       <con:mediaType>application/json</con:mediaType>
       <con:status>200</con:status>
       <con:params/>
@@ -261,14 +263,14 @@
   "$ref" : "#/paths/~1studentproviderenrolment/post/requestBody/content/application~1json/example"
 }</con:sampleContent>
     </con:representation>
-    <con:representation type="RESPONSE">
+    <con:representation type="RESPONSE" id="">
       <con:mediaType>application/xml</con:mediaType>
       <con:status>200</con:status>
       <con:params/>
       <con:description>Create successful; returns created objects</con:description>
       <con:sampleContent>&lt;ObjectNode>&lt;$ref>#/paths/~1studentproviderenrolment/post/requestBody/content/application~1xml/example&lt;/$ref>&lt;/ObjectNode></con:sampleContent>
     </con:representation>
-    <con:representation type="RESPONSE">
+    <con:representation type="RESPONSE" id="">
       <con:mediaType>application/json</con:mediaType>
       <con:status>400</con:status>
       <con:params/>
@@ -279,7 +281,7 @@
   "errorstr" : "Unprocessable request: Request body invalid according to JSON schema? Accept or X-Edsby-OrganisationRefId header missing?"
 }</con:sampleContent>
     </con:representation>
-    <con:representation type="RESPONSE">
+    <con:representation type="RESPONSE" id="">
       <con:mediaType>application/json</con:mediaType>
       <con:status>401</con:status>
       <con:params/>
@@ -290,7 +292,7 @@
   "errorstr" : "Unauthorised request: Authorisation header missing, or incorrect."
 }</con:sampleContent>
     </con:representation>
-    <con:representation type="RESPONSE">
+    <con:representation type="RESPONSE" id="">
       <con:mediaType>application/json</con:mediaType>
       <con:status>403</con:status>
       <con:params/>
@@ -301,7 +303,7 @@
   "errorstr" : "Forbidden request: API endpoint not permitted to client"
 }</con:sampleContent>
     </con:representation>
-    <con:representation type="RESPONSE">
+    <con:representation type="RESPONSE" id="">
       <con:mediaType>application/json</con:mediaType>
       <con:status>404</con:status>
       <con:params/>
@@ -312,7 +314,7 @@
   "errorstr" : "Not Found: URL doesn't refer to known object"
 }</con:sampleContent>
     </con:representation>
-    <con:representation type="RESPONSE">
+    <con:representation type="RESPONSE" id="">
       <con:mediaType>application/json</con:mediaType>
       <con:status>422</con:status>
       <con:params/>
@@ -344,7 +346,6 @@
         "StartDate" : "2020-01-27T00:00:00+1200",
         "MembershipType" : "BASE",
         "YearLevel" : 6,
-        "FTE" : 1,
         "FundingType" : "SF",
         "FundingYearLevel" : 6,
         "Curriculum" : "NZC"
@@ -365,7 +366,7 @@
   }
 } ]</con:sampleContent>
     </con:representation>
-    <con:representation type="RESPONSE">
+    <con:representation type="RESPONSE" id="">
       <con:mediaType>application/xml</con:mediaType>
       <con:status>422</con:status>
       <con:params/>
@@ -380,9 +381,11 @@
   </Error>      
 </Response>]]></con:sampleContent>
     </con:representation>
-    <con:representation type="REQUEST">
+    <con:representation type="REQUEST" id="">
       <con:mediaType>application/json</con:mediaType>
+      <con:status/>
       <con:params/>
+      <con:description xsi:nil="true"/>
       <con:sampleContent>{
   "StudentProviderEnrolments" : {
     "StudentProviderEnrolment" : [ {
@@ -411,7 +414,6 @@
           "StartDate" : "2020-01-27T00:00:00+1200",
           "MembershipType" : "BASE",
           "YearLevel" : 6,
-          "FTE" : 1,
           "FundingType" : "SF",
           "FundingYearLevel" : 6,
           "Curriculum" : "NZC"
@@ -425,9 +427,11 @@
   }
 }</con:sampleContent>
     </con:representation>
-    <con:representation type="REQUEST">
+    <con:representation type="REQUEST" id="">
       <con:mediaType>application/xml</con:mediaType>
+      <con:status/>
       <con:params/>
+      <con:description xsi:nil="true"/>
       <con:sampleContent><![CDATA[<StudentProviderEnrolment>
   <StudentProviderEnrolmentLocalId>2020_8001_ST1000001</StudentProviderEnrolmentLocalId>
   <Student>
@@ -451,7 +455,6 @@
       <StartDate>2020-01-27</StartDate>
       <MembershipType>BASE</MembershipType>
       <YearLevel>6</YearLevel>
-      <FTE>1</FTE>
       <FundingType>SF</FundingType>
       <FundingYearLevel>6</FundingYearLevel>
       <Curriculum>NZC</Curriculum>
@@ -460,60 +463,62 @@
 </StudentProviderEnrolment>]]></con:sampleContent>
     </con:representation>
     <con:request name="Request 1" id="103d5822-49d2-4b5f-86d6-fd5b7bf53521" mediaType="application/json" postQueryString="false">
+      <con:description>&lt;p>Bulk operation to create one or more student enrolments with an education provider.&lt;/p> 
+&lt;p>Provider enrolments span multiple years with the ProviderEnrolment containing one  or more ECE, School or Tertiary Enrolment sub-objects for each particular year.&lt;/p></con:description>
       <con:settings/>
       <con:endpoint>https://northern.edsby.co.nz/sif</con:endpoint>
-      <con:request>{\r
-  "StudentProviderEnrolments" : {\r
-    "StudentProviderEnrolment" : [ {\r
-      "StudentProviderEnrolmentRefId" : "5f270859-69fb-451c-b1c8-76ad8df36f18",\r
-      "StudentProviderEnrolmentLocalId" : "2020_8001_ST1000001",\r
-      "Student" : {\r
-        "LocalId" : "ST1000001",\r
-        "NationalStudentNumber" : "9001000001"\r
-      },\r
-      "Provider" : {\r
-        "RefId" : "8001"\r
-      },\r
-      "StudentId" : "ST1000001",\r
-      "EntryDate" : "2015-03-07T00:00:00+1200",\r
-      "Status" : "ACT",\r
-      "ECEEducationHistoryList" : {\r
-        "ECEType" : [ {\r
-          "Type" : "EPG"\r
-        } ]\r
-      },\r
-      "SchoolEnrolmentList" : {\r
-        "SchoolEnrolment" : [ {\r
-          "SchoolEnrolmentRefId" : "6395ea64-e4ef-4b57-9daf-5cae91023184",\r
-          "SchoolEnrolmentLocalId" : "2020_8001_ST1000001",\r
-          "SchoolCalendarYear" : 2020,\r
-          "StartDate" : "2020-01-27T00:00:00+1200",\r
-          "MembershipType" : "BASE",\r
-          "YearLevel" : 6,\r
-          "FTE" : 1,\r
-          "FundingType" : "SF",\r
-          "FundingYearLevel" : 6,\r
-          "Curriculum" : "NZC"\r
-        } ]\r
-      },\r
-      "RecordAudit" : {\r
-        "CreatedDateTime" : "2020-05-26T00:00:00+1200",\r
-        "LastUpdatedDateTime" : "2020-05-26T00:00:00+1200"\r
-      }\r
-    } ]\r
-  }\r
+      <con:request>{
+  "StudentProviderEnrolments" : {
+    "StudentProviderEnrolment" : [ {
+      "StudentProviderEnrolmentRefId" : "5f270859-69fb-451c-b1c8-76ad8df36f18",
+      "StudentProviderEnrolmentLocalId" : "2020_8001_ST1000001",
+      "Student" : {
+        "LocalId" : "ST1000001",
+        "NationalStudentNumber" : "9001000001"
+      },
+      "Provider" : {
+        "RefId" : "8001"
+      },
+      "StudentId" : "ST1000001",
+      "EntryDate" : "2015-03-07T00:00:00+1200",
+      "Status" : "ACT",
+      "ECEEducationHistoryList" : {
+        "ECEType" : [ {
+          "Type" : "EPG"
+        } ]
+      },
+      "SchoolEnrolmentList" : {
+        "SchoolEnrolment" : [ {
+          "SchoolEnrolmentRefId" : "6395ea64-e4ef-4b57-9daf-5cae91023184",
+          "SchoolEnrolmentLocalId" : "2020_8001_ST1000001",
+          "SchoolCalendarYear" : 2020,
+          "StartDate" : "2020-01-27T00:00:00+1200",
+          "MembershipType" : "BASE",
+          "YearLevel" : 6,
+          "FundingType" : "SF",
+          "FundingYearLevel" : 6,
+          "Curriculum" : "NZC"
+        } ]
+      },
+      "RecordAudit" : {
+        "CreatedDateTime" : "2020-05-26T00:00:00+1200",
+        "LastUpdatedDateTime" : "2020-05-26T00:00:00+1200"
+      }
+    } ]
+  }
 }</con:request>
       <con:credentials>
         <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
         <con:authType>No Authorization</con:authType>
       </con:credentials>
       <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
-      <con:parameters>
-        <con:entry key="Accept" value=""/>
-        <con:entry key="X-Edsby-APIClientId" value=""/>
-        <con:entry key="X-Edsby-OrganisationRefId" value=""/>
-        <con:entry key="x-http-method-override" value=""/>
-      </con:parameters>
+      <con:parameters/>
+      <con:parameterOrder>
+        <con:entry>x-http-method-override</con:entry>
+        <con:entry>Accept</con:entry>
+        <con:entry>X-Edsby-APIClientId</con:entry>
+        <con:entry>X-Edsby-OrganisationRefId</con:entry>
+      </con:parameterOrder>
       <con:environmentSpec>
         <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
           <con:authProfile>SIF Mock - Basic Auth</con:authProfile>
@@ -521,6 +526,8 @@
       </con:environmentSpec>
     </con:request>
     <con:request name="Request 2" id="29706ad7-9665-47c6-acbf-25890105d5a6" mediaType="application/xml">
+      <con:description>&lt;p>Bulk operation to create one or more student enrolments with an education provider.&lt;/p> 
+&lt;p>Provider enrolments span multiple years with the ProviderEnrolment containing one  or more ECE, School or Tertiary Enrolment sub-objects for each particular year.&lt;/p></con:description>
       <con:settings/>
       <con:endpoint>https://northern.edsby.co.nz/sif</con:endpoint>
       <con:request><![CDATA[<StudentProviderEnrolment>
@@ -546,7 +553,6 @@
       <StartDate>2020-01-27</StartDate>
       <MembershipType>BASE</MembershipType>
       <YearLevel>6</YearLevel>
-      <FTE>1</FTE>
       <FundingType>SF</FundingType>
       <FundingYearLevel>6</FundingYearLevel>
       <Curriculum>NZC</Curriculum>
@@ -558,12 +564,13 @@
         <con:authType>No Authorization</con:authType>
       </con:credentials>
       <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
-      <con:parameters>
-        <con:entry key="Accept" value=""/>
-        <con:entry key="X-Edsby-APIClientId" value=""/>
-        <con:entry key="X-Edsby-OrganisationRefId" value=""/>
-        <con:entry key="x-http-method-override" value=""/>
-      </con:parameters>
+      <con:parameters/>
+      <con:parameterOrder>
+        <con:entry>x-http-method-override</con:entry>
+        <con:entry>Accept</con:entry>
+        <con:entry>X-Edsby-APIClientId</con:entry>
+        <con:entry>X-Edsby-OrganisationRefId</con:entry>
+      </con:parameterOrder>
       <con:environmentSpec>
         <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
           <con:authProfile>SIF Mock - Basic Auth</con:authProfile>
@@ -585,25 +592,25 @@
         <con:name>Accept</con:name>
         <con:value/>
         <con:style>HEADER</con:style>
-        <con:default/>
+        <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
         <con:description>Standard HTTP accept header, choose between JSON and XML for response. Defaults to XML if this header is missing.</con:description>
       </con:parameter>
       <con:parameter required="true">
         <con:name>X-Edsby-APIClientId</con:name>
         <con:value/>
         <con:style>HEADER</con:style>
-        <con:default/>
+        <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
         <con:description>&lt;p>Identifies the client making the API call to network infrastructure allowing WAFs to conduct rate limiting, gather usage statistics, etc. without having to unpack the username, subject claim or API key from the Authorization header.&lt;/p> &lt;p>Must be populated with the subject claim GUID from the access token in the Authorization header.&lt;/p></con:description>
       </con:parameter>
       <con:parameter required="true">
         <con:name>X-Edsby-OrganisationRefId</con:name>
         <con:value/>
         <con:style>HEADER</con:style>
-        <con:default/>
+        <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
         <con:description>&lt;p>The Ministry of Education Organisation Id of the Provider(or other Organisation); used to limit the scope of the API endpoint to a particular MoE Organisation.&lt;/p></con:description>
       </con:parameter>
     </con:parameters>
-    <con:representation type="RESPONSE">
+    <con:representation type="RESPONSE" id="">
       <con:mediaType>application/json</con:mediaType>
       <con:status>200</con:status>
       <con:params/>
@@ -612,14 +619,14 @@
   "$ref" : "#/paths/~1studentproviderenrolment/post/requestBody/content/application~1json/example"
 }</con:sampleContent>
     </con:representation>
-    <con:representation type="RESPONSE">
+    <con:representation type="RESPONSE" id="">
       <con:mediaType>application/xml</con:mediaType>
       <con:status>200</con:status>
       <con:params/>
       <con:description>Update successful; returns updated objects</con:description>
       <con:sampleContent>&lt;ObjectNode>&lt;$ref>#/paths/~1studentproviderenrolment/post/requestBody/content/application~1xml/example&lt;/$ref>&lt;/ObjectNode></con:sampleContent>
     </con:representation>
-    <con:representation type="RESPONSE">
+    <con:representation type="RESPONSE" id="">
       <con:mediaType>application/json</con:mediaType>
       <con:status>400</con:status>
       <con:params/>
@@ -630,7 +637,7 @@
   "errorstr" : "Unprocessable request: Request body invalid according to JSON schema? Accept or X-Edsby-OrganisationRefId header missing?"
 }</con:sampleContent>
     </con:representation>
-    <con:representation type="RESPONSE">
+    <con:representation type="RESPONSE" id="">
       <con:mediaType>application/json</con:mediaType>
       <con:status>401</con:status>
       <con:params/>
@@ -641,7 +648,7 @@
   "errorstr" : "Unauthorised request: Authorisation header missing, or incorrect."
 }</con:sampleContent>
     </con:representation>
-    <con:representation type="RESPONSE">
+    <con:representation type="RESPONSE" id="">
       <con:mediaType>application/json</con:mediaType>
       <con:status>403</con:status>
       <con:params/>
@@ -652,7 +659,7 @@
   "errorstr" : "Forbidden request: API endpoint not permitted to client"
 }</con:sampleContent>
     </con:representation>
-    <con:representation type="RESPONSE">
+    <con:representation type="RESPONSE" id="">
       <con:mediaType>application/json</con:mediaType>
       <con:status>404</con:status>
       <con:params/>
@@ -663,7 +670,7 @@
   "errorstr" : "Not Found: URL doesn't refer to known object"
 }</con:sampleContent>
     </con:representation>
-    <con:representation type="RESPONSE">
+    <con:representation type="RESPONSE" id="">
       <con:mediaType>application/json</con:mediaType>
       <con:status>422</con:status>
       <con:params/>
@@ -672,26 +679,32 @@
   "$ref" : "#/paths/~1studentproviderenrolment/post/responses/422/content/application~1json/example"
 }</con:sampleContent>
     </con:representation>
-    <con:representation type="RESPONSE">
+    <con:representation type="RESPONSE" id="">
       <con:mediaType>application/xml</con:mediaType>
       <con:status>422</con:status>
       <con:params/>
       <con:description>Some objects updated, some updates failed</con:description>
       <con:sampleContent>&lt;ObjectNode>&lt;$ref>#/paths/~1studentproviderenrolment/post/responses/422/content/application~1xml/example&lt;/$ref>&lt;/ObjectNode></con:sampleContent>
     </con:representation>
-    <con:representation type="REQUEST">
+    <con:representation type="REQUEST" id="">
       <con:mediaType>application/json</con:mediaType>
+      <con:status/>
       <con:params/>
+      <con:description xsi:nil="true"/>
       <con:sampleContent>{
   "$ref" : "#/paths/~1studentproviderenrolment/post/requestBody/content/application~1json/example"
 }</con:sampleContent>
     </con:representation>
-    <con:representation type="REQUEST">
+    <con:representation type="REQUEST" id="">
       <con:mediaType>application/xml</con:mediaType>
+      <con:status/>
       <con:params/>
+      <con:description xsi:nil="true"/>
       <con:sampleContent>&lt;ObjectNode>&lt;$ref>#/paths/~1studentproviderenrolment/post/requestBody/content/application~1xml/example&lt;/$ref>&lt;/ObjectNode></con:sampleContent>
     </con:representation>
     <con:request name="Request 1" id="ff1f6569-eab3-4736-8bac-cab33f8b55c3" mediaType="application/json" postQueryString="false">
+      <con:description>&lt;p>Bulk operation to update one or more student enrolments with the given education provider.&lt;/p>
+&lt;p>Provider enrolments span multiple years with the ProviderEnrolment containing one  or more ECE, School or Tertiary Enrolment sub-objects for each particular year.&lt;/p></con:description>
       <con:settings/>
       <con:endpoint>https://northern.edsby.co.nz/sif</con:endpoint>
       <con:request>{\r
@@ -702,11 +715,12 @@
         <con:authType>No Authorization</con:authType>
       </con:credentials>
       <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
-      <con:parameters>
-        <con:entry key="Accept" value=""/>
-        <con:entry key="X-Edsby-APIClientId" value=""/>
-        <con:entry key="X-Edsby-OrganisationRefId" value=""/>
-      </con:parameters>
+      <con:parameters/>
+      <con:parameterOrder>
+        <con:entry>Accept</con:entry>
+        <con:entry>X-Edsby-APIClientId</con:entry>
+        <con:entry>X-Edsby-OrganisationRefId</con:entry>
+      </con:parameterOrder>
       <con:environmentSpec>
         <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
           <con:authProfile>SIF Mock - Basic Auth</con:authProfile>
@@ -714,6 +728,8 @@
       </con:environmentSpec>
     </con:request>
     <con:request name="Request 2" id="4511e546-1aab-4564-a47c-2a63f5d6214e" mediaType="application/xml">
+      <con:description>&lt;p>Bulk operation to update one or more student enrolments with the given education provider.&lt;/p>
+&lt;p>Provider enrolments span multiple years with the ProviderEnrolment containing one  or more ECE, School or Tertiary Enrolment sub-objects for each particular year.&lt;/p></con:description>
       <con:settings/>
       <con:endpoint>https://northern.edsby.co.nz/sif</con:endpoint>
       <con:request>&lt;ObjectNode>&lt;$ref>#/paths/~1studentproviderenrolment/post/requestBody/content/application~1xml/example&lt;/$ref>&lt;/ObjectNode></con:request>
@@ -722,11 +738,12 @@
         <con:authType>No Authorization</con:authType>
       </con:credentials>
       <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
-      <con:parameters>
-        <con:entry key="Accept" value=""/>
-        <con:entry key="X-Edsby-APIClientId" value=""/>
-        <con:entry key="X-Edsby-OrganisationRefId" value=""/>
-      </con:parameters>
+      <con:parameters/>
+      <con:parameterOrder>
+        <con:entry>Accept</con:entry>
+        <con:entry>X-Edsby-APIClientId</con:entry>
+        <con:entry>X-Edsby-OrganisationRefId</con:entry>
+      </con:parameterOrder>
       <con:environmentSpec>
         <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
           <con:authProfile>SIF Mock - Basic Auth</con:authProfile>
@@ -748,25 +765,25 @@
         <con:name>Accept</con:name>
         <con:value/>
         <con:style>HEADER</con:style>
-        <con:default/>
+        <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
         <con:description>Standard HTTP accept header, choose between JSON and XML for response. Defaults to XML if this header is missing.</con:description>
       </con:parameter>
       <con:parameter required="true">
         <con:name>X-Edsby-APIClientId</con:name>
         <con:value/>
         <con:style>HEADER</con:style>
-        <con:default/>
+        <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
         <con:description>&lt;p>Identifies the client making the API call to network infrastructure allowing WAFs to conduct rate limiting, gather usage statistics, etc. without having to unpack the username, subject claim or API key from the Authorization header.&lt;/p> &lt;p>Must be populated with the subject claim GUID from the access token in the Authorization header.&lt;/p></con:description>
       </con:parameter>
       <con:parameter required="true">
         <con:name>X-Edsby-OrganisationRefId</con:name>
         <con:value/>
         <con:style>HEADER</con:style>
-        <con:default/>
+        <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
         <con:description>&lt;p>The Ministry of Education Organisation Id of the Provider(or other Organisation); used to limit the scope of the API endpoint to a particular MoE Organisation.&lt;/p></con:description>
       </con:parameter>
     </con:parameters>
-    <con:representation type="RESPONSE">
+    <con:representation type="RESPONSE" id="">
       <con:mediaType>application/json</con:mediaType>
       <con:status>200</con:status>
       <con:params/>
@@ -775,14 +792,14 @@
   "$ref" : "#/paths/~1studentproviderenrolment/post/requestBody/content/application~1json/example"
 }</con:sampleContent>
     </con:representation>
-    <con:representation type="RESPONSE">
+    <con:representation type="RESPONSE" id="">
       <con:mediaType>application/xml</con:mediaType>
       <con:status>200</con:status>
       <con:params/>
       <con:description>Patch successful; returns patched objects</con:description>
       <con:sampleContent>&lt;ObjectNode>&lt;$ref>#/paths/~1studentproviderenrolment/post/requestBody/content/application~1xml/example&lt;/$ref>&lt;/ObjectNode></con:sampleContent>
     </con:representation>
-    <con:representation type="RESPONSE">
+    <con:representation type="RESPONSE" id="">
       <con:mediaType>application/json</con:mediaType>
       <con:status>400</con:status>
       <con:params/>
@@ -793,7 +810,7 @@
   "errorstr" : "Unprocessable request: Request body invalid according to JSON schema? Accept or X-Edsby-OrganisationRefId header missing?"
 }</con:sampleContent>
     </con:representation>
-    <con:representation type="RESPONSE">
+    <con:representation type="RESPONSE" id="">
       <con:mediaType>application/json</con:mediaType>
       <con:status>401</con:status>
       <con:params/>
@@ -804,7 +821,7 @@
   "errorstr" : "Unauthorised request: Authorisation header missing, or incorrect."
 }</con:sampleContent>
     </con:representation>
-    <con:representation type="RESPONSE">
+    <con:representation type="RESPONSE" id="">
       <con:mediaType>application/json</con:mediaType>
       <con:status>403</con:status>
       <con:params/>
@@ -815,7 +832,7 @@
   "errorstr" : "Forbidden request: API endpoint not permitted to client"
 }</con:sampleContent>
     </con:representation>
-    <con:representation type="RESPONSE">
+    <con:representation type="RESPONSE" id="">
       <con:mediaType>application/json</con:mediaType>
       <con:status>404</con:status>
       <con:params/>
@@ -826,7 +843,7 @@
   "errorstr" : "Not Found: URL doesn't refer to known object"
 }</con:sampleContent>
     </con:representation>
-    <con:representation type="RESPONSE">
+    <con:representation type="RESPONSE" id="">
       <con:mediaType>application/json</con:mediaType>
       <con:status>422</con:status>
       <con:params/>
@@ -835,16 +852,18 @@
   "$ref" : "#/paths/~1studentproviderenrolment/post/responses/422/content/application~1json/example"
 }</con:sampleContent>
     </con:representation>
-    <con:representation type="RESPONSE">
+    <con:representation type="RESPONSE" id="">
       <con:mediaType>application/xml</con:mediaType>
       <con:status>422</con:status>
       <con:params/>
       <con:description>Some objects patched, some patches failed</con:description>
       <con:sampleContent>&lt;ObjectNode>&lt;$ref>#/paths/~1studentproviderenrolment/post/responses/422/content/application~1xml/example&lt;/$ref>&lt;/ObjectNode></con:sampleContent>
     </con:representation>
-    <con:representation type="REQUEST">
+    <con:representation type="REQUEST" id="">
       <con:mediaType>application/json</con:mediaType>
+      <con:status/>
       <con:params/>
+      <con:description xsi:nil="true"/>
       <con:sampleContent>{
   "StudentProviderEnrolments" : {
     "StudentProviderEnrolment" : [ {
@@ -871,7 +890,6 @@
           "StartDate" : "2020-01-27T00:00:00+1200",
           "MembershipType" : "BASE",
           "YearLevel" : 6,
-          "FTE" : 1,
           "FundingType" : "SF",
           "FundingYearLevel" : 6,
           "Curriculum" : "NZC"
@@ -881,59 +899,63 @@
   }
 }</con:sampleContent>
     </con:representation>
-    <con:representation type="REQUEST">
+    <con:representation type="REQUEST" id="">
       <con:mediaType>application/xml</con:mediaType>
+      <con:status/>
       <con:params/>
+      <con:description xsi:nil="true"/>
       <con:sampleContent>&lt;ObjectNode>&lt;$ref>#/paths/~1studentproviderenrolment/post/requestBody/content/application~1xml/example&lt;/$ref>&lt;/ObjectNode></con:sampleContent>
     </con:representation>
     <con:request name="Request 1" id="92aff384-e6a5-4b78-8b4a-2feac5e7000a" mediaType="application/json" postQueryString="false">
+      <con:description>&lt;p>Bulk operation to update one or more fields of one or more student enrolments with the given education provider.&lt;/p>
+&lt;p>Provider enrolments span multiple years with the ProviderEnrolment containing one  or more ECE, School or Tertiary Enrolment sub-objects for each particular year.&lt;/p></con:description>
       <con:settings/>
       <con:endpoint>https://northern.edsby.co.nz/sif</con:endpoint>
-      <con:request>{\r
-  "StudentProviderEnrolments" : {\r
-    "StudentProviderEnrolment" : [ {\r
-      "StudentProviderEnrolmentLocalId" : "2020_8001_ST1000001",\r
-      "Student" : {\r
-        "LocalId" : "ST1000001",\r
-        "NationalStudentNumber" : "9001000001"\r
-      },\r
-      "Provider" : {\r
-        "RefId" : "8001"\r
-      },\r
-      "StudentId" : "ST1000001",\r
-      "EntryDate" : "2015-03-07T00:00:00+1200",\r
-      "ECEEducationHistoryList" : {\r
-        "ECEType" : [ {\r
-          "Type" : "EPG"\r
-        } ]\r
-      },\r
-      "SchoolEnrolmentList" : {\r
-        "SchoolEnrolment" : [ {\r
-          "SchoolEnrolmentRefId" : "f5f35c78-95c1-4544-bd83-9e400b7c80ad",\r
-          "SchoolEnrolmentLocalId" : "2020_8001_ST1000001",\r
-          "SchoolCalendarYear" : 2020,\r
-          "StartDate" : "2020-01-27T00:00:00+1200",\r
-          "MembershipType" : "BASE",\r
-          "YearLevel" : 6,\r
-          "FTE" : 1,\r
-          "FundingType" : "SF",\r
-          "FundingYearLevel" : 6,\r
-          "Curriculum" : "NZC"\r
-        } ]\r
-      }\r
-    } ]\r
-  }\r
+      <con:request>{
+  "StudentProviderEnrolments" : {
+    "StudentProviderEnrolment" : [ {
+      "StudentProviderEnrolmentLocalId" : "2020_8001_ST1000001",
+      "Student" : {
+        "LocalId" : "ST1000001",
+        "NationalStudentNumber" : "9001000001"
+      },
+      "Provider" : {
+        "RefId" : "8001"
+      },
+      "StudentId" : "ST1000001",
+      "EntryDate" : "2015-03-07T00:00:00+1200",
+      "ECEEducationHistoryList" : {
+        "ECEType" : [ {
+          "Type" : "EPG"
+        } ]
+      },
+      "SchoolEnrolmentList" : {
+        "SchoolEnrolment" : [ {
+          "SchoolEnrolmentRefId" : "f5f35c78-95c1-4544-bd83-9e400b7c80ad",
+          "SchoolEnrolmentLocalId" : "2020_8001_ST1000001",
+          "SchoolCalendarYear" : 2020,
+          "StartDate" : "2020-01-27T00:00:00+1200",
+          "MembershipType" : "BASE",
+          "YearLevel" : 6,
+          "FundingType" : "SF",
+          "FundingYearLevel" : 6,
+          "Curriculum" : "NZC"
+        } ]
+      }
+    } ]
+  }
 }</con:request>
       <con:credentials>
         <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
         <con:authType>No Authorization</con:authType>
       </con:credentials>
       <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
-      <con:parameters>
-        <con:entry key="Accept" value=""/>
-        <con:entry key="X-Edsby-APIClientId" value=""/>
-        <con:entry key="X-Edsby-OrganisationRefId" value=""/>
-      </con:parameters>
+      <con:parameters/>
+      <con:parameterOrder>
+        <con:entry>Accept</con:entry>
+        <con:entry>X-Edsby-APIClientId</con:entry>
+        <con:entry>X-Edsby-OrganisationRefId</con:entry>
+      </con:parameterOrder>
       <con:environmentSpec>
         <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
           <con:authProfile>SIF Mock - Basic Auth</con:authProfile>
@@ -941,6 +963,8 @@
       </con:environmentSpec>
     </con:request>
     <con:request name="Request 2" id="19fd83b6-813c-47d8-beb3-235640c1ca7a" mediaType="application/xml">
+      <con:description>&lt;p>Bulk operation to update one or more fields of one or more student enrolments with the given education provider.&lt;/p>
+&lt;p>Provider enrolments span multiple years with the ProviderEnrolment containing one  or more ECE, School or Tertiary Enrolment sub-objects for each particular year.&lt;/p></con:description>
       <con:settings/>
       <con:endpoint>https://northern.edsby.co.nz/sif</con:endpoint>
       <con:request>&lt;ObjectNode>&lt;$ref>#/paths/~1studentproviderenrolment/post/requestBody/content/application~1xml/example&lt;/$ref>&lt;/ObjectNode></con:request>
@@ -949,11 +973,12 @@
         <con:authType>No Authorization</con:authType>
       </con:credentials>
       <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
-      <con:parameters>
-        <con:entry key="Accept" value=""/>
-        <con:entry key="X-Edsby-APIClientId" value=""/>
-        <con:entry key="X-Edsby-OrganisationRefId" value=""/>
-      </con:parameters>
+      <con:parameters/>
+      <con:parameterOrder>
+        <con:entry>Accept</con:entry>
+        <con:entry>X-Edsby-APIClientId</con:entry>
+        <con:entry>X-Edsby-OrganisationRefId</con:entry>
+      </con:parameterOrder>
       <con:environmentSpec>
         <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
           <con:authProfile>SIF Mock - Basic Auth</con:authProfile>

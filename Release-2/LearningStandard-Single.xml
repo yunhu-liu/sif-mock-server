@@ -157,11 +157,12 @@
           <con:authType>No Authorization</con:authType>
         </con:credentials>
         <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
-        <con:parameters>
-          <con:entry key="Accept" value="${#Project#Accept}"/>
-          <con:entry key="X-Edsby-APIClientId" value="${#Project#ApiClientId}"/>
-          <con:entry key="x-http-method-override" value=""/>
-        </con:parameters>
+        <con:parameters/>
+        <con:parameterOrder>
+          <con:entry>x-http-method-override</con:entry>
+          <con:entry>Accept</con:entry>
+          <con:entry>X-Edsby-APIClientId</con:entry>
+        </con:parameterOrder>
         <con:environmentSpec>
           <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
             <con:authProfile>SIF Mock - Basic Auth</con:authProfile>
@@ -234,19 +235,20 @@
           <con:authType>No Authorization</con:authType>
         </con:credentials>
         <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
-        <con:parameters>
-          <con:entry key="Accept" value="${#Project#Accept}"/>
-          <con:entry key="learningStandardRefId" value="${Properties 1#LearningStandardRefId}"/>
-          <con:entry key="field" value=""/>
-          <con:entry key="max" value=""/>
-          <con:entry key="X-Edsby-APIClientId" value="${#Project#ApiClientId}"/>
-          <con:entry key="pattern" value=""/>
-          <con:entry key="page" value=""/>
-          <con:entry key="sort" value=""/>
-          <con:entry key="fields" value=""/>
-          <con:entry key="human" value=""/>
-          <con:entry key="unwrap" value=""/>
-        </con:parameters>
+        <con:parameters/>
+        <con:parameterOrder>
+          <con:entry>fields</con:entry>
+          <con:entry>page</con:entry>
+          <con:entry>max</con:entry>
+          <con:entry>unwrap</con:entry>
+          <con:entry>human</con:entry>
+          <con:entry>sort</con:entry>
+          <con:entry>field</con:entry>
+          <con:entry>pattern</con:entry>
+          <con:entry>Accept</con:entry>
+          <con:entry>X-Edsby-APIClientId</con:entry>
+          <con:entry>learningStandardRefId</con:entry>
+        </con:parameterOrder>
         <con:environmentSpec>
           <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
             <con:authProfile>SIF Mock - Basic Auth</con:authProfile>
@@ -315,11 +317,12 @@
           <con:authType>No Authorization</con:authType>
         </con:credentials>
         <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
-        <con:parameters>
-          <con:entry key="Accept" value="${#Project#Accept}"/>
-          <con:entry key="learningStandardRefId" value="${Properties 1#LearningStandardRefId}"/>
-          <con:entry key="X-Edsby-APIClientId" value="${#Project#ApiClientId}"/>
-        </con:parameters>
+        <con:parameters/>
+        <con:parameterOrder>
+          <con:entry>Accept</con:entry>
+          <con:entry>X-Edsby-APIClientId</con:entry>
+          <con:entry>learningStandardRefId</con:entry>
+        </con:parameterOrder>
         <con:environmentSpec>
           <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
             <con:authProfile>SIF Mock - Basic Auth</con:authProfile>
@@ -373,11 +376,12 @@
           <con:authType>No Authorization</con:authType>
         </con:credentials>
         <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
-        <con:parameters>
-          <con:entry key="Accept" value="${#Project#Accept}"/>
-          <con:entry key="learningStandardRefId" value="${Properties 1#LearningStandardRefId}"/>
-          <con:entry key="X-Edsby-APIClientId" value="${#Project#ApiClientId}"/>
-        </con:parameters>
+        <con:parameters/>
+        <con:parameterOrder>
+          <con:entry>Accept</con:entry>
+          <con:entry>X-Edsby-APIClientId</con:entry>
+          <con:entry>learningStandardRefId</con:entry>
+        </con:parameterOrder>
         <con:environmentSpec>
           <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
             <con:authProfile>SIF Mock - Basic Auth</con:authProfile>

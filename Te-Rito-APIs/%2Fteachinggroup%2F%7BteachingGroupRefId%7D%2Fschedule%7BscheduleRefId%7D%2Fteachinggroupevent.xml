@@ -12,128 +12,182 @@
         <con:value/>
         <con:style>QUERY</con:style>
         <con:default/>
+        <con:description>Return only specified fields	`fields=name,nid`</con:description>
       </con:parameter>
       <con:parameter>
         <con:name>page</con:name>
         <con:value/>
         <con:style>QUERY</con:style>
         <con:default/>
+        <con:description>Return nth page of results; default 0	`page=2`; applies to any call with repeated data</con:description>
       </con:parameter>
       <con:parameter>
         <con:name>max</con:name>
         <con:value/>
         <con:style>QUERY</con:style>
         <con:default/>
+        <con:description>Maximum items per page, default 10,000; `max=100`; applies to any call with repeated data</con:description>
       </con:parameter>
       <con:parameter>
         <con:name>unwrap</con:name>
         <con:value/>
         <con:style>QUERY</con:style>
         <con:default/>
+        <con:description>Remove top level wrapper from json results in single result reponses;	`unwrap=1`</con:description>
       </con:parameter>
       <con:parameter>
         <con:name>human</con:name>
         <con:value/>
         <con:style>QUERY</con:style>
         <con:default/>
+        <con:description>For code set fields, translate code to human readable form;	`human=1`</con:description>
       </con:parameter>
       <con:parameter>
         <con:name>start</con:name>
         <con:value/>
         <con:style>QUERY</con:style>
         <con:default/>
+        <con:description>Include only items from start date;	`start=2017-08-01`</con:description>
       </con:parameter>
       <con:parameter>
         <con:name>end</con:name>
         <con:value/>
         <con:style>QUERY</con:style>
         <con:default/>
+        <con:description>Include only items before end date;	`end=2017-08-31`</con:description>
       </con:parameter>
       <con:parameter>
         <con:name>sort</con:name>
         <con:value/>
         <con:style>QUERY</con:style>
         <con:default/>
+        <con:description>Sort results by specified field;	`sort=FamilyName`</con:description>
       </con:parameter>
       <con:parameter>
         <con:name>field</con:name>
         <con:value/>
         <con:style>QUERY</con:style>
         <con:default/>
+        <con:description>Field to filter on when used with **pattern**;	`field=FamilyName`</con:description>
       </con:parameter>
       <con:parameter>
         <con:name>pattern</con:name>
         <con:value/>
         <con:style>QUERY</con:style>
         <con:default/>
+        <con:description>Filter results using pattern on **field**; `pattern=We*`</con:description>
       </con:parameter>
-      <con:parameter>
+      <con:parameter required="true">
         <con:name>Accept</con:name>
         <con:value/>
         <con:style>HEADER</con:style>
         <con:default/>
+        <con:description>Standard HTTP accept header, choose between JSON and XML for response. Defaults to XML if this header is missing.</con:description>
       </con:parameter>
-      <con:parameter>
+      <con:parameter required="true">
         <con:name>X-Edsby-APIClientId</con:name>
         <con:value/>
         <con:style>HEADER</con:style>
         <con:default/>
+        <con:description>&lt;p>Identifies the client making the API call to network infrastructure allowing WAFs to conduct rate limiting, gather usage statistics, etc. without having to unpack the username, subject claim or API key from the Authorization header.&lt;/p> &lt;p>Must be populated with the subject claim GUID from the access token in the Authorization header.&lt;/p></con:description>
       </con:parameter>
-      <con:parameter>
+      <con:parameter required="true">
         <con:name>X-Edsby-OrganisationRefId</con:name>
         <con:value/>
         <con:style>HEADER</con:style>
         <con:default/>
+        <con:description>&lt;p>The Ministry of Education Organisation Id of the Provider(or other Organisation); used to limit the scope of the API endpoint to a particular MoE Organisation.&lt;/p></con:description>
       </con:parameter>
-      <con:parameter>
+      <con:parameter required="true">
         <con:name>TeachingGroupRefId</con:name>
         <con:value/>
         <con:style>TEMPLATE</con:style>
         <con:default/>
+        <con:description>&lt;p>The GUID of the TeachingGroup that is meeting&lt;/p></con:description>
       </con:parameter>
-      <con:parameter>
+      <con:parameter required="true">
         <con:name>scheduleRefId</con:name>
         <con:value/>
         <con:style>TEMPLATE</con:style>
         <con:default/>
+        <con:description>System RefId of the timetable Schedule</con:description>
       </con:parameter>
     </con:parameters>
     <con:representation type="RESPONSE">
       <con:mediaType>application/json</con:mediaType>
       <con:status>200</con:status>
       <con:params/>
+      <con:description>successful operation</con:description>
+      <con:sampleContent>{
+  "$ref" : "#/paths/~1schedule~1%7BscheduleRefId%7D~1teachinggroupevent/post/requestBody/content/application~1json/example"
+}</con:sampleContent>
     </con:representation>
     <con:representation type="RESPONSE">
       <con:mediaType>application/xml</con:mediaType>
       <con:status>200</con:status>
       <con:params/>
+      <con:description>successful operation</con:description>
+      <con:sampleContent>&lt;ObjectNode>&lt;$ref>#/paths/~1schedule~1%7BscheduleRefId%7D~1teachinggroupevent/post/requestBody/content/application~1json/example&lt;/$ref>&lt;/ObjectNode></con:sampleContent>
     </con:representation>
     <con:representation type="RESPONSE">
       <con:mediaType>application/json</con:mediaType>
       <con:status>401</con:status>
       <con:params/>
+      <con:description>Unauthorised - Authorization header missing, or contents incorrect.</con:description>
+      <con:sampleContent>{
+  "error" : 401,
+  "when" : "2020-07-16T20:00:46.000Z",
+  "errorstr" : "Unauthorised request: Authorisation header missing, or incorrect."
+}</con:sampleContent>
     </con:representation>
     <con:representation type="RESPONSE">
       <con:mediaType>application/json</con:mediaType>
       <con:status>403</con:status>
       <con:params/>
+      <con:description>Forbidden - API client has successfully authenticated, but is not authorised to make this API call</con:description>
+      <con:sampleContent>{
+  "error" : 401,
+  "when" : "2020-07-16T20:00:46.000Z",
+  "errorstr" : "Forbidden request: API endpoint not permitted to client"
+}</con:sampleContent>
     </con:representation>
     <con:representation type="RESPONSE">
       <con:mediaType>application/json</con:mediaType>
       <con:status>404</con:status>
       <con:params/>
+      <con:description>Not Found - resource in URL not found.</con:description>
+      <con:sampleContent>{
+  "error" : 404,
+  "when" : "2020-07-16T20:00:46.000Z",
+  "errorstr" : "Not Found: URL doesn't refer to known object"
+}</con:sampleContent>
     </con:representation>
     <con:representation type="RESPONSE">
       <con:mediaType>application/json</con:mediaType>
       <con:status>422</con:status>
       <con:params/>
+      <con:description>Failed to retrieve object(s).</con:description>
+      <con:sampleContent>{
+  "error" : 1009,
+  "when" : "2020-07-16T20:00:46.000Z",
+  "errorstr" : "Bad field: PersonInfo-Name-FamilyName: missing required field PersonInfo-Name-FamilyName (LastName) 'None'",
+  "localId" : "ST-002"
+}</con:sampleContent>
     </con:representation>
     <con:representation type="RESPONSE">
       <con:mediaType>application/xml</con:mediaType>
       <con:status>422</con:status>
       <con:params/>
+      <con:description>Failed to retrieve object(s).</con:description>
+      <con:sampleContent><![CDATA[<Error>
+  <error>1009</error>
+  <when>2020-07-16T20:00:46.000Z</when>
+  <errorstr>Bad field: PersonInfo-Name-FamilyName: missing required field PersonInfo-Name-FamilyName (LastName) 'None'</errorstr>
+  <localId>ST-002</localId>
+</Error>]]></con:sampleContent>
     </con:representation>
     <con:request name="Request 1" id="28b8ae8e-08fa-4d1e-ad5d-9ee82fc03c5b" mediaType="application/json">
+      <con:description xsi:nil="true"/>
       <con:settings/>
       <con:endpoint>https://northern.edsby.co.nz/sif</con:endpoint>
       <con:request/>
@@ -145,8 +199,8 @@
       <con:parameters>
         <con:entry key="Accept" value=""/>
         <con:entry key="max" value=""/>
-        <con:entry key="start" value=""/>
         <con:entry key="pattern" value=""/>
+        <con:entry key="start" value=""/>
         <con:entry key="X-Edsby-APIClientId" value=""/>
         <con:entry key="X-Edsby-OrganisationRefId" value=""/>
         <con:entry key="sort" value=""/>
@@ -159,6 +213,23 @@
         <con:entry key="fields" value=""/>
         <con:entry key="human" value=""/>
       </con:parameters>
+      <con:parameterOrder>
+        <con:entry>fields</con:entry>
+        <con:entry>page</con:entry>
+        <con:entry>max</con:entry>
+        <con:entry>unwrap</con:entry>
+        <con:entry>human</con:entry>
+        <con:entry>start</con:entry>
+        <con:entry>end</con:entry>
+        <con:entry>sort</con:entry>
+        <con:entry>field</con:entry>
+        <con:entry>pattern</con:entry>
+        <con:entry>Accept</con:entry>
+        <con:entry>X-Edsby-APIClientId</con:entry>
+        <con:entry>X-Edsby-OrganisationRefId</con:entry>
+        <con:entry>TeachingGroupRefId</con:entry>
+        <con:entry>scheduleRefId</con:entry>
+      </con:parameterOrder>
       <con:environmentSpec>
         <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
           <con:authProfile>SIF Mock - Basic Auth</con:authProfile>

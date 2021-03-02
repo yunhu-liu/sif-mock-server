@@ -192,22 +192,23 @@ return new JsonBuilder(slurped)</script>
           <con:authType>No Authorization</con:authType>
         </con:credentials>
         <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
-        <con:parameters>
-          <con:entry key="Accept" value="${#Project#Accept}"/>
-          <con:entry key="studentContactRelationshipRefId" value="${Properties#StudentContactRelationshipRefId}"/>
-          <con:entry key="max" value=""/>
-          <con:entry key="X-Edsby-APIClientId" value="${#Project#ApiClientId}"/>
-          <con:entry key="start" value=""/>
-          <con:entry key="pattern" value=""/>
-          <con:entry key="X-Edsby-OrganisationRefId" value="${Properties#OrganisationRefId}"/>
-          <con:entry key="sort" value=""/>
-          <con:entry key="unwrap" value=""/>
-          <con:entry key="field" value=""/>
-          <con:entry key="end" value=""/>
-          <con:entry key="page" value=""/>
-          <con:entry key="fields" value=""/>
-          <con:entry key="human" value=""/>
-        </con:parameters>
+        <con:parameters/>
+        <con:parameterOrder>
+          <con:entry>fields</con:entry>
+          <con:entry>page</con:entry>
+          <con:entry>max</con:entry>
+          <con:entry>unwrap</con:entry>
+          <con:entry>human</con:entry>
+          <con:entry>start</con:entry>
+          <con:entry>end</con:entry>
+          <con:entry>sort</con:entry>
+          <con:entry>field</con:entry>
+          <con:entry>pattern</con:entry>
+          <con:entry>Accept</con:entry>
+          <con:entry>X-Edsby-APIClientId</con:entry>
+          <con:entry>X-Edsby-OrganisationRefId</con:entry>
+          <con:entry>studentContactRelationshipRefId</con:entry>
+        </con:parameterOrder>
         <con:environmentSpec>
           <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
             <con:authProfile>Inherit From Parent</con:authProfile>
@@ -276,12 +277,13 @@ return new JsonBuilder(slurped)</script>
           <con:authType>No Authorization</con:authType>
         </con:credentials>
         <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
-        <con:parameters>
-          <con:entry key="Accept" value="${#Project#Accept}"/>
-          <con:entry key="studentContactRelationshipRefId" value="${Properties#StudentContactRelationshipRefId}"/>
-          <con:entry key="X-Edsby-APIClientId" value="${#Project#ApiClientId}"/>
-          <con:entry key="X-Edsby-OrganisationRefId" value="${Properties#OrganisationRefId}"/>
-        </con:parameters>
+        <con:parameters/>
+        <con:parameterOrder>
+          <con:entry>Accept</con:entry>
+          <con:entry>X-Edsby-APIClientId</con:entry>
+          <con:entry>X-Edsby-OrganisationRefId</con:entry>
+          <con:entry>studentContactRelationshipRefId</con:entry>
+        </con:parameterOrder>
         <con:environmentSpec>
           <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
             <con:authProfile>Inherit From Parent</con:authProfile>
@@ -350,12 +352,13 @@ return new JsonBuilder(slurped)</script>
           <con:authType>No Authorization</con:authType>
         </con:credentials>
         <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
-        <con:parameters>
-          <con:entry key="Accept" value="${#Project#Accept}"/>
-          <con:entry key="studentContactRelationshipRefId" value="${Properties#StudentContactRelationshipRefId}"/>
-          <con:entry key="X-Edsby-APIClientId" value="${#Project#ApiClientId}"/>
-          <con:entry key="X-Edsby-OrganisationRefId" value="${Properties#OrganisationRefId}"/>
-        </con:parameters>
+        <con:parameters/>
+        <con:parameterOrder>
+          <con:entry>Accept</con:entry>
+          <con:entry>X-Edsby-APIClientId</con:entry>
+          <con:entry>X-Edsby-OrganisationRefId</con:entry>
+          <con:entry>studentContactRelationshipRefId</con:entry>
+        </con:parameterOrder>
         <con:environmentSpec>
           <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
             <con:authProfile>Inherit From Parent</con:authProfile>

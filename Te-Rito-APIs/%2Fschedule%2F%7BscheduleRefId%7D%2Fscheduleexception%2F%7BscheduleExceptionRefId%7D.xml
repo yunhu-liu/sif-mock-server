@@ -12,128 +12,204 @@
         <con:value/>
         <con:style>QUERY</con:style>
         <con:default/>
+        <con:description>Return only specified fields	`fields=name,nid`</con:description>
       </con:parameter>
       <con:parameter>
         <con:name>page</con:name>
         <con:value/>
         <con:style>QUERY</con:style>
         <con:default/>
+        <con:description>Return nth page of results; default 0	`page=2`; applies to any call with repeated data</con:description>
       </con:parameter>
       <con:parameter>
         <con:name>max</con:name>
         <con:value/>
         <con:style>QUERY</con:style>
         <con:default/>
+        <con:description>Maximum items per page, default 10,000; `max=100`; applies to any call with repeated data</con:description>
       </con:parameter>
       <con:parameter>
         <con:name>unwrap</con:name>
         <con:value/>
         <con:style>QUERY</con:style>
         <con:default/>
+        <con:description>Remove top level wrapper from json results in single result reponses;	`unwrap=1`</con:description>
       </con:parameter>
       <con:parameter>
         <con:name>human</con:name>
         <con:value/>
         <con:style>QUERY</con:style>
         <con:default/>
+        <con:description>For code set fields, translate code to human readable form;	`human=1`</con:description>
       </con:parameter>
       <con:parameter>
         <con:name>start</con:name>
         <con:value/>
         <con:style>QUERY</con:style>
         <con:default/>
+        <con:description>Include only items from start date;	`start=2017-08-01`</con:description>
       </con:parameter>
       <con:parameter>
         <con:name>end</con:name>
         <con:value/>
         <con:style>QUERY</con:style>
         <con:default/>
+        <con:description>Include only items before end date;	`end=2017-08-31`</con:description>
       </con:parameter>
       <con:parameter>
         <con:name>sort</con:name>
         <con:value/>
         <con:style>QUERY</con:style>
         <con:default/>
+        <con:description>Sort results by specified field;	`sort=FamilyName`</con:description>
       </con:parameter>
       <con:parameter>
         <con:name>field</con:name>
         <con:value/>
         <con:style>QUERY</con:style>
         <con:default/>
+        <con:description>Field to filter on when used with **pattern**;	`field=FamilyName`</con:description>
       </con:parameter>
       <con:parameter>
         <con:name>pattern</con:name>
         <con:value/>
         <con:style>QUERY</con:style>
         <con:default/>
+        <con:description>Filter results using pattern on **field**; `pattern=We*`</con:description>
       </con:parameter>
-      <con:parameter>
+      <con:parameter required="true">
         <con:name>Accept</con:name>
         <con:value/>
         <con:style>HEADER</con:style>
         <con:default/>
+        <con:description>Standard HTTP accept header, choose between JSON and XML for response. Defaults to XML if this header is missing.</con:description>
       </con:parameter>
-      <con:parameter>
+      <con:parameter required="true">
         <con:name>X-Edsby-APIClientId</con:name>
         <con:value/>
         <con:style>HEADER</con:style>
         <con:default/>
+        <con:description>&lt;p>Identifies the client making the API call to network infrastructure allowing WAFs to conduct rate limiting, gather usage statistics, etc. without having to unpack the username, subject claim or API key from the Authorization header.&lt;/p> &lt;p>Must be populated with the subject claim GUID from the access token in the Authorization header.&lt;/p></con:description>
       </con:parameter>
-      <con:parameter>
+      <con:parameter required="true">
         <con:name>X-Edsby-OrganisationRefId</con:name>
         <con:value/>
         <con:style>HEADER</con:style>
         <con:default/>
+        <con:description>&lt;p>The Ministry of Education Organisation Id of the Provider(or other Organisation); used to limit the scope of the API endpoint to a particular MoE Organisation.&lt;/p></con:description>
       </con:parameter>
-      <con:parameter>
+      <con:parameter required="true">
         <con:name>scheduleRefId</con:name>
         <con:value/>
         <con:style>TEMPLATE</con:style>
         <con:default/>
+        <con:description>System RefId of the timetable Schedule</con:description>
       </con:parameter>
-      <con:parameter>
+      <con:parameter required="true">
         <con:name>ScheduleExceptionRefId</con:name>
         <con:value/>
         <con:style>TEMPLATE</con:style>
         <con:default/>
+        <con:description>&lt;p> The ID (GUID) assigned to uniquely identify this Schedule Event.&lt;/p></con:description>
       </con:parameter>
     </con:parameters>
     <con:representation type="RESPONSE">
       <con:mediaType>application/json</con:mediaType>
       <con:status>200</con:status>
       <con:params/>
+      <con:description>successful operation</con:description>
+      <con:sampleContent>{
+  "ScheduleException" : {
+    "ScheduleExceptionRefId" : "c79e65df-0b11-4a97-9062-9fbd1c1a38e3",
+    "ScheduleExceptionLocalId" : "evMarSlip",
+    "Organisation" : {
+      "RefId" : "9965"
+    },
+    "Schedule" : {
+      "RefId" : "d2f4aea9-564f-4bdf-a18e-42a111a0602c"
+    },
+    "ExceptionDate" : "2019-03-14T00:00:00+1200",
+    "Name" : "March Floods - School Closed - Slip Schedule"
+  }
+}</con:sampleContent>
     </con:representation>
     <con:representation type="RESPONSE">
       <con:mediaType>application/xml</con:mediaType>
       <con:status>200</con:status>
       <con:params/>
+      <con:description>successful operation</con:description>
+      <con:sampleContent><![CDATA[<ScheduleException>
+  </ScheduleExceptionRefId>c79e65df-0b11-4a97-9062-9fbd1c1a38e3</ScheduleExceptionRefId>
+  </ScheduleExceptionLocalId>evMarSlip</ScheduleExceptionLocalId>
+  <Organisation>
+    </RefId>ab987eeb-cf1d-4e62-aecd-96d942a12828</RefId>
+  </Organisation>
+  <Schedule>
+    </RefId>d2f4aea9-564f-4bdf-a18e-42a111a0602c</RefId>
+  </Schedule>
+  <ExceptionDate>2019-03-14</ExceptionDate>
+  <Name>March Floods - School Closed - Slip Schedule</Name>
+</ScheduleException>]]></con:sampleContent>
     </con:representation>
     <con:representation type="RESPONSE">
       <con:mediaType>application/json</con:mediaType>
       <con:status>401</con:status>
       <con:params/>
+      <con:description>Unauthorised - Authorization header missing, or contents incorrect.</con:description>
+      <con:sampleContent>{
+  "error" : 401,
+  "when" : "2020-07-16T20:00:46.000Z",
+  "errorstr" : "Unauthorised request: Authorisation header missing, or incorrect."
+}</con:sampleContent>
     </con:representation>
     <con:representation type="RESPONSE">
       <con:mediaType>application/json</con:mediaType>
       <con:status>403</con:status>
       <con:params/>
+      <con:description>Forbidden - API client has successfully authenticated, but is not authorised to make this API call</con:description>
+      <con:sampleContent>{
+  "error" : 401,
+  "when" : "2020-07-16T20:00:46.000Z",
+  "errorstr" : "Forbidden request: API endpoint not permitted to client"
+}</con:sampleContent>
     </con:representation>
     <con:representation type="RESPONSE">
       <con:mediaType>application/json</con:mediaType>
       <con:status>404</con:status>
       <con:params/>
+      <con:description>Not Found - resource in URL not found.</con:description>
+      <con:sampleContent>{
+  "error" : 404,
+  "when" : "2020-07-16T20:00:46.000Z",
+  "errorstr" : "Not Found: URL doesn't refer to known object"
+}</con:sampleContent>
     </con:representation>
     <con:representation type="RESPONSE">
       <con:mediaType>application/json</con:mediaType>
       <con:status>422</con:status>
       <con:params/>
+      <con:description>Failed to retrieve object(s).</con:description>
+      <con:sampleContent>{
+  "error" : 1009,
+  "when" : "2020-07-16T20:00:46.000Z",
+  "errorstr" : "Bad field: PersonInfo-Name-FamilyName: missing required field PersonInfo-Name-FamilyName (LastName) 'None'",
+  "localId" : "ST-002"
+}</con:sampleContent>
     </con:representation>
     <con:representation type="RESPONSE">
       <con:mediaType>application/xml</con:mediaType>
       <con:status>422</con:status>
       <con:params/>
+      <con:description>Failed to retrieve object(s).</con:description>
+      <con:sampleContent><![CDATA[<Error>
+  <error>1009</error>
+  <when>2020-07-16T20:00:46.000Z</when>
+  <errorstr>Bad field: PersonInfo-Name-FamilyName: missing required field PersonInfo-Name-FamilyName (LastName) 'None'</errorstr>
+  <localId>ST-002</localId>
+</Error>]]></con:sampleContent>
     </con:representation>
     <con:request name="Request 1" id="41aa4580-e019-4e83-bfae-1bf2828ac7aa" mediaType="application/json">
+      <con:description xsi:nil="true"/>
       <con:settings/>
       <con:endpoint>https://northern.edsby.co.nz/sif</con:endpoint>
       <con:request/>
@@ -145,9 +221,9 @@
       <con:parameters>
         <con:entry key="Accept" value=""/>
         <con:entry key="max" value=""/>
+        <con:entry key="X-Edsby-APIClientId" value=""/>
         <con:entry key="start" value=""/>
         <con:entry key="pattern" value=""/>
-        <con:entry key="X-Edsby-APIClientId" value=""/>
         <con:entry key="X-Edsby-OrganisationRefId" value=""/>
         <con:entry key="sort" value=""/>
         <con:entry key="unwrap" value=""/>
@@ -159,6 +235,23 @@
         <con:entry key="fields" value=""/>
         <con:entry key="human" value=""/>
       </con:parameters>
+      <con:parameterOrder>
+        <con:entry>fields</con:entry>
+        <con:entry>page</con:entry>
+        <con:entry>max</con:entry>
+        <con:entry>unwrap</con:entry>
+        <con:entry>human</con:entry>
+        <con:entry>start</con:entry>
+        <con:entry>end</con:entry>
+        <con:entry>sort</con:entry>
+        <con:entry>field</con:entry>
+        <con:entry>pattern</con:entry>
+        <con:entry>Accept</con:entry>
+        <con:entry>X-Edsby-APIClientId</con:entry>
+        <con:entry>X-Edsby-OrganisationRefId</con:entry>
+        <con:entry>scheduleRefId</con:entry>
+        <con:entry>ScheduleExceptionRefId</con:entry>
+      </con:parameterOrder>
       <con:environmentSpec>
         <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
           <con:authProfile>SIF Mock - Basic Auth</con:authProfile>
@@ -169,89 +262,150 @@
   <con:method name="updateScheduleException" id="87a70659-cb3f-449e-94b7-98ea5804c17e" method="PUT">
     <con:settings/>
     <con:parameters>
-      <con:parameter>
+      <con:parameter required="true">
         <con:name>Accept</con:name>
         <con:value/>
         <con:style>HEADER</con:style>
         <con:default/>
+        <con:description>Standard HTTP accept header, choose between JSON and XML for response. Defaults to XML if this header is missing.</con:description>
       </con:parameter>
-      <con:parameter>
+      <con:parameter required="true">
         <con:name>X-Edsby-APIClientId</con:name>
         <con:value/>
         <con:style>HEADER</con:style>
         <con:default/>
+        <con:description>&lt;p>Identifies the client making the API call to network infrastructure allowing WAFs to conduct rate limiting, gather usage statistics, etc. without having to unpack the username, subject claim or API key from the Authorization header.&lt;/p> &lt;p>Must be populated with the subject claim GUID from the access token in the Authorization header.&lt;/p></con:description>
       </con:parameter>
-      <con:parameter>
+      <con:parameter required="true">
         <con:name>X-Edsby-OrganisationRefId</con:name>
         <con:value/>
         <con:style>HEADER</con:style>
         <con:default/>
+        <con:description>&lt;p>The Ministry of Education Organisation Id of the Provider(or other Organisation); used to limit the scope of the API endpoint to a particular MoE Organisation.&lt;/p></con:description>
       </con:parameter>
-      <con:parameter>
+      <con:parameter required="true">
         <con:name>scheduleRefId</con:name>
         <con:value/>
         <con:style>TEMPLATE</con:style>
         <con:default/>
+        <con:description>System RefId of the timetable Schedule</con:description>
       </con:parameter>
-      <con:parameter>
+      <con:parameter required="true">
         <con:name>ScheduleExceptionRefId</con:name>
         <con:value/>
         <con:style>TEMPLATE</con:style>
         <con:default/>
+        <con:description>&lt;p> The ID (GUID) assigned to uniquely identify this Schedule Event.&lt;/p></con:description>
       </con:parameter>
     </con:parameters>
     <con:representation type="RESPONSE">
       <con:mediaType>application/json</con:mediaType>
       <con:status>200</con:status>
       <con:params/>
+      <con:description>Update successful; returns updated object</con:description>
+      <con:sampleContent>{
+  "$ref" : "#/paths/~1schedule~1%7BscheduleRefId%7D~1scheduleexception~1%7BscheduleExceptionRefId%7D/get/responses/200/content/application~1json/example"
+}</con:sampleContent>
     </con:representation>
     <con:representation type="RESPONSE">
       <con:mediaType>application/xml</con:mediaType>
       <con:status>200</con:status>
       <con:params/>
+      <con:description>Update successful; returns updated object</con:description>
+      <con:sampleContent>&lt;ObjectNode>&lt;$ref>#/paths/~1schedule~1%7BscheduleRefId%7D~1scheduleexception~1%7BscheduleExceptionRefId%7D/get/responses/200/content/application~1xml/example&lt;/$ref>&lt;/ObjectNode></con:sampleContent>
     </con:representation>
     <con:representation type="RESPONSE">
       <con:mediaType>application/json</con:mediaType>
       <con:status>400</con:status>
       <con:params/>
+      <con:description>Bad request - Request body invalid, Content, Accept, X-Edsby-OrganisationRefId, X-Edsby-APIClientId or other required Headers missing, etc.</con:description>
+      <con:sampleContent>{
+  "error" : 400,
+  "when" : "2020-07-16T20:00:46.000Z",
+  "errorstr" : "Unprocessable request: Request body invalid according to JSON schema? Accept or X-Edsby-OrganisationRefId header missing?"
+}</con:sampleContent>
     </con:representation>
     <con:representation type="RESPONSE">
       <con:mediaType>application/json</con:mediaType>
       <con:status>401</con:status>
       <con:params/>
+      <con:description>Unauthorised - Authorization header missing, or contents incorrect.</con:description>
+      <con:sampleContent>{
+  "error" : 401,
+  "when" : "2020-07-16T20:00:46.000Z",
+  "errorstr" : "Unauthorised request: Authorisation header missing, or incorrect."
+}</con:sampleContent>
     </con:representation>
     <con:representation type="RESPONSE">
       <con:mediaType>application/json</con:mediaType>
       <con:status>403</con:status>
       <con:params/>
+      <con:description>Forbidden - API client has successfully authenticated, but is not authorised to make this API call</con:description>
+      <con:sampleContent>{
+  "error" : 401,
+  "when" : "2020-07-16T20:00:46.000Z",
+  "errorstr" : "Forbidden request: API endpoint not permitted to client"
+}</con:sampleContent>
     </con:representation>
     <con:representation type="RESPONSE">
       <con:mediaType>application/json</con:mediaType>
       <con:status>404</con:status>
       <con:params/>
+      <con:description>Not Found - resource in URL not found.</con:description>
+      <con:sampleContent>{
+  "error" : 404,
+  "when" : "2020-07-16T20:00:46.000Z",
+  "errorstr" : "Not Found: URL doesn't refer to known object"
+}</con:sampleContent>
     </con:representation>
     <con:representation type="RESPONSE">
       <con:mediaType>application/json</con:mediaType>
       <con:status>422</con:status>
       <con:params/>
+      <con:description>Failed to update object.</con:description>
+      <con:sampleContent>{
+  "error" : 1009,
+  "when" : "2020-07-16T20:00:46.000Z",
+  "errorstr" : "Bad field: PersonInfo-Name-FamilyName: missing required field PersonInfo-Name-FamilyName (LastName) 'None'",
+  "localId" : "ST-002"
+}</con:sampleContent>
     </con:representation>
     <con:representation type="RESPONSE">
       <con:mediaType>application/xml</con:mediaType>
       <con:status>422</con:status>
       <con:params/>
+      <con:description>Failed to update object.</con:description>
+      <con:sampleContent><![CDATA[<Error>
+  <error>1009</error>
+  <when>2020-07-16T20:00:46.000Z</when>
+  <errorstr>Bad field: PersonInfo-Name-FamilyName: missing required field PersonInfo-Name-FamilyName (LastName) 'None'</errorstr>
+  <localId>ST-002</localId>
+</Error>]]></con:sampleContent>
     </con:representation>
     <con:representation type="REQUEST">
       <con:mediaType>application/json</con:mediaType>
+      <con:status/>
       <con:params/>
+      <con:description xsi:nil="true"/>
+      <con:sampleContent>{
+  "$ref" : "#/paths/~1schedule~1%7BscheduleRefId%7D~1scheduleexception~1%7BscheduleExceptionRefId%7D/get/responses/200/content/application~1json/example"
+}</con:sampleContent>
     </con:representation>
     <con:representation type="REQUEST">
       <con:mediaType>application/xml</con:mediaType>
+      <con:status/>
       <con:params/>
+      <con:description xsi:nil="true"/>
+      <con:sampleContent>&lt;ObjectNode>&lt;$ref>#/paths/~1schedule~1%7BscheduleRefId%7D~1scheduleexception~1%7BscheduleExceptionRefId%7D/get/responses/200/content/application~1xml/example&lt;/$ref>&lt;/ObjectNode></con:sampleContent>
     </con:representation>
     <con:request name="Request 1" id="b2290b52-9721-46e4-b0f5-5e45183d889e" mediaType="application/json">
+      <con:description><![CDATA[<p>Bulk operation to update a single ScheduleException, that impacts the given timetable <a href="#tag/Schedule">Schedule</a> at the given Provider.</p>
+<p>Schedule events record one-off events that cause the normal structure of a timetable Schedule to be adjusted.  e.g.  Snow days closing the school, shortened days which require a special BellSchedule, etc.</p>]]></con:description>
       <con:settings/>
       <con:endpoint>https://northern.edsby.co.nz/sif</con:endpoint>
-      <con:request/>
+      <con:request>{
+  "$ref" : "#/paths/~1schedule~1%7BscheduleRefId%7D~1scheduleexception~1%7BscheduleExceptionRefId%7D/get/responses/200/content/application~1json/example"
+}</con:request>
       <con:credentials>
         <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
         <con:authType>No Authorization</con:authType>
@@ -264,6 +418,13 @@
         <con:entry key="ScheduleExceptionRefId" value=""/>
         <con:entry key="X-Edsby-OrganisationRefId" value=""/>
       </con:parameters>
+      <con:parameterOrder>
+        <con:entry>Accept</con:entry>
+        <con:entry>X-Edsby-APIClientId</con:entry>
+        <con:entry>X-Edsby-OrganisationRefId</con:entry>
+        <con:entry>scheduleRefId</con:entry>
+        <con:entry>ScheduleExceptionRefId</con:entry>
+      </con:parameterOrder>
       <con:environmentSpec>
         <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
           <con:authProfile>SIF Mock - Basic Auth</con:authProfile>
@@ -274,101 +435,169 @@
   <con:method name="patchScheduleException" id="0e22ab6a-e0f6-45c6-b84b-1cef8d282e34" method="PATCH">
     <con:settings/>
     <con:parameters>
-      <con:parameter>
+      <con:parameter required="true">
         <con:name>Accept</con:name>
         <con:value/>
         <con:style>HEADER</con:style>
         <con:default/>
+        <con:description>Standard HTTP accept header, choose between JSON and XML for response. Defaults to XML if this header is missing.</con:description>
       </con:parameter>
-      <con:parameter>
+      <con:parameter required="true">
         <con:name>X-Edsby-APIClientId</con:name>
         <con:value/>
         <con:style>HEADER</con:style>
         <con:default/>
+        <con:description>&lt;p>Identifies the client making the API call to network infrastructure allowing WAFs to conduct rate limiting, gather usage statistics, etc. without having to unpack the username, subject claim or API key from the Authorization header.&lt;/p> &lt;p>Must be populated with the subject claim GUID from the access token in the Authorization header.&lt;/p></con:description>
       </con:parameter>
-      <con:parameter>
+      <con:parameter required="true">
         <con:name>X-Edsby-OrganisationRefId</con:name>
         <con:value/>
         <con:style>HEADER</con:style>
         <con:default/>
+        <con:description>&lt;p>The Ministry of Education Organisation Id of the Provider(or other Organisation); used to limit the scope of the API endpoint to a particular MoE Organisation.&lt;/p></con:description>
       </con:parameter>
-      <con:parameter>
+      <con:parameter required="true">
         <con:name>scheduleRefId</con:name>
         <con:value/>
         <con:style>TEMPLATE</con:style>
         <con:default/>
+        <con:description>System RefId of the timetable Schedule</con:description>
       </con:parameter>
-      <con:parameter>
+      <con:parameter required="true">
         <con:name>ScheduleExceptionRefId</con:name>
         <con:value/>
         <con:style>TEMPLATE</con:style>
         <con:default/>
+        <con:description>&lt;p> The ID (GUID) assigned to uniquely identify this Schedule Event.&lt;/p></con:description>
       </con:parameter>
     </con:parameters>
     <con:representation type="RESPONSE">
       <con:mediaType>application/json</con:mediaType>
       <con:status>200</con:status>
       <con:params/>
+      <con:description>Patch successful; returns patched object</con:description>
+      <con:sampleContent>{
+  "$ref" : "#/paths/~1schedule~1%7BscheduleRefId%7D~1scheduleexception~1%7BscheduleExceptionRefId%7D/get/responses/200/content/application~1json/example"
+}</con:sampleContent>
     </con:representation>
     <con:representation type="RESPONSE">
       <con:mediaType>application/xml</con:mediaType>
       <con:status>200</con:status>
       <con:params/>
+      <con:description>Patch successful; returns patched object</con:description>
+      <con:sampleContent>&lt;ObjectNode>&lt;$ref>#/paths/~1schedule~1%7BscheduleRefId%7D~1scheduleexception~1%7BscheduleExceptionRefId%7D/get/responses/200/content/application~1xml/example&lt;/$ref>&lt;/ObjectNode></con:sampleContent>
     </con:representation>
     <con:representation type="RESPONSE">
       <con:mediaType>application/json</con:mediaType>
       <con:status>400</con:status>
       <con:params/>
+      <con:description>Bad request - Request body invalid, Content, Accept, X-Edsby-OrganisationRefId, X-Edsby-APIClientId or other required Headers missing, etc.</con:description>
+      <con:sampleContent>{
+  "error" : 400,
+  "when" : "2020-07-16T20:00:46.000Z",
+  "errorstr" : "Unprocessable request: Request body invalid according to JSON schema? Accept or X-Edsby-OrganisationRefId header missing?"
+}</con:sampleContent>
     </con:representation>
     <con:representation type="RESPONSE">
       <con:mediaType>application/json</con:mediaType>
       <con:status>401</con:status>
       <con:params/>
+      <con:description>Unauthorised - Authorization header missing, or contents incorrect.</con:description>
+      <con:sampleContent>{
+  "error" : 401,
+  "when" : "2020-07-16T20:00:46.000Z",
+  "errorstr" : "Unauthorised request: Authorisation header missing, or incorrect."
+}</con:sampleContent>
     </con:representation>
     <con:representation type="RESPONSE">
       <con:mediaType>application/json</con:mediaType>
       <con:status>403</con:status>
       <con:params/>
+      <con:description>Forbidden - API client has successfully authenticated, but is not authorised to make this API call</con:description>
+      <con:sampleContent>{
+  "error" : 401,
+  "when" : "2020-07-16T20:00:46.000Z",
+  "errorstr" : "Forbidden request: API endpoint not permitted to client"
+}</con:sampleContent>
     </con:representation>
     <con:representation type="RESPONSE">
       <con:mediaType>application/json</con:mediaType>
       <con:status>404</con:status>
       <con:params/>
+      <con:description>Not Found - resource in URL not found.</con:description>
+      <con:sampleContent>{
+  "error" : 404,
+  "when" : "2020-07-16T20:00:46.000Z",
+  "errorstr" : "Not Found: URL doesn't refer to known object"
+}</con:sampleContent>
     </con:representation>
     <con:representation type="RESPONSE">
       <con:mediaType>application/json</con:mediaType>
       <con:status>422</con:status>
       <con:params/>
+      <con:description>Failed to patch object.</con:description>
+      <con:sampleContent>{
+  "error" : 1009,
+  "when" : "2020-07-16T20:00:46.000Z",
+  "errorstr" : "Bad field: PersonInfo-Name-FamilyName: missing required field PersonInfo-Name-FamilyName (LastName) 'None'",
+  "localId" : "ST-002"
+}</con:sampleContent>
     </con:representation>
     <con:representation type="RESPONSE">
       <con:mediaType>application/xml</con:mediaType>
       <con:status>422</con:status>
       <con:params/>
+      <con:description>Failed to patch object.</con:description>
+      <con:sampleContent><![CDATA[<Error>
+  <error>1009</error>
+  <when>2020-07-16T20:00:46.000Z</when>
+  <errorstr>Bad field: PersonInfo-Name-FamilyName: missing required field PersonInfo-Name-FamilyName (LastName) 'None'</errorstr>
+  <localId>ST-002</localId>
+</Error>]]></con:sampleContent>
     </con:representation>
     <con:representation type="REQUEST">
       <con:mediaType>application/json</con:mediaType>
+      <con:status/>
       <con:params/>
+      <con:description xsi:nil="true"/>
+      <con:sampleContent>{
+  "$ref" : "#/paths/~1schedule~1%7BscheduleRefId%7D~1scheduleexception~1%7BscheduleExceptionRefId%7D/get/responses/200/content/application~1json/example"
+}</con:sampleContent>
     </con:representation>
     <con:representation type="REQUEST">
       <con:mediaType>application/xml</con:mediaType>
+      <con:status/>
       <con:params/>
+      <con:description xsi:nil="true"/>
+      <con:sampleContent>&lt;ObjectNode>&lt;$ref>#/paths/~1schedule~1%7BscheduleRefId%7D~1scheduleexception~1%7BscheduleExceptionRefId%7D/get/responses/200/content/application~1xml/example&lt;/$ref>&lt;/ObjectNode></con:sampleContent>
     </con:representation>
     <con:request name="Request 1" id="ac5ac923-c6b9-4157-8dfb-121acfa34660" mediaType="application/json">
+      <con:description><![CDATA[<p>Bulk operation to update one or more fields of a single ScheduleException, that impacts the given timetable <a href="#tag/Schedule">Schedule</a> at the given Provider.</p>
+<p>Schedule events record one-off events that cause the normal structure of a timetable Schedule to be adjusted.  e.g.  Snow days closing the school, shortened days which require a special BellSchedule, etc.</p>]]></con:description>
       <con:settings/>
       <con:endpoint>https://northern.edsby.co.nz/sif</con:endpoint>
-      <con:request/>
+      <con:request>{
+  "$ref" : "#/paths/~1schedule~1%7BscheduleRefId%7D~1scheduleexception~1%7BscheduleExceptionRefId%7D/get/responses/200/content/application~1json/example"
+}</con:request>
       <con:credentials>
         <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
         <con:authType>No Authorization</con:authType>
       </con:credentials>
       <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
       <con:parameters>
-        <con:entry key="Accept" value=""/>
         <con:entry key="scheduleRefId" value=""/>
+        <con:entry key="Accept" value=""/>
         <con:entry key="X-Edsby-APIClientId" value=""/>
         <con:entry key="ScheduleExceptionRefId" value=""/>
         <con:entry key="X-Edsby-OrganisationRefId" value=""/>
       </con:parameters>
+      <con:parameterOrder>
+        <con:entry>Accept</con:entry>
+        <con:entry>X-Edsby-APIClientId</con:entry>
+        <con:entry>X-Edsby-OrganisationRefId</con:entry>
+        <con:entry>scheduleRefId</con:entry>
+        <con:entry>ScheduleExceptionRefId</con:entry>
+      </con:parameterOrder>
       <con:environmentSpec>
         <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
           <con:authProfile>SIF Mock - Basic Auth</con:authProfile>
