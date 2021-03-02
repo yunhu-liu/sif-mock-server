@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<con:testSuite id="ffab2fd5-caad-4916-91f5-98f1f44bf91e" name="TestSuite 2" disabled="true" xmlns:con="http://eviware.com/soapui/config">
+<con:testSuite id="ffab2fd5-caad-4916-91f5-98f1f44bf91e" name="TestSuite 2" xmlns:con="http://eviware.com/soapui/config">
   <con:settings>
     <con:setting id="c4345979-b83b-45a5-8726-5514b2d69e8cfileName">TestSuite-1</con:setting>
     <con:setting id="IncludeOverview">true</con:setting>

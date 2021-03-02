@@ -5,72 +5,130 @@
     <con:setting id="9c232595-f3b0-4ce2-b019-fbf42f8b4c8bfileName">StudentContactRelationship-Single</con:setting>
   </con:settings>
   <con:savedRecentRuns>1</con:savedRecentRuns>
-  <con:testStep type="properties" name="Properties 1" id="0203392c-60f8-4ad5-9459-d998064f4e13">
+  <con:testStep type="properties" name="Properties" id="728b926f-4e0f-44ad-981a-be37e8986473">
     <con:settings/>
     <con:config xsi:type="con:PropertiesStep" saveFirst="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
       <con:properties>
         <con:property>
+          <con:name>OrganisationRefId</con:name>
+          <con:value>973</con:value>
+        </con:property>
+        <con:property>
           <con:name>StudentContactRelationshipRefId</con:name>
-          <con:value>3ab3703a-645b-427a-87d8-f1e8c451ecce</con:value>
-        </con:property>
-        <con:property>
-          <con:name>StudentPersonalRefId</con:name>
-          <con:value>8d17b86a-a2cf-4960-935e-4ceab81b5483</con:value>
-        </con:property>
-        <con:property>
-          <con:name>StudentContactRefId</con:name>
-          <con:value>fb7d667f-a111-42da-a438-0d8791f49df5</con:value>
+          <con:value>c9da03df-34d0-4417-ae86-b6b0e28e21f5</con:value>
         </con:property>
       </con:properties>
     </con:config>
   </con:testStep>
-  <con:testStep type="groovy" name="GetRefId" id="cbab6da0-76c6-4fb3-bc99-b7b2a3281e18">
-    <con:settings/>
-    <con:config>
-      <script>// Get RefId from Previous Test Case
-
-import groovy.json.*
-
-// Get Payload from Previous Test Case
-def response = context.expand( '${#[TestSuite 1#StudentContactRelationship-Multiple#GetStudentContacRelationships]#Response}' )
-def slurped = new JsonSlurper().parseText(response)
-
-// Get RefId from Random Record
-def scpCount = slurped.StudentContactRelationships.StudentContactRelationship.size()
-Random random = new Random()
-int rndIndex = random.nextInt(scpCount)
-def refId = slurped.StudentContactRelationships.StudentContactRelationship[rndIndex].StudentContactRelationshipRefId
-
-// Set RefId to Property
-testRunner.testCase.testSteps["Properties 1"].setPropertyValue( "StudentContactRelationshipRefId", refId )</script>
+  <con:testStep type="datasource" name="LoadTestData-Multiple" id="c80b0ce1-a4a9-495f-a88d-856c28234545">
+    <con:settings>
+      <con:setting id="com.eviware.soapui.impl.wsdl.teststeps.datasource.DataSourceContainer@prepared-properties">&lt;xml-fragment/></con:setting>
+    </con:settings>
+    <con:config xsi:type="con:DataSourceStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:dataSource type="Directory">
+        <con:configuration>
+          <directory>./Te Rito APIs (v3.2-rc2)/v3.2-rc2_multiple_header_wrapped/StudentContactRelationship/401</directory>
+          <filter/>
+          <encoding/>
+        </con:configuration>
+      </con:dataSource>
+      <con:shared>true</con:shared>
+      <con:restartShared>true</con:restartShared>
+      <con:property>TestData</con:property>
+      <con:startRow/>
+      <con:endRow/>
+      <con:recordsPerIteration>1</con:recordsPerIteration>
+      <con:completeLastOperation>true</con:completeLastOperation>
+      <con:trimValues>false</con:trimValues>
+      <con:entitizeValues>false</con:entitizeValues>
+      <con:restartOnRun>true</con:restartOnRun>
+      <con:expandProperties>false</con:expandProperties>
     </con:config>
   </con:testStep>
-  <con:testStep type="datasource" name="GenDynamicId" id="bfb8ffb1-3d58-4a57-b128-3d2e3859272c">
+  <con:testStep type="datasource" name="GetPayload" id="7ed75e2b-6aea-4065-bf27-1e4f1088ce03">
+    <con:settings/>
+    <con:config xsi:type="con:DataSourceStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:dataSource type="JSON">
+        <con:configuration>
+          <sourceStep>LoadTestData-Multiple</sourceStep>
+          <sourceProperty>TestData</sourceProperty>
+          <rowPath>$['testcase']['StudentContactRelationships']['StudentContactRelationship'][0]</rowPath>
+          <columnPath/>
+        </con:configuration>
+      </con:dataSource>
+      <con:shared>true</con:shared>
+      <con:restartShared>true</con:restartShared>
+      <con:property>Payload</con:property>
+      <con:startRow/>
+      <con:endRow/>
+      <con:recordsPerIteration>1</con:recordsPerIteration>
+      <con:completeLastOperation>true</con:completeLastOperation>
+      <con:trimValues>false</con:trimValues>
+      <con:entitizeValues>false</con:entitizeValues>
+      <con:restartOnRun>true</con:restartOnRun>
+      <con:expandProperties>false</con:expandProperties>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="datasource" name="GenRefId" id="f8fe447c-5efb-4ee8-8269-eecabea4d085">
     <con:settings/>
     <con:config xsi:type="con:DataSourceStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
       <con:dataSource type="Data Generator">
         <con:configuration>
-          <generatedDataCount>10</generatedDataCount>
+          <generatedDataCount>1</generatedDataCount>
           <generatorsTotalNumber>1</generatorsTotalNumber>
           <lastSelectedProperty>0</lastSelectedProperty>
-          <GeneratorType0>STR</GeneratorType0>
-          <PropertyName0>DynamicId</PropertyName0>
-          <repetitionCountDynamicId>0</repetitionCountDynamicId>
-          <repeatValuesDynamicId>false</repeatValuesDynamicId>
-          <PasswordDataGeneratorUseSpacesDynamicId>false</PasswordDataGeneratorUseSpacesDynamicId>
-          <PasswordDataGeneratorUsePunctuationMarksDynamicId>false</PasswordDataGeneratorUsePunctuationMarksDynamicId>
-          <PasswordDataGeneratorUseLettersDynamicId>true</PasswordDataGeneratorUseLettersDynamicId>
-          <PasswordDataGeneratorUseDigitsDynamicId>false</PasswordDataGeneratorUseDigitsDynamicId>
-          <PasswordDataGeneratorMaxCharacterCountDynamicId>8</PasswordDataGeneratorMaxCharacterCountDynamicId>
-          <PasswordDataGeneratorMinCharacterCountDynamicId>8</PasswordDataGeneratorMinCharacterCountDynamicId>
+          <GeneratorType0>GUID</GeneratorType0>
+          <PropertyName0>RefId</PropertyName0>
+          <repetitionCountRefId>0</repetitionCountRefId>
+          <repeatValuesRefId>false</repeatValuesRefId>
           <escapeSpaceSequence/>
         </con:configuration>
       </con:dataSource>
       <con:shared>true</con:shared>
       <con:restartShared>true</con:restartShared>
-      <con:property>DynamicId</con:property>
-      <con:completeLastOperation>true</con:completeLastOperation>
+      <con:property>RefId</con:property>
       <con:restartOnRun>true</con:restartOnRun>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="groovy" name="UpdatePayload" id="5abc8512-02c6-4a55-a5ea-b4f9a709aa1a">
+    <con:settings/>
+    <con:config>
+      <script>// Update Payload by Adding Dynamic Values to Some Fields
+import groovy.json.*
+
+// Load Data
+def payload = context.expand( '${GetPayload#Payload}' )
+
+// Prepare New Payload
+def slurped = new JsonSlurper().parseText('{"StudentContactRelationship": '  + "$payload" + '}')
+
+// Write Updated Payload to Result
+return new JsonBuilder(slurped)</script>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="transfer" name="Property Transfer" id="200274d7-2aae-4204-a749-2dbda84d7442">
+    <con:settings/>
+    <con:config xsi:type="con:PropertyTransfersStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" entitize="false" transferChildNodes="false">
+        <con:name>OrganisationRefId</con:name>
+        <con:sourceType>result</con:sourceType>
+        <con:sourceStep>UpdatePayload</con:sourceStep>
+        <con:sourcePath>$['StudentContactRelationship']['Organisation']['RefId']</con:sourcePath>
+        <con:targetType>OrganisationRefId</con:targetType>
+        <con:targetStep>Properties</con:targetStep>
+        <con:targetPath/>
+        <con:type>JSONPATH</con:type>
+        <con:upgraded>true</con:upgraded>
+      </con:transfers>
+      <con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" entitize="false" transferChildNodes="false">
+        <con:name>StudentContactRelationshipRefId</con:name>
+        <con:sourceType>RefId</con:sourceType>
+        <con:sourceStep>GenRefId</con:sourceStep>
+        <con:sourcePath/>
+        <con:targetType>StudentContactRelationshipRefId</con:targetType>
+        <con:targetStep>Properties</con:targetStep>
+        <con:upgraded>true</con:upgraded>
+      </con:transfers>
     </con:config>
   </con:testStep>
   <con:testStep type="restrequest" name="GetStudentContactRelationship" id="a7e11c67-0122-4717-ab7d-a8a809418024">
@@ -98,6 +156,7 @@ testRunner.testCase.testSteps["Properties 1"].setPropertyValue( "StudentContactR
               <con:operator>contains</con:operator>
               <con:enabled>true</con:enabled>
               <con:expectedValue>${#Project#Error401}</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
               <con:numberType>false</con:numberType>
             </con:elements>
             <con:elements>
@@ -107,6 +166,7 @@ testRunner.testCase.testSteps["Properties 1"].setPropertyValue( "StudentContactR
               <con:operator>=</con:operator>
               <con:enabled>false</con:enabled>
               <con:expectedValue>null</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
               <con:numberType>false</con:numberType>
             </con:elements>
             <con:elements>
@@ -116,6 +176,7 @@ testRunner.testCase.testSteps["Properties 1"].setPropertyValue( "StudentContactR
               <con:operator>=</con:operator>
               <con:enabled>false</con:enabled>
               <con:expectedValue>133</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
               <con:numberType>false</con:numberType>
             </con:elements>
             <con:originalMessage>&lt;data contentType="null" contentLength="133">&lt;![CDATA[{
@@ -132,12 +193,12 @@ testRunner.testCase.testSteps["Properties 1"].setPropertyValue( "StudentContactR
         <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
         <con:parameters>
           <con:entry key="Accept" value="${#Project#Accept}"/>
-          <con:entry key="studentContactRelationshipRefId" value="${Properties 1#StudentContactRelationshipRefId}"/>
+          <con:entry key="studentContactRelationshipRefId" value="${Properties#StudentContactRelationshipRefId}"/>
           <con:entry key="max" value=""/>
           <con:entry key="X-Edsby-APIClientId" value="${#Project#ApiClientId}"/>
           <con:entry key="start" value=""/>
           <con:entry key="pattern" value=""/>
-          <con:entry key="X-Edsby-OrganisationRefId" value="${#Project#OrgRefId}"/>
+          <con:entry key="X-Edsby-OrganisationRefId" value="${Properties#OrganisationRefId}"/>
           <con:entry key="sort" value=""/>
           <con:entry key="unwrap" value=""/>
           <con:entry key="field" value=""/>
@@ -162,7 +223,7 @@ testRunner.testCase.testSteps["Properties 1"].setPropertyValue( "StudentContactR
           <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
         </con:settings>
         <con:endpoint>https://northern.edsby.co.nz/sif</con:endpoint>
-        <con:request>${#[TestSuite 1#StudentPersonal-Multiple#UpdatePayload]#result}</con:request>
+        <con:request>${UpdatePayload#result}</con:request>
         <con:originalUri>http://mocksifapi.terito.education.govt.nz/sif/studentcontactrelationship/4ab45eb1-aa79-419c-b866-5efc3506bc7d</con:originalUri>
         <con:assertion type="Valid HTTP Status Codes" id="75b38d19-3fe6-4bb2-8262-e1b6d7ce4bf4" name="Valid HTTP Status Codes">
           <con:settings/>
@@ -179,6 +240,7 @@ testRunner.testCase.testSteps["Properties 1"].setPropertyValue( "StudentContactR
               <con:operator>contains</con:operator>
               <con:enabled>true</con:enabled>
               <con:expectedValue>${#Project#Error401}</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
               <con:numberType>false</con:numberType>
             </con:elements>
             <con:elements>
@@ -188,6 +250,7 @@ testRunner.testCase.testSteps["Properties 1"].setPropertyValue( "StudentContactR
               <con:operator>=</con:operator>
               <con:enabled>false</con:enabled>
               <con:expectedValue>null</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
               <con:numberType>false</con:numberType>
             </con:elements>
             <con:elements>
@@ -197,6 +260,7 @@ testRunner.testCase.testSteps["Properties 1"].setPropertyValue( "StudentContactR
               <con:operator>=</con:operator>
               <con:enabled>false</con:enabled>
               <con:expectedValue>134</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
               <con:numberType>false</con:numberType>
             </con:elements>
             <con:originalMessage>&lt;data contentType="null" contentLength="134">&lt;![CDATA[{
@@ -213,9 +277,9 @@ testRunner.testCase.testSteps["Properties 1"].setPropertyValue( "StudentContactR
         <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
         <con:parameters>
           <con:entry key="Accept" value="${#Project#Accept}"/>
-          <con:entry key="studentContactRelationshipRefId" value="${Properties 1#StudentContactRelationshipRefId}"/>
+          <con:entry key="studentContactRelationshipRefId" value="${Properties#StudentContactRelationshipRefId}"/>
           <con:entry key="X-Edsby-APIClientId" value="${#Project#ApiClientId}"/>
-          <con:entry key="X-Edsby-OrganisationRefId" value="${#Project#OrgRefId}"/>
+          <con:entry key="X-Edsby-OrganisationRefId" value="${Properties#OrganisationRefId}"/>
         </con:parameters>
         <con:environmentSpec>
           <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
@@ -233,7 +297,7 @@ testRunner.testCase.testSteps["Properties 1"].setPropertyValue( "StudentContactR
           <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
         </con:settings>
         <con:endpoint>https://northern.edsby.co.nz/sif</con:endpoint>
-        <con:request>${#[TestSuite 1#StudentPersonal-Multiple#UpdatePayload 2]#result}</con:request>
+        <con:request>${UpdatePayload#result}</con:request>
         <con:originalUri>http://mocksifapi.terito.education.govt.nz/sif/studentcontactrelationship/4ab45eb1-aa79-419c-b866-5efc3506bc7d</con:originalUri>
         <con:assertion type="Valid HTTP Status Codes" id="1430ea80-bb2a-4dbf-9472-cff82813b674" name="Valid HTTP Status Codes">
           <con:settings/>
@@ -250,6 +314,7 @@ testRunner.testCase.testSteps["Properties 1"].setPropertyValue( "StudentContactR
               <con:operator>contains</con:operator>
               <con:enabled>true</con:enabled>
               <con:expectedValue>${#Project#Error401}</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
               <con:numberType>false</con:numberType>
             </con:elements>
             <con:elements>
@@ -259,6 +324,7 @@ testRunner.testCase.testSteps["Properties 1"].setPropertyValue( "StudentContactR
               <con:operator>=</con:operator>
               <con:enabled>false</con:enabled>
               <con:expectedValue>null</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
               <con:numberType>false</con:numberType>
             </con:elements>
             <con:elements>
@@ -268,6 +334,7 @@ testRunner.testCase.testSteps["Properties 1"].setPropertyValue( "StudentContactR
               <con:operator>=</con:operator>
               <con:enabled>false</con:enabled>
               <con:expectedValue>134</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
               <con:numberType>false</con:numberType>
             </con:elements>
             <con:originalMessage>&lt;data contentType="null" contentLength="134">&lt;![CDATA[{
@@ -284,9 +351,9 @@ testRunner.testCase.testSteps["Properties 1"].setPropertyValue( "StudentContactR
         <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
         <con:parameters>
           <con:entry key="Accept" value="${#Project#Accept}"/>
-          <con:entry key="studentContactRelationshipRefId" value="${Properties 1#StudentContactRelationshipRefId}"/>
+          <con:entry key="studentContactRelationshipRefId" value="${Properties#StudentContactRelationshipRefId}"/>
           <con:entry key="X-Edsby-APIClientId" value="${#Project#ApiClientId}"/>
-          <con:entry key="X-Edsby-OrganisationRefId" value="${#Project#OrgRefId}"/>
+          <con:entry key="X-Edsby-OrganisationRefId" value="${Properties#OrganisationRefId}"/>
         </con:parameters>
         <con:environmentSpec>
           <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
@@ -294,6 +361,14 @@ testRunner.testCase.testSteps["Properties 1"].setPropertyValue( "StudentContactR
           </con:entry>
         </con:environmentSpec>
       </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="datasourceloop" name="DataSource Loop" id="43aea63a-4b1a-4080-aa2f-1c3c3575e348">
+    <con:settings/>
+    <con:config>
+      <dataSourceStep>LoadTestData-Multiple</dataSourceStep>
+      <targetStep>GetPayload</targetStep>
+      <discardResults>false</discardResults>
     </con:config>
   </con:testStep>
   <con:properties/>
@@ -310,6 +385,36 @@ testRunner.testCase.testSteps["Properties 1"].setPropertyValue( "StudentContactR
   </con:breakPoints>
   <con:breakPoints>
     <con:testStepId>71ee7959-881e-4510-9f77-ffa6480cc94e</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>728b926f-4e0f-44ad-981a-be37e8986473</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>c80b0ce1-a4a9-495f-a88d-856c28234545</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>7ed75e2b-6aea-4065-bf27-1e4f1088ce03</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>f8fe447c-5efb-4ee8-8269-eecabea4d085</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>5abc8512-02c6-4a55-a5ea-b4f9a709aa1a</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>200274d7-2aae-4204-a749-2dbda84d7442</con:testStepId>
     <con:status>NONE</con:status>
     <con:properties/>
   </con:breakPoints>

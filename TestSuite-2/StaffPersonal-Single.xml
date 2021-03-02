@@ -5,74 +5,130 @@
     <con:setting id="07421b75-e68e-419c-b4a5-885a8e9bcf32fileName">StaffPersonal-Single</con:setting>
   </con:settings>
   <con:savedRecentRuns>1</con:savedRecentRuns>
-  <con:testStep type="properties" name="Properties 1" id="8b6c21e7-bee3-4b6c-9637-d8afbefd6c38">
+  <con:testStep type="properties" name="Properties" id="6387edc3-7d14-4951-a8b2-c3155ed2000f">
     <con:settings/>
     <con:config xsi:type="con:PropertiesStep" saveFirst="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
       <con:properties>
         <con:property>
+          <con:name>OrganisationRefId</con:name>
+          <con:value>973</con:value>
+        </con:property>
+        <con:property>
           <con:name>StaffPersonalRefId</con:name>
-          <con:value>f95417ab-f4c9-498a-8125-66e4e9a664cb</con:value>
+          <con:value>35a0b0c6-d789-4701-98cb-33bd4c34f14c</con:value>
         </con:property>
       </con:properties>
     </con:config>
   </con:testStep>
-  <con:testStep type="groovy" name="GetRefId" id="31392d94-ee35-453a-8a9d-ef4dc40d4554">
-    <con:settings/>
-    <con:config>
-      <script>// Get RefId from Previous Test Case
-
-import groovy.json.*
-
-// Get Payload from Previous Test Case
-def response = context.expand( '${#[TestSuite 1#StaffPeronsal-Multiple#GetStaffPersonals]#Response}' )
-def slurped = new JsonSlurper().parseText(response)
-
-// Get RefId from Random Record
-def spCount = slurped.StaffPersonals.StaffPersonal.size()
-Random random = new Random()
-int rndIndex = random.nextInt(spCount)
-def refId = slurped.StaffPersonals.StaffPersonal[rndIndex].StaffPersonalRefId
-
-// Set RefId to Property
-testRunner.testCase.testSteps["Properties 1"].setPropertyValue( "StaffPersonalRefId", refId )</script>
+  <con:testStep type="datasource" name="LoadTestData-Multiple" id="ca8adbd6-6f4c-417a-b233-ae1e1a3312b2">
+    <con:settings>
+      <con:setting id="com.eviware.soapui.impl.wsdl.teststeps.datasource.DataSourceContainer@prepared-properties">&lt;xml-fragment/></con:setting>
+    </con:settings>
+    <con:config xsi:type="con:DataSourceStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:dataSource type="Directory">
+        <con:configuration>
+          <directory>./Te Rito APIs (v3.2-rc2)/v3.2-rc2_multiple_header_wrapped/StaffPersonal/401</directory>
+          <filter/>
+          <encoding/>
+        </con:configuration>
+      </con:dataSource>
+      <con:shared>true</con:shared>
+      <con:restartShared>true</con:restartShared>
+      <con:property>TestData</con:property>
+      <con:startRow/>
+      <con:endRow/>
+      <con:recordsPerIteration>1</con:recordsPerIteration>
+      <con:completeLastOperation>true</con:completeLastOperation>
+      <con:trimValues>false</con:trimValues>
+      <con:entitizeValues>false</con:entitizeValues>
+      <con:restartOnRun>true</con:restartOnRun>
+      <con:expandProperties>false</con:expandProperties>
     </con:config>
   </con:testStep>
-  <con:testStep type="datasource" name="GenDynamicId" id="6f56f307-80ec-4132-96d1-a7116b47a155">
+  <con:testStep type="datasource" name="GetPayload" id="4d55b0ab-2bd1-4cee-b6c9-b09d4acf5d76">
+    <con:settings/>
+    <con:config xsi:type="con:DataSourceStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:dataSource type="JSON">
+        <con:configuration>
+          <sourceStep>LoadTestData-Multiple</sourceStep>
+          <sourceProperty>TestData</sourceProperty>
+          <rowPath>$['testcase']['StaffPersonals']['StaffPersonal'][0]</rowPath>
+          <columnPath/>
+        </con:configuration>
+      </con:dataSource>
+      <con:shared>true</con:shared>
+      <con:restartShared>true</con:restartShared>
+      <con:property>Payload</con:property>
+      <con:startRow/>
+      <con:endRow/>
+      <con:recordsPerIteration>1</con:recordsPerIteration>
+      <con:completeLastOperation>true</con:completeLastOperation>
+      <con:trimValues>false</con:trimValues>
+      <con:entitizeValues>false</con:entitizeValues>
+      <con:restartOnRun>true</con:restartOnRun>
+      <con:expandProperties>false</con:expandProperties>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="datasource" name="GenRefId" id="d779d5c2-b3a9-4796-b2bd-4a5355ca82f2">
     <con:settings/>
     <con:config xsi:type="con:DataSourceStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
       <con:dataSource type="Data Generator">
         <con:configuration>
-          <generatedDataCount>10</generatedDataCount>
-          <generatorsTotalNumber>3</generatorsTotalNumber>
+          <generatedDataCount>1</generatedDataCount>
+          <generatorsTotalNumber>1</generatorsTotalNumber>
           <lastSelectedProperty>0</lastSelectedProperty>
-          <GeneratorType0>CUSTOM</GeneratorType0>
-          <PropertyName0>StudentPeronsalLocalId</PropertyName0>
-          <repetitionCountStudentPeronsalLocalId>0</repetitionCountStudentPeronsalLocalId>
-          <repeatValuesStudentPeronsalLocalId>false</repeatValuesStudentPeronsalLocalId>
-          <CustomStringDataGeneratorFormatStudentPeronsalLocalId>ST1000001%INT(100000,999999,false, 1)</CustomStringDataGeneratorFormatStudentPeronsalLocalId>
-          <GeneratorType1>CUSTOM</GeneratorType1>
-          <PropertyName1>NSN</PropertyName1>
-          <repetitionCountNSN>0</repetitionCountNSN>
-          <repeatValuesNSN>false</repeatValuesNSN>
-          <CustomStringDataGeneratorFormatNSN>9001%INT(1000,9999,false, 1)</CustomStringDataGeneratorFormatNSN>
-          <GeneratorType2>STR</GeneratorType2>
-          <PropertyName2>DynamicId</PropertyName2>
-          <repetitionCountDynamicId>0</repetitionCountDynamicId>
-          <repeatValuesDynamicId>false</repeatValuesDynamicId>
-          <PasswordDataGeneratorUseSpacesDynamicId>false</PasswordDataGeneratorUseSpacesDynamicId>
-          <PasswordDataGeneratorUsePunctuationMarksDynamicId>false</PasswordDataGeneratorUsePunctuationMarksDynamicId>
-          <PasswordDataGeneratorUseLettersDynamicId>true</PasswordDataGeneratorUseLettersDynamicId>
-          <PasswordDataGeneratorUseDigitsDynamicId>false</PasswordDataGeneratorUseDigitsDynamicId>
-          <PasswordDataGeneratorMaxCharacterCountDynamicId>8</PasswordDataGeneratorMaxCharacterCountDynamicId>
-          <PasswordDataGeneratorMinCharacterCountDynamicId>8</PasswordDataGeneratorMinCharacterCountDynamicId>
+          <GeneratorType0>GUID</GeneratorType0>
+          <PropertyName0>RefId</PropertyName0>
+          <repetitionCountRefId>0</repetitionCountRefId>
+          <repeatValuesRefId>false</repeatValuesRefId>
           <escapeSpaceSequence/>
         </con:configuration>
       </con:dataSource>
       <con:shared>true</con:shared>
       <con:restartShared>true</con:restartShared>
-      <con:property>DynamicId</con:property>
-      <con:completeLastOperation>true</con:completeLastOperation>
+      <con:property>RefId</con:property>
       <con:restartOnRun>true</con:restartOnRun>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="groovy" name="UpdatePayload" id="e59329c2-3dc5-49f4-9d8c-ef1cfd6c2a13">
+    <con:settings/>
+    <con:config>
+      <script>// Update Payload by Adding Dynamic Values to Some Fields
+import groovy.json.*
+
+// Load Data
+def payload = context.expand( '${GetPayload#Payload}' )
+
+// Prepare New Payload
+def slurped = new JsonSlurper().parseText('{"StaffPersonal": '  + "$payload" + '}')
+
+// Write Updated Payload to Result
+return new JsonBuilder(slurped)</script>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="transfer" name="Property Transfer" id="a88e6254-ecd6-4c09-bfa4-c5dfc5845039">
+    <con:settings/>
+    <con:config xsi:type="con:PropertyTransfersStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" entitize="false" transferChildNodes="false">
+        <con:name>OrganisationRefId</con:name>
+        <con:sourceType>result</con:sourceType>
+        <con:sourceStep>UpdatePayload</con:sourceStep>
+        <con:sourcePath>$['StaffPersonal']['PersonInfo']['Email']['Work']['SourceOrganisation']['RefId']</con:sourcePath>
+        <con:targetType>OrganisationRefId</con:targetType>
+        <con:targetStep>Properties</con:targetStep>
+        <con:targetPath/>
+        <con:type>JSONPATH</con:type>
+        <con:upgraded>true</con:upgraded>
+      </con:transfers>
+      <con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" entitize="false" transferChildNodes="false">
+        <con:name>StaffPersonalRefId</con:name>
+        <con:sourceType>RefId</con:sourceType>
+        <con:sourceStep>GenRefId</con:sourceStep>
+        <con:sourcePath/>
+        <con:targetType>StaffPersonalRefId</con:targetType>
+        <con:targetStep>Properties</con:targetStep>
+        <con:upgraded>true</con:upgraded>
+      </con:transfers>
     </con:config>
   </con:testStep>
   <con:testStep type="restrequest" name="GetStaffPersonal" id="ce8df0c1-8488-437e-a35b-a46f0ac14da3">
@@ -100,6 +156,7 @@ testRunner.testCase.testSteps["Properties 1"].setPropertyValue( "StaffPersonalRe
               <con:operator>contains</con:operator>
               <con:enabled>true</con:enabled>
               <con:expectedValue>${#Project#Error401}</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
               <con:numberType>false</con:numberType>
             </con:elements>
             <con:elements>
@@ -109,6 +166,7 @@ testRunner.testCase.testSteps["Properties 1"].setPropertyValue( "StaffPersonalRe
               <con:operator>=</con:operator>
               <con:enabled>false</con:enabled>
               <con:expectedValue>null</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
               <con:numberType>false</con:numberType>
             </con:elements>
             <con:elements>
@@ -118,6 +176,7 @@ testRunner.testCase.testSteps["Properties 1"].setPropertyValue( "StaffPersonalRe
               <con:operator>=</con:operator>
               <con:enabled>false</con:enabled>
               <con:expectedValue>134</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
               <con:numberType>false</con:numberType>
             </con:elements>
             <con:originalMessage>&lt;data contentType="null" contentLength="134">&lt;![CDATA[{
@@ -137,9 +196,9 @@ testRunner.testCase.testSteps["Properties 1"].setPropertyValue( "StaffPersonalRe
           <con:entry key="field" value=""/>
           <con:entry key="max" value=""/>
           <con:entry key="X-Edsby-APIClientId" value="${#Project#ApiClientId}"/>
-          <con:entry key="staffPersonalRefId" value="${Properties 1#StaffPersonalRefId}"/>
+          <con:entry key="staffPersonalRefId" value="${Properties#StaffPersonalRefId}"/>
           <con:entry key="pattern" value=""/>
-          <con:entry key="X-Edsby-OrganisationRefId" value="${#Project#OrgRefId}"/>
+          <con:entry key="X-Edsby-OrganisationRefId" value="${Properties#OrganisationRefId}"/>
           <con:entry key="page" value=""/>
           <con:entry key="sort" value=""/>
           <con:entry key="fields" value=""/>
@@ -162,7 +221,7 @@ testRunner.testCase.testSteps["Properties 1"].setPropertyValue( "StaffPersonalRe
           <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
         </con:settings>
         <con:endpoint>https://northern.edsby.co.nz/sif</con:endpoint>
-        <con:request>${#[TestSuite 1#StudentPersonal-Multiple#UpdatePayload 1]#result}</con:request>
+        <con:request>${UpdatePayload#result}</con:request>
         <con:originalUri>http://mocksifapi.terito.education.govt.nz/sif/staffpersonal/398e51ed-a9f0-49ff-8d8e-e330bf49b290</con:originalUri>
         <con:assertion type="Valid HTTP Status Codes" id="54842faf-a5d4-484a-b9b9-2884f4eff741" name="Valid HTTP Status Codes">
           <con:settings/>
@@ -179,6 +238,7 @@ testRunner.testCase.testSteps["Properties 1"].setPropertyValue( "StaffPersonalRe
               <con:operator>contains</con:operator>
               <con:enabled>true</con:enabled>
               <con:expectedValue>${#Project#Error401}</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
               <con:numberType>false</con:numberType>
             </con:elements>
             <con:elements>
@@ -188,6 +248,7 @@ testRunner.testCase.testSteps["Properties 1"].setPropertyValue( "StaffPersonalRe
               <con:operator>=</con:operator>
               <con:enabled>false</con:enabled>
               <con:expectedValue>null</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
               <con:numberType>false</con:numberType>
             </con:elements>
             <con:elements>
@@ -197,6 +258,7 @@ testRunner.testCase.testSteps["Properties 1"].setPropertyValue( "StaffPersonalRe
               <con:operator>=</con:operator>
               <con:enabled>false</con:enabled>
               <con:expectedValue>134</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
               <con:numberType>false</con:numberType>
             </con:elements>
             <con:originalMessage>&lt;data contentType="null" contentLength="134">&lt;![CDATA[{
@@ -214,8 +276,8 @@ testRunner.testCase.testSteps["Properties 1"].setPropertyValue( "StaffPersonalRe
         <con:parameters>
           <con:entry key="Accept" value="${#Project#Accept}"/>
           <con:entry key="X-Edsby-APIClientId" value="${#Project#ApiClientId}"/>
-          <con:entry key="staffPersonalRefId" value="${Properties 1#StaffPersonalRefId}"/>
-          <con:entry key="X-Edsby-OrganisationRefId" value="${#Project#OrgRefId}"/>
+          <con:entry key="staffPersonalRefId" value="${Properties#StaffPersonalRefId}"/>
+          <con:entry key="X-Edsby-OrganisationRefId" value="${Properties#OrganisationRefId}"/>
         </con:parameters>
         <con:environmentSpec>
           <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
@@ -233,7 +295,7 @@ testRunner.testCase.testSteps["Properties 1"].setPropertyValue( "StaffPersonalRe
           <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
         </con:settings>
         <con:endpoint>https://northern.edsby.co.nz/sif</con:endpoint>
-        <con:request>${#[TestSuite 1#StudentPersonal-Multiple#UpdatePayload 2]#result}</con:request>
+        <con:request>${UpdatePayload#result}</con:request>
         <con:originalUri>http://mocksifapi.terito.education.govt.nz/sif/staffpersonal/bf9bfcdd-9ff1-4189-856e-c6a9402df82c</con:originalUri>
         <con:assertion type="Valid HTTP Status Codes" id="64b9f8d4-71d0-48b1-8c10-593df98208b8" name="Valid HTTP Status Codes">
           <con:settings/>
@@ -250,6 +312,7 @@ testRunner.testCase.testSteps["Properties 1"].setPropertyValue( "StaffPersonalRe
               <con:operator>contains</con:operator>
               <con:enabled>true</con:enabled>
               <con:expectedValue>${#Project#Error401}</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
               <con:numberType>false</con:numberType>
             </con:elements>
             <con:elements>
@@ -259,6 +322,7 @@ testRunner.testCase.testSteps["Properties 1"].setPropertyValue( "StaffPersonalRe
               <con:operator>=</con:operator>
               <con:enabled>false</con:enabled>
               <con:expectedValue>null</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
               <con:numberType>false</con:numberType>
             </con:elements>
             <con:elements>
@@ -268,6 +332,7 @@ testRunner.testCase.testSteps["Properties 1"].setPropertyValue( "StaffPersonalRe
               <con:operator>=</con:operator>
               <con:enabled>false</con:enabled>
               <con:expectedValue>134</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
               <con:numberType>false</con:numberType>
             </con:elements>
             <con:originalMessage>&lt;data contentType="null" contentLength="134">&lt;![CDATA[{
@@ -285,8 +350,8 @@ testRunner.testCase.testSteps["Properties 1"].setPropertyValue( "StaffPersonalRe
         <con:parameters>
           <con:entry key="Accept" value="${#Project#Accept}"/>
           <con:entry key="X-Edsby-APIClientId" value="${#Project#ApiClientId}"/>
-          <con:entry key="staffPersonalRefId" value="${Properties 1#StaffPersonalRefId}"/>
-          <con:entry key="X-Edsby-OrganisationRefId" value="${#Project#OrgRefId}"/>
+          <con:entry key="staffPersonalRefId" value="${Properties#StaffPersonalRefId}"/>
+          <con:entry key="X-Edsby-OrganisationRefId" value="${Properties#OrganisationRefId}"/>
         </con:parameters>
         <con:environmentSpec>
           <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
@@ -294,6 +359,14 @@ testRunner.testCase.testSteps["Properties 1"].setPropertyValue( "StaffPersonalRe
           </con:entry>
         </con:environmentSpec>
       </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="datasourceloop" name="DataSource Loop" id="05deed0e-3495-4bd7-86f6-623b04ab2fd7">
+    <con:settings/>
+    <con:config>
+      <dataSourceStep>LoadTestData-Multiple</dataSourceStep>
+      <targetStep>GetPayload</targetStep>
+      <discardResults>false</discardResults>
     </con:config>
   </con:testStep>
   <con:properties/>
@@ -330,6 +403,21 @@ testRunner.testCase.testSteps["Properties 1"].setPropertyValue( "StaffPersonalRe
   </con:breakPoints>
   <con:breakPoints>
     <con:testStepId>a62539d0-eb84-4b00-a715-1c16cc28bf94</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>ce8df0c1-8488-437e-a35b-a46f0ac14da3</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>b519dc3f-2787-4f32-b719-17511e80bc05</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>080623fc-9cad-4d2e-af22-6125dcd4feb8</con:testStepId>
     <con:status>NONE</con:status>
     <con:properties/>
   </con:breakPoints>

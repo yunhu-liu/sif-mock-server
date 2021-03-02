@@ -5,79 +5,68 @@
     <con:setting id="380cd1fd-260e-44c5-9eed-9666fbbaaee0fileName">StaffAssignment-Multiple</con:setting>
   </con:settings>
   <con:savedRecentRuns>1</con:savedRecentRuns>
-  <con:testStep type="properties" name="Properties 1" id="a394a6d6-6658-4309-a48e-7f7499806d38">
+  <con:testStep type="properties" name="Properties" id="402856d0-1f65-4eb1-9341-a78c11b32cea">
     <con:settings/>
     <con:config xsi:type="con:PropertiesStep" saveFirst="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
       <con:properties>
         <con:property>
-          <con:name>Count</con:name>
-          <con:value>34</con:value>
-        </con:property>
-        <con:property>
-          <con:name>StaffAssignmentRefId</con:name>
-          <con:value>d86515dc-c434-4aa6-a9b1-92370de685f4</con:value>
-        </con:property>
-        <con:property>
-          <con:name>StaffAssignmentLocalId</con:name>
-          <con:value>T98001_1038</con:value>
-        </con:property>
-        <con:property>
-          <con:name>StaffMemberRefId</con:name>
-          <con:value>05e3989c-32b6-41f9-877b-dcdad044905c</con:value>
-        </con:property>
-        <con:property>
-          <con:name>StaffRole</con:name>
-          <con:value>1002</con:value>
+          <con:name>OrganisationRefId</con:name>
+          <con:value>973</con:value>
         </con:property>
       </con:properties>
     </con:config>
   </con:testStep>
-  <con:testStep type="groovy" name="UpdatePayload" id="473d8eec-8d96-4716-abd7-b2ca20840df4">
+  <con:testStep type="datasource" name="LoadTestData-Multiple" id="99d6ce14-a8b9-4284-ae2e-de88cf2f3834">
+    <con:settings>
+      <con:setting id="com.eviware.soapui.impl.wsdl.teststeps.datasource.DataSourceContainer@prepared-properties">&lt;xml-fragment/></con:setting>
+    </con:settings>
+    <con:config xsi:type="con:DataSourceStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:dataSource type="Directory">
+        <con:configuration>
+          <directory>./Te Rito APIs (v3.2-rc2)/v3.2-rc2_multiple_header_wrapped/StaffAssignment/401</directory>
+          <filter/>
+          <encoding/>
+        </con:configuration>
+      </con:dataSource>
+      <con:shared>true</con:shared>
+      <con:restartShared>true</con:restartShared>
+      <con:property>TestData</con:property>
+      <con:completeLastOperation>true</con:completeLastOperation>
+      <con:restartOnRun>true</con:restartOnRun>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="datasource" name="GetPayload" id="c9ec02b9-93a3-4449-8b6e-0a9a55747957">
     <con:settings/>
-    <con:config>
-      <script>// Update Payload by Adding Dynamic Values to Some Fields
-import groovy.json.*
-
-def orgRefId = context.expand( '${#Project#OrgRefId2}' )
-
-// Get Payload from Previous Test Case
-def response = context.expand( '${#[TestSuite 1#StaffPeronsal-Multiple#PatchStaffPersonals]#Response}' )
-def slurped = new JsonSlurper().parseText(response)
-
-// Prepare New Payload
-def newSlurped = new JsonSlurper().parseText('{"StaffAssignments": {"StaffAssignment": []}}')
-
-// Get Total Count
-def spCount = slurped.StaffPersonals.StaffPersonal.size()
-
-// Loop Through and Update Fields for Each
-for ( i = 0; i &lt; spCount; i++)
-{
-	def staffRefId = slurped.StaffPersonals.StaffPersonal[i].StaffPersonalRefId
-	def staffLocalId = slurped.StaffPersonals.StaffPersonal[i].StaffPersonalLocalId
-
-	newSlurped.StaffAssignments.StaffAssignment &lt;&lt;
-	[
-		StaffAssignmentLocalId: "$staffLocalId" + "_" + "$orgRefId",
-		StaffMember: [
-			RefId: "$staffRefId"
-		],
-		AssignedLocation: [
-			RefId: "$orgRefId"
-		],
-		StaffRole: "1002",
-		StartDate: "1995-01-02T00:00:00+12:00"
-	]	
-}
-
-// Set Values to Property
-testRunner.testCase.testSteps["Properties 1"].setPropertyValue( "Count", spCount.toString() )
-testRunner.testCase.testSteps["Properties 1"].setPropertyValue( "StaffAssignmentLocalId", newSlurped.StaffAssignments.StaffAssignment[0].StaffAssignmentLocalId )
-testRunner.testCase.testSteps["Properties 1"].setPropertyValue( "StaffMemberRefId", newSlurped.StaffAssignments.StaffAssignment[0].StaffMember.RefId )
-testRunner.testCase.testSteps["Properties 1"].setPropertyValue( "StaffRole", newSlurped.StaffAssignments.StaffAssignment[0].StaffRole )
-
-// Write Updated Payload to Result
-return new JsonBuilder(newSlurped)</script>
+    <con:config xsi:type="con:DataSourceStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:dataSource type="JSON">
+        <con:configuration>
+          <sourceStep>LoadTestData-Multiple</sourceStep>
+          <sourceProperty>TestData</sourceProperty>
+          <rowPath>$['testcase']</rowPath>
+          <columnPath/>
+        </con:configuration>
+      </con:dataSource>
+      <con:shared>true</con:shared>
+      <con:restartShared>true</con:restartShared>
+      <con:property>Payload</con:property>
+      <con:completeLastOperation>true</con:completeLastOperation>
+      <con:restartOnRun>true</con:restartOnRun>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="transfer" name="Property Transfer" id="63f3903f-1af4-4916-8bf7-db1c95f65782">
+    <con:settings/>
+    <con:config xsi:type="con:PropertyTransfersStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" entitize="false" transferChildNodes="false">
+        <con:name>OrganisationRefId</con:name>
+        <con:sourceType>Payload</con:sourceType>
+        <con:sourceStep>GetPayload</con:sourceStep>
+        <con:sourcePath>$['StaffAssignments']['StaffAssignment'][0]['AssignedLocation']['RefId']</con:sourcePath>
+        <con:targetType>OrganisationRefId</con:targetType>
+        <con:targetStep>Properties</con:targetStep>
+        <con:targetPath/>
+        <con:type>JSONPATH</con:type>
+        <con:upgraded>true</con:upgraded>
+      </con:transfers>
     </con:config>
   </con:testStep>
   <con:testStep type="restrequest" name="CreateStaffAssignments" id="3d839d68-fa9a-477a-bd4a-3fe69cec5f9d">
@@ -88,7 +77,7 @@ return new JsonBuilder(newSlurped)</script>
           <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
         </con:settings>
         <con:endpoint>https://northern.edsby.co.nz/sif</con:endpoint>
-        <con:request>${UpdatePayload#result}</con:request>
+        <con:request>${GetPayload#Payload}</con:request>
         <con:originalUri>http://mocksifapi.terito.education.govt.nz/sif/staffassignment</con:originalUri>
         <con:assertion type="Valid HTTP Status Codes" id="26d9da6b-ceb9-48d2-8b0e-504fbd9a5838" name="Valid HTTP Status Codes">
           <con:settings/>
@@ -105,6 +94,7 @@ return new JsonBuilder(newSlurped)</script>
               <con:operator>contains</con:operator>
               <con:enabled>true</con:enabled>
               <con:expectedValue>${#Project#Error401}</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
               <con:numberType>false</con:numberType>
             </con:elements>
             <con:elements>
@@ -114,6 +104,7 @@ return new JsonBuilder(newSlurped)</script>
               <con:operator>=</con:operator>
               <con:enabled>false</con:enabled>
               <con:expectedValue>null</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
               <con:numberType>false</con:numberType>
             </con:elements>
             <con:elements>
@@ -123,6 +114,7 @@ return new JsonBuilder(newSlurped)</script>
               <con:operator>=</con:operator>
               <con:enabled>false</con:enabled>
               <con:expectedValue>134</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
               <con:numberType>false</con:numberType>
             </con:elements>
             <con:originalMessage>&lt;data contentType="null" contentLength="134">&lt;![CDATA[{
@@ -140,7 +132,7 @@ return new JsonBuilder(newSlurped)</script>
         <con:parameters>
           <con:entry key="Accept" value="${#Project#Accept}"/>
           <con:entry key="X-Edsby-APIClientId" value="${#Project#ApiClientId}"/>
-          <con:entry key="X-Edsby-OrganisationRefId" value="${#Project#OrgRefId2}"/>
+          <con:entry key="X-Edsby-OrganisationRefId" value="${Properties#OrganisationRefId}"/>
           <con:entry key="x-http-method-override" value=""/>
         </con:parameters>
         <con:environmentSpec>
@@ -176,6 +168,7 @@ return new JsonBuilder(newSlurped)</script>
               <con:operator>contains</con:operator>
               <con:enabled>true</con:enabled>
               <con:expectedValue>${#Project#Error401}</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
               <con:numberType>false</con:numberType>
             </con:elements>
             <con:elements>
@@ -185,6 +178,7 @@ return new JsonBuilder(newSlurped)</script>
               <con:operator>=</con:operator>
               <con:enabled>false</con:enabled>
               <con:expectedValue>null</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
               <con:numberType>false</con:numberType>
             </con:elements>
             <con:elements>
@@ -194,6 +188,7 @@ return new JsonBuilder(newSlurped)</script>
               <con:operator>=</con:operator>
               <con:enabled>false</con:enabled>
               <con:expectedValue>134</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
               <con:numberType>false</con:numberType>
             </con:elements>
             <con:originalMessage>&lt;data contentType="null" contentLength="134">&lt;![CDATA[{
@@ -214,7 +209,7 @@ return new JsonBuilder(newSlurped)</script>
           <con:entry key="X-Edsby-APIClientId" value="${#Project#ApiClientId}"/>
           <con:entry key="start" value=""/>
           <con:entry key="pattern" value=""/>
-          <con:entry key="X-Edsby-OrganisationRefId" value="${#Project#OrgRefId2}"/>
+          <con:entry key="X-Edsby-OrganisationRefId" value="${Properties#OrganisationRefId}"/>
           <con:entry key="sort" value=""/>
           <con:entry key="unwrap" value=""/>
           <con:entry key="field" value=""/>
@@ -240,7 +235,7 @@ return new JsonBuilder(newSlurped)</script>
           <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
         </con:settings>
         <con:endpoint>https://northern.edsby.co.nz/sif</con:endpoint>
-        <con:request>${#[TestSuite 1#StudentPersonal-Multiple#UpdatePayload 2]#result}</con:request>
+        <con:request>${GetPayload#Payload}</con:request>
         <con:originalUri>http://mocksifapi.terito.education.govt.nz/sif/staffassignment</con:originalUri>
         <con:assertion type="Valid HTTP Status Codes" id="3045ac63-8b79-40db-b583-52e4b0a097ea" name="Valid HTTP Status Codes">
           <con:settings/>
@@ -257,6 +252,7 @@ return new JsonBuilder(newSlurped)</script>
               <con:operator>contains</con:operator>
               <con:enabled>true</con:enabled>
               <con:expectedValue>${#Project#Error401}</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
               <con:numberType>false</con:numberType>
             </con:elements>
             <con:elements>
@@ -266,6 +262,7 @@ return new JsonBuilder(newSlurped)</script>
               <con:operator>=</con:operator>
               <con:enabled>false</con:enabled>
               <con:expectedValue>null</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
               <con:numberType>false</con:numberType>
             </con:elements>
             <con:elements>
@@ -275,6 +272,7 @@ return new JsonBuilder(newSlurped)</script>
               <con:operator>=</con:operator>
               <con:enabled>false</con:enabled>
               <con:expectedValue>134</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
               <con:numberType>false</con:numberType>
             </con:elements>
             <con:originalMessage>&lt;data contentType="null" contentLength="134">&lt;![CDATA[{
@@ -292,7 +290,7 @@ return new JsonBuilder(newSlurped)</script>
         <con:parameters>
           <con:entry key="Accept" value="${#Project#Accept}"/>
           <con:entry key="X-Edsby-APIClientId" value="${#Project#ApiClientId}"/>
-          <con:entry key="X-Edsby-OrganisationRefId" value="${#Project#OrgRefId2}"/>
+          <con:entry key="X-Edsby-OrganisationRefId" value="${Properties#OrganisationRefId}"/>
         </con:parameters>
         <con:environmentSpec>
           <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
@@ -310,7 +308,7 @@ return new JsonBuilder(newSlurped)</script>
           <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
         </con:settings>
         <con:endpoint>https://northern.edsby.co.nz/sif</con:endpoint>
-        <con:request>${#[TestSuite 1#StudentPersonal-Multiple#UpdatePayload 3]#result}</con:request>
+        <con:request>${GetPayload#Payload}</con:request>
         <con:originalUri>http://mocksifapi.terito.education.govt.nz/sif/staffassignment</con:originalUri>
         <con:assertion type="Valid HTTP Status Codes" id="ff3e97dd-b865-4d11-af2a-345968d3cfc0" name="Valid HTTP Status Codes">
           <con:settings/>
@@ -327,6 +325,7 @@ return new JsonBuilder(newSlurped)</script>
               <con:operator>contains</con:operator>
               <con:enabled>true</con:enabled>
               <con:expectedValue>${#Project#Error401}</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
               <con:numberType>false</con:numberType>
             </con:elements>
             <con:elements>
@@ -336,6 +335,7 @@ return new JsonBuilder(newSlurped)</script>
               <con:operator>=</con:operator>
               <con:enabled>false</con:enabled>
               <con:expectedValue>null</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
               <con:numberType>false</con:numberType>
             </con:elements>
             <con:elements>
@@ -345,6 +345,7 @@ return new JsonBuilder(newSlurped)</script>
               <con:operator>=</con:operator>
               <con:enabled>false</con:enabled>
               <con:expectedValue>134</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
               <con:numberType>false</con:numberType>
             </con:elements>
             <con:originalMessage>&lt;data contentType="null" contentLength="134">&lt;![CDATA[{
@@ -362,7 +363,7 @@ return new JsonBuilder(newSlurped)</script>
         <con:parameters>
           <con:entry key="Accept" value="${#Project#Accept}"/>
           <con:entry key="X-Edsby-APIClientId" value="${#Project#ApiClientId}"/>
-          <con:entry key="X-Edsby-OrganisationRefId" value="${#Project#OrgRefId2}"/>
+          <con:entry key="X-Edsby-OrganisationRefId" value="${Properties#OrganisationRefId}"/>
         </con:parameters>
         <con:environmentSpec>
           <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
@@ -370,6 +371,14 @@ return new JsonBuilder(newSlurped)</script>
           </con:entry>
         </con:environmentSpec>
       </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="datasourceloop" name="DataSource Loop" id="9767b86f-b31d-4e75-8298-7abec7ee7912">
+    <con:settings/>
+    <con:config>
+      <dataSourceStep>LoadTestData-Multiple</dataSourceStep>
+      <targetStep>GetPayload</targetStep>
+      <discardResults>false</discardResults>
     </con:config>
   </con:testStep>
   <con:properties/>
@@ -391,6 +400,26 @@ return new JsonBuilder(newSlurped)</script>
   </con:breakPoints>
   <con:breakPoints>
     <con:testStepId>f821ec77-22c7-40bb-9e82-577b8de1122e</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>402856d0-1f65-4eb1-9341-a78c11b32cea</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>99d6ce14-a8b9-4284-ae2e-de88cf2f3834</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>c9ec02b9-93a3-4449-8b6e-0a9a55747957</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>63f3903f-1af4-4916-8bf7-db1c95f65782</con:testStepId>
     <con:status>NONE</con:status>
     <con:properties/>
   </con:breakPoints>
