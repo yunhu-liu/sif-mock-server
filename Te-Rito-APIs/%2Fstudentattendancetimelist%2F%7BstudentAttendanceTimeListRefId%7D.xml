@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<con:resource name="/teachinggroup/{teachingGroupRefId}/studentattendancetimelist" path="/teachinggroup/{teachingGroupRefId}/studentattendancetimelist" id="69f2e0d1-2221-40cf-8933-ee163e9dd2ce" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config">
+<con:resource name="/studentattendancetimelist/{studentAttendanceTimeListRefId}" path="/studentattendancetimelist/{studentAttendanceTimeListRefId}" id="76372cec-bc09-4bc4-b125-3b8c11ca114e" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config">
   <con:settings>
-    <con:setting id="69f2e0d1-2221-40cf-8933-ee163e9dd2cefileName">%2Fteachinggroup%2F%7BteachingGroupRefId%7D%2Fstudentattendancetimelist</con:setting>
+    <con:setting id="76372cec-bc09-4bc4-b125-3b8c11ca114efileName">%2Fstudentattendancetimelist%2F%7BstudentAttendanceTimeListRefId%7D</con:setting>
   </con:settings>
   <con:parameters/>
-  <con:method name="getTeachingGroupMeetingAttendancesByTeachingGroup" id="a9fc9ac3-fd5e-4ca0-a9e8-18d377cf8507" method="GET">
+  <con:method name="getStudentAttendanceTimeList" id="1bac3a40-e606-4da3-991d-2d8905107d79" method="GET">
     <con:settings/>
     <con:parameters>
       <con:parameter>
@@ -86,7 +86,7 @@
         <con:default/>
       </con:parameter>
       <con:parameter>
-        <con:name>teachingGroupRefId</con:name>
+        <con:name>studentAttendanceTimeListRefId</con:name>
         <con:value/>
         <con:style>TEMPLATE</con:style>
         <con:default/>
@@ -127,169 +127,171 @@
       <con:status>422</con:status>
       <con:params/>
     </con:representation>
-    <con:request name="Request 1" id="35ebf5b2-7005-454c-ac16-3939a311a73e" mediaType="application/json">
-      <con:settings/>
-      <con:endpoint>https://northern.edsby.co.nz/sif</con:endpoint>
-      <con:request/>
-      <con:credentials>
-        <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
-        <con:authType>No Authorization</con:authType>
-      </con:credentials>
-      <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
-      <con:parameters>
-        <con:entry key="Accept" value=""/>
-        <con:entry key="max" value=""/>
-        <con:entry key="start" value=""/>
-        <con:entry key="pattern" value=""/>
-        <con:entry key="X-Edsby-APIClientId" value=""/>
-        <con:entry key="X-Edsby-OrganisationRefId" value=""/>
-        <con:entry key="sort" value=""/>
-        <con:entry key="unwrap" value=""/>
-        <con:entry key="teachingGroupRefId" value=""/>
-        <con:entry key="field" value=""/>
-        <con:entry key="end" value=""/>
-        <con:entry key="page" value=""/>
-        <con:entry key="fields" value=""/>
-        <con:entry key="human" value=""/>
-      </con:parameters>
-      <con:environmentSpec>
-        <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
-          <con:authProfile>SIF Mock - Basic Auth</con:authProfile>
-        </con:entry>
-      </con:environmentSpec>
-    </con:request>
-  </con:method>
-  <con:method name="getStudentAttendanceTimeListsByTeachingGroup" id="c4d028fb-854e-4227-9664-adf25bee8ecf" method="GET">
-    <con:settings/>
-    <con:parameters>
-      <con:parameter>
-        <con:name>fields</con:name>
-        <con:value/>
-        <con:style>QUERY</con:style>
-        <con:default/>
-      </con:parameter>
-      <con:parameter>
-        <con:name>page</con:name>
-        <con:value/>
-        <con:style>QUERY</con:style>
-        <con:default/>
-      </con:parameter>
-      <con:parameter>
-        <con:name>max</con:name>
-        <con:value/>
-        <con:style>QUERY</con:style>
-        <con:default/>
-      </con:parameter>
-      <con:parameter>
-        <con:name>unwrap</con:name>
-        <con:value/>
-        <con:style>QUERY</con:style>
-        <con:default/>
-      </con:parameter>
-      <con:parameter>
-        <con:name>human</con:name>
-        <con:value/>
-        <con:style>QUERY</con:style>
-        <con:default/>
-      </con:parameter>
-      <con:parameter>
-        <con:name>start</con:name>
-        <con:value/>
-        <con:style>QUERY</con:style>
-        <con:default/>
-      </con:parameter>
-      <con:parameter>
-        <con:name>end</con:name>
-        <con:value/>
-        <con:style>QUERY</con:style>
-        <con:default/>
-      </con:parameter>
-      <con:parameter>
-        <con:name>sort</con:name>
-        <con:value/>
-        <con:style>QUERY</con:style>
-        <con:default/>
-      </con:parameter>
-      <con:parameter>
-        <con:name>field</con:name>
-        <con:value/>
-        <con:style>QUERY</con:style>
-        <con:default/>
-      </con:parameter>
-      <con:parameter>
-        <con:name>pattern</con:name>
-        <con:value/>
-        <con:style>QUERY</con:style>
-        <con:default/>
-      </con:parameter>
-      <con:parameter>
-        <con:name>Accept</con:name>
-        <con:value/>
-        <con:style>HEADER</con:style>
-        <con:default/>
-      </con:parameter>
-      <con:parameter>
-        <con:name>X-Edsby-APIClientId</con:name>
-        <con:value/>
-        <con:style>HEADER</con:style>
-        <con:default/>
-      </con:parameter>
-      <con:parameter>
-        <con:name>X-Edsby-OrganisationRefId</con:name>
-        <con:value/>
-        <con:style>HEADER</con:style>
-        <con:default/>
-      </con:parameter>
-      <con:parameter>
-        <con:name>teachingGroupRefId</con:name>
-        <con:value/>
-        <con:style>TEMPLATE</con:style>
-        <con:default/>
-      </con:parameter>
-    </con:parameters>
-    <con:representation type="RESPONSE">
-      <con:mediaType>application/json</con:mediaType>
-      <con:status>200</con:status>
-      <con:params/>
-    </con:representation>
-    <con:representation type="RESPONSE">
-      <con:mediaType>application/xml</con:mediaType>
-      <con:status>200</con:status>
-      <con:params/>
-    </con:representation>
-    <con:representation type="RESPONSE">
-      <con:mediaType>application/json</con:mediaType>
-      <con:status>401</con:status>
-      <con:params/>
-    </con:representation>
-    <con:representation type="RESPONSE">
-      <con:mediaType>application/json</con:mediaType>
-      <con:status>403</con:status>
-      <con:params/>
-    </con:representation>
-    <con:representation type="RESPONSE">
-      <con:mediaType>application/json</con:mediaType>
-      <con:status>404</con:status>
-      <con:params/>
-    </con:representation>
-    <con:representation type="RESPONSE">
-      <con:mediaType>application/json</con:mediaType>
-      <con:status>422</con:status>
-      <con:params/>
-    </con:representation>
-    <con:representation type="RESPONSE">
-      <con:mediaType>application/xml</con:mediaType>
-      <con:status>422</con:status>
-      <con:params/>
-    </con:representation>
-    <con:request name="Request 1" id="4c53ae6d-9cc8-4e11-98ab-637a4fbbc485" mediaType="application/json">
+    <con:request name="Request 1" id="ec468a3a-1d84-45c0-b5d1-4a3b01d64687" mediaType="application/json">
       <con:settings/>
       <con:parameters/>
     </con:request>
   </con:method>
-  <con:environmentSpec>
-    <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
-      <con:authProfile>Inherit From Parent</con:authProfile>
-    </con:entry>
-  </con:environmentSpec>
+  <con:method name="updateStudentAttendanceTimeList" id="e33daab1-eafd-49d1-a259-f3e72ce7aecc" method="PUT">
+    <con:settings/>
+    <con:parameters>
+      <con:parameter>
+        <con:name>Accept</con:name>
+        <con:value/>
+        <con:style>HEADER</con:style>
+        <con:default/>
+      </con:parameter>
+      <con:parameter>
+        <con:name>X-Edsby-APIClientId</con:name>
+        <con:value/>
+        <con:style>HEADER</con:style>
+        <con:default/>
+      </con:parameter>
+      <con:parameter>
+        <con:name>X-Edsby-OrganisationRefId</con:name>
+        <con:value/>
+        <con:style>HEADER</con:style>
+        <con:default/>
+      </con:parameter>
+      <con:parameter>
+        <con:name>studentAttendanceTimeListRefId</con:name>
+        <con:value/>
+        <con:style>TEMPLATE</con:style>
+        <con:default/>
+      </con:parameter>
+    </con:parameters>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>200</con:status>
+      <con:params/>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/xml</con:mediaType>
+      <con:status>200</con:status>
+      <con:params/>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>400</con:status>
+      <con:params/>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>401</con:status>
+      <con:params/>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>403</con:status>
+      <con:params/>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>404</con:status>
+      <con:params/>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>422</con:status>
+      <con:params/>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/xml</con:mediaType>
+      <con:status>422</con:status>
+      <con:params/>
+    </con:representation>
+    <con:representation type="REQUEST">
+      <con:mediaType>application/json</con:mediaType>
+      <con:params/>
+    </con:representation>
+    <con:representation type="REQUEST">
+      <con:mediaType>application/xml</con:mediaType>
+      <con:params/>
+    </con:representation>
+    <con:request name="Request 1" id="6c634f67-b7f2-432a-9b92-4e7e00517671" mediaType="application/json">
+      <con:settings/>
+      <con:parameters/>
+    </con:request>
+  </con:method>
+  <con:method name="patchStudentAttendanceTimeList" id="3d9ac182-ba9b-4027-8a6f-b11fbd1c632c" method="PATCH">
+    <con:settings/>
+    <con:parameters>
+      <con:parameter>
+        <con:name>Accept</con:name>
+        <con:value/>
+        <con:style>HEADER</con:style>
+        <con:default/>
+      </con:parameter>
+      <con:parameter>
+        <con:name>X-Edsby-APIClientId</con:name>
+        <con:value/>
+        <con:style>HEADER</con:style>
+        <con:default/>
+      </con:parameter>
+      <con:parameter>
+        <con:name>X-Edsby-OrganisationRefId</con:name>
+        <con:value/>
+        <con:style>HEADER</con:style>
+        <con:default/>
+      </con:parameter>
+      <con:parameter>
+        <con:name>studentAttendanceTimeListRefId</con:name>
+        <con:value/>
+        <con:style>TEMPLATE</con:style>
+        <con:default/>
+      </con:parameter>
+    </con:parameters>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>200</con:status>
+      <con:params/>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/xml</con:mediaType>
+      <con:status>200</con:status>
+      <con:params/>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>400</con:status>
+      <con:params/>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>401</con:status>
+      <con:params/>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>403</con:status>
+      <con:params/>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>404</con:status>
+      <con:params/>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>422</con:status>
+      <con:params/>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/xml</con:mediaType>
+      <con:status>422</con:status>
+      <con:params/>
+    </con:representation>
+    <con:representation type="REQUEST">
+      <con:mediaType>application/json</con:mediaType>
+      <con:params/>
+    </con:representation>
+    <con:representation type="REQUEST">
+      <con:mediaType>application/xml</con:mediaType>
+      <con:params/>
+    </con:representation>
+    <con:request name="Request 1" id="e8dc33ed-f0b8-4c2d-bee1-3d4c896a525e" mediaType="application/json">
+      <con:settings/>
+      <con:parameters/>
+    </con:request>
+  </con:method>
 </con:resource>

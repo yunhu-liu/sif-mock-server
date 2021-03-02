@@ -15,7 +15,7 @@
         </con:property>
         <con:property>
           <con:name>StudentContactPersonalRefId</con:name>
-          <con:value>1397d06e-1976-4ca9-89e8-eb10a7ab65d1</con:value>
+          <con:value>6d7852ae-6f34-48be-833b-3b37dd934055</con:value>
         </con:property>
       </con:properties>
     </con:config>
@@ -202,6 +202,7 @@ return new JsonBuilder(slurped)</script>
           <con:entry key="field" value=""/>
           <con:entry key="studentContactPersonalRefId" value=""/>
           <con:entry key="page" value=""/>
+          <con:entry key="studentPersonalRefId" value=""/>
           <con:entry key="fields" value=""/>
           <con:entry key="human" value=""/>
         </con:parameters>

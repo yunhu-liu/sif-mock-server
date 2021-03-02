@@ -15,7 +15,7 @@
         </con:property>
         <con:property>
           <con:name>StaffAssignmentRefId</con:name>
-          <con:value>ef8a67bf-9f59-4e87-bef8-a36963a02efa</con:value>
+          <con:value>8666d8a2-213d-488c-a4c7-1a29b519face</con:value>
         </con:property>
       </con:properties>
     </con:config>
@@ -201,6 +201,7 @@ return new JsonBuilder(slurped)</script>
           <con:entry key="sort" value=""/>
           <con:entry key="unwrap" value=""/>
           <con:entry key="field" value=""/>
+          <con:entry key="staffPersonalRefId" value=""/>
           <con:entry key="end" value=""/>
           <con:entry key="page" value=""/>
           <con:entry key="fields" value=""/>

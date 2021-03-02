@@ -10,15 +10,15 @@
       <con:properties>
         <con:property>
           <con:name>StudentContactRelationshipRefId</con:name>
-          <con:value>296d47fb-3c89-481b-87ac-1b64e1624b09</con:value>
+          <con:value>af24f7cc-c9ab-4ec6-9b3a-d7bb892d456f</con:value>
         </con:property>
         <con:property>
           <con:name>StudentPersonalRefId</con:name>
-          <con:value>32d87f30-00fd-4a36-9947-a37f0ceb47a9</con:value>
+          <con:value>34d9b9d5-6724-44c7-95f3-150fdfb52783</con:value>
         </con:property>
         <con:property>
           <con:name>StudentContactRefId</con:name>
-          <con:value>d1db493e-5615-4aa7-a615-ee02f31a3ffd</con:value>
+          <con:value>9fd33ef9-64de-4d9b-bff8-1c7329b45db8</con:value>
         </con:property>
       </con:properties>
     </con:config>

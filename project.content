@@ -122,6 +122,10 @@ Te-Rito-APIs\%2Fwellbeingevent%2F%7BwellbeingEventRefId%7Dwellbeingappeal.xml
 Te-Rito-APIs\%2Fwellbeingevent.xml
 Te-Rito-APIs\%2Fwellbeingresponse%2F%7BwellbeingResponseRefId%7D.xml
 Te-Rito-APIs\%2Fwellbeingresponse.xml
+Te-Rito-APIs\%2Fschedule%2F%7BscheduleRefId%7D%2Fbellschedule.xml
+Te-Rito-APIs\%2Fschedule%2F%7BscheduleRefId%7D%2Fbellschedule%2F%7BbellScheduleRefId%7D.xml
+Te-Rito-APIs\%2Fstudentattendancetimelist.xml
+Te-Rito-APIs\%2Fstudentattendancetimelist%2F%7BstudentAttendanceTimeListRefId%7D.xml
 TestDataSetup\GenerateOrgRefId.xml
 TestDataSetup\CreateSchool.xml
 TestDataSetup\CreateSchool2.xml
