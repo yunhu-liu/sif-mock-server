@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testSuite id="a951b4d8-113c-4186-8e08-8726641265ab" name="TestSuite 3" disabled="true" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="c4345979-b83b-45a5-8726-5514b2d69e8cfileName">TestSuite-1</con:setting>
+    <con:setting id="IncludeOverview">true</con:setting>
+    <con:setting id="IncludeResults">true</con:setting>
+    <con:setting id="FlowLayout">false</con:setting>
+    <con:setting id="ErrorDetails">true</con:setting>
+    <con:setting id="IncludeCoverage">true</con:setting>
+    <con:setting id="ffab2fd5-caad-4916-91f5-98f1f44bf91efileName">TestSuite-2</con:setting>
+    <con:setting id="a951b4d8-113c-4186-8e08-8726641265abfileName">TestSuite-3</con:setting>
+  </con:settings>
+  <con:savedRecentRuns>1</con:savedRecentRuns>
+  <con:runType>SEQUENTIAL</con:runType>
+  <con:properties/>
+  <con:reportParameters/>
+  <con:environmentSpec>
+    <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
+      <con:authProfile>SIF Mock - Basic Auth</con:authProfile>
+    </con:entry>
+  </con:environmentSpec>
+</con:testSuite>

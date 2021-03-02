@@ -15,7 +15,7 @@
         </con:property>
         <con:property>
           <con:name>StudentContactRelationshipRefId</con:name>
-          <con:value>c9da03df-34d0-4417-ae86-b6b0e28e21f5</con:value>
+          <con:value>10ecfd9e-9131-4fc0-8e2c-a377a4c55aa7</con:value>
         </con:property>
       </con:properties>
     </con:config>
