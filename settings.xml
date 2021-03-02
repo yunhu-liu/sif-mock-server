@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<con:soapui-project id="29ca3c59-6cef-4d43-9826-4695c2caf241" created="3.5.0" activeEnvironment="SIF Mock - Release 2" name="SIF Mock Server Release 2" resourceRoot="" compositeProjectFormat="1.3" updated="3.5.0" authProfile="SIF Mock - Basic Auth" encryptionMode="Not encrypted" xmlns:con="http://eviware.com/soapui/config">
+<con:soapui-project id="29ca3c59-6cef-4d43-9826-4695c2caf241" created="3.5.0" activeEnvironment="SIF Mock - Release 2" name="SIF Mock Server Release 2" resourceRoot="${workspaceDir}" compositeProjectFormat="1.3" updated="3.5.0" authProfile="SIF Mock - Basic Auth" encryptionMode="Not encrypted" xmlns:con="http://eviware.com/soapui/config">
   <con:settings>
     <con:setting id="29ca3c59-6cef-4d43-9826-4695c2caf241fileName">SIF-Mock-Server-Release-2</con:setting>
   </con:settings>
@@ -89,7 +89,7 @@
     </con:property>
     <con:property>
       <con:name>OrgRefId</con:name>
-      <con:value>1037</con:value>
+      <con:value>1039</con:value>
     </con:property>
     <con:property>
       <con:name>StudentPersonalRefId</con:name>
@@ -101,7 +101,7 @@
     </con:property>
     <con:property>
       <con:name>OrgRefId2</con:name>
-      <con:value>1038</con:value>
+      <con:value>1040</con:value>
     </con:property>
     <con:property>
       <con:name>Error401</con:name>

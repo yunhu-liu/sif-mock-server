@@ -14,15 +14,15 @@
         </con:property>
         <con:property>
           <con:name>StaffAssignmentRefId</con:name>
-          <con:value>1eb2e544-2cc1-49d3-a8a9-cd7580308e23</con:value>
+          <con:value>f5419a57-d9e9-4672-bc24-50a830580da3</con:value>
         </con:property>
         <con:property>
           <con:name>StaffAssignmentLocalId</con:name>
-          <con:value>T98001_1038</con:value>
+          <con:value>T98001_1040</con:value>
         </con:property>
         <con:property>
           <con:name>StaffMemberRefId</con:name>
-          <con:value>05e3989c-32b6-41f9-877b-dcdad044905c</con:value>
+          <con:value>3ae797e1-1f8d-4320-8537-9b40a0311bfb</con:value>
         </con:property>
         <con:property>
           <con:name>StaffRole</con:name>

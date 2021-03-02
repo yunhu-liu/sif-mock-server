@@ -14,7 +14,7 @@
         </con:property>
         <con:property>
           <con:name>StaffPersonalRefId</con:name>
-          <con:value>05e3989c-32b6-41f9-877b-dcdad044905c</con:value>
+          <con:value>3ae797e1-1f8d-4320-8537-9b40a0311bfb</con:value>
         </con:property>
         <con:property>
           <con:name>StaffPersonalLocalId</con:name>
@@ -42,7 +42,7 @@
     <con:config xsi:type="con:DataSourceStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
       <con:dataSource type="Directory">
         <con:configuration>
-          <directory>C:/TeRito APIs/Te Rito APIs (v3.2-rc2)/v3.2-rc2_multiple_header_wrapped/StaffPersonal/200</directory>
+          <directory>${workspaceDir}/Te Rito APIs (v3.2-rc2)/v3.2-rc2_multiple_header_wrapped/StaffPersonal/200</directory>
           <filter>200_StaffPersonal_TeWheke_8005_multiple_valid_.json</filter>
           <encoding/>
         </con:configuration>
