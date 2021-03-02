@@ -118,10 +118,12 @@
     <con:request name="Request 1" id="c4a66b98-cdd0-491c-893e-e2077dff8c9e" mediaType="application/json">
       <con:settings/>
       <con:endpoint>https://northern.edsby.co.nz/sif</con:endpoint>
+      <con:request/>
       <con:credentials>
         <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
         <con:authType>No Authorization</con:authType>
       </con:credentials>
+      <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
       <con:parameters>
         <con:entry key="field" value=""/>
         <con:entry key="Accept" value=""/>
@@ -212,10 +214,12 @@
     <con:request name="Request 1" id="10a43ff9-5ff3-41e3-a9b4-fd876df0eead" mediaType="application/json">
       <con:settings/>
       <con:endpoint>https://northern.edsby.co.nz/sif</con:endpoint>
+      <con:request/>
       <con:credentials>
         <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
         <con:authType>No Authorization</con:authType>
       </con:credentials>
+      <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
       <con:parameters>
         <con:entry key="Accept" value=""/>
         <con:entry key="X-Edsby-APIClientId" value=""/>
@@ -308,10 +312,12 @@
     <con:request name="Request 1" id="cc67e8e2-62b3-4838-96f9-ba2207966846" mediaType="application/json">
       <con:settings/>
       <con:endpoint>https://northern.edsby.co.nz/sif</con:endpoint>
+      <con:request/>
       <con:credentials>
         <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
         <con:authType>No Authorization</con:authType>
       </con:credentials>
+      <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
       <con:parameters>
         <con:entry key="Accept" value=""/>
         <con:entry key="X-Edsby-APIClientId" value=""/>

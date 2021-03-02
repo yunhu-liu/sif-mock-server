@@ -130,10 +130,12 @@
     <con:request name="Request 1" id="35ebf5b2-7005-454c-ac16-3939a311a73e" mediaType="application/json">
       <con:settings/>
       <con:endpoint>https://northern.edsby.co.nz/sif</con:endpoint>
+      <con:request/>
       <con:credentials>
         <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
         <con:authType>No Authorization</con:authType>
       </con:credentials>
+      <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
       <con:parameters>
         <con:entry key="Accept" value=""/>
         <con:entry key="max" value=""/>

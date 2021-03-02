@@ -124,10 +124,12 @@
     <con:request name="Request 1" id="eacd1927-72a7-4b70-a768-5e4f06887bb9" mediaType="application/json">
       <con:settings/>
       <con:endpoint>https://northern.edsby.co.nz/sif</con:endpoint>
+      <con:request/>
       <con:credentials>
         <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
         <con:authType>No Authorization</con:authType>
       </con:credentials>
+      <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
       <con:parameters>
         <con:entry key="Accept" value=""/>
         <con:entry key="max" value=""/>
@@ -235,10 +237,12 @@
     <con:request name="Request 1" id="32a71e70-bbfc-4540-85e2-4f6cb40c0396" mediaType="application/json">
       <con:settings/>
       <con:endpoint>https://northern.edsby.co.nz/sif</con:endpoint>
+      <con:request/>
       <con:credentials>
         <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
         <con:authType>No Authorization</con:authType>
       </con:credentials>
+      <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
       <con:parameters>
         <con:entry key="Accept" value=""/>
         <con:entry key="scheduleRefId" value=""/>
@@ -338,10 +342,12 @@
     <con:request name="Request 1" id="c99f8612-fe41-4108-9665-d152790c5a98" mediaType="application/json">
       <con:settings/>
       <con:endpoint>https://northern.edsby.co.nz/sif</con:endpoint>
+      <con:request/>
       <con:credentials>
         <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
         <con:authType>No Authorization</con:authType>
       </con:credentials>
+      <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
       <con:parameters>
         <con:entry key="Accept" value=""/>
         <con:entry key="scheduleRefId" value=""/>

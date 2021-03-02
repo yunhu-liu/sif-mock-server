@@ -118,10 +118,12 @@
     <con:request name="Request 1" id="5acaa3b3-16cc-4fe3-bb64-0358e1d70320" mediaType="application/json">
       <con:settings/>
       <con:endpoint>https://northern.edsby.co.nz/sif</con:endpoint>
+      <con:request/>
       <con:credentials>
         <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
         <con:authType>No Authorization</con:authType>
       </con:credentials>
+      <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
       <con:parameters>
         <con:entry key="field" value=""/>
         <con:entry key="Accept" value=""/>
@@ -228,10 +230,12 @@
     <con:request name="Request 1" id="3af1e45d-37fd-4b75-abb2-3ed51bfed503" mediaType="application/json">
       <con:settings/>
       <con:endpoint>https://northern.edsby.co.nz/sif</con:endpoint>
+      <con:request/>
       <con:credentials>
         <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
         <con:authType>No Authorization</con:authType>
       </con:credentials>
+      <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
       <con:parameters>
         <con:entry key="Accept" value=""/>
         <con:entry key="scheduleRefId" value=""/>
@@ -325,10 +329,12 @@
     <con:request name="Request 1" id="4fb47e4f-ff1c-423d-9135-afa8f647a5b3" mediaType="application/json">
       <con:settings/>
       <con:endpoint>https://northern.edsby.co.nz/sif</con:endpoint>
+      <con:request/>
       <con:credentials>
         <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
         <con:authType>No Authorization</con:authType>
       </con:credentials>
+      <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
       <con:parameters>
         <con:entry key="Accept" value=""/>
         <con:entry key="scheduleRefId" value=""/>
@@ -421,10 +427,12 @@
     <con:request name="Request 1" id="ea5efb15-f6d5-42f7-809b-41201d077ccf" mediaType="application/json">
       <con:settings/>
       <con:endpoint>https://northern.edsby.co.nz/sif</con:endpoint>
+      <con:request/>
       <con:credentials>
         <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
         <con:authType>No Authorization</con:authType>
       </con:credentials>
+      <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
       <con:parameters>
         <con:entry key="Accept" value=""/>
         <con:entry key="scheduleRefId" value=""/>
