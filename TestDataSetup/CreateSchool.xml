@@ -11,7 +11,7 @@
       <con:properties>
         <con:property>
           <con:name>OrgRefId</con:name>
-          <con:value>1043</con:value>
+          <con:value>1045</con:value>
         </con:property>
       </con:properties>
       <con:returnProperties>
@@ -210,7 +210,10 @@
           <con:authType>No Authorization</con:authType>
         </con:credentials>
         <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
-        <con:parameters/>
+        <con:parameters>
+          <con:entry key="Accept" value="${#Project#Accept}"/>
+          <con:entry key="X-Edsby-APIClientId" value="${#Project#ApiClientId}"/>
+        </con:parameters>
         <con:parameterOrder>
           <con:entry>x-http-method-override</con:entry>
           <con:entry>Accept</con:entry>
@@ -272,7 +275,11 @@
           <con:authType>No Authorization</con:authType>
         </con:credentials>
         <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
-        <con:parameters/>
+        <con:parameters>
+          <con:entry key="Accept" value="${#Project#Accept}"/>
+          <con:entry key="organisationRefId" value="${#Project#OrgRefId}"/>
+          <con:entry key="X-Edsby-APIClientId" value="${#Project#ApiClientId}"/>
+        </con:parameters>
         <con:parameterOrder>
           <con:entry>fields</con:entry>
           <con:entry>page</con:entry>

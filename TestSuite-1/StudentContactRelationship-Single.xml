@@ -10,15 +10,15 @@
       <con:properties>
         <con:property>
           <con:name>StudentContactRelationshipRefId</con:name>
-          <con:value>c73eb083-0b38-4c39-aa4a-96ea154b4cfb</con:value>
+          <con:value>59e96575-6740-498a-aeec-6232b33862cd</con:value>
         </con:property>
         <con:property>
           <con:name>StudentPersonalRefId</con:name>
-          <con:value>807bf6d1-47ab-42ac-beb8-808383716911</con:value>
+          <con:value>6ef5048e-922a-4cef-9d0f-5607e91e6118</con:value>
         </con:property>
         <con:property>
           <con:name>StudentContactRefId</con:name>
-          <con:value>c6b728b5-5475-415d-8174-d1a4ea37bf76</con:value>
+          <con:value>95937e6b-4a19-4950-9a2a-3149f4d0f292</con:value>
         </con:property>
       </con:properties>
     </con:config>
@@ -887,6 +887,453 @@ return new JsonBuilder(slurped)</script>
           <con:entry>X-Edsby-APIClientId</con:entry>
           <con:entry>X-Edsby-OrganisationRefId</con:entry>
           <con:entry>studentContactRelationshipRefId</con:entry>
+        </con:parameterOrder>
+        <con:environmentSpec>
+          <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
+            <con:authProfile>SIF Mock - Basic Auth</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="restrequest" name="GetStudentContactRelationshipByStudent" id="4587acf5-52eb-4d23-895e-06b8798317eb">
+    <con:settings/>
+    <con:config service="Te Rito APIs" resourcePath="/studentpersonal/{studentPersonalRefId}/studentcontactrelationship" methodName="getStudentContactRelationshipsByStudent" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest name="GetStudentContactRelationshipByStudent" id="dff9c94b-fe5f-4022-8308-b5bef9711a61" mediaType="application/json">
+        <con:description xsi:nil="true"/>
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:endpoint>https://northern.edsby.co.nz/sif</con:endpoint>
+        <con:request/>
+        <con:originalUri>http://mocksifapi.terito.education.govt.nz/sif/studentpersonal/6ef5048e-922a-4cef-9d0f-5607e91e6118/studentcontactrelationship</con:originalUri>
+        <con:assertion type="Valid HTTP Status Codes" id="fdecaa4a-6b6e-4145-a7c6-da531274473e" name="Valid HTTP Status Codes">
+          <con:settings/>
+          <con:configuration>
+            <codes>200</codes>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="MessageContentAssertion" id="f1248c43-f11f-4457-9226-8ffed584f33d" name="Message Content Assertion">
+          <con:configuration xsi:type="con:MessageContentAssertion">
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/studentpersonal/6ef5048e-922a-4cef-9d0f-5607e91e6118/studentcontactrelationship';
+//ns1:Response[1]/ns1:StudentContactRelationships[1]/ns1:StudentContactRelationship[1]/ns1:e[1]/ns1:StudentContactRelationshipRefId[1]</con:xpath>
+              <con:element>StudentContactRelationshipRefId</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>exists</con:operator>
+              <con:enabled>true</con:enabled>
+              <con:expectedValue>${Properties 1#StudentContactRelationshipRefId}</con:expectedValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/studentpersonal/6ef5048e-922a-4cef-9d0f-5607e91e6118/studentcontactrelationship';
+//ns1:Response[1]/ns1:StudentContactRelationships[1]/ns1:StudentContactRelationship[1]/ns1:e[1]/ns1:StudentContactRelationshipLocalId[1]</con:xpath>
+              <con:element>StudentContactRelationshipLocalId</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>exists</con:operator>
+              <con:enabled>true</con:enabled>
+              <con:expectedValue>ST5000756000</con:expectedValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/studentpersonal/6ef5048e-922a-4cef-9d0f-5607e91e6118/studentcontactrelationship';
+//ns1:Response[1]/ns1:StudentContactRelationships[1]/ns1:StudentContactRelationship[1]/ns1:e[1]/ns1:Status[1]</con:xpath>
+              <con:element>Status</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>=</con:operator>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>A</con:expectedValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/studentpersonal/6ef5048e-922a-4cef-9d0f-5607e91e6118/studentcontactrelationship';
+//ns1:Response[1]/ns1:StudentContactRelationships[1]/ns1:StudentContactRelationship[1]/ns1:e[1]/ns1:StartDate[1]</con:xpath>
+              <con:element>StartDate</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>exists</con:operator>
+              <con:enabled>true</con:enabled>
+              <con:expectedValue>2020-01-28T14:00:00+00:00</con:expectedValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/studentpersonal/6ef5048e-922a-4cef-9d0f-5607e91e6118/studentcontactrelationship';
+//ns1:Response[1]/ns1:StudentContactRelationships[1]/ns1:StudentContactRelationship[1]/ns1:e[1]/ns1:Student[1]/ns1:RefId[1]</con:xpath>
+              <con:element>RefId</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>=</con:operator>
+              <con:enabled>true</con:enabled>
+              <con:expectedValue>${Properties 1#StudentPersonalRefId}</con:expectedValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/studentpersonal/6ef5048e-922a-4cef-9d0f-5607e91e6118/studentcontactrelationship';
+//ns1:Response[1]/ns1:StudentContactRelationships[1]/ns1:StudentContactRelationship[1]/ns1:e[1]/ns1:Student[1]/ns1:LocalId[1]</con:xpath>
+              <con:element>LocalId</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>exists</con:operator>
+              <con:enabled>true</con:enabled>
+              <con:expectedValue>ST5000756</con:expectedValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/studentpersonal/6ef5048e-922a-4cef-9d0f-5607e91e6118/studentcontactrelationship';
+//ns1:Response[1]/ns1:StudentContactRelationships[1]/ns1:StudentContactRelationship[1]/ns1:e[1]/ns1:Student[1]/ns1:Name[1]</con:xpath>
+              <con:element>Name</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>exists</con:operator>
+              <con:enabled>true</con:enabled>
+              <con:expectedValue>Matthew 'Matt' Head</con:expectedValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/studentpersonal/6ef5048e-922a-4cef-9d0f-5607e91e6118/studentcontactrelationship';
+//ns1:Response[1]/ns1:StudentContactRelationships[1]/ns1:StudentContactRelationship[1]/ns1:e[1]/ns1:StudentContact[1]/ns1:RefId[1]</con:xpath>
+              <con:element>RefId</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>exists</con:operator>
+              <con:enabled>true</con:enabled>
+              <con:expectedValue>${Properties 1#StudentContactRefId}</con:expectedValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/studentpersonal/6ef5048e-922a-4cef-9d0f-5607e91e6118/studentcontactrelationship';
+//ns1:Response[1]/ns1:StudentContactRelationships[1]/ns1:StudentContactRelationship[1]/ns1:e[1]/ns1:StudentContact[1]/ns1:LocalId[1]</con:xpath>
+              <con:element>LocalId</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>exists</con:operator>
+              <con:enabled>true</con:enabled>
+              <con:expectedValue>CP_000150</con:expectedValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/studentpersonal/6ef5048e-922a-4cef-9d0f-5607e91e6118/studentcontactrelationship';
+//ns1:Response[1]/ns1:StudentContactRelationships[1]/ns1:StudentContactRelationship[1]/ns1:e[1]/ns1:StudentContact[1]/ns1:Name[1]</con:xpath>
+              <con:element>Name</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>exists</con:operator>
+              <con:enabled>true</con:enabled>
+              <con:expectedValue>Michael Head</con:expectedValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/studentpersonal/6ef5048e-922a-4cef-9d0f-5607e91e6118/studentcontactrelationship';
+//ns1:Response[1]/ns1:StudentContactRelationships[1]/ns1:StudentContactRelationship[1]/ns1:e[1]/ns1:Organisation[1]/ns1:RefId[1]</con:xpath>
+              <con:element>RefId</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>=</con:operator>
+              <con:enabled>true</con:enabled>
+              <con:expectedValue>${#Project#OrgRefId}</con:expectedValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/studentpersonal/6ef5048e-922a-4cef-9d0f-5607e91e6118/studentcontactrelationship';
+//ns1:Response[1]/ns1:StudentContactRelationships[1]/ns1:StudentContactRelationship[1]/ns1:e[1]/ns1:Relationship[1]/ns1:Code[1]</con:xpath>
+              <con:element>Code</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>exists</con:operator>
+              <con:enabled>true</con:enabled>
+              <con:expectedValue>FAT</con:expectedValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/studentpersonal/6ef5048e-922a-4cef-9d0f-5607e91e6118/studentcontactrelationship';
+//ns1:Response[1]/ns1:StudentContactRelationships[1]/ns1:StudentContactRelationship[1]/ns1:e[1]/ns1:RecordAudit[1]/ns1:CreatedDateTime[1]</con:xpath>
+              <con:element>CreatedDateTime</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>=</con:operator>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>2021-03-02T23:26:13.7922409+00:00</con:expectedValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/studentpersonal/6ef5048e-922a-4cef-9d0f-5607e91e6118/studentcontactrelationship';
+//ns1:Response[1]/ns1:StudentContactRelationships[1]/ns1:StudentContactRelationship[1]/ns1:e[1]/ns1:RecordAudit[1]/ns1:LastUpdatedDateTime[1]</con:xpath>
+              <con:element>LastUpdatedDateTime</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>=</con:operator>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>2021-03-02T23:58:23.5871885+00:00</con:expectedValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/studentpersonal/6ef5048e-922a-4cef-9d0f-5607e91e6118/studentcontactrelationship';
+//ns1:Response[1]/ns1:StudentContactRelationships[1]/ns1:StudentContactRelationship[1]/ns1:e[1]/ns1:RecordAudit[1]/ns1:CreatedBy[1]/ns1:Name[1]</con:xpath>
+              <con:element>Name</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>=</con:operator>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>MockServerClient</con:expectedValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/studentpersonal/6ef5048e-922a-4cef-9d0f-5607e91e6118/studentcontactrelationship';
+//ns1:Response[1]/ns1:StudentContactRelationships[1]/ns1:StudentContactRelationship[1]/ns1:e[1]/ns1:RecordAudit[1]/ns1:LastUpdatedBy[1]/ns1:Name[1]</con:xpath>
+              <con:element>Name</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>=</con:operator>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>MockServerClient (byPatch)</con:expectedValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/studentpersonal/6ef5048e-922a-4cef-9d0f-5607e91e6118/studentcontactrelationship';
+//ns1:Response[1]/ns1:StudentContactRelationships[1]/ns1:StudentContactRelationship[1]/ns1:e[2]/ns1:StudentContactRelationshipRefId[1]</con:xpath>
+              <con:element>StudentContactRelationshipRefId</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>=</con:operator>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>770e8d37-4f2c-43f8-b43a-4ae23c9d0779</con:expectedValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/studentpersonal/6ef5048e-922a-4cef-9d0f-5607e91e6118/studentcontactrelationship';
+//ns1:Response[1]/ns1:StudentContactRelationships[1]/ns1:StudentContactRelationship[1]/ns1:e[2]/ns1:StudentContactRelationshipLocalId[1]</con:xpath>
+              <con:element>StudentContactRelationshipLocalId</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>=</con:operator>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>ST5000756001</con:expectedValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/studentpersonal/6ef5048e-922a-4cef-9d0f-5607e91e6118/studentcontactrelationship';
+//ns1:Response[1]/ns1:StudentContactRelationships[1]/ns1:StudentContactRelationship[1]/ns1:e[2]/ns1:Status[1]</con:xpath>
+              <con:element>Status</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>=</con:operator>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>A</con:expectedValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/studentpersonal/6ef5048e-922a-4cef-9d0f-5607e91e6118/studentcontactrelationship';
+//ns1:Response[1]/ns1:StudentContactRelationships[1]/ns1:StudentContactRelationship[1]/ns1:e[2]/ns1:StartDate[1]</con:xpath>
+              <con:element>StartDate</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>=</con:operator>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>2020-01-26T14:00:00+00:00</con:expectedValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/studentpersonal/6ef5048e-922a-4cef-9d0f-5607e91e6118/studentcontactrelationship';
+//ns1:Response[1]/ns1:StudentContactRelationships[1]/ns1:StudentContactRelationship[1]/ns1:e[2]/ns1:Student[1]/ns1:RefId[1]</con:xpath>
+              <con:element>RefId</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>=</con:operator>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>6ef5048e-922a-4cef-9d0f-5607e91e6118</con:expectedValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/studentpersonal/6ef5048e-922a-4cef-9d0f-5607e91e6118/studentcontactrelationship';
+//ns1:Response[1]/ns1:StudentContactRelationships[1]/ns1:StudentContactRelationship[1]/ns1:e[2]/ns1:Student[1]/ns1:LocalId[1]</con:xpath>
+              <con:element>LocalId</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>=</con:operator>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>ST5000756</con:expectedValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/studentpersonal/6ef5048e-922a-4cef-9d0f-5607e91e6118/studentcontactrelationship';
+//ns1:Response[1]/ns1:StudentContactRelationships[1]/ns1:StudentContactRelationship[1]/ns1:e[2]/ns1:Student[1]/ns1:Name[1]</con:xpath>
+              <con:element>Name</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>=</con:operator>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>Matthew 'Matt' Head</con:expectedValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/studentpersonal/6ef5048e-922a-4cef-9d0f-5607e91e6118/studentcontactrelationship';
+//ns1:Response[1]/ns1:StudentContactRelationships[1]/ns1:StudentContactRelationship[1]/ns1:e[2]/ns1:StudentContact[1]/ns1:RefId[1]</con:xpath>
+              <con:element>RefId</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>=</con:operator>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>273c1713-7810-4866-a87c-b711dc8f810d</con:expectedValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/studentpersonal/6ef5048e-922a-4cef-9d0f-5607e91e6118/studentcontactrelationship';
+//ns1:Response[1]/ns1:StudentContactRelationships[1]/ns1:StudentContactRelationship[1]/ns1:e[2]/ns1:StudentContact[1]/ns1:LocalId[1]</con:xpath>
+              <con:element>LocalId</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>=</con:operator>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>CP_000151</con:expectedValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/studentpersonal/6ef5048e-922a-4cef-9d0f-5607e91e6118/studentcontactrelationship';
+//ns1:Response[1]/ns1:StudentContactRelationships[1]/ns1:StudentContactRelationship[1]/ns1:e[2]/ns1:StudentContact[1]/ns1:Name[1]</con:xpath>
+              <con:element>Name</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>=</con:operator>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>Rachel Head</con:expectedValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/studentpersonal/6ef5048e-922a-4cef-9d0f-5607e91e6118/studentcontactrelationship';
+//ns1:Response[1]/ns1:StudentContactRelationships[1]/ns1:StudentContactRelationship[1]/ns1:e[2]/ns1:Organisation[1]/ns1:RefId[1]</con:xpath>
+              <con:element>RefId</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>=</con:operator>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>1045</con:expectedValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/studentpersonal/6ef5048e-922a-4cef-9d0f-5607e91e6118/studentcontactrelationship';
+//ns1:Response[1]/ns1:StudentContactRelationships[1]/ns1:StudentContactRelationship[1]/ns1:e[2]/ns1:Relationship[1]/ns1:Code[1]</con:xpath>
+              <con:element>Code</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>=</con:operator>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>MOT</con:expectedValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/studentpersonal/6ef5048e-922a-4cef-9d0f-5607e91e6118/studentcontactrelationship';
+//ns1:Response[1]/ns1:StudentContactRelationships[1]/ns1:StudentContactRelationship[1]/ns1:e[2]/ns1:RecordAudit[1]/ns1:CreatedDateTime[1]</con:xpath>
+              <con:element>CreatedDateTime</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>=</con:operator>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>2021-03-02T23:26:13.8716551+00:00</con:expectedValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/studentpersonal/6ef5048e-922a-4cef-9d0f-5607e91e6118/studentcontactrelationship';
+//ns1:Response[1]/ns1:StudentContactRelationships[1]/ns1:StudentContactRelationship[1]/ns1:e[2]/ns1:RecordAudit[1]/ns1:LastUpdatedDateTime[1]</con:xpath>
+              <con:element>LastUpdatedDateTime</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>=</con:operator>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>2021-03-02T23:57:18.1892391+00:00</con:expectedValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/studentpersonal/6ef5048e-922a-4cef-9d0f-5607e91e6118/studentcontactrelationship';
+//ns1:Response[1]/ns1:StudentContactRelationships[1]/ns1:StudentContactRelationship[1]/ns1:e[2]/ns1:RecordAudit[1]/ns1:CreatedBy[1]/ns1:Name[1]</con:xpath>
+              <con:element>Name</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>=</con:operator>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>MockServerClient</con:expectedValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://mocksifapi.terito.education.govt.nz/sif/studentpersonal/6ef5048e-922a-4cef-9d0f-5607e91e6118/studentcontactrelationship';
+//ns1:Response[1]/ns1:StudentContactRelationships[1]/ns1:StudentContactRelationship[1]/ns1:e[2]/ns1:RecordAudit[1]/ns1:LastUpdatedBy[1]/ns1:Name[1]</con:xpath>
+              <con:element>Name</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>=</con:operator>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>MockServerClient (byPatch)</con:expectedValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:originalMessage><![CDATA[<Response xmlns="http://mocksifapi.terito.education.govt.nz/sif/studentpersonal/6ef5048e-922a-4cef-9d0f-5607e91e6118/studentcontactrelationship">
+   <StudentContactRelationships>
+      <StudentContactRelationship>
+         <e>
+            <StudentContactRelationshipRefId>59e96575-6740-498a-aeec-6232b33862cd</StudentContactRelationshipRefId>
+            <StudentContactRelationshipLocalId>ST5000756000</StudentContactRelationshipLocalId>
+            <Status>A</Status>
+            <StartDate>2020-01-28T14:00:00+00:00</StartDate>
+            <Student>
+               <RefId>6ef5048e-922a-4cef-9d0f-5607e91e6118</RefId>
+               <LocalId>ST5000756</LocalId>
+               <Name>Matthew 'Matt' Head</Name>
+            </Student>
+            <StudentContact>
+               <RefId>95937e6b-4a19-4950-9a2a-3149f4d0f292</RefId>
+               <LocalId>CP_000150</LocalId>
+               <Name>Michael Head</Name>
+            </StudentContact>
+            <Organisation>
+               <RefId>1045</RefId>
+            </Organisation>
+            <Relationship>
+               <Code>FAT</Code>
+            </Relationship>
+            <RecordAudit>
+               <CreatedDateTime>2021-03-02T23:26:13.7922409+00:00</CreatedDateTime>
+               <LastUpdatedDateTime>2021-03-02T23:58:23.5871885+00:00</LastUpdatedDateTime>
+               <CreatedBy>
+                  <Name>MockServerClient</Name>
+               </CreatedBy>
+               <LastUpdatedBy>
+                  <Name>MockServerClient (byPatch)</Name>
+               </LastUpdatedBy>
+            </RecordAudit>
+         </e>
+         <e>
+            <StudentContactRelationshipRefId>770e8d37-4f2c-43f8-b43a-4ae23c9d0779</StudentContactRelationshipRefId>
+            <StudentContactRelationshipLocalId>ST5000756001</StudentContactRelationshipLocalId>
+            <Status>A</Status>
+            <StartDate>2020-01-26T14:00:00+00:00</StartDate>
+            <Student>
+               <RefId>6ef5048e-922a-4cef-9d0f-5607e91e6118</RefId>
+               <LocalId>ST5000756</LocalId>
+               <Name>Matthew 'Matt' Head</Name>
+            </Student>
+            <StudentContact>
+               <RefId>273c1713-7810-4866-a87c-b711dc8f810d</RefId>
+               <LocalId>CP_000151</LocalId>
+               <Name>Rachel Head</Name>
+            </StudentContact>
+            <Organisation>
+               <RefId>1045</RefId>
+            </Organisation>
+            <Relationship>
+               <Code>MOT</Code>
+            </Relationship>
+            <RecordAudit>
+               <CreatedDateTime>2021-03-02T23:26:13.8716551+00:00</CreatedDateTime>
+               <LastUpdatedDateTime>2021-03-02T23:57:18.1892391+00:00</LastUpdatedDateTime>
+               <CreatedBy>
+                  <Name>MockServerClient</Name>
+               </CreatedBy>
+               <LastUpdatedBy>
+                  <Name>MockServerClient (byPatch)</Name>
+               </LastUpdatedBy>
+            </RecordAudit>
+         </e>
+      </StudentContactRelationship>
+   </StudentContactRelationships>
+</Response>]]></con:originalMessage>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters>
+          <con:entry key="Accept" value="${#Project#Accept}"/>
+          <con:entry key="X-Edsby-APIClientId" value="${#Project#ApiClientId}"/>
+          <con:entry key="X-Edsby-OrganisationRefId" value="${#Project#OrgRefId}"/>
+          <con:entry key="studentPersonalRefId" value="${Properties 1#StudentPersonalRefId}"/>
+        </con:parameters>
+        <con:parameterOrder>
+          <con:entry>fields</con:entry>
+          <con:entry>page</con:entry>
+          <con:entry>max</con:entry>
+          <con:entry>unwrap</con:entry>
+          <con:entry>human</con:entry>
+          <con:entry>start</con:entry>
+          <con:entry>end</con:entry>
+          <con:entry>sort</con:entry>
+          <con:entry>field</con:entry>
+          <con:entry>pattern</con:entry>
+          <con:entry>Accept</con:entry>
+          <con:entry>X-Edsby-APIClientId</con:entry>
+          <con:entry>X-Edsby-OrganisationRefId</con:entry>
+          <con:entry>studentPersonalRefId</con:entry>
+          <con:entry>status</con:entry>
         </con:parameterOrder>
         <con:environmentSpec>
           <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">

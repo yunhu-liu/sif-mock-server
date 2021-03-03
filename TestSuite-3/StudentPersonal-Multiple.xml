@@ -90,12 +90,88 @@
           <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
         </con:settings>
         <con:endpoint>https://northern.edsby.co.nz/sif</con:endpoint>
-        <con:request>${GetPayload#Payload}</con:request>
+        <con:request>{
+    "StudentPersonals": {
+        "StudentPersonal": [
+            {
+                "StudentPersonalLocalId": "ST5000728",
+                "NationalStudentNumber": "9005000728",
+                "FirstNZSchoolingDate": "2020-03-24T00:00:00+12:00",
+                "EarlyChildhoodEducation": {
+                    "Type": "ENA"
+                },
+                "PersonInfo": {
+                    "Name": {
+                        "FamilyName": "Shepherd",
+                        "GivenName": "Ben",
+                        "FullName": "Ben Shepherd"
+                    },
+                    "Demographics": {
+                        "Gender": "1",
+                        "LanguageList": {
+                            "Language": [
+                                {
+                                    "Code": "NZS16110",
+                                    "Usage": "SH",
+                                    "ProficiencyList": {
+                                        "Proficiency": [
+                                            {
+                                                "Level": "AD",
+                                                "Type": "SP"
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        },
+                        "EthnicityList": {
+                            "Ethnicity": [
+                                {
+                                    "Code": "211"
+                                }
+                            ]
+                        },
+                        "IwiAffiliationList": {
+                            "Iwi": [
+                                {
+                                    "Code": "NZS0507"
+                                }
+                            ]
+                        }
+                    },
+                    "Address": {
+                        "Physical": {
+                            "Type": "TH",
+                            "Line1": "38 Amethyst Place",
+                            "Suburb": "Pukehangi",
+                            "City": "Rotorua",
+                            "Country": "New Zealand",
+                            "PostalCode": "3015"
+                        }
+                    },
+                    "Email": {
+                        "Personal": {
+                            "SourceOrganisation": {
+                                "RefId": "8005"
+                            },
+                            "Address": "bshepherd@mailinator.com"
+                        }
+                    },
+                    "Phone": {
+                        "Home": {
+                            "Number": "+64 7-892 3613"
+                        }
+                    }
+                }
+            }
+        ]
+    }
+}</con:request>
         <con:originalUri>http://mocksifapi.terito.education.govt.nz/sif/studentpersonal</con:originalUri>
         <con:assertion type="Valid HTTP Status Codes" id="9457c5ae-a24c-4346-adab-26b8a1ccbca0" name="Valid HTTP Status Codes" disabled="true">
           <con:settings/>
           <con:configuration>
-            <codes>401</codes>
+            <codes>422</codes>
           </con:configuration>
         </con:assertion>
         <con:assertion type="MessageContentAssertion" id="ad02f223-8294-4c87-8908-f0a23f02f51d" name="Message Content Assertion" disabled="true">
@@ -142,7 +218,11 @@
           <con:authType>No Authorization</con:authType>
         </con:credentials>
         <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
-        <con:parameters/>
+        <con:parameters>
+          <con:entry key="Accept" value="${#Project#Accept}"/>
+          <con:entry key="X-Edsby-APIClientId" value="${#Project#ApiClientId}"/>
+          <con:entry key="X-Edsby-OrganisationRefId" value="${Properties#OrganisationRefId}"/>
+        </con:parameters>
         <con:parameterOrder>
           <con:entry>x-http-method-override</con:entry>
           <con:entry>Accept</con:entry>
@@ -387,7 +467,7 @@
       </con:restRequest>
     </con:config>
   </con:testStep>
-  <con:testStep type="datasourceloop" name="DataSource Loop" id="e4e1faed-8f5c-417c-abfb-8385f36a3166">
+  <con:testStep type="datasourceloop" name="DataSource Loop" id="e4e1faed-8f5c-417c-abfb-8385f36a3166" disabled="true">
     <con:settings/>
     <con:config>
       <dataSourceStep>LoadTestData-Multiple</dataSourceStep>
