@@ -10,7 +10,7 @@
       <con:properties>
         <con:property>
           <con:name>StaffAssignmentRefId</con:name>
-          <con:value>69cfca2b-7976-478a-a690-a4616c581245</con:value>
+          <con:value>e1412179-726d-4de2-a015-f4c35d927ab1</con:value>
         </con:property>
       </con:properties>
     </con:config>
@@ -673,6 +673,58 @@ return new JsonBuilder(slurped)</script>
         <con:environmentSpec>
           <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
             <con:authProfile>SIF Mock - Basic Auth</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="restrequest" name="GetStaffAssignmentsByStaff" id="2eadf5da-cf55-4e9f-854a-823054413902">
+    <con:settings/>
+    <con:config service="Te Rito APIs" resourcePath="/staffpersonal/{staffPersonalRefId}/staffassignment" methodName="getStaffAssignmentsByStaff" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest name="GetStaffAssignmentsByStaff" id="9c0b3751-8ca5-4b64-97c7-f83bffbc90d0" mediaType="application/json">
+        <con:description xsi:nil="true"/>
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:endpoint>https://northern.edsby.co.nz/sif</con:endpoint>
+        <con:request/>
+        <con:originalUri>http://mocksifapi.terito.education.govt.nz/sif/staffpersonal/461fa136-2d06-4e11-a231-9d24006ccbba/staffassignment</con:originalUri>
+        <con:assertion type="Valid HTTP Status Codes" id="338154d2-7371-401a-88de-04b45d8bd5ab" name="Valid HTTP Status Codes">
+          <con:settings/>
+          <con:configuration>
+            <codes>200</codes>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters>
+          <con:entry key="Accept" value="${#Project#Accept}"/>
+          <con:entry key="X-Edsby-APIClientId" value="${#Project#ApiClientId}"/>
+          <con:entry key="staffPersonalRefId" value="${#[TestSuite 1#StaffPersonal-Single#Properties 1]#StaffPersonalRefId}"/>
+          <con:entry key="X-Edsby-OrganisationRefId" value="${#Project#OrgRefId2}"/>
+        </con:parameters>
+        <con:parameterOrder>
+          <con:entry>fields</con:entry>
+          <con:entry>page</con:entry>
+          <con:entry>max</con:entry>
+          <con:entry>unwrap</con:entry>
+          <con:entry>human</con:entry>
+          <con:entry>start</con:entry>
+          <con:entry>end</con:entry>
+          <con:entry>sort</con:entry>
+          <con:entry>field</con:entry>
+          <con:entry>pattern</con:entry>
+          <con:entry>Accept</con:entry>
+          <con:entry>X-Edsby-APIClientId</con:entry>
+          <con:entry>X-Edsby-OrganisationRefId</con:entry>
+          <con:entry>staffPersonalRefId</con:entry>
+        </con:parameterOrder>
+        <con:environmentSpec>
+          <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
+            <con:authProfile>Inherit From Parent</con:authProfile>
           </con:entry>
         </con:environmentSpec>
       </con:restRequest>

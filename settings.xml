@@ -28,6 +28,9 @@
     <con:property>
       <con:name>Error401</con:name>
     </con:property>
+    <con:property>
+      <con:name>Error400</con:name>
+    </con:property>
   </con:properties>
   <con:wssContainer/>
   <con:databaseConnectionContainer>
@@ -73,7 +76,7 @@
   </con:eventHandlers>
   <con:environment id="02e1b66e-5963-4de7-b043-dcb6acc71d67" name="SIF Mock - Release 2" index="0">
     <con:service type="REST" name="Te Rito APIs">
-      <con:endpoint authProfile="SIF Mock - Basic Auth" proxyHost="" proxyPort="" proxyUsername="" proxyPassword="">http://mocksifapi.terito.education.govt.nz/sif</con:endpoint>
+      <con:endpoint authProfile="Inherit From Parent" proxyHost="" proxyPort="" proxyUsername="" proxyPassword="">http://mocksifapi.terito.education.govt.nz/sif</con:endpoint>
     </con:service>
     <con:property>
       <con:name>X-Edsby-ApiClientId</con:name>
@@ -89,7 +92,7 @@
     </con:property>
     <con:property>
       <con:name>OrgRefId</con:name>
-      <con:value>1045</con:value>
+      <con:value>1009</con:value>
     </con:property>
     <con:property>
       <con:name>StudentPersonalRefId</con:name>
@@ -101,11 +104,15 @@
     </con:property>
     <con:property>
       <con:name>OrgRefId2</con:name>
-      <con:value>1046</con:value>
+      <con:value>1010</con:value>
     </con:property>
     <con:property>
       <con:name>Error401</con:name>
       <con:value>Unauthorised request: Authorization Header missing.</con:value>
+    </con:property>
+    <con:property>
+      <con:name>Error400</con:name>
+      <con:value>Request Body failed schema validation:Required properties are missing from object</con:value>
     </con:property>
     <con:databaseConnectionContainer>
       <con:databaseConnection>

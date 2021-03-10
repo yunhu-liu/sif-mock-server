@@ -10,7 +10,7 @@
       <con:properties>
         <con:property>
           <con:name>StudentPersonalRefId</con:name>
-          <con:value>eef6aaaa-d7cb-46f1-9ec5-846facd82585</con:value>
+          <con:value>dc48f66f-de14-4939-a271-7f60f4f5ef5a</con:value>
         </con:property>
       </con:properties>
     </con:config>
@@ -26,11 +26,12 @@ import groovy.json.*
 def response = context.expand( '${#[TestSuite 1#StudentPersonal-Multiple#GetStudentPersonals]#Response}' )
 def slurped = new JsonSlurper().parseText(response)
 
-// Get RefId from Random Record
-def spCount = slurped.StudentPersonals.StudentPersonal.size()
-Random random = new Random()
-int rndIndex = random.nextInt(spCount)
-def studentPersonalRefId = slurped.StudentPersonals.StudentPersonal[rndIndex].StudentPersonalRefId
+//// Get RefId from Random Record
+//def spCount = slurped.StudentPersonals.StudentPersonal.size()
+//Random random = new Random()
+//int rndIndex = random.nextInt(spCount)
+//def studentPersonalRefId = slurped.StudentPersonals.StudentPersonal[rndIndex].StudentPersonalRefId
+def studentPersonalRefId = slurped.StudentPersonals.StudentPersonal[0].StudentPersonalRefId
 
 // Set RefId to Property
 testRunner.testCase.testSteps["Properties 1"].setPropertyValue( "StudentPersonalRefId", studentPersonalRefId )</script>

@@ -15,7 +15,7 @@
         </con:property>
         <con:property>
           <con:name>StudentContactRelationshipRefId</con:name>
-          <con:value>16ac245e-6734-4c43-b30f-c67c255fa03a</con:value>
+          <con:value>552886be-4179-4ff0-9a0b-63b078c4a3ef</con:value>
         </con:property>
       </con:properties>
     </con:config>
@@ -407,6 +407,7 @@ return new JsonBuilder(slurped)</script>
               <con:operator>contains</con:operator>
               <con:enabled>true</con:enabled>
               <con:expectedValue>${#Project#Error401}</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
               <con:numberType>false</con:numberType>
             </con:elements>
             <con:elements>
@@ -416,6 +417,7 @@ return new JsonBuilder(slurped)</script>
               <con:operator>=</con:operator>
               <con:enabled>false</con:enabled>
               <con:expectedValue>null</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
               <con:numberType>false</con:numberType>
             </con:elements>
             <con:elements>
@@ -425,6 +427,7 @@ return new JsonBuilder(slurped)</script>
               <con:operator>=</con:operator>
               <con:enabled>false</con:enabled>
               <con:expectedValue>134</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
               <con:numberType>false</con:numberType>
             </con:elements>
             <con:originalMessage>&lt;data contentType="null" contentLength="134">&lt;![CDATA[{

@@ -4,6 +4,21 @@
     <con:setting id="24ef0e3d-68d7-48b8-a475-5251e955c822fileName">GenerateOrgRefId</con:setting>
   </con:settings>
   <con:savedRecentRuns>1</con:savedRecentRuns>
+  <con:testStep type="properties" name="Properties" id="7158e19a-a8f4-4650-821d-a3b0c673fcee">
+    <con:settings/>
+    <con:config xsi:type="con:PropertiesStep" saveFirst="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:properties>
+        <con:property>
+          <con:name>Seed</con:name>
+          <con:value>1001</con:value>
+        </con:property>
+        <con:property>
+          <con:name>Candidate</con:name>
+          <con:value>1009</con:value>
+        </con:property>
+      </con:properties>
+    </con:config>
+  </con:testStep>
   <con:testStep type="datasource" name="CountOrgInDb" id="2d4d0685-58d6-423b-9244-07751d40594a">
     <con:settings>
       <con:setting id="com.eviware.soapui.impl.wsdl.teststeps.datasource.DataSourceContainer@prepared-properties">&lt;xml-fragment/></con:setting>
@@ -17,7 +32,7 @@
           <Connection>SIF Mock Database( SIF Mock - Release 2 )</Connection>
           <query>Select Count(*) As RecordCount
 From Apis
-Where OrganisationRefId = '${#TestCase#OrgRefId}'</query>
+Where OrganisationRefId = '${Properties#Candidate}'</query>
           <fetchSize/>
           <stored-procedure>false</stored-procedure>
         </con:configuration>
@@ -25,39 +40,43 @@ Where OrganisationRefId = '${#TestCase#OrgRefId}'</query>
       <con:shared>true</con:shared>
       <con:restartShared>true</con:restartShared>
       <con:property>RecordCount</con:property>
+      <con:completeLastOperation>true</con:completeLastOperation>
       <con:restartOnRun>true</con:restartOnRun>
     </con:config>
   </con:testStep>
   <con:testStep type="groovy" name="GenOrgRefId" id="c88514b7-06cd-4649-b5c5-107f45767ffd">
     <con:settings/>
     <con:config>
-      <script>// Candidate organisation reference id
-int orgRefId = new Integer(context.expand( '${#TestCase#OrgRefId}' ))
+      <script>// Initialize the candidate organisation reference id based on the seed
+int candidate = new Integer(context.expand( '${Properties#Seed}' ))
 
-// Set index and maximum for loop 
+// Find the next candiate id by loops up to 1000 times
 def idx = 0
-def maximum = 100
+def maximum = 1000
 while (context.expand( '${CountOrgInDb#RecordCount}' ) != "0" )
 {
 	// If the limit is reached, test run stopps and fails.
 	if (idx >= maximum)
 	{
-		testRunner.fail("Searching has been done for 100 times. No OrgRefId is found for use!")
+		testRunner.fail("Searching has been done for 1000 times. No OrgRefId is found for use!")
 		return
 	}
 	idx = idx + 1
 
-	// Increase OrgRefId by 1 and try again.
-	orgRefId = orgRefId + 1
-	testRunner.testCase.setPropertyValue( "OrgRefId", orgRefId.toString() )
+	// Increase candidate by 1 and try again.
+	candidate = candidate + 1
+	testRunner.testCase.testSteps["Properties"].setPropertyValue( "Candidate", candidate.toString() )
 	testRunner.runTestStepByName( "CountOrgInDb" )
-}</script>
+}
+
+// Set NewOrgRefId
+testRunner.testCase.setPropertyValue( "NewOrgRefId", context.expand( '${Properties#Candidate}' ) )</script>
     </con:config>
   </con:testStep>
   <con:properties>
     <con:property>
-      <con:name>OrgRefId</con:name>
-      <con:value>1045</con:value>
+      <con:name>NewOrgRefId</con:name>
+      <con:value>1009</con:value>
     </con:property>
   </con:properties>
   <con:reportParameters/>
@@ -68,6 +87,11 @@ while (context.expand( '${CountOrgInDb#RecordCount}' ) != "0" )
   </con:breakPoints>
   <con:breakPoints>
     <con:testStepId>c88514b7-06cd-4649-b5c5-107f45767ffd</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>7158e19a-a8f4-4650-821d-a3b0c673fcee</con:testStepId>
     <con:status>NONE</con:status>
     <con:properties/>
   </con:breakPoints>

@@ -12,7 +12,7 @@
       <con:properties>
         <con:property>
           <con:name>OrganisationRefId</con:name>
-          <con:value>8005</con:value>
+          <con:value xsi:nil="true"/>
         </con:property>
       </con:properties>
     </con:config>
@@ -32,6 +32,7 @@
       <con:shared>true</con:shared>
       <con:restartShared>true</con:restartShared>
       <con:property>TestData</con:property>
+      <con:property>fileName</con:property>
       <con:startRow/>
       <con:endRow/>
       <con:recordsPerIteration>1</con:recordsPerIteration>
@@ -64,22 +65,6 @@
       <con:entitizeValues>false</con:entitizeValues>
       <con:restartOnRun>true</con:restartOnRun>
       <con:expandProperties>false</con:expandProperties>
-    </con:config>
-  </con:testStep>
-  <con:testStep type="transfer" name="Property Transfer" id="bca7da97-58cd-4e4a-a234-8043b34ebe3a">
-    <con:settings/>
-    <con:config xsi:type="con:PropertyTransfersStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-      <con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" entitize="false" transferChildNodes="false">
-        <con:name>OrganisationRefId</con:name>
-        <con:sourceType>Payload</con:sourceType>
-        <con:sourceStep>GetPayload</con:sourceStep>
-        <con:sourcePath>$['StudentPersonals']['StudentPersonal'][0]['PersonInfo']['Email']['Personal']['SourceOrganisation']['RefId']</con:sourcePath>
-        <con:targetType>OrganisationRefId</con:targetType>
-        <con:targetStep>Properties</con:targetStep>
-        <con:targetPath/>
-        <con:type>JSONPATH</con:type>
-        <con:upgraded>true</con:upgraded>
-      </con:transfers>
     </con:config>
   </con:testStep>
   <con:testStep type="restrequest" name="CreateStudentPeronsals" id="aa64be4c-556f-45c7-a8f0-4cffe023b1cb">
@@ -168,13 +153,13 @@
     }
 }</con:request>
         <con:originalUri>http://mocksifapi.terito.education.govt.nz/sif/studentpersonal</con:originalUri>
-        <con:assertion type="Valid HTTP Status Codes" id="9457c5ae-a24c-4346-adab-26b8a1ccbca0" name="Valid HTTP Status Codes" disabled="true">
+        <con:assertion type="Valid HTTP Status Codes" id="9457c5ae-a24c-4346-adab-26b8a1ccbca0" name="Valid HTTP Status Codes">
           <con:settings/>
           <con:configuration>
-            <codes>422</codes>
+            <codes>400</codes>
           </con:configuration>
         </con:assertion>
-        <con:assertion type="MessageContentAssertion" id="ad02f223-8294-4c87-8908-f0a23f02f51d" name="Message Content Assertion" disabled="true">
+        <con:assertion type="MessageContentAssertion" id="ad02f223-8294-4c87-8908-f0a23f02f51d" name="Message Content Assertion">
           <con:configuration xsi:type="con:MessageContentAssertion">
             <con:elements>
               <con:xpath>//data[1]</con:xpath>
@@ -182,7 +167,7 @@
               <con:type xsi:nil="true"/>
               <con:operator>contains</con:operator>
               <con:enabled>true</con:enabled>
-              <con:expectedValue>${#Project#Error401}</con:expectedValue>
+              <con:expectedValue>${#Project#Error400}</con:expectedValue>
               <con:hasValue>false</con:hasValue>
               <con:numberType>false</con:numberType>
             </con:elements>
@@ -467,7 +452,7 @@
       </con:restRequest>
     </con:config>
   </con:testStep>
-  <con:testStep type="datasourceloop" name="DataSource Loop" id="e4e1faed-8f5c-417c-abfb-8385f36a3166" disabled="true">
+  <con:testStep type="datasourceloop" name="DataSource Loop" id="e4e1faed-8f5c-417c-abfb-8385f36a3166">
     <con:settings/>
     <con:config>
       <dataSourceStep>LoadTestData-Multiple</dataSourceStep>

@@ -1,0 +1,713 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase id="ebd5123a-720c-46f5-97c3-b8db140190e3" discardOkResults="false" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="TR-3057" searchProperties="true" timeout="0" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="ebd5123a-720c-46f5-97c3-b8db140190e3fileName">TR-3057</con:setting>
+  </con:settings>
+  <con:savedRecentRuns>1</con:savedRecentRuns>
+  <con:testStep type="properties" name="Properties" id="57844158-40e7-4793-818e-985975dfc393">
+    <con:settings/>
+    <con:config xsi:type="con:PropertiesStep" saveFirst="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:properties>
+        <con:property>
+          <con:name>OrgRefId</con:name>
+          <con:value>1049</con:value>
+        </con:property>
+      </con:properties>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="calltestcase" name="Run TestCase" id="1e7c2aed-edb3-43bf-ba58-0e2905ca8ef0">
+    <con:settings/>
+    <con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:targetTestCase>24ef0e3d-68d7-48b8-a475-5251e955c822</con:targetTestCase>
+      <con:properties>
+        <con:property>
+          <con:name>NewOrgRefId</con:name>
+          <con:value>1049</con:value>
+        </con:property>
+      </con:properties>
+      <con:returnProperties>
+        <con:entry>OrgRefId</con:entry>
+      </con:returnProperties>
+      <con:runMode>PARALLELL</con:runMode>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="transfer" name="Property Transfer" id="4cf2e480-7bb6-4a4e-98cf-6a43c48c77ad">
+    <con:settings/>
+    <con:config xsi:type="con:PropertyTransfersStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" entitize="false" transferChildNodes="false">
+        <con:name>OrgRefId</con:name>
+        <con:sourceType>NewOrgRefId</con:sourceType>
+        <con:sourceStep>Run TestCase</con:sourceStep>
+        <con:sourcePath/>
+        <con:targetType>NewOrgRefId</con:targetType>
+        <con:targetStep>Properties</con:targetStep>
+        <con:targetPath/>
+        <con:upgraded>true</con:upgraded>
+      </con:transfers>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="datasource" name="GenDynamicId" id="c49fa8ee-7107-4020-9778-861a79406339">
+    <con:settings/>
+    <con:config xsi:type="con:DataSourceStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:dataSource type="Data Generator">
+        <con:configuration>
+          <generatedDataCount>1</generatedDataCount>
+          <generatorsTotalNumber>2</generatorsTotalNumber>
+          <lastSelectedProperty>0</lastSelectedProperty>
+          <GeneratorType0>CUSTOM</GeneratorType0>
+          <PropertyName0>SchoolName</PropertyName0>
+          <repetitionCountSchoolName>0</repetitionCountSchoolName>
+          <repeatValuesSchoolName>false</repeatValuesSchoolName>
+          <CustomStringDataGeneratorFormatSchoolName>School %STR(8,16,False,True,False,False)</CustomStringDataGeneratorFormatSchoolName>
+          <GeneratorType1>CUSTOM</GeneratorType1>
+          <PropertyName1>OrganisationLocalId</PropertyName1>
+          <repetitionCountOrganisationLocalId>0</repetitionCountOrganisationLocalId>
+          <repeatValuesOrganisationLocalId>false</repeatValuesOrganisationLocalId>
+          <CustomStringDataGeneratorFormatOrganisationLocalId>0972-%STR(8,16,False,True,False,False)</CustomStringDataGeneratorFormatOrganisationLocalId>
+          <escapeSpaceSequence/>
+        </con:configuration>
+      </con:dataSource>
+      <con:shared>true</con:shared>
+      <con:restartShared>true</con:restartShared>
+      <con:property>SchoolName</con:property>
+      <con:property>OrganisationLocalId</con:property>
+      <con:completeLastOperation>true</con:completeLastOperation>
+      <con:restartOnRun>true</con:restartOnRun>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="restrequest" name="CreateSchool" id="32175cb2-ed2d-415f-aeaa-e486b49b2c38">
+    <con:settings/>
+    <con:config service="Te Rito APIs" resourcePath="/organisation" methodName="createOrganisations" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest name="CreateSchool" id="e168a5dd-ffde-489e-b257-50d4644c6a36" mediaType="application/json" postQueryString="false">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:endpoint>https://northern.edsby.co.nz/sif</con:endpoint>
+        <con:request>{
+    "Organisations": {
+        "Organisation": [
+            {
+                "OrganisationRefId": "${Properties#OrgRefId}",
+                "OrganisationLocalId": "${GenDynamicId#OrganisationLocalId}",
+                "EducationRegion": "12010",
+                "SpecialEducationDistrict": "182006",
+                "EntityOpen": "1950-01-28T00:00:00+12:00",
+                "Name": "${GenDynamicId#SchoolName}",
+                "OperationalStatus": "28001",
+                "Type": "10023",
+                "SectorRole": "35003",
+                "ProviderSMS": "MUS",
+                "Authority": "STATE",
+                "Address": {
+                    "Physical": {
+                        "Type": "TH",
+                        "Line1": "Elder Lane",
+                        "City": "Tauranga",
+                        "Country": "New Zealand",
+                        "PostalCode": "3143",
+                        "GridLocation": {
+                            "Latitude": -37.704974,
+                            "Longitude": 176.11123
+                        }
+                    }
+                },
+                "Email": {
+                    "Main": {
+                        "Address": "principal@972.school.nz"
+                    }
+                },
+                "Phone": {
+                    "Main": {
+                        "Number": "06 555 9766"
+                    }
+                },
+                "TeRitoConfig": {
+                    "DataAnalysisDashboardsInd": "Y",
+                    "StandardisedLearningSupportRegisterInd": "Y",
+                    "VirtualLearningEnvironmentInd": "N"
+                },
+                "SchoolService": {
+                    "CoEdStatus": "COED",
+                    "Decile": 2,
+                    "AllowManualProvisioning": "N",
+                    "SchoolClassificationList": {
+                        "Classification": [
+                            "52003"
+                        ]
+                    },
+                    "SchoolYearList": {
+                        "SchoolYear": [
+                            {
+                                "YearLevel": 1,
+                                "FIRSTSchoolYearGenderId": -9721,
+                                "Gender": "55002"
+                            },
+                            {
+                                "YearLevel": 2,
+                                "FIRSTSchoolYearGenderId": -9722,
+                                "Gender": "55002"
+                            },
+                            {
+                                "YearLevel": 3,
+                                "FIRSTSchoolYearGenderId": -9723,
+                                "Gender": "55002"
+                            },
+                            {
+                                "YearLevel": 4,
+                                "FIRSTSchoolYearGenderId": -9724,
+                                "Gender": "55002"
+                            },
+                            {
+                                "YearLevel": 5,
+                                "FIRSTSchoolYearGenderId": -9725,
+                                "Gender": "55002"
+                            },
+                            {
+                                "YearLevel": 6,
+                                "FIRSTSchoolYearGenderId": -9726,
+                                "Gender": "55002"
+                            },
+                            {
+                                "YearLevel": 7,
+                                "FIRSTSchoolYearGenderId": -9727,
+                                "Gender": "55002"
+                            },
+                            {
+                                "YearLevel": 8,
+                                "FIRSTSchoolYearGenderId": -9728,
+                                "Gender": "55002"
+                            },
+                            {
+                                "YearLevel": 9,
+                                "FIRSTSchoolYearGenderId": -9729,
+                                "Gender": "55002"
+                            },
+                            {
+                                "YearLevel": 10,
+                                "FIRSTSchoolYearGenderId": -9730,
+                                "Gender": "55002"
+                            },
+                            {
+                                "YearLevel": 11,
+                                "FIRSTSchoolYearGenderId": -9731,
+                                "Gender": "55002"
+                            },
+                            {
+                                "YearLevel": 12,
+                                "FIRSTSchoolYearGenderId": -9732,
+                                "Gender": "55002"
+                            },
+                            {
+                                "YearLevel": 13,
+                                "FIRSTSchoolYearGenderId": -9733,
+                                "Gender": "55002"
+                            }
+                        ]
+                    }
+                }
+            }
+        ]
+    }
+}</con:request>
+        <con:originalUri>http://mocksifapi.terito.education.govt.nz/sif/organisation</con:originalUri>
+        <con:assertion type="Valid HTTP Status Codes" id="d27f6319-56a3-45eb-b7fe-6343bf121002" name="Valid HTTP Status Codes">
+          <con:settings/>
+          <con:configuration>
+            <codes>200</codes>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters>
+          <con:entry key="Accept" value="${#Project#Accept}"/>
+          <con:entry key="X-Edsby-APIClientId" value="${#Project#ApiClientId}"/>
+        </con:parameters>
+        <con:parameterOrder>
+          <con:entry>x-http-method-override</con:entry>
+          <con:entry>Accept</con:entry>
+          <con:entry>X-Edsby-APIClientId</con:entry>
+        </con:parameterOrder>
+        <con:environmentSpec>
+          <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
+            <con:authProfile>SIF Mock - Basic Auth</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="restrequest" name="GetSchool" id="679c2e7e-197f-4c98-89b1-3723ba0c71a6">
+    <con:settings/>
+    <con:config service="Te Rito APIs" resourcePath="/organisation/{organisationRefId}" methodName="getOrganisation" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest name="GetSchool" id="ba92a07d-2237-4616-bceb-1e0a13574908" mediaType="application/json">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:endpoint>https://northern.edsby.co.nz/sif</con:endpoint>
+        <con:request/>
+        <con:originalUri>http://mocksifapi.terito.education.govt.nz/sif/organisation/8009</con:originalUri>
+        <con:assertion type="Valid HTTP Status Codes" id="0de51a01-b80d-4f86-93dd-bad9889a7626" name="Valid HTTP Status Codes">
+          <con:settings/>
+          <con:configuration>
+            <codes>200</codes>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="JsonPath Match" id="e3e6d996-7d15-47e1-b4c6-98d9fd1cf21c" name="Match content of [OrganisationRefId]">
+          <con:configuration>
+            <path>$['Organisation']['OrganisationRefId']</path>
+            <content>${Properties#OrgRefId#$}</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="JsonPath Match" id="8bb1f29a-5d61-4825-85ef-378b0a9fee21" name="Match content of [OrganisationLocalId]">
+          <con:configuration>
+            <path>$['Organisation']['OrganisationLocalId']</path>
+            <content>${GenDynamicId#OrganisationLocalId}</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="JsonPath Match" id="874b9d89-310c-49af-80e9-3d6f32d7daff" name="Match content of [Name]">
+          <con:configuration>
+            <path>$['Organisation']['Name']</path>
+            <content>${GenDynamicId#SchoolName}</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters>
+          <con:entry key="Accept" value="${#Project#Accept}"/>
+          <con:entry key="organisationRefId" value="${Properties#OrgRefId}"/>
+          <con:entry key="X-Edsby-APIClientId" value="${#Project#ApiClientId}"/>
+        </con:parameters>
+        <con:parameterOrder>
+          <con:entry>fields</con:entry>
+          <con:entry>page</con:entry>
+          <con:entry>max</con:entry>
+          <con:entry>unwrap</con:entry>
+          <con:entry>human</con:entry>
+          <con:entry>sort</con:entry>
+          <con:entry>field</con:entry>
+          <con:entry>pattern</con:entry>
+          <con:entry>Accept</con:entry>
+          <con:entry>X-Edsby-APIClientId</con:entry>
+          <con:entry>organisationRefId</con:entry>
+        </con:parameterOrder>
+        <con:environmentSpec>
+          <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
+            <con:authProfile>SIF Mock - Basic Auth</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="restrequest" name="CreateStudentPeronsals" id="d4c07a8f-846d-4729-bee9-28918baf2dae">
+    <con:settings/>
+    <con:config service="Te Rito APIs" resourcePath="/studentpersonal" methodName="createStudentPersonals" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest name="CreateStudentPeronsals" id="c39cb2e8-4ae2-445f-b615-8be991cdb3c6" mediaType="application/json" postQueryString="false">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:endpoint>https://northern.edsby.co.nz/sif</con:endpoint>
+        <con:request>{
+    "StudentPersonals": {
+        "StudentPersonal": [
+            {
+                "StudentPersonalLocalId": "ST5000000",
+                "NationalStudentNumber": "9005000000",
+                "FirstNZSchoolingDate": "2013-03-31T12:00:00+00:00",
+                "EarlyChildhoodEducation": {
+                    "Type": "EPG"
+                },
+                "PersonInfo": {
+                    "Name": {
+                        "FamilyName": "White",
+                        "GivenName": "Jacob",
+                        "PreferredGivenName": "Jake",
+                        "FullName": "Jacob 'Jake' White"
+                    },
+                    "Demographics": {
+                        "BirthDate": "2008-03-31T12:00:00+00:00",
+                        "Gender": "1",
+                        "LanguageList": {
+                            "Language": [
+                                {
+                                    "Code": "NZS01112",
+                                    "Usage": "SH"
+                                }
+                            ]
+                        },
+                        "EthnicityList": {
+                            "Ethnicity": [
+                                {
+                                    "Code": "321"
+                                }
+                            ]
+                        }
+                    },
+                    "Address": {
+                        "Physical": {
+                            "Type": "TH",
+                            "Line1": "27 Arataua Street",
+                            "Suburb": "Rotorua",
+                            "City": "Rotorua",
+                            "Country": "New Zealand",
+                            "PostalCode": "3010"
+                        }
+                    },
+                    "Email": {
+                        "Personal": {
+                            "SourceOrganisation": {
+                                "RefId": "${Properties#OrgRefId}"
+                            },
+                            "Address": "jwhite@mailinator.com"
+                        }
+                    },
+                    "Phone": {
+                        "Home": {
+                            "Number": "+64 7-943 8050"
+                        }
+                    }
+                },
+                "StudentProviderEnrolment": {
+                    "StudentProviderEnrolmentLocalId": "2015_${Properties#OrgRefId}_ST5000000",
+                    "EntryDate": "2015-01-29T00:00:00",
+                    "SchoolEnrolment": {
+                        "YearLevel": 6,
+                        "FundingYearLevel": 7
+                    }
+                }
+            }
+        ]
+    }
+}</con:request>
+        <con:originalUri>http://mocksifapi.terito.education.govt.nz/sif/studentpersonal</con:originalUri>
+        <con:assertion type="Valid HTTP Status Codes" id="9457c5ae-a24c-4346-adab-26b8a1ccbca0" name="Valid HTTP Status Codes">
+          <con:settings/>
+          <con:configuration>
+            <codes>200</codes>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters>
+          <con:entry key="Accept" value="${#Project#Accept}"/>
+          <con:entry key="X-Edsby-APIClientId" value="${#Project#ApiClientId}"/>
+          <con:entry key="X-Edsby-OrganisationRefId" value="${Properties#OrgRefId}"/>
+        </con:parameters>
+        <con:parameterOrder>
+          <con:entry>x-http-method-override</con:entry>
+          <con:entry>Accept</con:entry>
+          <con:entry>X-Edsby-APIClientId</con:entry>
+          <con:entry>X-Edsby-OrganisationRefId</con:entry>
+        </con:parameterOrder>
+        <con:environmentSpec>
+          <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
+            <con:authProfile>SIF Mock - Basic Auth</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="restrequest" name="CreateStudentContactPersonals" id="c709b859-c129-4f1f-a2d4-d1ea71b731a7">
+    <con:settings/>
+    <con:config service="Te Rito APIs" resourcePath="/studentcontactpersonal" methodName="createStudentContactPersonal" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest name="CreateStudentContactPersonals" id="53d146e2-2e88-44b3-b119-d9c0c7a33f4c" mediaType="application/json" postQueryString="false">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:endpoint>https://northern.edsby.co.nz/sif</con:endpoint>
+        <con:request>{
+    "StudentContactPersonals": {
+        "StudentContactPersonal": [
+            {
+                "StudentContactPersonalLocalId": "CP_000000",
+                "PersonInfo": {
+                    "Name": {
+                        "FamilyName": "White",
+                        "GivenName": "Joel",
+                        "FullName": "Joel White"
+                    },
+                    "Address": {
+                        "Physical": {
+                            "Type": "TH",
+                            "Line1": "27 Arataua Street",
+                            "Suburb": "Rotorua",
+                            "City": "Rotorua",
+                            "Country": "New Zealand",
+                            "PostalCode": "3010"
+                        }
+                    },
+                    "Email": {
+                        "Personal": {
+                            "SourceOrganisation": {
+                                "RefId": "${Properties#OrgRefId}"
+                            },
+                            "Address": "Joel.White@xtra.co.nz"
+                        }
+                    }
+                }
+            },
+            {
+                "StudentContactPersonalLocalId": "CP_000001",
+                "PersonInfo": {
+                    "Name": {
+                        "FamilyName": "White",
+                        "GivenName": "Laura",
+                        "FullName": "Laura White"
+                    },
+                    "Address": {
+                        "Physical": {
+                            "Type": "TH",
+                            "Line1": "27 Arataua Street",
+                            "Suburb": "Rotorua",
+                            "City": "Rotorua",
+                            "Country": "New Zealand",
+                            "PostalCode": "3010"
+                        }
+                    },
+                    "Email": {
+                        "Personal": {
+                            "SourceOrganisation": {
+                                "RefId": "${Properties#OrgRefId}"
+                            },
+                            "Address": "Laura.White@inspire.net.nz"
+                        }
+                    }
+                }
+            }
+        ]
+    }
+}</con:request>
+        <con:originalUri>http://mocksifapi.terito.education.govt.nz/sif/studentcontactpersonal</con:originalUri>
+        <con:assertion type="Valid HTTP Status Codes" id="7b9c19a5-7827-4096-a087-baa783b9d403" name="Valid HTTP Status Codes">
+          <con:settings/>
+          <con:configuration>
+            <codes>200</codes>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters>
+          <con:entry key="Accept" value="${#Project#Accept}"/>
+          <con:entry key="X-Edsby-APIClientId" value="${#Project#ApiClientId}"/>
+          <con:entry key="X-Edsby-OrganisationRefId" value="${Properties#OrgRefId}"/>
+        </con:parameters>
+        <con:parameterOrder>
+          <con:entry>x-http-method-override</con:entry>
+          <con:entry>Accept</con:entry>
+          <con:entry>X-Edsby-APIClientId</con:entry>
+          <con:entry>X-Edsby-OrganisationRefId</con:entry>
+        </con:parameterOrder>
+        <con:environmentSpec>
+          <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
+            <con:authProfile>SIF Mock - Basic Auth</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="restrequest" name="CreateStudentContacRelationships1" id="eccb6d5b-3dbc-443b-b3de-cbd18b1d8944">
+    <con:settings/>
+    <con:config service="Te Rito APIs" resourcePath="/studentcontactrelationship" methodName="createStudentContactRelationships" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest name="CreateStudentContacRelationships1" id="da163b68-6596-4e62-a218-65b467c84355" mediaType="application/json" postQueryString="false">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:endpoint>https://northern.edsby.co.nz/sif</con:endpoint>
+        <con:request>{
+    "StudentContactRelationships": {
+        "StudentContactRelationship": [
+            {
+                "StudentContactRelationshipLocalId": "ST5000000000",
+                "StartDate": "2020-01-26T12:00:00+00:00",
+                "Student": {
+                    "LocalId": "ST5000000",
+                    "Name": "Jacob 'Jake' White"
+                },
+                "StudentContact": {
+                    "LocalId": "CP_000000",
+                    "Name": "Joel White"
+                },
+                "Organisation": {
+                    "RefId": "${Properties#OrgRefId}"
+                },
+                "Relationship": {
+                    "Code": "FAT"
+                }
+            }
+        ]
+    }
+}</con:request>
+        <con:originalUri>http://mocksifapi.terito.education.govt.nz/sif/studentcontactrelationship</con:originalUri>
+        <con:assertion type="Valid HTTP Status Codes" id="d373389e-4d07-4b3a-ab55-26153994351d" name="Valid HTTP Status Codes">
+          <con:settings/>
+          <con:configuration>
+            <codes>200</codes>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters>
+          <con:entry key="Accept" value="${#Project#Accept}"/>
+          <con:entry key="X-Edsby-APIClientId" value="${#Project#ApiClientId}"/>
+          <con:entry key="X-Edsby-OrganisationRefId" value="${Properties#OrgRefId}"/>
+        </con:parameters>
+        <con:parameterOrder>
+          <con:entry>x-http-method-override</con:entry>
+          <con:entry>Accept</con:entry>
+          <con:entry>X-Edsby-APIClientId</con:entry>
+          <con:entry>X-Edsby-OrganisationRefId</con:entry>
+        </con:parameterOrder>
+        <con:environmentSpec>
+          <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
+            <con:authProfile>SIF Mock - Basic Auth</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="restrequest" name="CreateStudentContacRelationships2" id="baa3ca01-c6d3-4825-933c-b682d14f34aa">
+    <con:settings/>
+    <con:config service="Te Rito APIs" resourcePath="/studentcontactrelationship" methodName="createStudentContactRelationships" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest name="CreateStudentContacRelationships2" id="da163b68-6596-4e62-a218-65b467c84355" mediaType="application/json" postQueryString="false">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:endpoint>https://northern.edsby.co.nz/sif</con:endpoint>
+        <con:request>{
+    "StudentContactRelationships": {
+        "StudentContactRelationship": [
+            {
+                "StudentContactRelationshipLocalId": "ST5000000001",
+                "StartDate": "2020-01-26T12:00:00+00:00",
+                "Student": {
+                    "LocalId": "ST5000000",
+                    "Name": "Jacob 'Jake' White"
+                },
+                "StudentContact": {
+                    "LocalId": "CP_000001",
+                    "Name": "Laura White"
+                },
+                "Organisation": {
+                    "RefId": "${Properties#OrgRefId}"
+                },
+                "Relationship": {
+                    "Code": "MOT"
+                }
+            }
+        ]
+    }
+}</con:request>
+        <con:originalUri>http://mocksifapi.terito.education.govt.nz/sif/studentcontactrelationship</con:originalUri>
+        <con:assertion type="Valid HTTP Status Codes" id="d373389e-4d07-4b3a-ab55-26153994351d" name="Valid HTTP Status Codes">
+          <con:settings/>
+          <con:configuration>
+            <codes>200</codes>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters>
+          <con:entry key="Accept" value="${#Project#Accept}"/>
+          <con:entry key="X-Edsby-APIClientId" value="${#Project#ApiClientId}"/>
+          <con:entry key="X-Edsby-OrganisationRefId" value="${Properties#OrgRefId}"/>
+        </con:parameters>
+        <con:parameterOrder>
+          <con:entry>x-http-method-override</con:entry>
+          <con:entry>Accept</con:entry>
+          <con:entry>X-Edsby-APIClientId</con:entry>
+          <con:entry>X-Edsby-OrganisationRefId</con:entry>
+        </con:parameterOrder>
+        <con:environmentSpec>
+          <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
+            <con:authProfile>SIF Mock - Basic Auth</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="restrequest" name="GetStudentContactRelationshipByStudent" id="23eb584f-a455-42a8-976d-5d46ff61c308">
+    <con:settings/>
+    <con:config service="Te Rito APIs" resourcePath="/studentpersonal/{studentPersonalRefId}/studentcontactrelationship" methodName="getStudentContactRelationshipsByStudent" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest name="GetStudentContactRelationshipByStudent" id="dff9c94b-fe5f-4022-8308-b5bef9711a61" mediaType="application/json">
+        <con:description xsi:nil="true"/>
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:endpoint>https://northern.edsby.co.nz/sif</con:endpoint>
+        <con:request/>
+        <con:originalUri>http://mocksifapi.terito.education.govt.nz/sif/studentpersonal/6ef5048e-922a-4cef-9d0f-5607e91e6118/studentcontactrelationship</con:originalUri>
+        <con:assertion type="Valid HTTP Status Codes" id="fdecaa4a-6b6e-4145-a7c6-da531274473e" name="Valid HTTP Status Codes">
+          <con:settings/>
+          <con:configuration>
+            <codes>200</codes>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters>
+          <con:entry key="Accept" value="${#Project#Accept}"/>
+          <con:entry key="X-Edsby-APIClientId" value="${#Project#ApiClientId}"/>
+          <con:entry key="X-Edsby-OrganisationRefId" value="${Properties#OrgRefId}"/>
+          <con:entry key="studentPersonalRefId" value="${CreateStudentPeronsals#Response#$['StudentPersonals']['StudentPersonal'][0]['StudentPersonalRefId']}"/>
+        </con:parameters>
+        <con:parameterOrder>
+          <con:entry>fields</con:entry>
+          <con:entry>page</con:entry>
+          <con:entry>max</con:entry>
+          <con:entry>unwrap</con:entry>
+          <con:entry>human</con:entry>
+          <con:entry>start</con:entry>
+          <con:entry>end</con:entry>
+          <con:entry>sort</con:entry>
+          <con:entry>field</con:entry>
+          <con:entry>pattern</con:entry>
+          <con:entry>Accept</con:entry>
+          <con:entry>X-Edsby-APIClientId</con:entry>
+          <con:entry>X-Edsby-OrganisationRefId</con:entry>
+          <con:entry>studentPersonalRefId</con:entry>
+          <con:entry>status</con:entry>
+        </con:parameterOrder>
+        <con:environmentSpec>
+          <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
+            <con:authProfile>SIF Mock - Basic Auth</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:properties/>
+  <con:reportParameters/>
+  <con:breakPoints>
+    <con:testStepId>57844158-40e7-4793-818e-985975dfc393</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+</con:testCase>

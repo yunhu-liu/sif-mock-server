@@ -10,15 +10,15 @@
       <con:properties>
         <con:property>
           <con:name>StudentContactRelationshipRefId</con:name>
-          <con:value>59e96575-6740-498a-aeec-6232b33862cd</con:value>
+          <con:value>70faa912-f9c8-4e1e-b2c9-1424dc824eb4</con:value>
         </con:property>
         <con:property>
           <con:name>StudentPersonalRefId</con:name>
-          <con:value>6ef5048e-922a-4cef-9d0f-5607e91e6118</con:value>
+          <con:value>dc48f66f-de14-4939-a271-7f60f4f5ef5a</con:value>
         </con:property>
         <con:property>
           <con:name>StudentContactRefId</con:name>
-          <con:value>95937e6b-4a19-4950-9a2a-3149f4d0f292</con:value>
+          <con:value>bc9c5360-e051-4299-bae0-5af0b9be4d83</con:value>
         </con:property>
       </con:properties>
     </con:config>
@@ -34,11 +34,12 @@ import groovy.json.*
 def response = context.expand( '${#[TestSuite 1#StudentContactRelationship-Multiple#GetStudentContacRelationships]#Response}' )
 def slurped = new JsonSlurper().parseText(response)
 
-// Get RefId from Random Record
-def scpCount = slurped.StudentContactRelationships.StudentContactRelationship.size()
-Random random = new Random()
-int rndIndex = random.nextInt(scpCount)
-def refId = slurped.StudentContactRelationships.StudentContactRelationship[rndIndex].StudentContactRelationshipRefId
+//// Get RefId from Random Record
+//def scpCount = slurped.StudentContactRelationships.StudentContactRelationship.size()
+//Random random = new Random()
+//int rndIndex = random.nextInt(scpCount)
+//def refId = slurped.StudentContactRelationships.StudentContactRelationship[rndIndex].StudentContactRelationshipRefId
+def refId = slurped.StudentContactRelationships.StudentContactRelationship[0].StudentContactRelationshipRefId
 
 // Set RefId to Property
 testRunner.testCase.testSteps["Properties 1"].setPropertyValue( "StudentContactRelationshipRefId", refId )</script>
@@ -923,6 +924,7 @@ return new JsonBuilder(slurped)</script>
               <con:operator>exists</con:operator>
               <con:enabled>true</con:enabled>
               <con:expectedValue>${Properties 1#StudentContactRelationshipRefId}</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
               <con:numberType>false</con:numberType>
             </con:elements>
             <con:elements>
@@ -933,6 +935,7 @@ return new JsonBuilder(slurped)</script>
               <con:operator>exists</con:operator>
               <con:enabled>true</con:enabled>
               <con:expectedValue>ST5000756000</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
               <con:numberType>false</con:numberType>
             </con:elements>
             <con:elements>
@@ -943,6 +946,7 @@ return new JsonBuilder(slurped)</script>
               <con:operator>=</con:operator>
               <con:enabled>false</con:enabled>
               <con:expectedValue>A</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
               <con:numberType>false</con:numberType>
             </con:elements>
             <con:elements>
@@ -953,6 +957,7 @@ return new JsonBuilder(slurped)</script>
               <con:operator>exists</con:operator>
               <con:enabled>true</con:enabled>
               <con:expectedValue>2020-01-28T14:00:00+00:00</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
               <con:numberType>false</con:numberType>
             </con:elements>
             <con:elements>
@@ -963,6 +968,7 @@ return new JsonBuilder(slurped)</script>
               <con:operator>=</con:operator>
               <con:enabled>true</con:enabled>
               <con:expectedValue>${Properties 1#StudentPersonalRefId}</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
               <con:numberType>false</con:numberType>
             </con:elements>
             <con:elements>
@@ -973,6 +979,7 @@ return new JsonBuilder(slurped)</script>
               <con:operator>exists</con:operator>
               <con:enabled>true</con:enabled>
               <con:expectedValue>ST5000756</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
               <con:numberType>false</con:numberType>
             </con:elements>
             <con:elements>
@@ -983,6 +990,7 @@ return new JsonBuilder(slurped)</script>
               <con:operator>exists</con:operator>
               <con:enabled>true</con:enabled>
               <con:expectedValue>Matthew 'Matt' Head</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
               <con:numberType>false</con:numberType>
             </con:elements>
             <con:elements>
@@ -993,6 +1001,7 @@ return new JsonBuilder(slurped)</script>
               <con:operator>exists</con:operator>
               <con:enabled>true</con:enabled>
               <con:expectedValue>${Properties 1#StudentContactRefId}</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
               <con:numberType>false</con:numberType>
             </con:elements>
             <con:elements>
@@ -1003,6 +1012,7 @@ return new JsonBuilder(slurped)</script>
               <con:operator>exists</con:operator>
               <con:enabled>true</con:enabled>
               <con:expectedValue>CP_000150</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
               <con:numberType>false</con:numberType>
             </con:elements>
             <con:elements>
@@ -1013,6 +1023,7 @@ return new JsonBuilder(slurped)</script>
               <con:operator>exists</con:operator>
               <con:enabled>true</con:enabled>
               <con:expectedValue>Michael Head</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
               <con:numberType>false</con:numberType>
             </con:elements>
             <con:elements>
@@ -1023,6 +1034,7 @@ return new JsonBuilder(slurped)</script>
               <con:operator>=</con:operator>
               <con:enabled>true</con:enabled>
               <con:expectedValue>${#Project#OrgRefId}</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
               <con:numberType>false</con:numberType>
             </con:elements>
             <con:elements>
@@ -1033,6 +1045,7 @@ return new JsonBuilder(slurped)</script>
               <con:operator>exists</con:operator>
               <con:enabled>true</con:enabled>
               <con:expectedValue>FAT</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
               <con:numberType>false</con:numberType>
             </con:elements>
             <con:elements>
@@ -1043,6 +1056,7 @@ return new JsonBuilder(slurped)</script>
               <con:operator>=</con:operator>
               <con:enabled>false</con:enabled>
               <con:expectedValue>2021-03-02T23:26:13.7922409+00:00</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
               <con:numberType>false</con:numberType>
             </con:elements>
             <con:elements>
@@ -1053,6 +1067,7 @@ return new JsonBuilder(slurped)</script>
               <con:operator>=</con:operator>
               <con:enabled>false</con:enabled>
               <con:expectedValue>2021-03-02T23:58:23.5871885+00:00</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
               <con:numberType>false</con:numberType>
             </con:elements>
             <con:elements>
@@ -1063,6 +1078,7 @@ return new JsonBuilder(slurped)</script>
               <con:operator>=</con:operator>
               <con:enabled>false</con:enabled>
               <con:expectedValue>MockServerClient</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
               <con:numberType>false</con:numberType>
             </con:elements>
             <con:elements>
@@ -1073,6 +1089,7 @@ return new JsonBuilder(slurped)</script>
               <con:operator>=</con:operator>
               <con:enabled>false</con:enabled>
               <con:expectedValue>MockServerClient (byPatch)</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
               <con:numberType>false</con:numberType>
             </con:elements>
             <con:elements>
@@ -1083,6 +1100,7 @@ return new JsonBuilder(slurped)</script>
               <con:operator>=</con:operator>
               <con:enabled>false</con:enabled>
               <con:expectedValue>770e8d37-4f2c-43f8-b43a-4ae23c9d0779</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
               <con:numberType>false</con:numberType>
             </con:elements>
             <con:elements>
@@ -1093,6 +1111,7 @@ return new JsonBuilder(slurped)</script>
               <con:operator>=</con:operator>
               <con:enabled>false</con:enabled>
               <con:expectedValue>ST5000756001</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
               <con:numberType>false</con:numberType>
             </con:elements>
             <con:elements>
@@ -1103,6 +1122,7 @@ return new JsonBuilder(slurped)</script>
               <con:operator>=</con:operator>
               <con:enabled>false</con:enabled>
               <con:expectedValue>A</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
               <con:numberType>false</con:numberType>
             </con:elements>
             <con:elements>
@@ -1113,6 +1133,7 @@ return new JsonBuilder(slurped)</script>
               <con:operator>=</con:operator>
               <con:enabled>false</con:enabled>
               <con:expectedValue>2020-01-26T14:00:00+00:00</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
               <con:numberType>false</con:numberType>
             </con:elements>
             <con:elements>
@@ -1123,6 +1144,7 @@ return new JsonBuilder(slurped)</script>
               <con:operator>=</con:operator>
               <con:enabled>false</con:enabled>
               <con:expectedValue>6ef5048e-922a-4cef-9d0f-5607e91e6118</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
               <con:numberType>false</con:numberType>
             </con:elements>
             <con:elements>
@@ -1133,6 +1155,7 @@ return new JsonBuilder(slurped)</script>
               <con:operator>=</con:operator>
               <con:enabled>false</con:enabled>
               <con:expectedValue>ST5000756</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
               <con:numberType>false</con:numberType>
             </con:elements>
             <con:elements>
@@ -1143,6 +1166,7 @@ return new JsonBuilder(slurped)</script>
               <con:operator>=</con:operator>
               <con:enabled>false</con:enabled>
               <con:expectedValue>Matthew 'Matt' Head</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
               <con:numberType>false</con:numberType>
             </con:elements>
             <con:elements>
@@ -1153,6 +1177,7 @@ return new JsonBuilder(slurped)</script>
               <con:operator>=</con:operator>
               <con:enabled>false</con:enabled>
               <con:expectedValue>273c1713-7810-4866-a87c-b711dc8f810d</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
               <con:numberType>false</con:numberType>
             </con:elements>
             <con:elements>
@@ -1163,6 +1188,7 @@ return new JsonBuilder(slurped)</script>
               <con:operator>=</con:operator>
               <con:enabled>false</con:enabled>
               <con:expectedValue>CP_000151</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
               <con:numberType>false</con:numberType>
             </con:elements>
             <con:elements>
@@ -1173,6 +1199,7 @@ return new JsonBuilder(slurped)</script>
               <con:operator>=</con:operator>
               <con:enabled>false</con:enabled>
               <con:expectedValue>Rachel Head</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
               <con:numberType>false</con:numberType>
             </con:elements>
             <con:elements>
@@ -1183,6 +1210,7 @@ return new JsonBuilder(slurped)</script>
               <con:operator>=</con:operator>
               <con:enabled>false</con:enabled>
               <con:expectedValue>1045</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
               <con:numberType>false</con:numberType>
             </con:elements>
             <con:elements>
@@ -1193,6 +1221,7 @@ return new JsonBuilder(slurped)</script>
               <con:operator>=</con:operator>
               <con:enabled>false</con:enabled>
               <con:expectedValue>MOT</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
               <con:numberType>false</con:numberType>
             </con:elements>
             <con:elements>
@@ -1203,6 +1232,7 @@ return new JsonBuilder(slurped)</script>
               <con:operator>=</con:operator>
               <con:enabled>false</con:enabled>
               <con:expectedValue>2021-03-02T23:26:13.8716551+00:00</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
               <con:numberType>false</con:numberType>
             </con:elements>
             <con:elements>
@@ -1213,6 +1243,7 @@ return new JsonBuilder(slurped)</script>
               <con:operator>=</con:operator>
               <con:enabled>false</con:enabled>
               <con:expectedValue>2021-03-02T23:57:18.1892391+00:00</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
               <con:numberType>false</con:numberType>
             </con:elements>
             <con:elements>
@@ -1223,6 +1254,7 @@ return new JsonBuilder(slurped)</script>
               <con:operator>=</con:operator>
               <con:enabled>false</con:enabled>
               <con:expectedValue>MockServerClient</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
               <con:numberType>false</con:numberType>
             </con:elements>
             <con:elements>
@@ -1233,6 +1265,7 @@ return new JsonBuilder(slurped)</script>
               <con:operator>=</con:operator>
               <con:enabled>false</con:enabled>
               <con:expectedValue>MockServerClient (byPatch)</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
               <con:numberType>false</con:numberType>
             </con:elements>
             <con:originalMessage><![CDATA[<Response xmlns="http://mocksifapi.terito.education.govt.nz/sif/studentpersonal/6ef5048e-922a-4cef-9d0f-5607e91e6118/studentcontactrelationship">

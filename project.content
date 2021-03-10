@@ -140,3 +140,6 @@ Release-2\Schedule-Multiple.xml
 Release-2\SchedulePeriod-Multiple.xml
 Release-2\ScheduleTerm-Multiple.xml
 Release-2\ScheduleDate-Multiple.xml
+Fix-Retest\TR-3138.xml
+Fix-Retest\TR-3057.xml
+Fix-Retest\TestCase-1.xml

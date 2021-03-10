@@ -276,7 +276,7 @@
       </con:parameterOrder>
       <con:environmentSpec>
         <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
-          <con:authProfile>SIF Mock - Basic Auth</con:authProfile>
+          <con:authProfile>Inherit From Parent</con:authProfile>
         </con:entry>
       </con:environmentSpec>
     </con:request>
@@ -448,7 +448,7 @@
       </con:parameterOrder>
       <con:environmentSpec>
         <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
-          <con:authProfile>SIF Mock - Basic Auth</con:authProfile>
+          <con:authProfile>Inherit From Parent</con:authProfile>
         </con:entry>
       </con:environmentSpec>
     </con:request>
@@ -472,7 +472,7 @@
       </con:parameterOrder>
       <con:environmentSpec>
         <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
-          <con:authProfile>SIF Mock - Basic Auth</con:authProfile>
+          <con:authProfile>Inherit From Parent</con:authProfile>
         </con:entry>
       </con:environmentSpec>
     </con:request>
@@ -644,7 +644,7 @@
       </con:parameterOrder>
       <con:environmentSpec>
         <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
-          <con:authProfile>SIF Mock - Basic Auth</con:authProfile>
+          <con:authProfile>Inherit From Parent</con:authProfile>
         </con:entry>
       </con:environmentSpec>
     </con:request>
@@ -668,7 +668,7 @@
       </con:parameterOrder>
       <con:environmentSpec>
         <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
-          <con:authProfile>SIF Mock - Basic Auth</con:authProfile>
+          <con:authProfile>Inherit From Parent</con:authProfile>
         </con:entry>
       </con:environmentSpec>
     </con:request>

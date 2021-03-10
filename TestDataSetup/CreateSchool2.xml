@@ -10,12 +10,12 @@
       <con:targetTestCase>24ef0e3d-68d7-48b8-a475-5251e955c822</con:targetTestCase>
       <con:properties>
         <con:property>
-          <con:name>OrgRefId</con:name>
-          <con:value>1046</con:value>
+          <con:name>NewOrgRefId</con:name>
+          <con:value>1010</con:value>
         </con:property>
       </con:properties>
       <con:returnProperties>
-        <con:entry>OrgRefId</con:entry>
+        <con:entry>NewOrgRefId</con:entry>
       </con:returnProperties>
       <con:runMode>PARALLELL</con:runMode>
     </con:config>
@@ -25,7 +25,7 @@
     <con:config xsi:type="con:PropertyTransfersStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
       <con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" entitize="false" transferChildNodes="false">
         <con:name>OrgRefId</con:name>
-        <con:sourceType>OrgRefId</con:sourceType>
+        <con:sourceType>NewOrgRefId</con:sourceType>
         <con:sourceStep>Run TestCase</con:sourceStep>
         <con:sourcePath/>
         <con:targetType>OrgRefId2</con:targetType>

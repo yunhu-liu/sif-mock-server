@@ -15,7 +15,7 @@
         </con:property>
         <con:property>
           <con:name>StaffAssignmentRefId</con:name>
-          <con:value>9a1b3342-ef80-4bdd-aef9-4477b56726e9</con:value>
+          <con:value>5cb49053-d9a9-453a-9265-5a289b2f27d4</con:value>
         </con:property>
       </con:properties>
     </con:config>
@@ -381,6 +381,97 @@ return new JsonBuilder(slurped)</script>
       </con:restRequest>
     </con:config>
   </con:testStep>
+  <con:testStep type="restrequest" name="GetStaffAssignmentsByStaff" id="71d949e1-eb89-4336-8a41-23841c1eef8a">
+    <con:settings/>
+    <con:config service="Te Rito APIs" resourcePath="/staffpersonal/{staffPersonalRefId}/staffassignment" methodName="getStaffAssignmentsByStaff" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest name="GetStaffAssignmentsByStaff" id="9c0b3751-8ca5-4b64-97c7-f83bffbc90d0" mediaType="application/json">
+        <con:description xsi:nil="true"/>
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:endpoint>https://northern.edsby.co.nz/sif</con:endpoint>
+        <con:request/>
+        <con:originalUri>http://mocksifapi.terito.education.govt.nz/sif/staffpersonal/1467cd24-c778-4989-a5c1-9d38702ca926/staffassignment</con:originalUri>
+        <con:assertion type="Valid HTTP Status Codes" id="d0545487-b519-45f9-a868-ca754b200410" name="Valid HTTP Status Codes">
+          <con:settings/>
+          <con:configuration>
+            <codes>401</codes>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="MessageContentAssertion" id="0f8f4def-0217-4a23-964a-420a78b1aca7" name="Message Content Assertion">
+          <con:configuration xsi:type="con:MessageContentAssertion">
+            <con:elements>
+              <con:xpath>//data[1]</con:xpath>
+              <con:element>data</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>contains</con:operator>
+              <con:enabled>true</con:enabled>
+              <con:expectedValue>${#Project#Error401}</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>//data[1]/@contentType</con:xpath>
+              <con:element>@contentType</con:element>
+              <con:type/>
+              <con:operator>=</con:operator>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>null</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>//data[1]/@contentLength</con:xpath>
+              <con:element>@contentLength</con:element>
+              <con:type/>
+              <con:operator>=</con:operator>
+              <con:enabled>false</con:enabled>
+              <con:expectedValue>134</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:originalMessage>&lt;data contentType="null" contentLength="134">&lt;![CDATA[{
+  "error": 401,
+  "when": "2021-03-03T01:46:42.1747875+00:00",
+  "errorstr": "Unauthorised request: Authorization Header missing."
+}]]&gt;&lt;/data></con:originalMessage>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters>
+          <con:entry key="Accept" value="${#Project#Accept}"/>
+          <con:entry key="X-Edsby-APIClientId" value="${#Project#ApiClientId}"/>
+          <con:entry key="staffPersonalRefId" value="${#[TestSuite 2#StaffPersonal-Single#Properties]#StaffPersonalRefId}"/>
+          <con:entry key="X-Edsby-OrganisationRefId" value="${Properties#OrganisationRefId}"/>
+        </con:parameters>
+        <con:parameterOrder>
+          <con:entry>fields</con:entry>
+          <con:entry>page</con:entry>
+          <con:entry>max</con:entry>
+          <con:entry>unwrap</con:entry>
+          <con:entry>human</con:entry>
+          <con:entry>start</con:entry>
+          <con:entry>end</con:entry>
+          <con:entry>sort</con:entry>
+          <con:entry>field</con:entry>
+          <con:entry>pattern</con:entry>
+          <con:entry>Accept</con:entry>
+          <con:entry>X-Edsby-APIClientId</con:entry>
+          <con:entry>X-Edsby-OrganisationRefId</con:entry>
+          <con:entry>staffPersonalRefId</con:entry>
+        </con:parameterOrder>
+        <con:environmentSpec>
+          <con:entry environmentId="02e1b66e-5963-4de7-b043-dcb6acc71d67">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
   <con:testStep type="datasourceloop" name="DataSource Loop" id="d85501c9-5fc1-44d4-bf34-d8d9488f1976">
     <con:settings/>
     <con:config>
@@ -413,6 +504,11 @@ return new JsonBuilder(slurped)</script>
   </con:breakPoints>
   <con:breakPoints>
     <con:testStepId>56290f6c-4e86-4bc6-be39-789ec99fefd9</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>71d949e1-eb89-4336-8a41-23841c1eef8a</con:testStepId>
     <con:status>NONE</con:status>
     <con:properties/>
   </con:breakPoints>
